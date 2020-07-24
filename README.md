@@ -1,6 +1,6 @@
 # opencart_ecom
 
-Доработка OCstore 3.0.2.0
+rework OCstore 3.0.2.0
 
 * 1- Add: name, alt to images and aditional image this product. Display to gallery photoswipe,
 * 2- Add: forms(callback, query price and support),
