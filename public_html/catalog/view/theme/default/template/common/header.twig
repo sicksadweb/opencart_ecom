@@ -75,7 +75,9 @@
             {% else %}
             <li><a href="{{ register }}">{{ text_register }}</a></li>
             <li><a href="{{ login }}">{{ text_login }}</a></li>
+
             {% endif %}
+            <li>{{ phone }}</li>
           </ul>
         </li>
         <li><a href="{{ wishlist }}" id="wishlist-total" title="{{ text_wishlist }}"><i class="fa fa-heart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_wishlist }}</span></a></li>
