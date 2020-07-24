@@ -390,6 +390,12 @@ class ModelCatalogProduct extends Model {
 		return $query->rows;
 	}
 
+	public function getProductAditionalImages($product_id) {
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_image_aditional WHERE product_id = '" . (int)$product_id . "' ORDER BY sort_order ASC");
+
+		return $query->rows;
+	}
+
 	public function getProductRelated($product_id) {
 		$product_data = array();
 

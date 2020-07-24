@@ -1501,7 +1501,38 @@ class ControllerCatalogProduct extends Controller {
 			$data['product_images'][] = array(
 				'image'      => $image,
 				'thumb'      => $this->model_tool_image->resize($thumb, 100, 100),
+				'name' => $product_image['name'],
+				'alt' => $product_image['alt'],
 				'sort_order' => $product_image['sort_order']
+			);
+		}
+
+		// Aditional Images
+		if (isset($this->request->post['product_image_aditional'])) {
+			$product_aditional_images = $this->request->post['product_image_aditional'];
+		} elseif (isset($this->request->get['product_id'])) {
+			$product_aditional_images = $this->model_catalog_product->getProductAditionalImages($this->request->get['product_id']);
+		} else {
+			$product_aditional_images = array();
+		}
+
+		$data['product_aditional_images'] = array();
+
+		foreach ($product_aditional_images as $product_aditional_image) {
+			if (is_file(DIR_IMAGE . $product_aditional_image['image'])) {
+				$image = $product_aditional_image['image'];
+				$thumb = $product_aditional_image['image'];
+			} else {
+				$image = '';
+				$thumb = 'no_image.png';
+			}
+
+			$data['product_aditional_images'][] = array(
+				'image'      => $image,
+				'thumb'      => $this->model_tool_image->resize($thumb, 100, 100),
+				'name' => $product_aditional_image['name'],
+				'alt' => $product_aditional_image['alt'],
+				'sort_order' => $product_aditional_image['sort_order']
 			);
 		}
 

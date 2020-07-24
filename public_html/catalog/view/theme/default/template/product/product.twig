@@ -19,18 +19,46 @@
         {% else %}
         {% set class = 'col-sm-8' %}
         {% endif %}
-        <div class="{{ class }}"> {% if thumb or images %}
-          <ul class="thumbnails">
-            {% if thumb %}
-            <li><a class="thumbnail" href="{{ popup }}" title="{{ heading_title }}"><img src="{{ thumb }}" title="{{ heading_title }}" alt="{{ heading_title }}" /></a></li>
-            {% endif %}
-            {% if images %}
-            {% for image in images %}
-            <li class="image-additional"><a class="thumbnail" href="{{ image.popup }}" title="{{ heading_title }}"> <img src="{{ image.thumb }}" title="{{ heading_title }}" alt="{{ heading_title }}" /></a></li>
-            {% endfor %}
-            {% endif %}
-          </ul>
-          {% endif %}
+        <div class="{{ class }}">
+
+        {% if thumb or images %}
+        <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+                    {% if thumb %}
+                      <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                      <a href="{{ popup }}" itemprop="contentUrl" data-size="1024x1024">
+                      <img src="{{ thumb }}" itemprop="thumbnail" alt="Image description" />
+                      </a>
+                      <figcaption itemprop="caption description">{{ heading_title }}</figcaption>
+                      </figure>
+                    {% endif %}
+
+                    {% if images %}
+                    {% for image in images %}
+                      <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                      <a href="{{ image.popup }}" itemprop="contentUrl" data-size="1024x1024">
+                      <img src="{{ image.thumb }}" itemprop="thumbnail" alt="{{ image.alt }}" />
+                      </a>
+                      <figcaption itemprop="caption description">{{ image.name }}</figcaption>
+                      </figure>
+                    {% endfor %}
+                    {% endif %}
+        </div>
+        {% endif %}
+<hr>
+        {% if images_aditional  %}
+        <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+                    {% for image in images_aditional %}
+                      <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                      <a href="{{ image.popup }}" itemprop="contentUrl" data-size="1024x1024">
+                      <img src="{{ image.thumb }}" itemprop="thumbnail" alt="{{ image.alt }}" />
+                      </a>
+                      <figcaption itemprop="caption description">{{ image.name }}</figcaption>
+                      </figure>
+                    {% endfor %}
+        </div>
+        {% endif %}
+        <hr>
+
           <ul class="nav nav-tabs">
             <li class="active"><a href="#tab-description" data-toggle="tab">{{ tab_description }}</a></li>
             {% if attribute_groups %}

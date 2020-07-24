@@ -75,7 +75,13 @@ class ModelCatalogProduct extends Model {
 
 		if (isset($data['product_image'])) {
 			foreach ($data['product_image'] as $product_image) {
-				$this->db->query("INSERT INTO " . DB_PREFIX . "product_image SET product_id = '" . (int)$product_id . "', image = '" . $this->db->escape($product_image['image']) . "', sort_order = '" . (int)$product_image['sort_order'] . "'");
+				$this->db->query("INSERT INTO " . DB_PREFIX . "product_image SET product_id = '" . (int)$product_id . "', name = '" . $this->db->escape($product_image['name']) . "', alt = '" . $this->db->escape($product_image['alt']) . "' , name = '" . $this->db->escape($product_image['name']) . "', alt = '" . $this->db->escape($product_image['alt']) . "', image = '" . $this->db->escape($product_image['image']) . "', sort_order = '" . (int)$product_image['sort_order'] . "'");
+			}
+		}
+
+		if (isset($data['product_image_aditional'])) {
+			foreach ($data['product_image_aditional'] as $product_aditional_image) {
+				$this->db->query("INSERT INTO " . DB_PREFIX . "product_image_aditional SET product_id = '" . (int)$product_id . "',  name = '" . $this->db->escape($product_aditional_image['name']) . "', alt = '" . $this->db->escape($product_aditional_image['alt']) . "', image = '" . $this->db->escape($product_aditional_image['image']) . "', sort_order = '" . (int)$product_aditional_image['sort_order'] . "'");
 			}
 		}
 
@@ -240,9 +246,19 @@ class ModelCatalogProduct extends Model {
 
 		if (isset($data['product_image'])) {
 			foreach ($data['product_image'] as $product_image) {
-				$this->db->query("INSERT INTO " . DB_PREFIX . "product_image SET product_id = '" . (int)$product_id . "', image = '" . $this->db->escape($product_image['image']) . "', sort_order = '" . (int)$product_image['sort_order'] . "'");
+				$this->db->query("INSERT INTO " . DB_PREFIX . "product_image SET product_id = '" . (int)$product_id . "',  name = '" . $this->db->escape($product_image['name']) . "', alt = '" . $this->db->escape($product_image['alt']) . "',  image = '" . $this->db->escape($product_image['image']) . "', sort_order = '" . (int)$product_image['sort_order'] . "'");
 			}
 		}
+
+		$this->db->query("DELETE FROM " . DB_PREFIX . "product_image_aditional WHERE product_id = '" . (int)$product_id . "'");
+
+		if (isset($data['product_image_aditional'])) {
+			foreach ($data['product_image_aditional'] as $product_aditional_image) {
+				$this->db->query("INSERT INTO " . DB_PREFIX . "product_image_aditional SET product_id = '" . (int)$product_id . "',  name = '" . $this->db->escape($product_aditional_image['name']) . "', alt = '" . $this->db->escape($product_aditional_image['alt']) . "', image = '" . $this->db->escape($product_aditional_image['image']) . "', sort_order = '" . (int)$product_aditional_image['sort_order'] . "'");
+			}
+		}
+		
+
 
 		$this->db->query("DELETE FROM " . DB_PREFIX . "product_to_download WHERE product_id = '" . (int)$product_id . "'");
 
@@ -364,6 +380,8 @@ class ModelCatalogProduct extends Model {
 			$data['product_discount'] = $this->getProductDiscounts($product_id);
 			$data['product_filter'] = $this->getProductFilters($product_id);
 			$data['product_image'] = $this->getProductImages($product_id);
+			$data['product_image'] = $this->getProductAditionalImages($product_id);
+			
 			$data['product_option'] = $this->getProductOptions($product_id);
 			$data['product_related'] = $this->getProductRelated($product_id);
 			$data['product_related_article'] = $this->getArticleRelated($product_id);
@@ -657,9 +675,15 @@ class ModelCatalogProduct extends Model {
 
 		return $query->row;
 	}
-
+	
 	public function getProductImages($product_id) {
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_image WHERE product_id = '" . (int)$product_id . "' ORDER BY sort_order ASC");
+
+		return $query->rows;
+	}
+
+	public function getProductAditionalImages($product_id) {
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_image_aditional WHERE product_id = '" . (int)$product_id . "' ORDER BY sort_order ASC");
 
 		return $query->rows;
 	}

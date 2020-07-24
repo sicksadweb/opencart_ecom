@@ -287,7 +287,20 @@ class ControllerProductProduct extends Controller {
 			foreach ($results as $result) {
 				$data['images'][] = array(
 					'popup' => $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_popup_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_popup_height')),
-					'thumb' => $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_additional_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_additional_height'))
+					'thumb' => $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_additional_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_additional_height')),
+					'name' => $result['name'],
+					'alt' => $result['alt'],
+				);
+			}
+
+			$results = $this->model_catalog_product->getProductAditionalImages($this->request->get['product_id']);
+
+			foreach ($results as $result) {
+				$data['images_aditional'][] = array(
+					'popup' => $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_popup_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_popup_height')),
+					'thumb' => $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_additional_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_additional_height')),
+					'name' => $result['name'],
+					'alt' => $result['alt'],
 				);
 			}
 
