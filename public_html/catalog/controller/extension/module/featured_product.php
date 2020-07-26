@@ -24,8 +24,10 @@ class ControllerExtensionModuleFeaturedProduct extends Controller {
 					$results = $this->model_catalog_cms->getProductRelatedByManufacturer($filter_data);
 				
 			} else {
-				
+				if (!empty($this->request->get['path'])) {
 					$parts = explode('_', (string)$this->request->get['path']);
+				}
+					
 					
 					if(!empty($parts) && is_array($parts)) {
 					
