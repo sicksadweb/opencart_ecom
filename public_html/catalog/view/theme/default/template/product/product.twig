@@ -61,6 +61,14 @@
 
           <ul class="nav nav-tabs">
             <li class="active"><a href="#tab-description" data-toggle="tab">{{ tab_description }}</a></li>
+
+            {% if video_instruction %}
+            <li><a href="#tab-video-instruction" data-toggle="tab">{{ tab_video_instruction }}</a></li>
+            {% endif %}
+            {% if video_assembly %}
+            <li><a href="#tab-video-assembly" data-toggle="tab">{{ tab_video_assembly }}</a></li>
+            {% endif %}
+
             {% if attribute_groups %}
             <li><a href="#tab-specification" data-toggle="tab">{{ tab_attribute }}</a></li>
             {% endif %}
@@ -70,6 +78,18 @@
           </ul>
           <div class="tab-content">
             <div class="tab-pane active" id="tab-description">{{ description }}</div>
+
+            {% if video_instruction %}
+            <div class="tab-pane tab-video-assembly " id="tab-video-assembly">
+              <iframe width="100%" height="auto" src="{{ video_instruction }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            {% endif %}
+            {% if video_assembly %}
+            <div class="tab-pane tab-video-instruction " id="tab-video-instruction">
+              <iframe width="100%" height="auto" src="{{ video_assembly }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            {% endif %}
+
             {% if attribute_groups %}
             <div class="tab-pane" id="tab-specification">
               <table class="table table-bordered">
