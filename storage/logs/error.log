@@ -113,3 +113,6 @@
 2020-07-26 9:03:37 - PHP Notice:  Undefined index: path in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\featured_product.php on line 28
 2020-07-26 9:04:55 - PHP Notice:  Undefined index: path in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\featured_product.php on line 27
 2020-07-26 9:05:19 - PHP Notice:  Undefined index: path in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\featured_product.php on line 28
+2020-07-26 10:10:48 - PHP Notice:  Undefined index: video in W:\domains\opencart_ecom\public_html\admin\controller\design\banner.php on line 178
+2020-07-26 10:10:48 - PHP Notice:  Undefined index: video in W:\domains\opencart_ecom\public_html\admin\controller\design\banner.php on line 178
+2020-07-26 10:10:48 - PHP Notice:  Undefined index: video in W:\domains\opencart_ecom\public_html\admin\controller\design\banner.php on line 178

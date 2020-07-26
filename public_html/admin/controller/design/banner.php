@@ -351,6 +351,7 @@ class ControllerDesignBanner extends Controller {
 				$data['banner_images'][$key][] = array(
 					'title'      => $banner_image['title'],
 					'link'       => $banner_image['link'],
+					'video'       => $banner_image['video'],				
 					'image'      => $image,
 					'thumb'      => $this->model_tool_image->resize($thumb, 100, 100),
 					'sort_order' => $banner_image['sort_order']
