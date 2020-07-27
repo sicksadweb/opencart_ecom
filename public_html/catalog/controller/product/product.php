@@ -259,6 +259,7 @@ class ControllerProductProduct extends Controller {
 			$data['description'] = html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8');
 			$data['video_assembly'] = $product_info['video_assembly'];
 			$data['video_instruction'] = $product_info['video_instruction'];
+			$data['package_product'] = $this->model_catalog_product->getProductPackageProduct($this->request->get['product_id']);
 
 			if ($product_info['quantity'] <= 0) {
 				$data['stock'] = $product_info['stock_status'];

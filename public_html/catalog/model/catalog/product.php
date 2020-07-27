@@ -56,7 +56,9 @@ class ModelCatalogProduct extends Model {
 				'date_modified'    => $query->row['date_modified'],
 				'viewed'           => $query->row['viewed'],
 				'video_assembly'           => $query->row['video_assembly'],
-				'video_instruction'           => $query->row['video_instruction'],
+				'video_instruction'           => $query->row['video_instruction'],				
+				
+
 
 			);
 		} else {
@@ -397,6 +399,29 @@ class ModelCatalogProduct extends Model {
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_image_aditional WHERE product_id = '" . (int)$product_id . "' ORDER BY sort_order ASC");
 
 		return $query->rows;
+	}
+
+	public function getProductPackageProduct($product_id) {
+		$package_product = array();
+
+		$query = $this->db->query("
+		SELECT * FROM " . DB_PREFIX . "package_product pp 
+		LEFT JOIN " . DB_PREFIX . "package_description pd ON (pp.package_id =pd.package_id)
+		LEFT JOIN " . DB_PREFIX . "package_description pd2 ON (pp.package_name_id =pd2.package_id)
+		WHERE product_id = '" . (int)$product_id . "'
+		");
+
+		foreach ($query->rows as $result) {
+			$package_product[] = array(
+				'product_id' => $result['product_id'],
+				'package' => $result['package_id'],
+				'parent_package' => $result['parent_package_id'],
+				'quantity' => $result['quantity'],
+				'volume' => $result['volume'],
+				'name' => $result['name'],
+			);
+		}
+		return $package_product;
 	}
 
 	public function getProductRelated($product_id) {

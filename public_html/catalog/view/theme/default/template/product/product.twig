@@ -178,7 +178,18 @@
             <li>{{ text_reward }} {{ reward }}</li>
             {% endif %}
             <li>{{ text_stock }} {{ stock }}</li>
+            {% if package_product %}
+            <li>
+            {% for package in package_product %}
+            {{ package.name }} {{ package.volume }} {{ package.name }} {{ package.volume }} 
+            <br>
+            {% endfor %}
+            
+            </li>
+            {% endif %}
           </ul>
+
+          
           {% if price %}
           <ul class="list-unstyled">
             {% if not special %}
