@@ -212,7 +212,6 @@ class ModelCatalogView extends Model {
 
 			$sql .= " LIMIT " . (int)$data['start'] . "," . (int)$data['limit'];
 		}
-
 		$product_data = array();
 
 		$query = $this->db->query($sql);
