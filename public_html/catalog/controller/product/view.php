@@ -36,7 +36,7 @@ class ControllerProductView extends Controller {
 				if ($category_info) {
 					$data['breadcrumbs'][] = array(
 						'text' => $category_info['name'],
-						'href' => $this->url->link('product/category', 'path=' . $path)
+						'href' => $this->url->link('product/views', 'path=' . $path)
 					);
 				}
 			}
@@ -65,7 +65,7 @@ class ControllerProductView extends Controller {
 
 				$data['breadcrumbs'][] = array(
 					'text' => $category_info['name'],
-					'href' => $this->url->link('product/category', 'path=' . $this->request->get['path'] . $url)
+					'href' => $this->url->link('product/views', 'path=' . $this->request->get['path'] . $url)
 				);
 			}
 		}
@@ -214,7 +214,7 @@ class ControllerProductView extends Controller {
 
 			$data['breadcrumbs'][] = array(
 				'text' => $product_info['name'],
-				'href' => $this->url->link('product/product', $url . '&view_id=' . $this->request->get['view_id'])
+				'href' => $this->url->link('product/view', $url . '&view_id=' . $this->request->get['view_id'])
 			);
 
 			if ($product_info['meta_title']) {
@@ -235,7 +235,7 @@ class ControllerProductView extends Controller {
 			
 			$this->document->setDescription($product_info['meta_description']);
 			$this->document->setKeywords($product_info['meta_keyword']);
-			$this->document->addLink($this->url->link('product/product', 'view_id=' . $this->request->get['view_id']), 'canonical');
+			$this->document->addLink($this->url->link('product/view', 'view_id=' . $this->request->get['view_id']), 'canonical');
 			$this->document->addScript('catalog/view/javascript/jquery/magnific/jquery.magnific-popup.min.js');
 			$this->document->addStyle('catalog/view/javascript/jquery/magnific/magnific-popup.css');
 			$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/moment/moment.min.js');
@@ -397,7 +397,7 @@ class ControllerProductView extends Controller {
 				$data['captcha'] = '';
 			}
 
-			$data['share'] = $this->url->link('product/product', 'view_id=' . (int)$this->request->get['view_id']);
+			$data['share'] = $this->url->link('product/view', 'view_id=' . (int)$this->request->get['view_id']);
 
 			$data['attribute_groups'] = $this->model_catalog_view->getProductAttributes($this->request->get['view_id']);
 
@@ -440,7 +440,7 @@ class ControllerProductView extends Controller {
 					'special'     => $special,
 					'tax'         => $tax,
 					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
-					'href'        => $this->url->link('product/product', 'view_id=' . $result['view_id'])
+					'href'        => $this->url->link('product/view', 'view_id=' . $result['view_id'])
 				);
 			}
 
@@ -468,7 +468,7 @@ class ControllerProductView extends Controller {
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 
-			$this->response->setOutput($this->load->view('product/product', $data));
+			$this->response->setOutput($this->load->view('product/view', $data));
 		} else {
 			$url = '';
 
@@ -522,7 +522,7 @@ class ControllerProductView extends Controller {
 
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_error'),
-				'href' => $this->url->link('product/product', $url . '&view_id=' . $view_id)
+				'href' => $this->url->link('product/view', $url . '&view_id=' . $view_id)
 			);
 
 			$this->document->setTitle($this->language->get('text_error'));

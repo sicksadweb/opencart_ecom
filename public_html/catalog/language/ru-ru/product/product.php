@@ -34,7 +34,7 @@ $_['text_semi_month']          = 'Полмесяца';
 $_['text_month']               = 'Месяц';
 $_['text_year']                = 'Год';
 $_['text_benefits']     = 'Преимущества:';
-
+$_['text_more']                 = 'Подробнее';
 // Entry
 $_['entry_qty']                = 'Кол-во';
 $_['entry_name']               = 'Ваше имя';

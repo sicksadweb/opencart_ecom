@@ -57,6 +57,11 @@ class ControllerProductViews extends Controller {
 			'href' => $this->url->link('common/home')
 		);
 
+		$data['breadcrumbs'][] = array(
+			'text' => $this->language->get('text_category_product'),
+			'href' => $this->url->link('product/views')
+		);
+
 		if (isset($this->request->get['path'])) {
 			$url = '';
 
@@ -123,12 +128,6 @@ class ControllerProductViews extends Controller {
 
 			$data['text_compare'] = sprintf($this->language->get('text_compare'), (isset($this->session->data['compare']) ? count($this->session->data['compare']) : 0));
 
-			$data['breadcrumbs'][] = array(
-				'text' => $this->language->get('text_category_product'),
-				'href' => $this->url->link('product/views')
-			);
-
-
 			// Set the last category breadcrumb
 			$data['breadcrumbs'][] = array(
 				'text' => $category_info['name'],
@@ -172,8 +171,15 @@ class ControllerProductViews extends Controller {
 					'filter_sub_category' => true
 				);
 
+				if ($result['image']) {
+					$image = $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
+				} else {
+					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
+				}
+
 				$data['categories'][] = array(
 					'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_view->getTotalProducts($filter_data) . ')' : ''),
+					'thumb'       => $image,
 					'href' => $this->url->link('product/views', 'path=' . $this->request->get['path'] . '_' . $result['views_id'] . $url)
 				);
 			}
@@ -274,31 +280,6 @@ class ControllerProductViews extends Controller {
 				'href'  => $this->url->link('product/views', 'path=' . $this->request->get['path'] . '&sort=p.price&order=DESC' . $url)
 			);
 
-			if ($this->config->get('config_review_status')) {
-				$data['sorts'][] = array(
-					'text'  => $this->language->get('text_rating_desc'),
-					'value' => 'rating-DESC',
-					'href'  => $this->url->link('product/views', 'path=' . $this->request->get['path'] . '&sort=rating&order=DESC' . $url)
-				);
-
-				$data['sorts'][] = array(
-					'text'  => $this->language->get('text_rating_asc'),
-					'value' => 'rating-ASC',
-					'href'  => $this->url->link('product/views', 'path=' . $this->request->get['path'] . '&sort=rating&order=ASC' . $url)
-				);
-			}
-
-			$data['sorts'][] = array(
-				'text'  => $this->language->get('text_model_asc'),
-				'value' => 'p.model-ASC',
-				'href'  => $this->url->link('product/views', 'path=' . $this->request->get['path'] . '&sort=p.model&order=ASC' . $url)
-			);
-
-			$data['sorts'][] = array(
-				'text'  => $this->language->get('text_model_desc'),
-				'value' => 'p.model-DESC',
-				'href'  => $this->url->link('product/views', 'path=' . $this->request->get['path'] . '&sort=p.model&order=DESC' . $url)
-			);
 
 			$url = '';
 
@@ -381,11 +362,14 @@ class ControllerProductViews extends Controller {
 			$data['column_right'] = $this->load->controller('common/column_right');
 			$data['content_top'] = $this->load->controller('common/content_top');
 			$data['content_bottom'] = $this->load->controller('common/content_bottom');
+
+			$data['block_filter'] = $this->load->controller('extension/module/smart_filter');
+
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 			
 
-			$this->response->setOutput($this->load->view('product/category', $data));
+			$this->response->setOutput($this->load->view('product/views', $data));
 		} else {
 			
 			$this->document->setTitle($this->language->get('text_category_product'));
@@ -437,9 +421,16 @@ class ControllerProductViews extends Controller {
 					'filter_sub_category' => true
 				);
 
+				if ($result['image']) {
+					$image = $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
+				} else {
+					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
+				}
+
 				$data['categories'][] = array(
 					'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_view->getTotalProducts($filter_data) . ')' : ''),
-					'href' => $this->url->link('product/views', 'path=' . $result['views_id'] . $url)
+					'thumb'       => $image,
+					'href' => $this->url->link('product/views', 'path=' . $this->request->get['path'] . '_' . $result['views_id'] . $url)
 				);
 			}
 
@@ -483,14 +474,8 @@ class ControllerProductViews extends Controller {
 					$tax = false;
 				}
 
-				if ($this->config->get('config_review_status')) {
-					$rating = (int)$result['rating'];
-				} else {
-					$rating = false;
-				}
-
 				$data['products'][] = array(
-					'product_id'  => $result['product_id'],
+					'view_id'  => $result['view_id'],
 					'thumb'       => $image,
 					'name'        => $result['name'],
 					'description' => utf8_substr(trim(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8'))), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_product_description_length')) . '..',
@@ -498,8 +483,8 @@ class ControllerProductViews extends Controller {
 					'special'     => $special,
 					'tax'         => $tax,
 					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
-					'rating'      => $result['rating'],
-					'href'        => $this->url->link('product/view',  '&product_id=' . $result['product_id'] . $url)
+
+					'href'        => $this->url->link('product/view',  '&view_id=' . $result['view_id'] . $url)
 				);
 			}
 
@@ -543,32 +528,6 @@ class ControllerProductViews extends Controller {
 				'text'  => $this->language->get('text_price_desc'),
 				'value' => 'p.price-DESC',
 				'href'  => $this->url->link('product/views',  '&sort=p.price&order=DESC' . $url)
-			);
-
-			if ($this->config->get('config_review_status')) {
-				$data['sorts'][] = array(
-					'text'  => $this->language->get('text_rating_desc'),
-					'value' => 'rating-DESC',
-					'href'  => $this->url->link('product/views',  '&sort=rating&order=DESC' . $url)
-				);
-
-				$data['sorts'][] = array(
-					'text'  => $this->language->get('text_rating_asc'),
-					'value' => 'rating-ASC',
-					'href'  => $this->url->link('product/views',  '&sort=rating&order=ASC' . $url)
-				);
-			}
-
-			$data['sorts'][] = array(
-				'text'  => $this->language->get('text_model_asc'),
-				'value' => 'p.model-ASC',
-				'href'  => $this->url->link('product/views',  '&sort=p.model&order=ASC' . $url)
-			);
-
-			$data['sorts'][] = array(
-				'text'  => $this->language->get('text_model_desc'),
-				'value' => 'p.model-DESC',
-				'href'  => $this->url->link('product/views',  '&sort=p.model&order=DESC' . $url)
 			);
 
 			$url = '';
@@ -656,7 +615,7 @@ class ControllerProductViews extends Controller {
 			$data['header'] = $this->load->controller('common/header');
 			
 
-			$this->response->setOutput($this->load->view('product/category', $data));
+			$this->response->setOutput($this->load->view('product/views', $data));
 		}
 	}
 }

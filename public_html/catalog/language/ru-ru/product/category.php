@@ -28,5 +28,6 @@ $_['text_limit']        = 'Показать:';
 $_['text_benefits']     = 'Преимущества:';
 
 $_['text_category_offers']      = 'Каталог материалов';
-$_['text_category_views']      = 'Каталог магазина';
-$_['text_category_product']      = 'Каталог магазина';
+$_['text_category_views']       = 'Каталог магазина';
+$_['text_category_product']     = 'Каталог магазина';
+$_['text_more']                 = 'Подробнее';

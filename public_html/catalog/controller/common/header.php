@@ -41,6 +41,9 @@ class ControllerCommonHeader extends Controller {
 
 		$data['name'] = $this->config->get('config_name');
 
+		$data['address'] = $this->config->get('config_address');
+		$data['mail'] = $this->config->get('config_mail');
+
 		if (is_file(DIR_IMAGE . $this->config->get('config_logo'))) {
 			$data['logo'] = $server . 'image/' . $this->config->get('config_logo');
 		} else {

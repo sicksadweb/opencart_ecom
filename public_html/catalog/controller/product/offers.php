@@ -172,9 +172,16 @@ class ControllerProductOffers extends Controller {
 					'filter_sub_category' => true
 				);
 
+				if ($result['image']) {
+					$image = $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
+				} else {
+					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
+				}
+
 				$data['categories'][] = array(
 					'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_offer->getTotalProducts($filter_data) . ')' : ''),
-					'href' => $this->url->link('product/offers', 'path=' . $this->request->get['path'] . '_' . $result['offers_id'] . $url)
+					'thumb'       => $image,
+					'href' => $this->url->link('product/offers', 'path=' . $result['offers_id'] . $url)
 				);
 			}
 
@@ -273,32 +280,6 @@ class ControllerProductOffers extends Controller {
 				'href'  => $this->url->link('product/offers', 'path=' . $this->request->get['path'] . '&sort=p.price&order=DESC' . $url)
 			);
 
-			if ($this->config->get('config_review_status')) {
-				$data['sorts'][] = array(
-					'text'  => $this->language->get('text_rating_desc'),
-					'value' => 'rating-DESC',
-					'href'  => $this->url->link('product/offers', 'path=' . $this->request->get['path'] . '&sort=rating&order=DESC' . $url)
-				);
-
-				$data['sorts'][] = array(
-					'text'  => $this->language->get('text_rating_asc'),
-					'value' => 'rating-ASC',
-					'href'  => $this->url->link('product/offers', 'path=' . $this->request->get['path'] . '&sort=rating&order=ASC' . $url)
-				);
-			}
-
-			$data['sorts'][] = array(
-				'text'  => $this->language->get('text_model_asc'),
-				'value' => 'p.model-ASC',
-				'href'  => $this->url->link('product/offers', 'path=' . $this->request->get['path'] . '&sort=p.model&order=ASC' . $url)
-			);
-
-			$data['sorts'][] = array(
-				'text'  => $this->language->get('text_model_desc'),
-				'value' => 'p.model-DESC',
-				'href'  => $this->url->link('product/offers', 'path=' . $this->request->get['path'] . '&sort=p.model&order=DESC' . $url)
-			);
-
 			$url = '';
 
 			if (isset($this->request->get['filter'])) {
@@ -384,7 +365,7 @@ class ControllerProductOffers extends Controller {
 			$data['header'] = $this->load->controller('common/header');
 			
 
-			$this->response->setOutput($this->load->view('product/category', $data));
+			$this->response->setOutput($this->load->view('product/offers', $data));
 		} else {
 			
 			$this->document->setTitle($this->language->get('text_category_product'));
@@ -436,8 +417,15 @@ class ControllerProductOffers extends Controller {
 					'filter_sub_category' => true
 				);
 
+				if ($result['image']) {
+					$image = $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
+				} else {
+					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
+				}
+
 				$data['categories'][] = array(
 					'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_offer->getTotalProducts($filter_data) . ')' : ''),
+					'thumb'       => $image,
 					'href' => $this->url->link('product/offers', 'path=' . $result['offers_id'] . $url)
 				);
 			}
@@ -482,12 +470,6 @@ class ControllerProductOffers extends Controller {
 					$tax = false;
 				}
 
-				if ($this->config->get('config_review_status')) {
-					$rating = (int)$result['rating'];
-				} else {
-					$rating = false;
-				}
-
 				$data['products'][] = array(
 					'offer_id'  => $result['offer_id'],
 					'thumb'       => $image,
@@ -497,7 +479,7 @@ class ControllerProductOffers extends Controller {
 					'special'     => $special,
 					'tax'         => $tax,
 					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
-					'rating'      => $result['rating'],
+
 					'href'        => $this->url->link('product/offer',  '&offer_id=' . $result['offer_id'] . $url)
 				);
 			}
@@ -543,20 +525,6 @@ class ControllerProductOffers extends Controller {
 				'value' => 'p.price-DESC',
 				'href'  => $this->url->link('product/offers',  '&sort=p.price&order=DESC' . $url)
 			);
-
-			if ($this->config->get('config_review_status')) {
-				$data['sorts'][] = array(
-					'text'  => $this->language->get('text_rating_desc'),
-					'value' => 'rating-DESC',
-					'href'  => $this->url->link('product/offers',  '&sort=rating&order=DESC' . $url)
-				);
-
-				$data['sorts'][] = array(
-					'text'  => $this->language->get('text_rating_asc'),
-					'value' => 'rating-ASC',
-					'href'  => $this->url->link('product/offers',  '&sort=rating&order=ASC' . $url)
-				);
-			}
 
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_model_asc'),
@@ -646,6 +614,8 @@ class ControllerProductOffers extends Controller {
 			$data['limit'] = $limit;
 
 			$data['continue'] = $this->url->link('common/home');
+			
+			$data['block_filter'] = $this->load->controller('extension/module/smart_filter');
 
 			$data['column_left'] = $this->load->controller('common/column_left');
 			$data['column_right'] = $this->load->controller('common/column_right');
@@ -655,7 +625,7 @@ class ControllerProductOffers extends Controller {
 			$data['header'] = $this->load->controller('common/header');
 			
 
-			$this->response->setOutput($this->load->view('product/category', $data));
+			$this->response->setOutput($this->load->view('product/offers', $data));
 		}
 	}
 }
