@@ -134,6 +134,7 @@
                   <input type="text" name="config_geocode" value="{{ config_geocode }}" placeholder="{{ entry_geocode }}" id="input-geocode" class="form-control" />
                 </div>
               </div>
+
               <div class="form-group required">
                 <label class="col-sm-2 control-label" for="input-email">{{ entry_email }}</label>
                 <div class="col-sm-10">
@@ -142,6 +143,21 @@
                   <div class="text-danger">{{ error_email }}</div>
                   {% endif %} </div>
               </div>
+
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-support-mail">{{ entry_email }}</label>
+                <div class="col-sm-10">
+                  <input type="text" name="config_support_email" value="{{ config_support_email }}" placeholder="{{ entry_email }}" id="input-support-email" class="form-control" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-callback-mail">{{ entry_email }}</label>
+                <div class="col-sm-10">
+                  <input type="text" name="config_callback_email" value="{{ config_callback_email }}" placeholder="{{ entry_email }}" id="input-callback-email" class="form-control" />
+                </div>
+              </div>
+
               <div class="form-group required">
                 <label class="col-sm-2 control-label" for="input-telephone">{{ entry_telephone }}</label>
                 <div class="col-sm-10">

@@ -16,3 +16,6 @@ $_['text_download']      = 'Файлы для скачивания';
 $_['text_logout']        = 'Выход';
 $_['text_checkout']      = 'Оформление заказа';
 $_['text_search']        = 'Поиск';
+$_['text_delivery']      = 'Доставка';
+$_['text_catalog']       = 'Каталог';
+$_['text_contact']       = 'Контакты';

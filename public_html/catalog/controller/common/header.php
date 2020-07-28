@@ -42,7 +42,7 @@ class ControllerCommonHeader extends Controller {
 		$data['name'] = $this->config->get('config_name');
 
 		$data['address'] = $this->config->get('config_address');
-		$data['mail'] = $this->config->get('config_mail');
+		$data['mail'] = $this->config->get('config_email');
 
 		if (is_file(DIR_IMAGE . $this->config->get('config_logo'))) {
 			$data['logo'] = $server . 'image/' . $this->config->get('config_logo');
@@ -98,7 +98,7 @@ class ControllerCommonHeader extends Controller {
 		} else {
 			$data['blog_menu'] = '';
 		}
-		$data['search'] = $this->load->controller('common/search');
+		$data['livesearch'] = $this->load->controller('common/livesearch');
 		$data['cart'] = $this->load->controller('common/cart');
 		$data['phone'] = $this->load->controller('common/phone');
 		$data['menu'] = $this->load->controller('common/menu');

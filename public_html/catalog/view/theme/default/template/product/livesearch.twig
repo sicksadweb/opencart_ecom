@@ -1,0 +1,18 @@
+
+{% if view %}
+<div class="list-group">
+  <a href="index.php?route=product/search" class="list-group-item">Все результаты материалы</a><span class="badge pull-right">x</span>
+  {% for product in view %}
+  <a href="{{ product.href }}" class="list-group-item">{{ product.name }} <span class="badge pull-right">{{ product.price }}</span></a>
+  {% endfor %}
+</div>
+{% endif %}
+
+{% if offer %}
+<div class="list-group">
+  <a href="index.php?route=product/search" class="list-group-item">Все результаты товаров</a><span class="badge pull-right">x</span>
+  {% for product in offer %}
+  <a href="{{ product.href }}" class="list-group-item">{{ product.name }} <span class="badge pull-right">{{ product.price }}</span></a>
+  {% endfor %}
+</div>
+{% endif %}
