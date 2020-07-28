@@ -15,6 +15,11 @@ class ControllerCommonFooter extends Controller {
 				);
 			}
 		}
+		   
+		$data['form_callback'] = $this->load->controller('extension/module/form_callback');
+		$data['form_query_price'] = $this->load->controller('extension/module/form_query_price');
+		$data['form_support'] = $this->load->controller('extension/module/form_support');
+		
 
 		$data['contact'] = $this->url->link('information/contact');
 		$data['about_us'] = $this->url->link('information/about_us');
