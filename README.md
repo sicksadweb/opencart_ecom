@@ -22,7 +22,7 @@ rework OCstore 3.0.2.0
 * 18- Add: views/ view
 * 19- Add: simple checout and cart
 * 20- Add: videoslider
-* 21- Add: 
+* 21- Add: variants and groups
 * 22- Add:
 * 23- Add:
 * 24- Add:
