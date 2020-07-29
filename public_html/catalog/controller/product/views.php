@@ -430,7 +430,7 @@ class ControllerProductViews extends Controller {
 				$data['categories'][] = array(
 					'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_view->getTotalProducts($filter_data) . ')' : ''),
 					'thumb'       => $image,
-					'href' => $this->url->link('product/views', 'path=' . $this->request->get['path'] . '_' . $result['views_id'] . $url)
+					'href' => $this->url->link('product/views',  $url)
 				);
 			}
 

@@ -66,6 +66,94 @@ class ModelCatalogOffer extends Model {
 			return false;
 		}
 	}
+	
+
+
+	public function getProductVariant($product_id) {
+
+		$query = $this->db->query("
+		SELECT DISTINCT *, pd.name AS name, p.image, 
+		p.noindex AS noindex, 
+		m.name AS manufacturer, 
+		(SELECT price FROM " . DB_PREFIX . "product_discount pd2 WHERE pd2.product_id = p.product_id AND pd2.customer_group_id = '" . (int)$this->config->get('config_customer_group_id') . "' AND pd2.quantity = '1' AND ((pd2.date_start = '0000-00-00' OR pd2.date_start < NOW()) AND (pd2.date_end = '0000-00-00' OR pd2.date_end > NOW())) ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS discount, 
+		(SELECT price FROM " . DB_PREFIX . "product_special ps WHERE ps.product_id = p.product_id AND ps.customer_group_id = '" . (int)$this->config->get('config_customer_group_id') . "' AND ((ps.date_start = '0000-00-00' OR ps.date_start < NOW()) AND (ps.date_end = '0000-00-00' OR ps.date_end > NOW())) ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS special, 
+		(SELECT points FROM " . DB_PREFIX . "product_reward pr WHERE pr.product_id = p.product_id AND pr.customer_group_id = '" . (int)$this->config->get('config_customer_group_id') . "') AS reward, 
+		(SELECT ss.name FROM " . DB_PREFIX . "stock_status ss WHERE ss.stock_status_id = p.stock_status_id AND ss.language_id = '" . (int)$this->config->get('config_language_id') . "') AS stock_status, 
+		(SELECT wcd.unit FROM " . DB_PREFIX . "weight_class_description wcd WHERE p.weight_class_id = wcd.weight_class_id AND wcd.language_id = '" . (int)$this->config->get('config_language_id') . "') AS weight_class, 
+		(SELECT lcd.unit FROM " . DB_PREFIX . "length_class_description lcd WHERE p.length_class_id = lcd.length_class_id AND lcd.language_id = '" . (int)$this->config->get('config_language_id') . "') AS length_class,
+		(SELECT AVG(rating) AS total FROM " . DB_PREFIX . "review r1 WHERE r1.product_id = p.product_id AND r1.status = '1' GROUP BY r1.product_id) AS rating, 
+		(SELECT COUNT(*) AS total FROM " . DB_PREFIX . "review r2 WHERE r2.product_id = p.product_id AND r2.status = '1' GROUP BY r2.product_id) AS reviews, 
+		p.sort_order 
+		
+		FROM " . DB_PREFIX . "product p 
+		LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id) 
+		LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) 
+		LEFT JOIN " . DB_PREFIX . "manufacturer m ON (p.manufacturer_id = m.manufacturer_id) 
+		LEFT JOIN ckf_stock_status ss ON (ss.stock_status_id = p.stock_status_id) 
+
+		WHERE 
+		p.product_id = '" . (int)$product_id . "' 
+		AND pd.language_id = '" . (int)$this->config->get('config_language_id') . "' 
+		AND ss.visible = '1' 
+		AND p.date_available <= NOW() 
+		AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'
+		");
+
+		if ($query->num_rows) {
+			return array(
+				'product_id'       => $query->row['product_id'],
+				'name'             => $query->row['name'],
+				'description'      => $query->row['description'],
+				'meta_title'       => $query->row['meta_title'],
+				'noindex'          => $query->row['noindex'],
+				'meta_h1'	       => $query->row['meta_h1'],
+				'meta_description' => $query->row['meta_description'],
+				'meta_keyword'     => $query->row['meta_keyword'],
+				'tag'              => $query->row['tag'],
+				'model'            => $query->row['model'],
+				'sku'              => $query->row['sku'],
+				'upc'              => $query->row['upc'],
+				'ean'              => $query->row['ean'],
+				'jan'              => $query->row['jan'],
+				'isbn'             => $query->row['isbn'],
+				'mpn'              => $query->row['mpn'],
+				'location'         => $query->row['location'],
+				'quantity'         => $query->row['quantity'],
+				'stock_status'     => $query->row['stock_status'],
+				'image'            => $query->row['image'],
+				'manufacturer_id'  => $query->row['manufacturer_id'],
+				'manufacturer'     => $query->row['manufacturer'],
+				'price'            => ($query->row['discount'] ? $query->row['discount'] : $query->row['price']),
+				'special'          => $query->row['special'],
+				'reward'           => $query->row['reward'],
+				'points'           => $query->row['points'],
+				'tax_class_id'     => $query->row['tax_class_id'],
+				'date_available'   => $query->row['date_available'],
+				'weight'           => $query->row['weight'],
+				'weight_class_id'  => $query->row['weight_class_id'],
+				'length'           => $query->row['length'],
+				'width'            => $query->row['width'],
+				'height'           => $query->row['height'],
+				'length_class_id'  => $query->row['length_class_id'],
+				'subtract'         => $query->row['subtract'],
+				'rating'           => round($query->row['rating']),
+				'reviews'          => $query->row['reviews'] ? $query->row['reviews'] : 0,
+				'minimum'          => $query->row['minimum'],
+				'sort_order'       => $query->row['sort_order'],
+				'status'           => $query->row['status'],
+				'date_added'       => $query->row['date_added'],
+				'date_modified'    => $query->row['date_modified'],
+				'viewed'           => $query->row['viewed'],
+				'video_assembly'           => $query->row['video_assembly'],
+				'video_instruction'           => $query->row['video_instruction'],				
+				'package_product' => $this->getProductPackageProduct($query->row['product_id']),
+
+
+			);
+		} else {
+			return false;
+		}
+	}
 
 	public function getProducts($data = array()) {
 		$sql = "
@@ -269,6 +357,33 @@ class ModelCatalogOffer extends Model {
 		return $product_data;
 	}
 
+	public function getProductPrice($offer_id) {
+
+
+		$query = $this->db->query("
+
+		SELECT p.price FROM ckf_offer o
+
+		LEFT JOIN ckf_offer_variants ov ON (o.offer_id = ov.offer_id)
+		LEFT JOIN ckf_product p ON (ov.product_id = p.product_id)
+		LEFT JOIN ckf_stock_status ss ON (ss.stock_status_id = p.stock_status_id)
+		
+		WHERE o.offer_id = '".(int)$offer_id."' AND ss.visible =1
+		ORDER BY p.price ASC
+		LIMIT 1
+		");
+
+
+		
+		foreach ($query->rows as $result) {
+			$product_data = $result ['price'] ;
+		}
+
+		return $product_data;
+
+    }
+	
+	
 	public function getLatestProducts($limit) {
 		$product_data = $this->cache->get('product.latest.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $this->config->get('config_customer_group_id') . '.' . (int)$limit);
 
@@ -418,29 +533,108 @@ class ModelCatalogOffer extends Model {
 		return $query->rows;
 	}
 
-	public function getProductPackageProduct($offer_id) {
+	public function getProductPackageProduct($product_id) {
 		$package_product = array();
 
 		$query = $this->db->query("
-		SELECT * FROM " . DB_PREFIX . "package_product pp 
+		SELECT 
+		pd.package_id,
+		product_id,
+		parent_package_id,
+		volume,
+		quantity,
+		pd2.abbr,
+		pd.description ,
+		pd.name AS name,
+		pd2.name AS pack 
+		FROM " . DB_PREFIX . "package_product pp 
 		LEFT JOIN " . DB_PREFIX . "package_description pd ON (pp.package_id =pd.package_id)
 		LEFT JOIN " . DB_PREFIX . "package_description pd2 ON (pp.package_name_id =pd2.package_id)
-		WHERE offer_id = '" . (int)$offer_id . "'
+		WHERE product_id = '" . (int)$product_id . "'
 		");
 
 		foreach ($query->rows as $result) {
 			$package_product[] = array(
-				'offer_id' => $result['offer_id'],
+				'product_id' => $result['product_id'],
 				'package' => $result['package_id'],
 				'parent_package' => $result['parent_package_id'],
 				'quantity' => $result['quantity'],
 				'volume' => $result['volume'],
+				'abbr' => $result['abbr'],
 				'name' => $result['name'],
+				'pack' => $result['pack'],				
 			);
 		}
 		return $package_product;
 	}
+	
+	
 
+	public function getProductAditionalProducts($offer_id) {
+		$groups_data = array();
+
+		$query = $this->db->query("
+		SELECT DISTINCT(rg.group_id), rg.name FROM " . DB_PREFIX . "groups_aditional_products ro
+
+		LEFT JOIN " . DB_PREFIX . "group_aditional_products_description rg ON (ro.group_id = rg.group_id)
+
+		WHERE `offer_id` ='" . (int)$offer_id . "'
+
+		");
+
+		foreach ($query->rows as $result) {
+			$products_data = array();
+
+			$query_products = $this->db->query("
+
+			SELECT * 
+			
+			FROM " . DB_PREFIX . "groups_aditional_products ro
+
+			LEFT JOIN " . DB_PREFIX . "product p ON (ro.product_id = p.product_id)
+			LEFT JOIN " . DB_PREFIX . "stock_status ss ON (ss.stock_status_id = p.stock_status_id) 
+
+			WHERE 
+			(ss.visible = 1 OR p.quantity >0 )
+			AND 			offer_id ='".$offer_id."' AND group_id='".$result['group_id']."'
+
+			");
+
+            foreach ($query_products->rows as $result_products) {
+
+				$products_data[] = $this->getProductVariant($result_products['product_id']);
+
+			}
+
+			$groups_data[] = array(
+				'name'    => $result['name'],
+				'group_id' => $result['group_id'],
+				'products' => $products_data,			
+			);
+
+		}
+
+		return $groups_data ;
+
+	}	
+
+	public function getProductVariants($offer_id) {
+		$product_data = array();
+
+		$query = $this->db->query("
+		SELECT * FROM " . DB_PREFIX . "offer_variants WHERE offer_id= '" . (int)$offer_id . "'
+		");
+
+
+		foreach ($query->rows as $result) {
+			$product_data[] = $this->getProductVariant($result['product_id']);
+		}
+
+		return $product_data;
+
+	}
+
+	
 	public function getProductRelated($offer_id) {
 		$product_data = array();
 

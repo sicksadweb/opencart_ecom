@@ -556,3 +556,135 @@
 2020-07-28 9:27:12 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\livesearch.php on line 432
 2020-07-28 9:27:12 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\livesearch.php on line 432
 2020-07-28 9:27:13 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\livesearch.php on line 432
+2020-07-29 4:27:15 - PHP Notice:  Undefined index: path in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 433
+2020-07-29 4:27:15 - PHP Notice:  Undefined index: path in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 433
+2020-07-29 4:27:15 - PHP Notice:  Undefined index: path in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 433
+2020-07-29 4:27:15 - PHP Notice:  Undefined index: path in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 433
+2020-07-29 4:27:15 - PHP Notice:  Undefined index: path in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 433
+2020-07-29 4:27:15 - PHP Notice:  Undefined index: path in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 433
+2020-07-29 4:27:15 - PHP Notice:  Undefined index: path in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 433
+2020-07-29 4:27:15 - PHP Notice:  Undefined index: path in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 433
+2020-07-29 4:30:51 - PHP Notice:  Undefined index: path in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 433
+2020-07-29 4:30:51 - PHP Notice:  Undefined index: path in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 433
+2020-07-29 4:30:51 - PHP Notice:  Undefined index: path in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 433
+2020-07-29 4:30:51 - PHP Notice:  Undefined index: path in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 433
+2020-07-29 4:30:51 - PHP Notice:  Undefined index: path in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 433
+2020-07-29 4:30:51 - PHP Notice:  Undefined index: path in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 433
+2020-07-29 4:30:51 - PHP Notice:  Undefined index: path in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 433
+2020-07-29 4:30:51 - PHP Notice:  Undefined index: path in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 433
+2020-07-29 4:30:51 - PHP Notice:  Undefined index: path in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 433
+2020-07-29 4:30:51 - PHP Notice:  Undefined index: path in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 433
+2020-07-29 4:30:51 - PHP Notice:  Undefined index: path in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 433
+2020-07-29 4:30:51 - PHP Notice:  Undefined index: path in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 433
+2020-07-29 4:30:51 - PHP Notice:  Undefined index: path in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 433
+2020-07-29 4:30:51 - PHP Notice:  Undefined index: path in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 433
+2020-07-29 4:30:51 - PHP Notice:  Undefined index: path in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 433
+2020-07-29 4:30:51 - PHP Notice:  Undefined index: path in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 433
+2020-07-29 4:30:51 - PHP Notice:  Undefined index: path in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 433
+2020-07-29 4:48:44 - PHP Notice:  Undefined index: related_id in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 458
+2020-07-29 4:48:44 - PHP Notice:  Undefined index: related_id in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 458
+2020-07-29 4:48:44 - PHP Notice:  Undefined index: product_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 436
+2020-07-29 4:48:44 - PHP Notice:  Undefined index: product_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 444
+2020-07-29 4:50:44 - PHP Notice:  Undefined index: related_id in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 457
+2020-07-29 4:50:44 - PHP Notice:  Undefined index: related_id in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 457
+2020-07-29 4:50:44 - PHP Notice:  Undefined index: product_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 436
+2020-07-29 4:50:44 - PHP Notice:  Undefined index: product_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 444
+2020-07-29 4:51:10 - PHP Notice:  Undefined index: product_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 436
+2020-07-29 4:51:10 - PHP Notice:  Undefined index: product_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 444
+2020-07-29 4:51:10 - PHP Notice:  Undefined index: product_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 436
+2020-07-29 4:51:10 - PHP Notice:  Undefined index: product_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 444
+2020-07-29 4:51:12 - PHP Notice:  Undefined index: product_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 436
+2020-07-29 4:51:12 - PHP Notice:  Undefined index: product_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 444
+2020-07-29 4:51:12 - PHP Notice:  Undefined index: product_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 436
+2020-07-29 4:51:12 - PHP Notice:  Undefined index: product_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 444
+2020-07-29 4:52:09 - PHP Notice:  Undefined index: product_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 436
+2020-07-29 4:52:09 - PHP Notice:  Undefined index: product_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 444
+2020-07-29 4:52:09 - PHP Notice:  Undefined index: product_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 436
+2020-07-29 4:52:09 - PHP Notice:  Undefined index: product_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 444
+2020-07-29 4:52:59 - PHP Notice:  Undefined index: product_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 436
+2020-07-29 4:52:59 - PHP Notice:  Undefined index: product_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 444
+2020-07-29 4:52:59 - PHP Notice:  Undefined index: product_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 436
+2020-07-29 4:52:59 - PHP Notice:  Undefined index: product_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 444
+2020-07-29 5:47:26 - PHP Notice:  Undefined variable: offer_id in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 487
+2020-07-29 5:55:35 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\system\library\template\Twig\Environment.php(403) : eval()'d code on line 1232
+2020-07-29 5:55:35 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\system\library\template\Twig\Environment.php(403) : eval()'d code on line 1232
+2020-07-29 6:13:25 - PHP Notice:  Undefined index: group_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 462
+2020-07-29 6:13:25 - PHP Notice:  Undefined index: products in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 464
+2020-07-29 6:13:25 - PHP Notice:  Undefined index: group_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 462
+2020-07-29 6:13:25 - PHP Notice:  Undefined index: products in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 464
+2020-07-29 6:21:02 - PHP Notice:  Undefined index: group_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 462
+2020-07-29 6:21:02 - PHP Notice:  Undefined index: products in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 464
+2020-07-29 6:21:02 - PHP Notice:  Undefined index: group_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 462
+2020-07-29 6:21:02 - PHP Notice:  Undefined index: products in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 464
+2020-07-29 6:21:32 - PHP Notice:  Undefined index: group_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 462
+2020-07-29 6:21:32 - PHP Notice:  Undefined index: products in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 464
+2020-07-29 6:21:32 - PHP Notice:  Undefined index: group_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 462
+2020-07-29 6:21:32 - PHP Notice:  Undefined index: products in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 464
+2020-07-29 6:23:57 - PHP Notice:  Undefined index: product_id in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 521
+2020-07-29 6:23:57 - PHP Notice:  Undefined index: product_id in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 521
+2020-07-29 6:25:25 - PHP Notice:  Undefined variable: product_id in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 533
+2020-07-29 6:26:37 - PHP Notice:  Undefined variable: product_id in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 533
+2020-07-29 6:26:39 - PHP Notice:  Undefined variable: product_id in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 533
+2020-07-29 6:26:40 - PHP Notice:  Undefined variable: product_id in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 533
+2020-07-29 6:26:53 - PHP Notice:  Undefined variable: product_id in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 533
+2020-07-29 6:28:19 - PHP Notice:  Undefined variable: product_data in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 553
+2020-07-29 6:28:19 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 457
+2020-07-29 6:28:35 - PHP Notice:  Undefined variable: product_data in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 553
+2020-07-29 6:28:35 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 457
+2020-07-29 7:06:25 - PHP Notice:  Undefined index: group_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 501
+2020-07-29 7:06:25 - PHP Notice:  Undefined index: group_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 501
+2020-07-29 7:07:00 - PHP Notice:  Undefined index: group_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 501
+2020-07-29 7:07:00 - PHP Notice:  Undefined index: products in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 503
+2020-07-29 7:07:00 - PHP Notice:  Undefined index: group_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 501
+2020-07-29 7:07:00 - PHP Notice:  Undefined index: products in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 503
+2020-07-29 7:07:02 - PHP Notice:  Undefined index: group_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 501
+2020-07-29 7:07:02 - PHP Notice:  Undefined index: products in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 503
+2020-07-29 7:07:02 - PHP Notice:  Undefined index: group_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 501
+2020-07-29 7:07:02 - PHP Notice:  Undefined index: products in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 503
+2020-07-29 7:07:27 - PHP Notice:  Undefined index: group_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 501
+2020-07-29 7:07:27 - PHP Notice:  Undefined index: group_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 501
+2020-07-29 7:08:06 - PHP Notice:  Undefined index: group_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 501
+2020-07-29 7:08:06 - PHP Notice:  Undefined index: name in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 502
+2020-07-29 7:08:06 - PHP Notice:  Undefined index: group_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 501
+2020-07-29 7:08:06 - PHP Notice:  Undefined index: name in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 502
+2020-07-29 7:08:22 - PHP Notice:  Undefined index: group_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 501
+2020-07-29 7:08:22 - PHP Notice:  Undefined index: name in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 502
+2020-07-29 7:08:22 - PHP Notice:  Undefined index: group_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 501
+2020-07-29 7:08:22 - PHP Notice:  Undefined index: name in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 502
+2020-07-29 7:08:25 - PHP Notice:  Undefined index: group_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 501
+2020-07-29 7:08:25 - PHP Notice:  Undefined index: name in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 502
+2020-07-29 7:08:25 - PHP Notice:  Undefined index: group_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 501
+2020-07-29 7:08:25 - PHP Notice:  Undefined index: name in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 502
+2020-07-29 7:08:44 - PHP Notice:  Undefined index: group_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 501
+2020-07-29 7:08:44 - PHP Notice:  Undefined index: group_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 501
+2020-07-29 7:09:29 - PHP Notice:  Undefined index: group_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 501
+2020-07-29 7:09:29 - PHP Notice:  Undefined index: group_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 501
+2020-07-29 7:09:59 - PHP Notice:  Undefined index: group_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 501
+2020-07-29 7:09:59 - PHP Notice:  Undefined index: products in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 503
+2020-07-29 7:09:59 - PHP Notice:  Undefined index: group_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 501
+2020-07-29 7:09:59 - PHP Notice:  Undefined index: products in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 503
+2020-07-29 7:11:03 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 488
+2020-07-29 7:11:03 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 488
+2020-07-29 7:11:03 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 488
+2020-07-29 7:32:58 - PHP Notice:  Undefined variable: result_product in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 440
+2020-07-29 7:32:58 - PHP Notice:  Undefined variable: result_product in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 440
+2020-07-29 7:45:13 - PHP Notice:  Undefined variable: product_data in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 377
+2020-07-29 7:54:18 - PHP Unknown:  Object of class stdClass could not be converted to string in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 377
+2020-07-29 7:54:18 - PHP Notice:  Undefined variable:  in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 377
+2020-07-29 7:56:15 - PHP Notice:  Object of class stdClass could not be converted to int in W:\domains\opencart_ecom\public_html\system\library\cart\tax.php on line 71
+2020-07-29 8:01:36 - PHP Warning:  A non-numeric value encountered in W:\domains\opencart_ecom\public_html\system\library\cart\currency.php on line 33
+2020-07-29 8:01:36 - PHP Warning:  A non-numeric value encountered in W:\domains\opencart_ecom\public_html\system\library\cart\currency.php on line 33
+2020-07-29 8:01:36 - PHP Warning:  A non-numeric value encountered in W:\domains\opencart_ecom\public_html\system\library\cart\currency.php on line 33
+2020-07-29 8:01:36 - PHP Warning:  A non-numeric value encountered in W:\domains\opencart_ecom\public_html\system\library\cart\currency.php on line 33
+2020-07-29 8:01:36 - PHP Warning:  A non-numeric value encountered in W:\domains\opencart_ecom\public_html\system\library\cart\currency.php on line 33
+2020-07-29 8:01:36 - PHP Warning:  A non-numeric value encountered in W:\domains\opencart_ecom\public_html\system\library\cart\currency.php on line 33
+2020-07-29 8:01:36 - PHP Warning:  A non-numeric value encountered in W:\domains\opencart_ecom\public_html\system\library\cart\currency.php on line 33
+2020-07-29 8:01:36 - PHP Warning:  A non-numeric value encountered in W:\domains\opencart_ecom\public_html\system\library\cart\currency.php on line 33
+2020-07-29 8:01:36 - PHP Warning:  A non-numeric value encountered in W:\domains\opencart_ecom\public_html\system\library\cart\currency.php on line 33
+2020-07-29 8:01:36 - PHP Warning:  A non-numeric value encountered in W:\domains\opencart_ecom\public_html\system\library\cart\currency.php on line 33
+2020-07-29 8:01:36 - PHP Warning:  A non-numeric value encountered in W:\domains\opencart_ecom\public_html\system\library\cart\currency.php on line 33
+2020-07-29 8:01:36 - PHP Warning:  A non-numeric value encountered in W:\domains\opencart_ecom\public_html\system\library\cart\currency.php on line 33
+2020-07-29 8:01:36 - PHP Warning:  A non-numeric value encountered in W:\domains\opencart_ecom\public_html\system\library\cart\currency.php on line 33
+2020-07-29 8:01:36 - PHP Warning:  A non-numeric value encountered in W:\domains\opencart_ecom\public_html\system\library\cart\currency.php on line 33
+2020-07-29 8:01:36 - PHP Warning:  A non-numeric value encountered in W:\domains\opencart_ecom\public_html\system\library\cart\currency.php on line 33
+2020-07-29 8:01:36 - PHP Warning:  A non-numeric value encountered in W:\domains\opencart_ecom\public_html\system\library\cart\currency.php on line 33
