@@ -77,7 +77,7 @@ class ModelCatalogView extends Model {
 		 WHERE ps.view_id = p.view_id AND ps.customer_group_id = '" . (int)$this->config->get('config_customer_group_id') . "' AND ((ps.date_start = '0000-00-00' OR ps.date_start < NOW()) AND (ps.date_end = '0000-00-00' OR ps.date_end > NOW())) 
 		 ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS special";
 
-		if (!empty($data['filter_category_id'])) {
+		if (!empty($data['filter_views_id'])) {
 			if (!empty($data['filter_sub_category'])) {
 				$sql .= " FROM " . DB_PREFIX . "category_path cp LEFT JOIN " . DB_PREFIX . "view_to_category p2c ON (cp.category_id = p2c.category_id)";
 			} else {
@@ -95,11 +95,11 @@ class ModelCatalogView extends Model {
 
 		$sql .= " LEFT JOIN " . DB_PREFIX . "view_description pd ON (p.view_id = pd.view_id) LEFT JOIN " . DB_PREFIX . "view_to_store p2s ON (p.view_id = p2s.view_id) WHERE pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'";
 
-		if (!empty($data['filter_category_id'])) {
+		if (!empty($data['filter_views_id'])) {
 			if (!empty($data['filter_sub_category'])) {
-				$sql .= " AND cp.path_id = '" . (int)$data['filter_category_id'] . "'";
+				$sql .= " AND cp.path_id = '" . (int)$data['filter_views_id'] . "'";
 			} else {
-				$sql .= " AND p2c.category_id = '" . (int)$data['filter_category_id'] . "'";
+				$sql .= " AND p2c.category_id = '" . (int)$data['filter_views_id'] . "'";
 			}
 
 			if (!empty($data['filter_filter'])) {
@@ -213,6 +213,7 @@ class ModelCatalogView extends Model {
 			$sql .= " LIMIT " . (int)$data['start'] . "," . (int)$data['limit'];
 		}
 		$product_data = array();
+
 
 		$query = $this->db->query($sql);
 
@@ -410,6 +411,27 @@ class ModelCatalogView extends Model {
 		return $query->rows;
 	}
 
+	public function getProductPrice($view_id) {
+		$query = $this->db->query("
+		
+		SELECT MIN(p.price) AS price FROM ckf_view v
+
+
+		LEFT JOIN ckf_view_image vi ON (v.view_id = vi.view_id)
+		
+		LEFT JOIN ckf_offer_variants ov ON (ov.offer_id = vi.offer_id)
+		LEFT JOIN ckf_product p ON (p.product_id = ov.product_id)
+		LEFT JOIN ckf_stock_status ss ON (ss.stock_status_id = p.stock_status_id)
+		
+		WHERE  v.view_id = 48 AND ss.visible = 1 
+		
+		");
+
+
+		return $query->row;
+	}	
+	
+
 	public function getProductImages($view_id) {
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "view_image WHERE view_id = '" . (int)$view_id . "' ORDER BY sort_order ASC");
 
@@ -476,7 +498,7 @@ class ModelCatalogView extends Model {
 	public function getTotalProducts($data = array()) {
 		$sql = "SELECT COUNT(DISTINCT p.view_id) AS total";
 
-		if (!empty($data['filter_category_id'])) {
+		if (!empty($data['filter_views_id'])) {
 			if (!empty($data['filter_sub_category'])) {
 				$sql .= " FROM " . DB_PREFIX . "category_path cp LEFT JOIN " . DB_PREFIX . "view_to_category p2c ON (cp.category_id = p2c.category_id)";
 			} else {
@@ -494,11 +516,11 @@ class ModelCatalogView extends Model {
 
 		$sql .= " LEFT JOIN " . DB_PREFIX . "view_description pd ON (p.view_id = pd.view_id) LEFT JOIN " . DB_PREFIX . "view_to_store p2s ON (p.view_id = p2s.view_id) WHERE pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'";
 
-		if (!empty($data['filter_category_id'])) {
+		if (!empty($data['filter_views_id'])) {
 			if (!empty($data['filter_sub_category'])) {
-				$sql .= " AND cp.path_id = '" . (int)$data['filter_category_id'] . "'";
+				$sql .= " AND cp.path_id = '" . (int)$data['filter_views_id'] . "'";
 			} else {
-				$sql .= " AND p2c.category_id = '" . (int)$data['filter_category_id'] . "'";
+				$sql .= " AND p2c.category_id = '" . (int)$data['filter_views_id'] . "'";
 			}
 
 			if (!empty($data['filter_filter'])) {
