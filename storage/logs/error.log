@@ -688,3 +688,8 @@
 2020-07-29 8:01:36 - PHP Warning:  A non-numeric value encountered in W:\domains\opencart_ecom\public_html\system\library\cart\currency.php on line 33
 2020-07-29 8:01:36 - PHP Warning:  A non-numeric value encountered in W:\domains\opencart_ecom\public_html\system\library\cart\currency.php on line 33
 2020-07-29 8:01:36 - PHP Warning:  A non-numeric value encountered in W:\domains\opencart_ecom\public_html\system\library\cart\currency.php on line 33
+2020-07-29 8:09:31 - PHP Notice:  Undefined variable: category_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 72
+2020-07-29 8:12:31 - PHP Notice:  Undefined index: path in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 95
+2020-07-29 8:13:27 - PHP Notice:  Undefined index: path in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 95
+2020-07-29 8:17:49 - PHP Notice:  Undefined index: path in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 95
+2020-07-29 8:18:52 - PHP Notice:  Undefined index: category_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 96

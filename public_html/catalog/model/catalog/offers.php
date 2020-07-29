@@ -5,6 +5,28 @@ class ModelCatalogOffers extends Model {
 
 		return $query->row;
 	}
+	public function getMainCategory($offers_id) {
+
+		$query = $this->db->query("
+
+		SELECT DISTINCT * FROM 
+		" . DB_PREFIX . "offer_to_category o2c 
+		LEFT JOIN " . DB_PREFIX . "category_offers c ON (c.offers_id = o2c.category_id) 
+		LEFT JOIN " . DB_PREFIX . "category_offers_description cd ON (c.offers_id = cd.offers_id) 
+		LEFT JOIN " . DB_PREFIX . "category_offers_to_store c2s ON (c.offers_id = c2s.offers_id) 
+		
+		WHERE 
+		o2c.offer_id = '" . (int)$offers_id . "'
+		AND cd.language_id = '" . (int)$this->config->get('config_language_id') . "' 
+		AND c2s.store_id = '" . (int)$this->config->get('config_store_id') . "' 
+		AND c.status = '1'
+		
+		ORDER BY o2c.main_category DESC
+		LIMIT 1
+		");
+
+		return $query->row;
+	}
 
 	public function getCategories($parent_id = 0) {
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "category_offers c LEFT JOIN " . DB_PREFIX . "category_offers_description cd ON (c.offers_id = cd.offers_id) LEFT JOIN " . DB_PREFIX . "category_offers_to_store c2s ON (c.offers_id = c2s.offers_id) WHERE c.parent_id = '" . (int)$parent_id . "' AND cd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND c2s.store_id = '" . (int)$this->config->get('config_store_id') . "'  AND c.status = '1' ORDER BY c.sort_order, LCASE(cd.name)");
