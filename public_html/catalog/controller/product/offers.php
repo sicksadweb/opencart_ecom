@@ -205,6 +205,8 @@ class ControllerProductOffers extends Controller {
 				} else {
 					$price = false;
 				}
+				$price = $this->currency->format($this->tax->calculate($this->model_catalog_offer->getProductPrice($result['offer_id']), $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+
 
 				if ((float)$result['special']) {
 					$special = $this->currency->format($this->tax->calculate($result['special'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
