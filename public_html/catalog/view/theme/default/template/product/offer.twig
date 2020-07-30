@@ -167,12 +167,8 @@
         {% set class = 'col-sm-4' %}
         {% endif %}
         <div class="{{ class }}">
-          <div class="btn-group">
-            <button type="button" data-toggle="tooltip" class="btn btn-default" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product_id }}');"><i class="fa fa-heart"></i></button>
-            <button type="button" data-toggle="tooltip" class="btn btn-default" title="{{ button_compare }}" onclick="compare.add('{{ product_id }}');"><i class="fa fa-exchange"></i></button>
-          </div>
           <h1>{{ heading_title }}</h1>
-          
+
           <ul class="list-unstyled">
             {% if manufacturer %}
             <li>{{ text_manufacturer }} <a href="{{ manufacturers }}">{{ manufacturer }}</a></li>
@@ -182,15 +178,6 @@
             <li>{{ text_reward }} {{ reward }}</li>
             {% endif %}
             <li>{{ text_stock }} {{ stock }}</li>
-            {% if package_product %}
-            <li>
-            {% for package in package_product %}
-            {{ package.name }} {{ package.volume }} {{ package.name }} {{ package.volume }} 
-            <br>
-            {% endfor %}
-            
-            </li>
-            {% endif %}
           </ul>
 
           
@@ -386,25 +373,40 @@
                             </div>
                         </div>
                         <div class="col-xs-5">
-                            <div class=" col-xs-12 col-sm-4">
-                                {{ product.price }}
+                            <div class=" col-xs-12 col-sm-3">
+                                <span>{{ product.price }}</span>
                             </div>
-                            <div class="col-xs-12 col-sm-8 col-lg-5 list-inline">
+                            <div class="col-xs-12 col-sm-6 col-lg-5 list-inline">
+                                <input  class="product_to_cart_0" type="text" id="product_to_cart_{{ product.product_id }}" data-product_id="{{ product.product_id }}" value="0" >
                                 {% for package in product.package_product %}
-
-                                {{ package.quantity }} {{ package.name }}  {{ package.volume }} {{ package.abbr }}  
+                                <div class="col-xs-12">
+                                <span>{{ package.quantity }} {{ package.name }}  {{ package.volume|round(2, 'floor') }} {{ package.abbr }}</span>
                                 <br>
+                                <button onclick="minus_proudct({{ product.product_id }}, {{ package.package_id }} )" class="col-xs-2">-</button>
+                                <input onchange="change_proudct({{ product.product_id }}, {{ package.package_id }} )" id="product_id_{{ product.product_id }}_{{ package.package_id }}" type="text" class="col-xs-5"
+                                value="0"
+                                step="{{ product.minimum }}"
+                                min="{{ product.minimum }}"
+                                data-abbr="{{ package.abbr }}"
+                                data-volume="{{ package.volume }}"
+                                data-quantity="{{ package.quantity }}"
+                                data-parent_id="{{ package.parent_package_id }}"
+                                >
+                                <button onclick="plus_product({{ product.product_id }}, {{ package.package_id }} )" class="col-xs-2">+</button>
+                                </div>
                                 {% endfor %}
-                                <button class="col-xs-2">-</button>
-                                <input type="text" class="col-xs-5">
-                                <button class="col-xs-2">+</button>
+                                
                             </div>
-                            <div class="col-xs-12 col-sm-8 col-lg-3 align-vertically">
-                            
+                            <div class="col-xs-12 col-sm-3 col-lg-3 align-vertically">
+                            <span id="package{{ product.product_id }}"> </span>
                             </div>
                         </div>
                         </li>
-                    {% endfor %}  
+
+                    {% endfor %} 
+                        <li class="list-group-item row">
+                            <button class="btn btn-primary pull-right" onclick="cart_add(0)">{{ text_add_to_cart}}</button>
+                        </li>
                     </ul>
                   </div>
                 </div>
@@ -416,7 +418,7 @@
                 <div class="panel-heading">
                   <h4 class="panel-title">
                     <a data-toggle="collapse" data-parent="#accordion" href="#{{ product_group.group_id }}">
-                      {{ product_group.name }}
+                      {{ product_group.name }}                             
                     </a>
                   </h4>
                 </div>
@@ -424,7 +426,7 @@
                   <div class="panel-body">
                     <ul class="list-group">
                     {% for product in product_group.products %}
-                        <li class="list-group-item row">
+                    <li class="list-group-item row">
                         <div class="col-xs-7">
                             <div class="col-xs-12 col-sm-9 ">
                                 {{ product.name }}
@@ -432,30 +434,43 @@
                                 {{ product.stock_status }}                          
                             </div>
                             <div class="col-xs-12 col-sm-3 ">
-                                {% if product.thumb %}
                                 <img src="{{ product.thumb }}" alt="{{ product.name }}" class="img-responsive">
-                                {% endif %}
                             </div>
                         </div>
                         <div class="col-xs-5">
-                            <div class=" col-xs-12 col-sm-4">
-                                {{ product.price }}
+                            <div class=" col-xs-12 col-sm-3">
+                                <span>{{ product.price }}</span>
                             </div>
-                            <div class="col-xs-12 col-sm-8 col-lg-5 list-inline">
+                            <div class="col-xs-12 col-sm-6 col-lg-5 list-inline">
+                                <input  class="product_to_cart_{{ product_group.group_id }}" type="text" id="product_to_cart_{{ product.product_id }}" data-product_id="{{ product.product_id }}" value="0" >
                                 {% for package in product.package_product %}
-                                {{ package.quantity }} {{ package.name }}  {{ package.volume }} {{ package.abbr }}  
+                                <div class="col-xs-12">
+                                <span>{{ package.quantity }} {{ package.name }}  {{ package.volume|round(2, 'floor') }} {{ package.abbr }}</span>
                                 <br>
+                                <button onclick="minus_proudct({{ product.product_id }}, {{ package.package_id }} )" class="col-xs-2">-</button>
+                                <input onchange="change_proudct({{ product.product_id }}, {{ package.package_id }} )" id="product_id_{{ product.product_id }}_{{ package.package_id }}" type="text" class="col-xs-5"
+                                value="0"
+                                step="{{ product.minimum }}"
+                                min="{{ product.minimum }}"
+                                data-abbr="{{ package.abbr }}"
+                                data-volume="{{ package.volume }}"
+                                data-quantity="{{ package.quantity }}"
+                                data-parent_id="{{ package.parent_package_id }}"
+                                >
+                                <button onclick="plus_product({{ product.product_id }}, {{ package.package_id }} )" class="col-xs-2">+</button>
+                                </div>
                                 {% endfor %}
-                                <button class="col-xs-2">-</button>
-                                <input type="text" class="col-xs-5">
-                                <button class="col-xs-2">+</button>
+                                
                             </div>
-                            <div class="col-xs-12 col-sm-8 col-lg-3 align-vertically">
-                            
+                            <div class="col-xs-12 col-sm-3 col-lg-3 align-vertically">
+                            <span id="package{{ product.product_id }}"> </span>
                             </div>
                         </div>
                         </li>
                     {% endfor %}  
+                        <li class="list-group-item row">
+                            <button class="btn btn-primary pull-right" onclick="cart_add({{ product_group.group_id }})">{{ text_add_to_cart}}</button>
+                        </li>
                     </ul>
                   </div>
                 </div>
@@ -509,13 +524,7 @@
         {% set i = i + 1 %}
         {% endfor %} </div>
         {% endif %}
-        {% if tags %}
-        <p>{{ text_tags }}
-        {% for i in 0..tags|length %}
-        {% if i < (tags|length - 1) %} <a href="{{ tags[i].href }}">{{ tags[i].tag }}</a>,
-        {% else %} <a href="{{ tags[i].href }}">{{ tags[i].tag }}</a> {% endif %}
-        {% endfor %} </p>
-        {% endif %}
+
       {{ content_bottom }}</div>
     {{ column_right }}</div>
 </div>
@@ -715,4 +724,93 @@ $(document).ready(function() {
 	});
 });
 //--></script> 
+
+<script>
+    function cart_add(group_id) {
+
+        let products = document.querySelectorAll('.product_to_cart_0');
+
+        for (let product of products) {
+            value = parseFloat(product.value);
+            product_id = parseFloat(product.dataset.product_id);
+            cart.add(product_id,value)
+        }
+
+    }
+
+
+    function plus_product(proudct_id,package_id) {
+      
+		value = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).value);
+		step = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).step);
+		min = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).min);
+		abbr = document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.abbr;
+		volume = document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.volume;
+		quantity = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.quantity);
+        parent_id = document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.parent_id;
+
+		parent_quantity = document.getElementById("product_id_"+proudct_id+"_"+parent_id).dataset.quantity;
+		parent_value = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+parent_id).value);
+		parent_step = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+parent_id).step);
+
+        count = ((value+step)*volume).toFixed(2) ;
+
+        document.getElementById("product_id_"+proudct_id+"_"+package_id).value = (value+step);
+        document.getElementById("product_id_"+proudct_id+"_"+parent_id).value  = (parent_value+(quantity/parent_quantity));
+        document.getElementById("package"+proudct_id).innerHTML = '( '+count+' '+abbr+' )';
+
+        document.getElementById("product_to_cart_"+proudct_id).value = ((value+step)*quantity).toFixed(1);
+        
+
+    }
+
+
+    function minus_proudct(proudct_id,package_id) {
+
+        value = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).value);
+		step = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).step);
+		min = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).min);
+		abbr = document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.abbr;
+		volume = document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.volume;
+		quantity = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.quantity);
+        parent_id = document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.parent_id;
+
+		parent_quantity = document.getElementById("product_id_"+proudct_id+"_"+parent_id).dataset.quantity;
+		parent_value = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+parent_id).value);
+		parent_step = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+parent_id).step);
+
+        count = ((value-step)*volume).toFixed(2) ;
+
+        document.getElementById("product_id_"+proudct_id+"_"+package_id).value = (value-step);
+        document.getElementById("product_id_"+proudct_id+"_"+parent_id).value  = (parent_value+(quantity/parent_quantity));
+        document.getElementById("package"+proudct_id).innerHTML = '( '+count+' '+abbr+' )';
+
+        document.getElementById("product_to_cart_"+proudct_id).value = ((value-step)*quantity).toFixed(1);
+
+    }
+
+    function change_proudct(proudct_id,package_id) {
+
+        value = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).value);
+		step = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).step);
+		min = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).min);
+		abbr = document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.abbr;
+		volume = document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.volume;
+		quantity = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.quantity);
+        parent_id = document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.parent_id;
+
+		parent_quantity = document.getElementById("product_id_"+proudct_id+"_"+parent_id).dataset.quantity;
+		parent_value = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+parent_id).value);
+		parent_step = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+parent_id).step);
+
+        count = ((value)*volume).toFixed(2) ;
+
+        document.getElementById("product_id_"+proudct_id+"_"+package_id).value = (value);
+        document.getElementById("product_id_"+proudct_id+"_"+parent_id).value  = (parent_value+(quantity/parent_quantity));
+        document.getElementById("package"+proudct_id).innerHTML = '( '+count+' '+abbr+' )'; 
+
+        document.getElementById("product_to_cart_"+proudct_id).value = ((value)*quantity).toFixed(1);
+
+    }
+</script>
 {{ footer }} 

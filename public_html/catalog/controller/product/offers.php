@@ -57,6 +57,11 @@ class ControllerProductOffers extends Controller {
 			'href' => $this->url->link('common/home')
 		);
 
+		$data['breadcrumbs'][] = array(
+			'text' => $this->language->get('text_category_product'),
+			'href' => $this->url->link('product/offers')
+		);
+
 		if (isset($this->request->get['path'])) {
 			$url = '';
 
@@ -122,12 +127,6 @@ class ControllerProductOffers extends Controller {
 			$this->document->setKeywords($category_info['meta_keyword']);
 
 			$data['text_compare'] = sprintf($this->language->get('text_compare'), (isset($this->session->data['compare']) ? count($this->session->data['compare']) : 0));
-
-			$data['breadcrumbs'][] = array(
-				'text' => $this->language->get('text_category_product'),
-				'href' => $this->url->link('product/category')
-			);
-
 
 			// Set the last category breadcrumb
 			$data['breadcrumbs'][] = array(
@@ -205,7 +204,17 @@ class ControllerProductOffers extends Controller {
 				} else {
 					$price = false;
 				}
-				$price = $this->currency->format($this->tax->calculate($this->model_catalog_offer->getProductPrice($result['offer_id']), $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+
+				$product_price = $this->model_catalog_offer->getProductPrice($result['offer_id']);	
+				if ( isset($product_price['price'])) {
+
+					$price = $this->currency->format($this->tax->calculate($product_price['price'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']).'/ '.$product_price['abbr'];
+				
+				} else	{
+
+					$price = 0;
+
+				}
 
 
 				if ((float)$result['special']) {
@@ -405,7 +414,7 @@ class ControllerProductOffers extends Controller {
 			// Set the last category breadcrumb
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_category_product'),
-				'href' => $this->url->link('product/category')
+				'href' => $this->url->link('product/offers')
 			);
 
 

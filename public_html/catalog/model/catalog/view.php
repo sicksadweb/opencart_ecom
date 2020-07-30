@@ -231,7 +231,6 @@ class ModelCatalogView extends Model {
 		}
 		$product_data = array();
 
-		print_r ($sql);
 		$query = $this->db->query($sql);
 
 		foreach ($query->rows as $result) {

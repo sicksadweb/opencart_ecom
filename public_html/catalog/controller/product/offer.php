@@ -338,7 +338,8 @@ class ControllerProductOffer extends Controller {
 			} else {
 				$data['price'] = false;
 			}
-			$data['price'] = $this->currency->format($this->tax->calculate($this->model_catalog_offer->getProductPrice($this->request->get['offer_id']), $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+			$price =$this->model_catalog_offer->getProductPrice($this->request->get['offer_id']);
+			$data['price'] = $this->currency->format($this->tax->calculate($price['price'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']).'/ '.$price['abbr'];
 
 
 			if ((float)$product_info['special']) {

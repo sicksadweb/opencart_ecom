@@ -33,8 +33,10 @@ $_['text_week']                = 'Неделя';
 $_['text_semi_month']          = 'Полмесяца';
 $_['text_month']               = 'Месяц';
 $_['text_year']                = 'Год';
-$_['text_benefits']     = 'Преимущества:';
-$_['text_more']                 = 'Подробнее';
+$_['text_benefits']            = 'Преимущества:';
+$_['text_more']                = 'Подробнее';
+$_['text_add_to_cart']         = 'Добавить в корзину';
+
 // Entry
 $_['entry_qty']                = 'Кол-во';
 $_['entry_name']               = 'Ваше имя';

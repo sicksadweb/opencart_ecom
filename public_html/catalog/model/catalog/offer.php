@@ -576,7 +576,7 @@ class ModelCatalogOffer extends Model {
 
 		$query = $this->db->query("
 		SELECT 
-		pd.package_id,
+		pd.package_id AS package_id,
 		product_id,
 		parent_package_id,
 		volume,
@@ -598,9 +598,12 @@ class ModelCatalogOffer extends Model {
 				'parent_package' => $result['parent_package_id'],
 				'quantity' => $result['quantity'],
 				'volume' => $result['volume'],
+				'package_id' => $result['package_id'],
 				'abbr' => $result['abbr'],
 				'name' => $result['name'],
-				'pack' => $result['pack'],				
+				'pack' => $result['pack'],	
+				'parent_package_id' => $result['parent_package_id'],
+						
 			);
 		}
 		return $package_product;

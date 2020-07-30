@@ -56,6 +56,11 @@ class ControllerProductviews extends Controller {
 			'text' => $this->language->get('text_home'),
 			'href' => $this->url->link('common/home')
 		);
+		
+		$data['breadcrumbs'][] = array(
+			'text' => $this->language->get('text_category_product'),
+			'href' => $this->url->link('product/views')
+		);
 
 		if (isset($this->request->get['path'])) {
 			$url = '';
@@ -122,12 +127,6 @@ class ControllerProductviews extends Controller {
 			$this->document->setKeywords($category_info['meta_keyword']);
 
 			$data['text_compare'] = sprintf($this->language->get('text_compare'), (isset($this->session->data['compare']) ? count($this->session->data['compare']) : 0));
-
-			$data['breadcrumbs'][] = array(
-				'text' => $this->language->get('text_category_product'),
-				'href' => $this->url->link('product/category')
-			);
-
 
 			// Set the last category breadcrumb
 			$data['breadcrumbs'][] = array(
@@ -400,7 +399,7 @@ class ControllerProductviews extends Controller {
 			// Set the last category breadcrumb
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_category_product'),
-				'href' => $this->url->link('product/category')
+				'href' => $this->url->link('product/views')
 			);
 
 
