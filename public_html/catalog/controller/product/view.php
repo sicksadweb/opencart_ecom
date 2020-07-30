@@ -158,6 +158,7 @@ class ControllerProductView extends Controller {
 		}
 
 		$this->load->model('catalog/view');
+		$this->load->model('catalog/offer');
 
 		$product_info = $this->model_catalog_view->getProduct($view_id);
 
@@ -285,12 +286,17 @@ class ControllerProductView extends Controller {
 
 			$results = $this->model_catalog_view->getProductImages($this->request->get['view_id']);
 
+
 			foreach ($results as $result) {
+				$price = $this->model_catalog_offer->getProductPrice($result['offer_id']);
 				$data['images'][] = array(
 					'popup' => $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_popup_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_popup_height')),
 					'thumb' => $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_additional_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_additional_height')),
 					'name' => $result['name'],
 					'alt' => $result['alt'],
+					'offer_id' => $result['offer_id'],					
+					'price' => $this->currency->format($this->tax->calculate($price['price'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']).'/ '.$price['abbr']
+
 				);
 			}
 
@@ -304,14 +310,8 @@ class ControllerProductView extends Controller {
 					'alt' => $result['alt'],
 				);
 			}
-
-			if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
-				$data['price'] = $this->currency->format($this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
-			} else {
-				$data['price'] = false;
-			}
-
-				$data['price'] = $this->currency->format($this->tax->calculate($this->model_catalog_view->getProductPrice($product_info['view_id'])['price'] , $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+				$product_price = $this->model_catalog_view->getProductPrice($product_info['view_id']);
+				$data['price'] = $this->currency->format($this->tax->calculate($product_price['price'] , $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']).'/ '.$product_price['abbr'];
 
 			if ((float)$product_info['special']) {
 				$data['special'] = $this->currency->format($this->tax->calculate($product_info['special'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);

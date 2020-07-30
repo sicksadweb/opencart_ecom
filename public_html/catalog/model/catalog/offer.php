@@ -382,29 +382,41 @@ class ModelCatalogOffer extends Model {
 	}
 
 	public function getProductPrice($offer_id) {
-
+		$product_data = array();
 		$query = $this->db->query("
 
-		SELECT p.price FROM ckf_offer o
+		SELECT (p.price / pp.volume) AS price, 
+		ppd.abbr  AS abbr
+		FROM ckf_offer o
 
 		LEFT JOIN ckf_offer_variants ov ON (o.offer_id = ov.offer_id)
 		LEFT JOIN ckf_product p ON (ov.product_id = p.product_id)
 		LEFT JOIN ckf_stock_status ss ON (ss.stock_status_id = p.stock_status_id)
-		
+		LEFT JOIN ckf_package_product pp ON (pp.product_id = p.product_id) 
+		LEFT JOIN ckf_package_description ppd ON (ppd.package_id = pp.package_name_id)
+
 		WHERE o.offer_id = '".(int)$offer_id."' AND ss.visible =1
-		ORDER BY p.price ASC
+		ORDER BY  p.base_product DESC 
 		LIMIT 1
+
+
 		");
 
 		if ( !empty($query) ) {
 			foreach ($query->rows as $result) {
-				$product_data = $result ['price'] ;
+				$product_data = array(
+					'price' => $result['price'],
+					'abbr'  => $result['abbr'],
+				);
+
 			}
 		} else {
-			$product_data= false; 
+			$product_data = array(
+				'price' => $result['price'],
+				'abbr'  => $result['abbr'],
+			);
 		}
-
-
+//print_r ($product_data);
 		return $product_data;
 
     }

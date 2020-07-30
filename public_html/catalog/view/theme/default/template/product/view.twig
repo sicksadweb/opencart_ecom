@@ -29,15 +29,6 @@
         <div class="{{ class }}">
         {% if thumb or images %}
         <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-                    {% if thumb %}
-                      <figure class="col-xs-6" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-                      <a href="{{ popup }}" itemprop="contentUrl" data-size="1024x1024">
-                      <img src="{{ thumb }}" class="img-responsive" itemprop="thumbnail" alt="Image description" />
-                      </a>
-                      <figcaption itemprop="caption description">{{ heading_title }}
-                      </figcaption>
-                      </figure>
-                    {% endif %}
 
                     {% if images %}
                     {% for image in images %}
@@ -46,6 +37,10 @@
                       <img src="{{ image.thumb }}" class="img-responsive" itemprop="thumbnail" alt="{{ image.alt }}" />
                       </a>
                       <figcaption itemprop="caption description">{{ image.name }}
+                      <br>
+                      {{ image.price }}
+                      <br>
+                      {{ image.offer_id }}
                       </figcaption>
                       </figure>
                     {% endfor %}

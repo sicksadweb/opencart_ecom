@@ -75,8 +75,24 @@ class ModelCatalogView extends Model {
 		 (SELECT price FROM " . DB_PREFIX . "view_special ps 
 
 		 WHERE ps.view_id = p.view_id AND ps.customer_group_id = '" . (int)$this->config->get('config_customer_group_id') . "' AND ((ps.date_start = '0000-00-00' OR ps.date_start < NOW()) AND (ps.date_end = '0000-00-00' OR ps.date_end > NOW())) 
-		 ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS special";
+		 ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS special,
+		 
+		( SELECT p.price / pp.volume
+		 FROM ckf_offer_variants ov , ckf_product p , ckf_package_product pp 
+		 
+		 WHERE 
+		 ov.offer_id = (SELECT group_concat(ckf_view_image.offer_id) as names FROM ckf_view_image WHERE ckf_view_image.view_id =p.view_id ) 
+		 AND ov.product_id = p.product_id 
+		 AND pp.product_id= p.product_id 
+		  ORDER BY p.base_product DESC
+		  LIMIT 1
+	 	) AS price 
+		 
+		 ";
 
+
+
+		 
 		if (!empty($data['filter_views_id'])) {
 			if (!empty($data['filter_sub_category'])) {
 				$sql .= " FROM " . DB_PREFIX . "category_path cp LEFT JOIN " . DB_PREFIX . "view_to_category p2c ON (cp.category_id = p2c.category_id)";
@@ -178,7 +194,6 @@ class ModelCatalogView extends Model {
 			'p.model',
 			'p.quantity',
 			'p.price',
-			'rating',
 			'p.sort_order',
 			'p.date_added'
 		);
@@ -187,7 +202,9 @@ class ModelCatalogView extends Model {
 			if ($data['sort'] == 'pd.name' || $data['sort'] == 'p.model') {
 				$sql .= " ORDER BY LCASE(" . $data['sort'] . ")";
 			} elseif ($data['sort'] == 'p.price') {
-				$sql .= " ORDER BY (CASE WHEN special IS NOT NULL THEN special WHEN discount IS NOT NULL THEN discount ELSE p.price END)";
+				$sql .= " ORDER BY price ";
+
+
 			} else {
 				$sql .= " ORDER BY " . $data['sort'];
 			}
@@ -214,7 +231,7 @@ class ModelCatalogView extends Model {
 		}
 		$product_data = array();
 
-
+		print_r ($sql);
 		$query = $this->db->query($sql);
 
 		foreach ($query->rows as $result) {
@@ -412,18 +429,24 @@ class ModelCatalogView extends Model {
 	}
 
 	public function getProductPrice($view_id) {
+
 		$query = $this->db->query("
 		
-		SELECT MIN(p.price) AS price FROM ckf_view v
+		SELECT 
+		(p.price / pp.volume) AS price,
+		ppd.abbr  AS abbr
 
+		FROM ckf_view v 
+		LEFT JOIN ckf_view_image vi ON (v.view_id = vi.view_id) 
+		LEFT JOIN ckf_offer_variants ov ON (ov.offer_id = vi.offer_id) 
+		LEFT JOIN ckf_product p ON (p.product_id = ov.product_id) 
+		LEFT JOIN ckf_stock_status ss ON (ss.stock_status_id = p.stock_status_id) 
+		LEFT JOIN ckf_package_product pp ON (pp.product_id = p.product_id) 
+		LEFT JOIN ckf_package_description ppd ON (ppd.package_id = pp.package_name_id)
 
-		LEFT JOIN ckf_view_image vi ON (v.view_id = vi.view_id)
-		
-		LEFT JOIN ckf_offer_variants ov ON (ov.offer_id = vi.offer_id)
-		LEFT JOIN ckf_product p ON (p.product_id = ov.product_id)
-		LEFT JOIN ckf_stock_status ss ON (ss.stock_status_id = p.stock_status_id)
-		
-		WHERE  v.view_id = 48 AND ss.visible = 1 
+		WHERE v.view_id = '" . (int)$view_id . "' AND ss.visible = 1  
+		ORDER BY  p.base_product DESC 
+		LIMIT 1
 		
 		");
 

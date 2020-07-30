@@ -92,7 +92,10 @@
           <div class="product-thumb">
             <div class="image"><a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" /></a></div>
             <div>
-                <h4><a href="{{ product.href }}">{{ product.name }}</a></h4>
+                <h4><a href="{{ product.href }}">{{ product.name }}</a>
+                <br>
+                {{ product.price }}
+                </h4>
               <div class="button-group">
                 <a class="btn btn-block btn-primary " href="{{ product.href }}">{{ text_more }}</a>
               </div>
