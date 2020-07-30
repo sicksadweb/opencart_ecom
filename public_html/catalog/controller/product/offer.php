@@ -484,8 +484,9 @@ class ControllerProductOffer extends Controller {
 			$data['aditional_products'] = array();
 
 			$results = $this->model_catalog_offer->getProductAditionalProducts($this->request->get['offer_id']);
-
+	
 			foreach ($results as $result) {
+				$products = array();	
 
 				foreach ($result['products'] as $result_product) {
 
@@ -511,8 +512,7 @@ class ControllerProductOffer extends Controller {
 					} else {
 						$tax = false;
 					}
-					
-					
+							
 					$products[] = array(
 						'product_id'  => $result_product['product_id'],
 						'thumb'       => $image,
