@@ -30,7 +30,7 @@
     {% endif %}
     <div id="content" class="{{ class }}">
     {{ content_top }} 
-      <form action="{{ action }}" name="data_cart" method="post" enctype="multipart/form-data">
+      <form action="{{ action }}" name="formcart" id="formcart" method="post" enctype="multipart/form-data">
         <div class="table-responsive">
           <table class="table table-bordered">
             <thead>
@@ -126,32 +126,82 @@
             {{ button_checkout }}
         </h4>
       </div>
-      <div class="modal-body">
+      <div class="modal-body form_success">
 
 <div class="form-group">
   <label for="name">{{ form_name }}</label>
-  <input type="text" form="data_cart" class="form-control" id="name">
+  <input type="text" form="formcart" class="form-control" id="name">
 </div>
 <div class="form-group">
   <label for="phone">{{ form_phone }}</label>
-  <input type="text" form="data_cart" class="form-control" id="phone">
+  <input type="text" form="formcart" class="form-control" id="phone">
 </div>
 <div class="form-group">
   <label for="email">{{ form_email }}</label>
-  <input type="text" form="data_cart" class="form-control" id="email">
+  <input type="text" form="formcart" class="form-control" id="email">
 </div>
 <div class="form-group">
   <label for="comment">{{ form_comment }}</label>
-  <textarea class="form-control" form="data_cart" rows="5" id="comment"></textarea>
+  <textarea class="form-control" form="formcart" rows="5" id="comment"></textarea>
 </div>
 
 
 <div class="checkbox">
-  <label><input type="checkbox" form="data_cart" value="">{{ form_check_text_oferta }}</label>
+  <label><input type="checkbox" form="formcart" value="">{{ form_check_text_oferta }}</label>
 </div>
 <div class="form-group">
   <label for="text_oferta">{{ form_text_oferta }}</label>
-  <textarea class="form-control" form="data_cart" rows="5" id="text_oferta"></textarea>
+  <textarea class="form-control" form="formcart" rows="5" id="text_oferta"></textarea>
+</div>
+<div class="form-group">
+        <button type="button" onclick="send_order()" class="btn btn-primary" data-toggle="modal" data-target="#checkout">{{ text_send_order }}</button>
+</div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">{{ text_close }}</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="checkout_success" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"> 
+            {{ button_checkout }}
+        </h4>
+      </div>
+      <div class="modal-body form_success">
+
+<div class="form-group">
+  <label for="name">{{ form_name }}</label>
+  <input type="text" form="formcart" class="form-control" id="name">
+</div>
+<div class="form-group">
+  <label for="phone">{{ form_phone }}</label>
+  <input type="text" form="formcart" class="form-control" id="phone">
+</div>
+<div class="form-group">
+  <label for="email">{{ form_email }}</label>
+  <input type="text" form="formcart" class="form-control" id="email">
+</div>
+<div class="form-group">
+  <label for="comment">{{ form_comment }}</label>
+  <textarea class="form-control" form="formcart" rows="5" id="comment"></textarea>
+</div>
+
+
+<div class="checkbox">
+  <label><input type="checkbox" form="formcart" value="">{{ form_check_text_oferta }}</label>
+</div>
+<div class="form-group">
+  <label for="text_oferta">{{ form_text_oferta }}</label>
+  <textarea class="form-control" form="formcart" rows="5" id="text_oferta"></textarea>
 </div>
 <div class="form-group">
         <button type="button" onclick="send_order()" class="btn btn-primary" data-toggle="modal" data-target="#checkout">{{ text_send_order }}</button>
@@ -170,43 +220,16 @@
 function send_order() {
     $.ajax({
                             type: "POST",
-                            url: "/index.php?route=checkout/simple_cart",
-                            data: $("#data_cart").serialize(),
+                            url: "/index.php?route=checkout/simple_cart_send",
+                            data: $("#formcart").serialize(),
                             success: function(data) {
-                                $('.resultssuggestionsform').html(data);
-                                $('.resultssuggestionsretorn').html(data);
+                                $('#checkout_success').modal('hide')
+                                $('.form_success').html(data);
+                                $('#checkout_success').modal('show')
                             }
                         });
-//    form="data_cart"
+//    form="formcart"
 }
 </script>
+
 {{ footer }} 
-
-
-function showHint(str) {
-                var namebuyer = document.getElementById("namebuyer");
-                var phonebuyer = document.getElementById("phonebuyer");
-                var pferta = document.getElementById("pferta_box");     
-if (phonebuyer.checkValidity() && namebuyer.checkValidity()  && pferta.checkValidity() ) {
-                        $.ajax({
-                            type: "POST",
-                            url: "https://xn----htbbcfnfmiigcfbvelsf1f2f.xn--p1ai/shop/mail.php",
-                            data: $("#cartform").serialize(),
-                            success: function(data) {
-                                $('.resultssuggestionsform').html(data);
-                                $('.resultssuggestionsretorn').html(data);
-                            }
-                        });
-} else {
-                    if (!namebuyer.checkValidity() ) {
-                        document.getElementById("errornamebuyer").innerHTML = namebuyer.validationMessage;
-                    }	
-                    if  (!phonebuyer.checkValidity()) {
-                        document.getElementById("errorphonebuyer").innerHTML = phonebuyer.validationMessage;         
-                    }
-                    if  (!pferta.checkValidity()) {
-                        document.getElementById("errorpferta").innerHTML = pferta.validationMessage;          
-                    }
-}
-}		
-

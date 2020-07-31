@@ -37,6 +37,9 @@ $_['text_benefits']            = 'Преимущества:';
 $_['text_more']                = 'Подробнее';
 $_['text_add_to_cart']         = 'Добавить в корзину';
 $_['text_elements']            = 'Элементы';
+$_['text_pay']                 = 'Купить от';
+$_['text_no_price']            = 'Уточняйте цену у менеджера';
+$_['text_no_price']            = 'Под заказ';
 
 // Entry
 $_['entry_qty']                = 'Кол-во';
@@ -51,8 +54,8 @@ $_['tab_description']          = 'Описание';
 $_['tab_attribute']            = 'Характеристики';
 $_['tab_review']               = 'Отзывов (%s)';
 
-$_['tab_video_instruction']            = 'Видео инструкции';
-$_['tab_video_assembly']            = 'Видео монтажа';
+$_['tab_video_instruction']    = 'Видео инструкции';
+$_['tab_video_assembly']       = 'Видео о товаре';
 
 // Error
 $_['error_name']               = 'Имя должно содержать от 3 до 25 символов!';
