@@ -36,6 +36,7 @@ $_['text_year']                = 'Год';
 $_['text_benefits']            = 'Преимущества:';
 $_['text_more']                = 'Подробнее';
 $_['text_add_to_cart']         = 'Добавить в корзину';
+$_['text_elements']            = 'Элементы';
 
 // Entry
 $_['entry_qty']                = 'Кол-во';

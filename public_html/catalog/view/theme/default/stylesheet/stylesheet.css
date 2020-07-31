@@ -154,6 +154,7 @@ div.required .control-label:before {
 	font-size: 12px;
 	line-height: 18px;
 	color: #FFF;
+	white-space: normal;
 }
 #cart.open > .btn {
 	background-image: none;
@@ -351,7 +352,7 @@ footer h5 {
 }
 .breadcrumb > li {
 	text-shadow: 0 1px 0 #FFF;
-	padding: 0 20px;
+	padding: 3px 20px;
 	position: relative;
 	white-space: nowrap;
 }
@@ -363,10 +364,10 @@ footer h5 {
 	content: '';
 	display: block;
 	position: absolute;
-	top: -3px;
-	right: -5px;
-	width: 26px;
-	height: 26px;
+	top: 6px;
+	right: 0px;
+	width: 11px;
+	height: 11px;
 	border-right: 1px solid #DDD;
 	border-bottom: 1px solid #DDD;
 	-webkit-transform: rotate(-45deg);

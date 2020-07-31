@@ -65,7 +65,7 @@ class ControllerProductOffer extends Controller {
 
 				$data['breadcrumbs'][] = array(
 					'text' => $category_info['name'],
-					'href' => $this->url->link('product/category', 'path=' . $this->request->get['path'] . $url)
+					'href' => $this->url->link('product/offers', 'path=' . $this->request->get['path'] . $url)
 				);
 			}
 		} else {
@@ -242,7 +242,7 @@ class ControllerProductOffer extends Controller {
 
 			$data['breadcrumbs'][] = array(
 				'text' => $product_info['name'],
-				'href' => $this->url->link('product/product', $url . '&offer_id=' . $this->request->get['offer_id'])
+				'href' => $this->url->link('product/offer', $url . '&offer_id=' . $this->request->get['offer_id'])
 			);
 
 			if ($product_info['meta_title']) {
@@ -659,7 +659,7 @@ class ControllerProductOffer extends Controller {
 
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_error'),
-				'href' => $this->url->link('product/product', $url . '&offer_id=' . $offer_id)
+				'href' => $this->url->link('product/offer', $url . '&offer_id=' . $offer_id)
 			);
 
 			$this->document->setTitle($this->language->get('text_error'));
