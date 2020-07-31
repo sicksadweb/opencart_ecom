@@ -29,6 +29,9 @@ $_['text_trial_description'] 	              	= 'Стоимость: %s; Пери
 $_['text_payment_description'] 	              	= 'Стоимость: %s; Периодичность: %d %s; Кол-во платежей: %d';
 $_['text_payment_until_canceled_description'] 	= 'Стоимость: %s; Периодичность: %d %s; Кол-во платежей: до отмены';
 
+$_['text_category_product']       				= 'Каталог магазина';
+$_['text_close']       			            	= 'Закрыть';
+$_['text_send_order']       			        = 'Отправить';
 // Column
 $_['column_image']          					= 'Изображение';
 $_['column_name']           					= 'Название товара';
@@ -43,3 +46,11 @@ $_['error_minimum']          					= 'Минимальное количество
 $_['error_required']         					= '%s необходим!';
 $_['error_product']          					= 'Ваша корзина пуста!';
 $_['error_recurring_required'] 					= 'Необходимо выбрать периодичность платежа!';
+
+
+$_['form_name']       							= 'Ваше имя';
+$_['form_phone']       							= 'Телефон';
+$_['form_comment']       						= 'Коментарий';
+$_['form_email']       							= 'E-mail';
+$_['form_check_text_oferta']       					= 'Согласен с условиями оферты';
+$_['form_text_oferta']       				= 'Оферта';

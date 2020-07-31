@@ -1998,3 +1998,4 @@
 2020-07-31 4:00:07 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 294
 2020-07-31 4:00:07 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 294
 2020-07-31 4:00:07 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 294
+2020-07-31 4:38:29 - PHP Warning:  unlink(W:/domains/opencart_ecom/storage/cache/cache.catalog.language.1596173909): Resource temporarily unavailable in W:\domains\opencart_ecom\public_html\system\library\cache\file.php on line 68
