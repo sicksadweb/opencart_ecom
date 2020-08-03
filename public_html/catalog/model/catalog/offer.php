@@ -94,7 +94,7 @@ class ModelCatalogOffer extends Model {
 		WHERE 
 		p.product_id = '" . (int)$product_id . "' 
 		AND pd.language_id = '" . (int)$this->config->get('config_language_id') . "' 
-		AND ss.visible = '1' 
+		AND (ss.visible = '1' OR p.quantity>0 )
 		AND p.date_available <= NOW() 
 		AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'
 		");
@@ -156,6 +156,13 @@ class ModelCatalogOffer extends Model {
 	}
 
 	public function getProducts($data = array()) {
+
+        if (!empty($data['filter_filter'])) {
+            $query_filter_group = $this->db->query("
+				SELECT GROUP_CONCAT(`filter_id`) AS filter_id , filter_group_id FROM " . DB_PREFIX . "filter WHERE `filter_id` IN (".$data['filter_filter'].") GROUP BY  filter_group_id
+			");
+		}
+		
 		$sql = "
 		SELECT p.offer_id, 
 		(SELECT price FROM " . DB_PREFIX . "offer_discount pd2 WHERE pd2.offer_id = p.offer_id AND pd2.customer_group_id = '" . (int)$this->config->get('config_customer_group_id') . "' AND pd2.quantity = '1' AND ((pd2.date_start = '0000-00-00' OR pd2.date_start < NOW()) AND (pd2.date_end = '0000-00-00' OR pd2.date_end > NOW())) ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS discount, 
@@ -176,7 +183,18 @@ class ModelCatalogOffer extends Model {
 			}
 
 			if (!empty($data['filter_filter'])) {
-				$sql .= " LEFT JOIN " . DB_PREFIX . "offer_filter pf ON (p2c.offer_id = pf.offer_id) LEFT JOIN " . DB_PREFIX . "offer p ON (pf.offer_id = p.offer_id)";
+
+				foreach ($query_filter_group->rows as $result) {
+					$sql .= " 
+					LEFT JOIN " . DB_PREFIX . "offer_filter pf".$result['filter_group_id']." ON (p2c.offer_id = pf".$result['filter_group_id'].".offer_id) 
+					";
+				}
+				$sql .= " 
+				LEFT JOIN " . DB_PREFIX . "offer_filter pf ON (p2c.offer_id = pf.offer_id) 
+				LEFT JOIN " . DB_PREFIX . "offer p ON (pf.offer_id = p.offer_id)
+				";
+
+		//		$sql .= " LEFT JOIN " . DB_PREFIX . "offer_filter pf ON (p2c.offer_id = pf.offer_id) LEFT JOIN " . DB_PREFIX . "offer p ON (pf.offer_id = p.offer_id)";
 			} else {
 				$sql .= " LEFT JOIN " . DB_PREFIX . "offer p ON (p2c.offer_id = p.offer_id)";
 			}
@@ -201,6 +219,7 @@ class ModelCatalogOffer extends Model {
 			}
 
 			if (!empty($data['filter_filter'])) {
+				
 				$implode = array();
 
 				$filters = explode(',', $data['filter_filter']);
@@ -209,7 +228,12 @@ class ModelCatalogOffer extends Model {
 					$implode[] = (int)$filter_id;
 				}
 
-				$sql .= " AND pf.filter_id IN (" . implode(',', $implode) . ")";
+				foreach ($query_filter_group->rows as $result) {
+
+						$sql .= " AND pf".$result['filter_group_id'].".filter_id IN (" . $result['filter_id'] .")";
+				}
+		//		$sql .= " AND pf.filter_id IN (" . implode(',', $implode) . ")";
+				
 			}
 		}
 
@@ -416,7 +440,7 @@ class ModelCatalogOffer extends Model {
 				'abbr'  => $result['abbr'],
 			);
 		}
-//print_r ($product_data);
+
 		return $product_data;
 
     }
@@ -660,14 +684,15 @@ class ModelCatalogOffer extends Model {
 	}	
 
 	public function getProductVariants($offer_id) {
+
 		$product_data = array();
 
 		$query = $this->db->query("
 		SELECT * FROM " . DB_PREFIX . "offer_variants WHERE offer_id= '" . (int)$offer_id . "'
 		");
 
-
 		foreach ($query->rows as $result) {
+
 			$product_data[] = $this->getProductVariant($result['product_id']);
 		}
 
@@ -705,8 +730,17 @@ class ModelCatalogOffer extends Model {
 	}
 
 	public function getTotalProducts($data = array()) {
+
 		$sql = "SELECT COUNT(DISTINCT p.offer_id) AS total";
 
+        if (!empty($data['filter_filter'])) {
+            $query_filter_group = $this->db->query("
+				SELECT GROUP_CONCAT(`filter_id`) AS filter_id , filter_group_id FROM " . DB_PREFIX . "filter WHERE `filter_id` IN (".$data['filter_filter'].") GROUP BY  filter_group_id
+			");
+        } else{ 
+
+		}
+		
 		if (!empty($data['filter_offers_id'])) {
 			if (!empty($data['filter_sub_category'])) {
 				$sql .= " FROM " . DB_PREFIX . "category_path cp LEFT JOIN " . DB_PREFIX . "offer_to_category p2c ON (cp.category_id = p2c.category_id)";
@@ -715,10 +749,20 @@ class ModelCatalogOffer extends Model {
 			}
 
 			if (!empty($data['filter_filter'])) {
-				$sql .= " LEFT JOIN " . DB_PREFIX . "offer_filter pf ON (p2c.offer_id = pf.offer_id) LEFT JOIN " . DB_PREFIX . "offer p ON (pf.offer_id = p.offer_id)";
+				foreach ($query_filter_group->rows as $result) {
+
+					$sql .= " 
+					LEFT JOIN " . DB_PREFIX . "offer_filter pf".$result['filter_group_id']." ON (p2c.offer_id = pf".$result['filter_group_id'].".offer_id) 
+					";
+				}
+				$sql .= " 
+				LEFT JOIN " . DB_PREFIX . "offer_filter pf ON (p2c.offer_id = pf.offer_id) 
+				LEFT JOIN " . DB_PREFIX . "offer p ON (pf.offer_id = p.offer_id)
+				";
 			} else {
 				$sql .= " LEFT JOIN " . DB_PREFIX . "offer p ON (p2c.offer_id = p.offer_id)";
 			}
+
 		} else {
 			$sql .= " FROM " . DB_PREFIX . "offer p";
 		}
@@ -741,7 +785,11 @@ class ModelCatalogOffer extends Model {
 					$implode[] = (int)$filter_id;
 				}
 
-				$sql .= " AND pf.filter_id IN (" . implode(',', $implode) . ")";
+				foreach ($query_filter_group->rows as $result) {
+
+					$sql .= " AND pf".$result['filter_group_id'].".filter_id IN (" . $result['filter_id'] .")";
+				}
+		//		$sql .= " AND pf.filter_id IN (" . implode(',', $implode) .")";
 			}
 		}
 

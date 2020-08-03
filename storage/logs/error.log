@@ -2098,3 +2098,118 @@
 2020-07-31 9:23:46 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\category_video.php on line 198
 2020-07-31 9:24:07 - PHP Notice:  Undefined index: row in W:\domains\opencart_ecom\public_html\catalog\model\catalog\category_video.php on line 77
 2020-07-31 9:24:07 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\category_video.php on line 198
+2020-08-03 5:13:32 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\filter_offers.php on line 56
+2020-08-03 5:13:32 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\filter_offers.php on line 56
+2020-08-03 5:13:32 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\filter_offers.php on line 56
+2020-08-03 5:13:32 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\filter_offers.php on line 68
+2020-08-03 5:13:32 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\filter_offers.php on line 56
+2020-08-03 5:13:32 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\filter_offers.php on line 56
+2020-08-03 5:13:32 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\filter_offers.php on line 56
+2020-08-03 5:13:32 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\filter_offers.php on line 56
+2020-08-03 5:13:32 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\filter_offers.php on line 56
+2020-08-03 5:13:32 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\filter_offers.php on line 56
+2020-08-03 5:13:32 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\filter_offers.php on line 56
+2020-08-03 5:13:32 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\filter_offers.php on line 56
+2020-08-03 5:13:32 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\filter_offers.php on line 68
+2020-08-03 5:14:13 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\filter_offers.php on line 68
+2020-08-03 5:14:13 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\filter_offers.php on line 68
+2020-08-03 5:14:25 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\filter_offers.php on line 68
+2020-08-03 5:14:25 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\filter_offers.php on line 68
+2020-08-03 5:14:52 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\filter_offers.php on line 56
+2020-08-03 5:14:52 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\filter_offers.php on line 56
+2020-08-03 5:14:52 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\filter_offers.php on line 56
+2020-08-03 5:14:52 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\filter_offers.php on line 68
+2020-08-03 5:14:52 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\filter_offers.php on line 56
+2020-08-03 5:14:52 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\filter_offers.php on line 56
+2020-08-03 5:14:52 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\filter_offers.php on line 56
+2020-08-03 5:14:52 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\filter_offers.php on line 56
+2020-08-03 5:14:52 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\filter_offers.php on line 56
+2020-08-03 5:14:52 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\filter_offers.php on line 56
+2020-08-03 5:14:52 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\filter_offers.php on line 56
+2020-08-03 5:14:52 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\filter_offers.php on line 56
+2020-08-03 5:14:52 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\filter_offers.php on line 68
+2020-08-03 5:15:07 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\filter_offers.php on line 68
+2020-08-03 5:15:07 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\catalog\controller\extension\module\filter_offers.php on line 68
+2020-08-03 5:51:22 - PHP Notice:  Undefined index: filter_group_id in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 769
+2020-08-03 5:52:10 - PHP Notice:  Undefined index: filter_group_id in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 770
+2020-08-03 5:53:01 - PHP Notice:  Undefined index: filter_group_id in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 770
+2020-08-03 5:55:47 - PHP Notice:  Undefined index: filter_group_id in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 770
+2020-08-03 5:57:35 - PHP Notice:  Undefined index: filter_group_id in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 770
+2020-08-03 5:59:09 - PHP Notice:  Undefined index: filter_group_id in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 770
+2020-08-03 6:29:03 - PHP Notice:  Undefined index: filter_group_id in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 750
+2020-08-03 6:29:03 - PHP Notice:  Undefined index: filter_group_id in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 750
+2020-08-03 6:29:03 - PHP Notice:  Undefined index: filter_group_id in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 785
+2020-08-03 6:29:03 - PHP Notice:  Undefined index: filter_group_id in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 785
+2020-08-03 6:34:54 - PHP Notice:  Undefined index: filter_filter in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 734
+2020-08-03 6:35:34 - PHP Notice:  Undefined index: filter_filter in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 734
+2020-08-03 6:35:36 - PHP Notice:  Undefined index: filter_filter in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 734
+2020-08-03 6:36:15 - PHP Notice:  Undefined index: filter_filter in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 735
+2020-08-03 6:36:54 - PHP Notice:  Undefined index: filter_filter in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 733
+2020-08-03 6:36:54 - PHP Notice:  Undefined index: filter_filter in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 733
+2020-08-03 6:36:54 - PHP Notice:  Undefined index: filter_filter in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 733
+2020-08-03 6:36:54 - PHP Notice:  Undefined index: filter_filter in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 733
+2020-08-03 6:36:54 - PHP Notice:  Undefined index: filter_filter in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 733
+2020-08-03 6:36:54 - PHP Notice:  Undefined index: filter_filter in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 733
+2020-08-03 6:36:54 - PHP Notice:  Undefined index: filter_filter in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 733
+2020-08-03 6:36:54 - PHP Notice:  Undefined index: filter_filter in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 733
+2020-08-03 6:36:54 - PHP Notice:  Undefined index: filter_filter in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 733
+2020-08-03 6:36:54 - PHP Notice:  Undefined index: filter_filter in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 733
+2020-08-03 6:37:14 - PHP Notice:  Undefined index: filter_filter in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 735
+2020-08-03 7:15:33 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 7:15:33 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:45:22 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:45:22 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:45:27 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:45:27 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:46:39 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:46:39 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:50:54 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:50:54 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:51:10 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:51:10 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:51:11 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:51:11 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:51:44 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:51:44 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:51:46 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:51:46 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:51:47 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:51:47 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:52:15 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:52:15 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:53:24 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:53:24 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:54:25 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:54:25 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:54:26 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:54:26 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:54:27 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:54:27 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:54:28 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:54:28 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:54:44 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:54:44 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:54:45 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:54:45 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:55:08 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:55:08 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:55:10 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:55:10 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:55:46 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:55:46 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:55:47 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:55:47 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:55:48 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:55:48 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:56:15 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:56:15 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:56:17 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:56:17 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:56:17 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:56:17 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:56:18 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:56:18 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:56:26 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:56:26 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:56:46 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-03 8:56:46 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342

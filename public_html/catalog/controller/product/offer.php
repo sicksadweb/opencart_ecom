@@ -280,7 +280,7 @@ class ControllerProductOffer extends Controller {
 			$data['offer_id'] = (int)$this->request->get['offer_id'];
 			$data['manufacturer'] = $product_info['manufacturer'];
 			$data['manufacturers'] = $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $product_info['manufacturer_id']);
-			$data['model'] = $product_info['model'];
+			$data['model'] =  $product_info['model'];
 			$data['reward'] = $product_info['reward'];
 			$data['points'] = $product_info['points'];
 			$data['description'] = html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8');
@@ -437,7 +437,6 @@ class ControllerProductOffer extends Controller {
 
 			$results = $this->model_catalog_offer->getProductVariants($this->request->get['offer_id']);
 
-
 			foreach ($results as $result) {
 				if ($result['image']) {
 					$image = $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_related_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_related_height'));
@@ -468,7 +467,7 @@ class ControllerProductOffer extends Controller {
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
 					'name'        => $result['name'],
-					'stock_status'        => $result['stock_status'],	
+					'stock_status'        =>  ($result['quantity'] > 0 ? $this->language->get('text_instock') : $result['stock_status'] ),
 					'description' => utf8_substr(trim(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8'))), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_product_description_length')) . '..',
 					'price'       => $price,
 					'special'     => $special,
@@ -517,7 +516,7 @@ class ControllerProductOffer extends Controller {
 						'product_id'  => $result_product['product_id'],
 						'thumb'       => $image,
 						'name'        => $result_product['name'],
-						'stock_status'        => $result_product['stock_status'],						
+						'stock_status'        =>  ($result['quantity'] > 0 ? $this->language->get('text_instock') : $result_product['stock_status'] ),					
 						'description' => utf8_substr(trim(strip_tags(html_entity_decode($result_product['description'], ENT_QUOTES, 'UTF-8'))), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_product_description_length')) . '..',
 						'price'       => $price,
 						'special'     => $special,

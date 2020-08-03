@@ -9,22 +9,16 @@
       {% endif %}
     {% endfor %}
   </ul>
-  <div class="row">{{ column_left }}
-    {% if column_left and column_right %}
-    {% set class = 'col-sm-6' %}
-    {% elseif column_left or column_right %}
-    {% set class = 'col-sm-9' %}
-    {% else %}
-    {% set class = 'col-sm-12' %}
-    {% endif %}
+
     <div id="content" class="{{ class }}">{{ content_top }}
       <div class="row"> {% if column_left or column_right %}
         {% set class = 'col-sm-6' %}
         {% else %}
-        {% set class = 'col-sm-8' %}
+        {% set class = 'col-sm-6' %}
         {% endif %}
-        <div class="{{ class }}">
 
+        <div class="{{ class }}">
+          <h1>{{ heading_title }}</h1>
         {% if thumb or images %}
         <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
                     {% if thumb %}
@@ -48,7 +42,7 @@
                     {% endif %}
         </div>
         {% endif %}
-        <hr>
+
         {% if images_aditional  %}
         <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
                     {% for image in images_aditional %}
@@ -74,9 +68,6 @@
 
             {% if attribute_groups %}
             <li><a href="#tab-specification" data-toggle="tab">{{ tab_attribute }}</a></li>
-            {% endif %}
-            {% if review_status %}
-            <li><a href="#tab-review" data-toggle="tab">{{ tab_review }}</a></li>
             {% endif %}
           </ul>
           <div class="tab-content">
@@ -116,20 +107,11 @@
             {% endif %}
             </div>
         </div>
-        {% if column_left or column_right %}
-        {% set class = 'col-sm-6' %}
-        {% else %}
-        {% set class = 'col-sm-4' %}
-        {% endif %}
         <div class="{{ class }}">
-          <h1>{{ heading_title }}</h1>
-
           <ul class="list-unstyled">
             {% if manufacturer %}
             <li>{{ text_manufacturer }} <a href="{{ manufacturers }}">{{ manufacturer }}</a></li>
             {% endif %}
-            <li>{{ text_model }} {{ model }}</li>
-            <li>{{ text_stock }} {{ stock }}</li>
           </ul>
 
           
@@ -139,25 +121,6 @@
             <li>
               <h2>{{ price }}</h2>
             </li>
-            {% else %}
-            <li><span style="text-decoration: line-through;">{{ price }}</span></li>
-            <li>
-              <h2>{{ special }}</h2>
-            </li>
-            {% endif %}
-            {% if tax %}
-            <li>{{ text_tax }} {{ tax }}</li>
-            {% endif %}
-            {% if points %}
-            <li>{{ text_points }} {{ points }}</li>
-            {% endif %}
-            {% if discounts %}
-            <li>
-              <hr>
-            </li>
-            {% for discount in discounts %}
-            <li>{{ discount.quantity }}{{ text_discount }}{{ discount.price }}</li>
-            {% endfor %}
             {% endif %}
           </ul>
           {% endif %}
@@ -404,11 +367,11 @@
       <div class="row"> {% set i = 0 %}
         {% for product in products %}
         {% if column_left and column_right %}
-        {% set class = 'col-xs-8 col-sm-6' %}
+        {% set class = 'col-xs-6 col-sm-6' %}
         {% elseif column_left or column_right %}
-        {% set class = 'col-xs-6 col-md-4' %}
+        {% set class = 'col-xs-6 ' %}
         {% else %}
-        {% set class = 'col-xs-6 col-sm-3' %}
+        {% set class = 'col-xs-6 col-sm-6' %}
         {% endif %}
         <div class="{{ class }}">
           <div class="product-thumb transition">
@@ -445,8 +408,8 @@
         {% endfor %} </div>
         {% endif %}
 
-      {{ content_bottom }}</div>
-    {{ column_right }}</div>
+      {{ content_bottom }}
+    </div>
 </div>
 <script type="text/javascript"><!--
 $('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){
@@ -592,47 +555,6 @@ $('button[id^=\'button-upload\']').on('click', function() {
 });
 //--></script> 
 <script type="text/javascript"><!--
-$('#review').delegate('.pagination a', 'click', function(e) {
-    e.preventDefault();
-
-    $('#review').fadeOut('slow');
-
-    $('#review').load(this.href);
-
-    $('#review').fadeIn('slow');
-});
-
-$('#review').load('index.php?route=product/product/review&product_id={{ product_id }}');
-
-$('#button-review').on('click', function() {
-	$.ajax({
-		url: 'index.php?route=product/product/write&product_id={{ product_id }}',
-		type: 'post',
-		dataType: 'json',
-		data: $("#form-review").serialize(),
-		beforeSend: function() {
-			$('#button-review').button('loading');
-		},
-		complete: function() {
-			$('#button-review').button('reset');
-		},
-		success: function(json) {
-			$('.alert-dismissible').remove();
-
-			if (json['error']) {
-				$('#review').after('<div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> ' + json['error'] + '</div>');
-			}
-
-			if (json['success']) {
-				$('#review').after('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
-
-				$('input[name=\'name\']').val('');
-				$('textarea[name=\'text\']').val('');
-				$('input[name=\'rating\']:checked').prop('checked', false);
-			}
-		}
-	});
-});
 
 $(document).ready(function() {
 	$('.thumbnails').magnificPopup({

@@ -396,7 +396,8 @@ class ControllerProductOffers extends Controller {
 			$data['content_bottom'] = $this->load->controller('common/content_bottom');
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
-			
+
+			$data['filters'] = $this->load->controller('extension/module/filter_offers');			
 
 			$this->response->setOutput($this->load->view('product/offers', $data));
 		} else {
@@ -660,8 +661,7 @@ class ControllerProductOffers extends Controller {
 			$data['content_bottom'] = $this->load->controller('common/content_bottom');
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
-			$data['filters'] = $this->load->controller('extension/module/filter');			
-
+			$data['filters'] = $this->load->controller('extension/module/filter_offers');			
 			$this->response->setOutput($this->load->view('product/offers', $data));
 		}
 	}
