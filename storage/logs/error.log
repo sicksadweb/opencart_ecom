@@ -2213,3 +2213,36 @@
 2020-08-03 8:56:26 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
 2020-08-03 8:56:46 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
 2020-08-03 8:56:46 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-06 8:50:25 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 394
+2020-08-06 8:50:25 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\controller\startup\error.php:34) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-08-06 8:50:39 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 394
+2020-08-06 8:50:39 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\controller\startup\error.php:34) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-08-06 8:55:54 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 394
+2020-08-06 8:55:54 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\controller\startup\error.php:34) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-08-06 8:59:10 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-06 8:59:10 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-06 8:59:47 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-06 8:59:47 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 342
+2020-08-06 9:02:07 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 343
+2020-08-06 9:02:07 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 343
+2020-08-06 9:03:55 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 343
+2020-08-06 9:03:55 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 343
+2020-08-06 9:10:16 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 394
+2020-08-06 9:10:16 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\controller\startup\error.php:34) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-08-06 9:11:33 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 394
+2020-08-06 9:11:33 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\controller\startup\error.php:34) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-08-06 9:11:47 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 394
+2020-08-06 9:11:47 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\controller\startup\error.php:34) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-08-06 9:12:39 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 395
+2020-08-06 9:12:39 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php:393) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-08-06 9:13:46 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 395
+2020-08-06 9:13:46 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php:393) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-08-06 9:13:52 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php:393) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-08-06 9:14:42 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 395
+2020-08-06 9:14:42 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php:393) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-08-09 10:18:43 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\system\library\template\Twig\Environment.php(403) : eval()'d code on line 437
+2020-08-09 10:18:43 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\system\library\template\Twig\Environment.php(403) : eval()'d code on line 442
+2020-08-09 10:19:17 - PHP Notice:  Array to string conversion in W:\domains\opencart_ecom\public_html\system\library\template\Twig\Environment.php(403) : eval()'d code on line 442
+2020-08-09 11:08:40 - PHP Notice:  Undefined index: view_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 289
+2020-08-09 11:09:49 - PHP Notice:  Undefined index: view_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 289
+2020-08-09 11:10:02 - PHP Notice:  Undefined index: view_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 289

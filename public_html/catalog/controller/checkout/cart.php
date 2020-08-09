@@ -390,8 +390,11 @@ class ControllerCheckoutCart extends Controller {
 		$json = array();
 
 		// Update
+		print_r($this->request->post['quantity']);
 		if (!empty($this->request->post['quantity'])) {
 			foreach ($this->request->post['quantity'] as $key => $value) {
+				print_r($key );
+				print_r($value );
 				$this->cart->update($key, $value);
 			}
 

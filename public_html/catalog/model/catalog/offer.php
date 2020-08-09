@@ -72,7 +72,10 @@ class ModelCatalogOffer extends Model {
 	public function getProductVariant($product_id) {
 
 		$query = $this->db->query("
-		SELECT DISTINCT *, pd.name AS name, p.image, 
+		SELECT DISTINCT *, 
+		(SELECT vd.view_id FROM " . DB_PREFIX . "offer_variants ov, " . DB_PREFIX . "view_image vi , " . DB_PREFIX . "view_description vd WHERE product_id ='3780' AND vi.offer_id = ov.offer_id AND vd.view_id =vi.view_id) AS  view_id ,
+		pd.name AS name, 
+		p.image, 
 		p.noindex AS noindex, 
 		m.name AS manufacturer, 
 		(SELECT price FROM " . DB_PREFIX . "product_discount pd2 WHERE pd2.product_id = p.product_id AND pd2.customer_group_id = '" . (int)$this->config->get('config_customer_group_id') . "' AND pd2.quantity = '1' AND ((pd2.date_start = '0000-00-00' OR pd2.date_start < NOW()) AND (pd2.date_end = '0000-00-00' OR pd2.date_end > NOW())) ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS discount, 
@@ -98,6 +101,8 @@ class ModelCatalogOffer extends Model {
 		AND p.date_available <= NOW() 
 		AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'
 		");
+
+print_r ($query );
 
 		if ($query->num_rows) {
 			return array(
@@ -147,7 +152,7 @@ class ModelCatalogOffer extends Model {
 				'video_assembly'           => $query->row['video_assembly'],
 				'video_instruction'           => $query->row['video_instruction'],				
 				'package_product' => $this->getProductPackageProduct($query->row['product_id']),
-
+				'view_id'           => $query->row['view_id'],
 
 			);
 		} else {
@@ -419,12 +424,13 @@ class ModelCatalogOffer extends Model {
 		LEFT JOIN ckf_package_product pp ON (pp.product_id = p.product_id) 
 		LEFT JOIN ckf_package_description ppd ON (ppd.package_id = pp.package_name_id)
 
-		WHERE o.offer_id = '".(int)$offer_id."' AND ss.visible =1
+		WHERE o.offer_id = '".(int)$offer_id."' 
 		ORDER BY  p.base_product DESC 
 		LIMIT 1
 
 
 		");
+
 
 		if ( !empty($query) ) {
 			foreach ($query->rows as $result) {

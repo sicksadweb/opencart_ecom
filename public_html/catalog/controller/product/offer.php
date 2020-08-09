@@ -275,7 +275,7 @@ class ControllerProductOffer extends Controller {
 			$data['text_login'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true));
 
 			$this->load->model('catalog/review');
-
+			$this->load->model('catalog/view');
 
 			$data['offer_id'] = (int)$this->request->get['offer_id'];
 			$data['manufacturer'] = $product_info['manufacturer'];
@@ -339,6 +339,7 @@ class ControllerProductOffer extends Controller {
 				$data['price'] = false;
 			}
 			$price =$this->model_catalog_offer->getProductPrice($this->request->get['offer_id']);
+
 			$data['price'] = $this->currency->format($this->tax->calculate($price['price'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']).'/ '.$price['abbr'];
 
 
@@ -476,6 +477,9 @@ class ControllerProductOffer extends Controller {
 					'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id']),
 					'package_product' => $result['package_product'],
 
+					'view_description'  => $this->model_catalog_view->getProduct($result['view_id']),
+					'view_attributes'  => $this->model_catalog_view->getProductAttributes($result['view_id']),
+					'view_id' =>  $result['view_id']
 				);
 				
 			}

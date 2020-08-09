@@ -753,3 +753,7 @@ h2.price {
 .alert-dismissable .close, .alert-dismissible .close {
 	right: -1px;
 }
+
+.pading_row {
+	padding: 0;
+}
