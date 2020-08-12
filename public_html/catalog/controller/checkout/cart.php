@@ -136,6 +136,7 @@ class ControllerCheckoutCart extends Controller {
 
 				$data['products'][] = array(
 					'cart_id'   => $product['cart_id'],
+					'product_id'   => $product['product_id'],
 					'thumb'     => $image,
 					'name'      => $product['name'],
 					'model'     => $product['model'],
@@ -390,11 +391,11 @@ class ControllerCheckoutCart extends Controller {
 		$json = array();
 
 		// Update
-		print_r($this->request->post['quantity']);
+	//	print_r($this->request->post['quantity']);
 		if (!empty($this->request->post['quantity'])) {
 			foreach ($this->request->post['quantity'] as $key => $value) {
-				print_r($key );
-				print_r($value );
+		//		print_r($key );
+		//		print_r($value );
 				$this->cart->update($key, $value);
 			}
 
@@ -412,6 +413,27 @@ class ControllerCheckoutCart extends Controller {
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 	}
+
+
+	public function update() {
+		
+		$this->load->language('checkout/cart');
+
+		$json = array();
+
+		// Update
+		print_r(0);
+		$this->cart->update($this->request->post['product_id'], $this->request->post['quantity']);
+		$this->session->data['success'] = $this->language->get('text_remove');
+
+
+
+		$this->response->addHeader('Content-Type: application/json');
+		$this->response->setOutput(json_encode($json));
+		
+	}
+
+
 
 	public function remove() {
 		$this->load->language('checkout/cart');

@@ -84,7 +84,7 @@ class ModelCatalogView extends Model {
 		 ov.offer_id = (SELECT group_concat(ckf_view_image.offer_id) as names FROM ckf_view_image WHERE ckf_view_image.view_id =p.view_id ) 
 		 AND ov.product_id = p.product_id 
 		 AND pp.product_id= p.product_id 
-		  ORDER BY p.base_product DESC
+		  ORDER BY ov.base_price DESC
 		  LIMIT 1
 	 	) AS price 
 		 
@@ -281,6 +281,7 @@ class ModelCatalogView extends Model {
 
 		$product_data = array();
 
+		
 		$query = $this->db->query($sql);
 
 		foreach ($query->rows as $result) {
@@ -443,12 +444,11 @@ class ModelCatalogView extends Model {
 		LEFT JOIN ckf_package_product pp ON (pp.product_id = p.product_id) 
 		LEFT JOIN ckf_package_description ppd ON (ppd.package_id = pp.package_name_id)
 
-		WHERE v.view_id = '" . (int)$view_id . "' AND ss.visible = 1  
-		ORDER BY  p.base_product DESC 
+		WHERE v.view_id = '" . (int)$view_id . "' 
+		ORDER BY  ov.base_price DESC , p.price ASC
 		LIMIT 1
 		
 		");
-
 
 		return $query->row;
 	}	

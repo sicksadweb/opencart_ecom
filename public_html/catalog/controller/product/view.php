@@ -317,6 +317,7 @@ class ControllerProductView extends Controller {
 				);
 			}
 				$product_price = $this->model_catalog_view->getProductPrice($product_info['view_id']);
+
 				$data['price'] = $this->currency->format($this->tax->calculate($product_price['price'] , $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']).'/ '.$product_price['abbr'];
 
 			if ((float)$product_info['special']) {

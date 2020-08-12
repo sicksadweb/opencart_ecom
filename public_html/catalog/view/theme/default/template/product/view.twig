@@ -50,7 +50,13 @@
                     {% endif %}
         </div>
         {% endif %}
+
         <hr>
+
+
+
+       
+
         {% if images_aditional  %}
         <div class="row">
         <div class="my-gallery " itemscope itemtype="http://schema.org/ImageGallery">
@@ -66,13 +72,10 @@
                       </figure>
                     {% endfor %}
         </div>
-      </div>
-        {% endif %}
-        <hr>
-
-
-
         </div>
+        {% endif %}
+      </div>
+
         {% if column_left or column_right %}
         {% set class = 'col-sm-6' %}
         {% else %}
@@ -80,6 +83,9 @@
         {% endif %}
         <div id="product" class="{{ class }}">
         {{ price }}
+
+        <button type="button" data-toggle="tooltip" class="btn btn-default" title="{{ button_wishlist }}" onclick="view_wishlist.add('{{ view_id }}');"><i class="fa fa-heart"></i></button>
+
           <div class="">
         <div class="panel-group" id="accordion">
           <div class="panel panel-default">

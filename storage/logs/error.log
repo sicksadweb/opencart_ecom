@@ -2246,3 +2246,474 @@
 2020-08-09 11:08:40 - PHP Notice:  Undefined index: view_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 289
 2020-08-09 11:09:49 - PHP Notice:  Undefined index: view_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 289
 2020-08-09 11:10:02 - PHP Notice:  Undefined index: view_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 289
+2020-08-10 2:46:35 - PHP Warning:  html_entity_decode() expects parameter 1 to be string, array given in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 480
+2020-08-10 2:48:24 - PHP Warning:  Illegal string offset 'description' in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 480
+2020-08-10 2:48:24 - PHP Warning:  Illegal string offset 'description' in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 484
+2020-08-10 5:18:47 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 5:18:47 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 5:18:47 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 5:18:47 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 5:18:47 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 5:18:47 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:26:49 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:26:49 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:26:49 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:26:49 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:26:49 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:26:49 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:29:06 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 452
+2020-08-10 6:29:06 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:29:06 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:29:06 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:29:06 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:29:06 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:29:06 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:29:08 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 452
+2020-08-10 6:30:01 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 452
+2020-08-10 6:30:05 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 452
+2020-08-10 6:30:05 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:30:05 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:30:05 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:30:05 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:30:05 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:30:05 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:31:15 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 452
+2020-08-10 6:31:15 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:31:15 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:31:15 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:31:15 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:31:15 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:31:15 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:32:19 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 451
+2020-08-10 6:32:19 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 452
+2020-08-10 6:32:20 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:32:20 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:32:20 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:32:20 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:32:20 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:32:20 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:32:50 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 451
+2020-08-10 6:32:50 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 452
+2020-08-10 6:32:50 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:32:50 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:32:50 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:32:50 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:32:50 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:32:50 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:33:10 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 452
+2020-08-10 6:33:10 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 453
+2020-08-10 6:33:10 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:33:10 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:33:10 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:33:10 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:33:10 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:33:10 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:33:30 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 452
+2020-08-10 6:33:30 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 453
+2020-08-10 6:33:30 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:33:30 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:33:30 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:33:30 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:33:30 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:33:30 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:33:42 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 452
+2020-08-10 6:33:42 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 343
+2020-08-10 6:33:42 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 343
+2020-08-10 6:33:42 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:33:42 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:33:42 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:33:42 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:33:42 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:33:42 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:34:22 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 343
+2020-08-10 6:34:22 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 343
+2020-08-10 6:34:22 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:34:22 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:34:22 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:34:22 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:34:22 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:34:22 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:47:20 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:47:20 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:47:20 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:47:20 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:47:20 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:47:20 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:47:34 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:47:34 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:47:34 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:47:34 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:47:34 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:47:34 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:52:10 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:52:10 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:52:10 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:52:10 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:52:10 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:52:10 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:52:20 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:52:20 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:52:20 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:52:20 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:52:20 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 6:52:20 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:08:04 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:08:04 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:08:04 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:08:04 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:08:04 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:08:04 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:08:06 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:08:06 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:08:06 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:08:06 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:08:06 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:08:06 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:08:08 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:08:08 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:08:08 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:08:08 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:08:08 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:08:08 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:08:16 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:08:16 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:08:16 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:08:16 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:08:16 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:08:16 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:08:17 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:08:17 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:08:17 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:08:17 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:08:17 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:08:17 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:09:05 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:09:05 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:09:05 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:09:05 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:09:05 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:09:05 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:09:18 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:09:18 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:09:18 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:09:18 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:09:18 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:09:18 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:09:58 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:09:58 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:09:58 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:09:58 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:09:58 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:09:58 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:10:49 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:10:49 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:10:49 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:10:49 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:10:49 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:10:49 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:11:16 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:11:16 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:11:16 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:11:16 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:11:16 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:11:16 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:14:52 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:14:52 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:14:52 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:14:52 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:14:52 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:14:52 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:14:54 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:14:54 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:14:54 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:14:54 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:14:54 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:14:54 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:16:32 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:16:32 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:16:32 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:16:32 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:16:32 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:16:32 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:16:34 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:16:34 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:16:34 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:16:34 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:16:34 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:16:34 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:17:25 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:17:25 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:17:25 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:17:25 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:17:25 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:17:25 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:17:42 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:17:42 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:17:42 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:17:42 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:17:42 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:17:42 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:18:32 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:18:32 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:18:32 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:18:32 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:18:32 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:18:32 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:18:46 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:18:46 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:18:46 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:18:46 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:18:46 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:18:46 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:20:07 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:20:07 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:20:07 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:20:07 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:20:07 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:20:07 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:20:09 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:20:09 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:20:09 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:20:09 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:20:09 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:20:09 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:20:31 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:20:31 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:20:31 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:20:31 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:20:31 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:20:31 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:20:59 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:20:59 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:20:59 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:20:59 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:20:59 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:20:59 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:21:02 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:21:02 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:21:02 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:21:02 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:21:02 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:21:02 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:21:19 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:21:19 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:21:19 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:21:19 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:21:19 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:21:19 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:22:21 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:22:21 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:22:21 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:22:21 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:22:21 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:22:21 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:22:49 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:22:49 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:22:49 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:22:49 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:22:49 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:22:49 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:23:07 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:23:07 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:23:07 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:23:07 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:23:07 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:23:07 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:23:23 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:23:23 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:23:23 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:23:23 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:23:23 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:23:23 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:23:36 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:23:36 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:23:36 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:23:36 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:23:36 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:23:36 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:23:39 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:23:39 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:23:39 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:23:39 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:23:39 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:23:39 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:25:11 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:25:11 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:25:11 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:25:11 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:25:11 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:25:11 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:25:18 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:25:18 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:25:18 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:25:18 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:25:18 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:25:18 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:26:33 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:26:33 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:26:33 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:26:33 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:26:33 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:26:33 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:39:29 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:39:29 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:39:29 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:39:29 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:39:29 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:39:29 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:42:50 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 320
+2020-08-10 7:42:50 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 320
+2020-08-10 7:42:50 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 320
+2020-08-10 7:42:50 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 320
+2020-08-10 7:42:50 - PHP Warning:  unlink(W:/domains/opencart_ecom/storage/cache/cache.article.total.1.0.1.510df4f199151ec834717e7a6f19f35a.1597048968): Resource temporarily unavailable in W:\domains\opencart_ecom\public_html\system\library\cache\file.php on line 68
+2020-08-10 7:50:31 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:50:31 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:50:31 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:50:31 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:50:31 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 7:50:31 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 9:02:18 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 320
+2020-08-10 9:02:18 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 320
+2020-08-10 9:40:54 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 320
+2020-08-10 9:40:54 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 320
+2020-08-10 9:41:04 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 320
+2020-08-10 9:41:04 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 320
+2020-08-10 9:41:13 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 9:41:13 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 9:41:13 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 9:41:13 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 9:41:13 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 9:41:13 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 9:41:14 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 9:41:14 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 9:41:14 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 9:41:14 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 9:41:14 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 9:41:14 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 9:41:16 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 320
+2020-08-10 9:41:16 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 320
+2020-08-10 9:42:48 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 321
+2020-08-10 9:42:48 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 321
+2020-08-10 9:44:54 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 321
+2020-08-10 9:44:54 - PHP Notice:  Undefined index: abbr in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 321
+2020-08-10 9:49:51 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 9:49:51 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 9:49:51 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 9:49:51 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 9:49:51 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 9:49:51 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 9:49:52 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 9:49:52 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 9:49:52 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 9:49:52 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 9:49:52 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-10 9:49:52 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-11 2:28:10 - PHP Warning:  unlink(W:/domains/opencart_ecom/storage/cache/cache.article.total.1.0.1.9ad218453f833c1f2c56dc4a018ae03d.1597056596): No such file or directory in W:\domains\opencart_ecom\public_html\system\library\cache\file.php on line 17
+2020-08-11 2:28:10 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\system\framework.php:42) in W:\domains\opencart_ecom\public_html\catalog\controller\startup\session.php on line 25
+2020-08-11 2:29:04 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-11 2:29:04 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-11 2:29:04 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-11 2:29:04 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-11 2:29:04 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-11 2:29:04 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-11 2:29:05 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-11 2:29:05 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-11 2:29:05 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-11 2:29:05 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-11 2:29:05 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-11 2:29:05 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-11 2:36:01 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 485
+2020-08-11 2:36:01 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 499
+2020-08-11 2:36:01 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 485
+2020-08-11 2:36:01 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 499
+2020-08-11 2:36:01 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 485
+2020-08-11 2:36:01 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 499
+2020-08-11 2:36:01 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 485
+2020-08-11 2:36:01 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 499
+2020-08-11 2:36:01 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 485
+2020-08-11 2:36:01 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 499
+2020-08-11 2:36:01 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 485
+2020-08-11 2:36:01 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 499
+2020-08-11 2:36:01 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 485
+2020-08-11 2:36:01 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 499
+2020-08-11 2:36:01 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 485
+2020-08-11 2:36:01 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 499
+2020-08-11 2:36:01 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 485
+2020-08-11 2:36:01 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 499
+2020-08-11 2:36:01 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 485
+2020-08-11 2:36:01 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 499
+2020-08-11 2:36:01 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 485
+2020-08-11 2:36:01 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 499
+2020-08-11 2:36:01 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 485
+2020-08-11 2:36:01 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 499
+2020-08-11 2:36:01 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 485
+2020-08-11 2:36:01 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 499
+2020-08-11 2:36:01 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 485
+2020-08-11 2:36:01 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 499
+2020-08-11 2:36:01 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 485
+2020-08-11 2:36:01 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 499
+2020-08-11 7:15:02 - PHP Warning:  unlink(W:/domains/opencart_ecom/storage/cache/cache.catalog.language.1597133702): Resource temporarily unavailable in W:\domains\opencart_ecom\public_html\system\library\cache\file.php on line 68
+2020-08-11 7:15:28 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 395
+2020-08-11 7:15:28 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php:393) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-08-11 7:15:55 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 395
+2020-08-11 7:15:55 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php:393) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-08-11 7:15:59 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 395
+2020-08-11 7:15:59 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php:393) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-08-11 7:16:04 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 395
+2020-08-11 7:16:04 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php:393) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-08-11 7:16:37 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 395
+2020-08-11 7:16:37 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php:393) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-08-11 7:16:43 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 395
+2020-08-11 7:16:43 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php:393) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-08-11 7:17:12 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 395
+2020-08-11 7:17:12 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\controller\startup\error.php:34) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-08-11 7:17:16 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 395
+2020-08-11 7:17:16 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\controller\startup\error.php:34) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-08-11 7:23:42 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 395
+2020-08-11 7:23:42 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\controller\startup\error.php:34) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-08-11 7:23:44 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 395
+2020-08-11 7:23:44 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\controller\startup\error.php:34) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-08-11 7:23:47 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 395
+2020-08-11 7:23:47 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\controller\startup\error.php:34) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-08-11 7:29:23 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 425
+2020-08-11 7:29:23 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\controller\startup\error.php:34) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-08-11 7:31:06 - PHP Notice:  Undefined variable: key in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 426
+2020-08-11 7:31:06 - PHP Notice:  Undefined variable: value in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 426
+2020-08-11 7:31:06 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php:418) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-08-11 7:31:37 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php:418) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-08-11 7:32:50 - PHP Notice:  Undefined variable: key in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 426
+2020-08-11 7:32:50 - PHP Notice:  Undefined variable: value in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 426
+2020-08-11 7:32:50 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\controller\startup\error.php:34) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-08-11 7:35:05 - PHP Warning:  print_r() expects at least 1 parameter, 0 given in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 418
+2020-08-11 7:35:05 - PHP Notice:  Undefined index: key in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 426
+2020-08-11 7:35:10 - PHP Warning:  print_r() expects at least 1 parameter, 0 given in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 418
+2020-08-11 7:35:10 - PHP Notice:  Undefined index: key in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 426
+2020-08-11 7:35:48 - PHP Warning:  print_r() expects at least 1 parameter, 0 given in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 418
+2020-08-11 7:35:48 - PHP Notice:  Undefined index: cart_id in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 426
+2020-08-11 7:36:10 - PHP Warning:  print_r() expects at least 1 parameter, 0 given in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 418
+2020-08-11 7:36:10 - PHP Notice:  Undefined index: cart_id in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 426
+2020-08-11 7:36:28 - PHP Warning:  print_r() expects at least 1 parameter, 0 given in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 418
+2020-08-11 7:36:28 - PHP Notice:  Undefined index: cart_id in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 426
+2020-08-11 7:37:03 - PHP Warning:  print_r() expects at least 1 parameter, 0 given in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 418
+2020-08-11 7:37:10 - PHP Warning:  print_r() expects at least 1 parameter, 0 given in W:\domains\opencart_ecom\public_html\catalog\controller\checkout\cart.php on line 418
+2020-08-12 4:40:44 - PHP Notice:  Undefined index: view_id in W:\domains\opencart_ecom\public_html\catalog\controller\account\wishlist.php on line 179
+2020-08-12 4:52:29 - PHP Notice:  Undefined index: view_id in W:\domains\opencart_ecom\public_html\catalog\controller\account\wishlist.php on line 113
+2020-08-12 4:52:29 - PHP Notice:  Undefined index: view_id in W:\domains\opencart_ecom\public_html\catalog\controller\account\wishlist.php on line 113
+2020-08-12 4:52:29 - PHP Notice:  Undefined index: view_id in W:\domains\opencart_ecom\public_html\catalog\controller\account\wishlist.php on line 113
+2020-08-12 4:52:29 - PHP Notice:  Undefined index: view_id in W:\domains\opencart_ecom\public_html\catalog\controller\account\wishlist.php on line 113
+2020-08-12 4:52:29 - PHP Notice:  Undefined index: view_id in W:\domains\opencart_ecom\public_html\catalog\controller\account\wishlist.php on line 113
+2020-08-12 4:53:24 - PHP Notice:  Undefined index: view_id in W:\domains\opencart_ecom\public_html\catalog\controller\account\wishlist.php on line 113
+2020-08-12 4:53:24 - PHP Notice:  Undefined index: view_id in W:\domains\opencart_ecom\public_html\catalog\controller\account\wishlist.php on line 113
+2020-08-12 4:53:24 - PHP Notice:  Undefined index: view_id in W:\domains\opencart_ecom\public_html\catalog\controller\account\wishlist.php on line 113
+2020-08-12 4:56:13 - PHP Notice:  Undefined index: view_id in W:\domains\opencart_ecom\public_html\catalog\controller\account\wishlist.php on line 115
+2020-08-12 4:59:25 - PHP Notice:  Undefined index: product_id in W:\domains\opencart_ecom\public_html\catalog\controller\account\wishlist.php on line 152
+2020-08-12 4:59:25 - PHP Notice:  Undefined index: product_id in W:\domains\opencart_ecom\public_html\catalog\controller\account\wishlist.php on line 153
+2020-08-12 6:14:29 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-12 6:14:29 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-12 6:14:29 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-12 6:14:29 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-12 6:14:29 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-12 6:14:29 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 523
+2020-08-12 6:20:45 - PHP Notice:  Undefined variable: result_product in W:\domains\opencart_ecom\public_html\catalog\controller\account\wishlist.php on line 105
+2020-08-12 6:21:15 - PHP Notice:  Undefined index: package_product in W:\domains\opencart_ecom\public_html\catalog\controller\account\wishlist.php on line 105
+2020-08-12 6:21:16 - PHP Notice:  Undefined index: package_product in W:\domains\opencart_ecom\public_html\catalog\controller\account\wishlist.php on line 105

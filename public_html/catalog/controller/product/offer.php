@@ -477,7 +477,7 @@ class ControllerProductOffer extends Controller {
 					'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id']),
 					'package_product' => $result['package_product'],
 
-					'view_description'  => $this->model_catalog_view->getProduct($result['view_id']),
+					'view_description'  => html_entity_decode( $this->model_catalog_view->getProduct($result['view_id'])['description'], ENT_QUOTES, 'UTF-8'),					
 					'view_attributes'  => $this->model_catalog_view->getProductAttributes($result['view_id']),
 					'view_id' =>  $result['view_id']
 				);

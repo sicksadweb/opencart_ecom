@@ -102,7 +102,7 @@ class ModelCatalogOffer extends Model {
 		AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'
 		");
 
-print_r ($query );
+
 
 		if ($query->num_rows) {
 			return array(
@@ -412,40 +412,73 @@ print_r ($query );
 
 	public function getProductPrice($offer_id) {
 		$product_data = array();
+
 		$query = $this->db->query("
+		SELECT od.name, pd.name, pp.product_type, IF (pp.product_type != null, p.price , (p.price / pp.volume ) ) AS price ,ppd.abbr , ov.base_price 
 
-		SELECT (p.price / pp.volume) AS price, 
-		ppd.abbr  AS abbr
-		FROM ckf_offer o
-
-		LEFT JOIN ckf_offer_variants ov ON (o.offer_id = ov.offer_id)
-		LEFT JOIN ckf_product p ON (ov.product_id = p.product_id)
-		LEFT JOIN ckf_stock_status ss ON (ss.stock_status_id = p.stock_status_id)
-		LEFT JOIN ckf_package_product pp ON (pp.product_id = p.product_id) 
-		LEFT JOIN ckf_package_description ppd ON (ppd.package_id = pp.package_name_id)
-
-		WHERE o.offer_id = '".(int)$offer_id."' 
-		ORDER BY  p.base_product DESC 
-		LIMIT 1
-
-
+		FROM ckf_offer_description od 
+		
+		LEFT JOIN ckf_offer_variants ov ON (od.offer_id = ov.offer_id) 
+		LEFT JOIN ckf_product_description pd ON ( pd.product_id =ov.product_id) 
+		LEFT JOIN ckf_product p ON ( p.product_id =ov.product_id) 
+		LEFT JOIN ckf_package_product pp ON (pp.product_id = pd.product_id) 
+		LEFT JOIN ckf_stock_status ss ON (ss.stock_status_id = p.stock_status_id) 
+		LEFT JOIN ckf_package_description ppd ON (ppd.package_id = pp.package_name_id) 
+		
+		WHERE od.offer_id = '".(int)$offer_id."' 
+		
+		AND IF ( od.offer_id = 484, pp.product_type IN ('napravlyaushchaya','stoika','panel'), ss.visible = 1 OR p.quantity>0) 
+		
+		GROUP BY IF ( od.offer_id = '484', pp.product_type, ov.base_price) 
+		
+		ORDER BY ov.base_price DESC, p.price ASC
+		
 		");
 
+	//	print_r ($query->rows );
+	//	print_r ('<br>'.count($query->rows).'<br>');
 
-		if ( !empty($query) ) {
-			foreach ($query->rows as $result) {
+		if (count($query->rows)>2) {
+			$summa = 0;
+
+		foreach ($query->rows as $result) {
+
+			if ($result['product_type'] == 'napravlyaushchaya') {
+				$summa = $summa + ($result['price']* 8);
+
+			} elseif ($result['product_type'] == 'stoika') {
+				$summa = $summa +( $result['price']* 8);
+
+			} elseif ($result['product_type'] == 'panel') {
+				$summa = $summa +( $result['price'] * 12);
+		
+			}	
+		
+			$product_data = array(
+				'price' => $summa/10,
+				'abbr'  => 'м.пог',
+			);
+		} 
+		
+		} else {
+			if ( !empty($query) ) {
+
+				foreach ($query->rows as $result) {
+					$product_data = array(
+						'price' => $result['price'],
+						'abbr'  => $result['abbr'],
+					);
+				break; 
+				}
+			} else {
 				$product_data = array(
 					'price' => $result['price'],
 					'abbr'  => $result['abbr'],
 				);
-
-			}
-		} else {
-			$product_data = array(
-				'price' => $result['price'],
-				'abbr'  => $result['abbr'],
-			);
+			}		
 		}
+
+
 
 		return $product_data;
 
