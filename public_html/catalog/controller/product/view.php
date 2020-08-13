@@ -288,13 +288,15 @@ class ControllerProductView extends Controller {
 
 
 			foreach ($results as $result) {
-				$prices = $this->model_catalog_offer->getProductPrice($result['offer_id']);
+				$prices = $this->model_catalog_offer->getProduct($result['offer_id']);
 
 				if (count($prices)>0) {
 					$price = $this->currency->format($this->tax->calculate($prices['price'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']).'/ '.$prices['abbr'];
 				} else {
 					$price = false;
 				}
+
+			
 				$data['images'][] = array(
 					'popup' => $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_popup_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_popup_height')),
 					'thumb' => $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_additional_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_additional_height')),

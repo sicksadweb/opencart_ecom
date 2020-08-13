@@ -432,23 +432,17 @@ class ModelCatalogView extends Model {
 
 		$query = $this->db->query("
 		
-		SELECT 
-		(p.price / pp.volume) AS price,
-		ppd.abbr  AS abbr
+		SELECT MIN(o.price) AS price
 
-		FROM ckf_view v 
-		LEFT JOIN ckf_view_image vi ON (v.view_id = vi.view_id) 
-		LEFT JOIN ckf_offer_variants ov ON (ov.offer_id = vi.offer_id) 
-		LEFT JOIN ckf_product p ON (p.product_id = ov.product_id) 
-		LEFT JOIN ckf_stock_status ss ON (ss.stock_status_id = p.stock_status_id) 
-		LEFT JOIN ckf_package_product pp ON (pp.product_id = p.product_id) 
-		LEFT JOIN ckf_package_description ppd ON (ppd.package_id = pp.package_name_id)
+		FROM " . DB_PREFIX . "view_description vd
+  		LEFT JOIN " . DB_PREFIX . "view_image vi ON (vd.view_id = vi.view_id)       
+		LEFT JOIN " . DB_PREFIX . "offer o ON (o.offer_id = vi.offer_id) 
+        
 
-		WHERE v.view_id = '" . (int)$view_id . "' 
-		ORDER BY  ov.base_price DESC , p.price ASC
-		LIMIT 1
-		
+		WHERE vd.view_id = '" . (int)$view_id . "' AND o.status=1
+
 		");
+
 
 		return $query->row;
 	}	

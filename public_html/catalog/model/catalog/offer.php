@@ -58,8 +58,8 @@ class ModelCatalogOffer extends Model {
 				'viewed'           => $query->row['viewed'],
 				'video_assembly'           => $query->row['video_assembly'],
 				'video_instruction'           => $query->row['video_instruction'],				
+				'type_id'           => $query->row['type_id'],				
 				
-
 
 			);
 		} else {
@@ -153,7 +153,8 @@ class ModelCatalogOffer extends Model {
 				'video_instruction'           => $query->row['video_instruction'],				
 				'package_product' => $this->getProductPackageProduct($query->row['product_id']),
 				'view_id'           => $query->row['view_id'],
-
+				'type_id'           => $query->row['type_id'],
+				
 			);
 		} else {
 			return false;
@@ -318,9 +319,9 @@ class ModelCatalogOffer extends Model {
 
 
 				if (isset($data['order']) && ($data['order'] == 'DESC')) {
-					$sql .= " ORDER BY p2.price DESC, (CASE WHEN special IS NOT NULL THEN special WHEN discount IS NOT NULL THEN discount ELSE p.price END)";
+					$sql .= " ORDER BY p.price DESC, (CASE WHEN special IS NOT NULL THEN special WHEN discount IS NOT NULL THEN discount ELSE p.price END)";
 				} else {
-					$sql .= " ORDER BY p2.price ASC, (CASE WHEN special IS NOT NULL THEN special WHEN discount IS NOT NULL THEN discount ELSE p.price END)";
+					$sql .= " ORDER BY p.price ASC, (CASE WHEN special IS NOT NULL THEN special WHEN discount IS NOT NULL THEN discount ELSE p.price END)";
 				}
 
 
@@ -352,7 +353,7 @@ class ModelCatalogOffer extends Model {
 		$product_data = array();
 
 		$query = $this->db->query($sql);
-		
+		print_r($sql);
 		foreach ($query->rows as $result) {
 			$product_data[$result['offer_id']] = $this->getProduct($result['offer_id']);
 		}
@@ -410,73 +411,80 @@ class ModelCatalogOffer extends Model {
 		return $product_data;
 	}
 
-	public function getProductPrice($offer_id) {
+	public function getProductPrice($offer_id, $type_id = 0) {
 		$product_data = array();
 
-		$query = $this->db->query("
-		SELECT od.name, pd.name, pp.product_type, IF (pp.product_type != null, p.price , (p.price / pp.volume ) ) AS price ,ppd.abbr , ov.base_price 
+if ($type_id > 0 ) { 
 
-		FROM ckf_offer_description od 
-		
-		LEFT JOIN ckf_offer_variants ov ON (od.offer_id = ov.offer_id) 
-		LEFT JOIN ckf_product_description pd ON ( pd.product_id =ov.product_id) 
-		LEFT JOIN ckf_product p ON ( p.product_id =ov.product_id) 
-		LEFT JOIN ckf_package_product pp ON (pp.product_id = pd.product_id) 
-		LEFT JOIN ckf_stock_status ss ON (ss.stock_status_id = p.stock_status_id) 
-		LEFT JOIN ckf_package_description ppd ON (ppd.package_id = pp.package_name_id) 
-		
-		WHERE od.offer_id = '".(int)$offer_id."' 
-		
-		AND IF ( od.offer_id = 484, pp.product_type IN ('napravlyaushchaya','stoika','panel'), ss.visible = 1 OR p.quantity>0) 
-		
-		GROUP BY IF ( od.offer_id = '484', pp.product_type, ov.base_price) 
-		
-		ORDER BY ov.base_price DESC, p.price ASC
-		
-		");
+	$query = $this->db->query("
 
-	//	print_r ($query->rows );
-	//	print_r ('<br>'.count($query->rows).'<br>');
+	SELECT o.offer_id, od.name , pd.name,p.price, pd.product_id,p.type_id, ptd.name, ptc.ratio
+	FROM " . DB_PREFIX . "offer o
+	LEFT JOIN 	" . DB_PREFIX . "offer_description od ON (od.offer_id =o.offer_id)
+	LEFT JOIN 	" . DB_PREFIX . "offer_variants ov ON (ov.offer_id = o.offer_id)
+	LEFT JOIN 	" . DB_PREFIX . "product_description pd ON (ov.product_id = pd.product_id)
+	LEFT JOIN 	" . DB_PREFIX . "product p ON  (ov.product_id = p.product_id)
+	
+	LEFT JOIN 	" . DB_PREFIX . "product_types_description ptd ON (ptd.type_id =p.type_id)
+	LEFT JOIN 	" . DB_PREFIX . "product_types_combinations ptc ON (ptc.combination  =p.type_id)
+	
+	
+	WHERE o.offer_id ='".(int)$offer_id."'  AND ptd.type_id >0
+	GROUP BY ptd.type_id
 
-		if (count($query->rows)>2) {
-			$summa = 0;
+	
+	");  
 
-		foreach ($query->rows as $result) {
+	foreach ($query->rows as $result) {
+		$summa = $summa + ($result['price']* $result['ratio']);
+	
+	} 
 
-			if ($result['product_type'] == 'napravlyaushchaya') {
-				$summa = $summa + ($result['price']* 8);
+		$product_data = array(
+			'price' => $summa/10,
+			'abbr'  => 'м.пог',
+		);
 
-			} elseif ($result['product_type'] == 'stoika') {
-				$summa = $summa +( $result['price']* 8);
+} else {
+	$query = $this->db->query("
 
-			} elseif ($result['product_type'] == 'panel') {
-				$summa = $summa +( $result['price'] * 12);
-		
-			}	
-		
-			$product_data = array(
-				'price' => $summa/10,
-				'abbr'  => 'м.пог',
-			);
-		} 
-		
-		} else {
-			if ( !empty($query) ) {
+	SELECT od.name, pd.name, p.price, p.base_product,pp.volume, (p.price / pp.volume) AS price
+	FROM " . DB_PREFIX . "offer o
+	LEFT JOIN 	" . DB_PREFIX . "offer_description od ON (od.offer_id =o.offer_id)
+	LEFT JOIN 	" . DB_PREFIX . "offer_variants ov ON (ov.offer_id = o.offer_id)
+	LEFT JOIN 	" . DB_PREFIX . "product_description pd ON (ov.product_id = pd.product_id)
+	LEFT JOIN 	" . DB_PREFIX . "product p ON  (ov.product_id = p.product_id)
+	LEFT JOIN 	" . DB_PREFIX . "package_product pp ON (pp.product_id = p.product_id)
+	LEFT JOIN 	" . DB_PREFIX . "stock_status ss ON  (ss.stock_status_id = p.stock_status_id)
 
-				foreach ($query->rows as $result) {
-					$product_data = array(
-						'price' => $result['price'],
-						'abbr'  => $result['abbr'],
-					);
-				break; 
-				}
-			} else {
-				$product_data = array(
-					'price' => $result['price'],
-					'abbr'  => $result['abbr'],
-				);
-			}		
-		}
+	WHERE o.offer_id = '".(int)$offer_id."' AND (p.quantity > 0  OR ss.visible =1 )
+
+	ORDER BY p.base_product DESC
+	LIMIT 1
+
+	"); 
+
+	foreach ($query->rows as $result) {
+		$product_data = array(
+			'price' => $result['price'],
+			'abbr'  => $result['abbr'],
+		);
+	
+	} 
+
+
+
+}
+
+
+
+	$query = $this->db->query(" 
+
+	UPDATE  " . DB_PREFIX . "offer SET  price ='".$product_data['price']."' WHERE offer_id='".(int)$offer_id."' ;
+
+	"); 
+
+
 
 
 
