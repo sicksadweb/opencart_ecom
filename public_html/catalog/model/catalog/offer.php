@@ -58,7 +58,8 @@ class ModelCatalogOffer extends Model {
 				'viewed'           => $query->row['viewed'],
 				'video_assembly'           => $query->row['video_assembly'],
 				'video_instruction'           => $query->row['video_instruction'],				
-				'type_id'           => $query->row['type_id'],				
+				'type_id'           => $query->row['type_id'],	
+				'abbr'         		=> $query->row['abbr_package'],				
 				
 
 			);
@@ -154,11 +155,12 @@ class ModelCatalogOffer extends Model {
 				'package_product' => $this->getProductPackageProduct($query->row['product_id']),
 				'view_id'           => $query->row['view_id'],
 				'type_id'           => $query->row['type_id'],
-				
+			
 			);
 		} else {
 			return false;
 		}
+
 	}
 
 	public function getProducts($data = array()) {
@@ -316,12 +318,24 @@ class ModelCatalogOffer extends Model {
 				$sql .= " ORDER BY LCASE(" . $data['sort'] . ")";
 			} elseif ($data['sort'] == 'p.price') {
 
+//------------------
+/*
+elseif ($data['sort'] == 'p.price') {
+	$sql .= " ORDER BY CASE WHEN p.price> 0 THEN 0 ELSE 1 END , p.price ";
+} 
+else {
+	$sql .= " ORDER BY CASE WHEN p.price> 0 THEN 0 ELSE 1 END , p.price  ";
+}
+*/
+//------------------------
+
+
 
 
 				if (isset($data['order']) && ($data['order'] == 'DESC')) {
-					$sql .= " ORDER BY p.price DESC, (CASE WHEN special IS NOT NULL THEN special WHEN discount IS NOT NULL THEN discount ELSE p.price END)";
+					$sql .= " ORDER BY CASE WHEN p.price> 0 THEN 0 ELSE 1 END , p.price DESC, (CASE WHEN special IS NOT NULL THEN special WHEN discount IS NOT NULL THEN discount ELSE p.price END)";
 				} else {
-					$sql .= " ORDER BY p.price ASC, (CASE WHEN special IS NOT NULL THEN special WHEN discount IS NOT NULL THEN discount ELSE p.price END)";
+					$sql .= " ORDER BY CASE WHEN p.price> 0 THEN 0 ELSE 1 END , p.price ASC, (CASE WHEN special IS NOT NULL THEN special WHEN discount IS NOT NULL THEN discount ELSE p.price END)";
 				}
 
 
@@ -424,12 +438,13 @@ if ($type_id > 0 ) {
 	LEFT JOIN 	" . DB_PREFIX . "offer_variants ov ON (ov.offer_id = o.offer_id)
 	LEFT JOIN 	" . DB_PREFIX . "product_description pd ON (ov.product_id = pd.product_id)
 	LEFT JOIN 	" . DB_PREFIX . "product p ON  (ov.product_id = p.product_id)
-	
+
+	LEFT JOIN 	" . DB_PREFIX . "package_product pp ON (pp.product_id = p.product_id)	
 	LEFT JOIN 	" . DB_PREFIX . "product_types_description ptd ON (ptd.type_id =p.type_id)
 	LEFT JOIN 	" . DB_PREFIX . "product_types_combinations ptc ON (ptc.combination  =p.type_id)
+	LEFT JOIN 	" . DB_PREFIX . "stock_status ss ON  (ss.stock_status_id = p.stock_status_id)	
 	
-	
-	WHERE o.offer_id ='".(int)$offer_id."'  AND ptd.type_id >0
+	WHERE o.offer_id ='".(int)$offer_id."'  AND ptd.type_id >0 AND (p.quantity > 0  OR ss.visible =1 )
 	GROUP BY ptd.type_id
 
 	
@@ -448,13 +463,16 @@ if ($type_id > 0 ) {
 } else {
 	$query = $this->db->query("
 
-	SELECT od.name, pd.name, p.price, p.base_product,pp.volume, (p.price / pp.volume) AS price
+	SELECT od.name, pd.name, p.price, p.base_product,pp.volume, (p.price / pp.volume) AS price , (p.price / pp.volume) AS mainprice , ppd.abbr
 	FROM " . DB_PREFIX . "offer o
 	LEFT JOIN 	" . DB_PREFIX . "offer_description od ON (od.offer_id =o.offer_id)
 	LEFT JOIN 	" . DB_PREFIX . "offer_variants ov ON (ov.offer_id = o.offer_id)
 	LEFT JOIN 	" . DB_PREFIX . "product_description pd ON (ov.product_id = pd.product_id)
 	LEFT JOIN 	" . DB_PREFIX . "product p ON  (ov.product_id = p.product_id)
 	LEFT JOIN 	" . DB_PREFIX . "package_product pp ON (pp.product_id = p.product_id)
+	LEFT JOIN 	ckf_package_description ppd ON (pp.package_name_id = ppd.package_id)   
+	LEFT JOIN 	" . DB_PREFIX . "product_types_description ptd ON (ptd.type_id =p.type_id)
+	LEFT JOIN 	" . DB_PREFIX . "product_types_combinations ptc ON (ptc.combination  =p.type_id)
 	LEFT JOIN 	" . DB_PREFIX . "stock_status ss ON  (ss.stock_status_id = p.stock_status_id)
 
 	WHERE o.offer_id = '".(int)$offer_id."' AND (p.quantity > 0  OR ss.visible =1 )

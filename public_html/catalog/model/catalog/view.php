@@ -69,7 +69,7 @@ class ModelCatalogView extends Model {
 
 	public function getProducts($data = array()) {
 		$sql = "
-		SELECT p.view_id, 
+		SELECT p.view_id, p.price, 
 
 		 (SELECT price FROM " . DB_PREFIX . "view_discount pd2 WHERE pd2.view_id = p.view_id AND pd2.customer_group_id = '" . (int)$this->config->get('config_customer_group_id') . "' AND pd2.quantity = '1' AND ((pd2.date_start = '0000-00-00' OR pd2.date_start < NOW()) AND (pd2.date_end = '0000-00-00' OR pd2.date_end > NOW())) ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS discount, 
 		 (SELECT price FROM " . DB_PREFIX . "view_special ps 
@@ -86,7 +86,7 @@ class ModelCatalogView extends Model {
 		 AND pp.product_id= p.product_id 
 		  ORDER BY ov.base_price DESC
 		  LIMIT 1
-	 	) AS price 
+	 	) AS noprice 
 		 
 		 ";
 
@@ -203,7 +203,6 @@ class ModelCatalogView extends Model {
 				$sql .= " ORDER BY LCASE(" . $data['sort'] . ")";
 			} elseif ($data['sort'] == 'p.price') {
 				$sql .= " ORDER BY price ";
-
 
 			} else {
 				$sql .= " ORDER BY " . $data['sort'];
@@ -432,17 +431,22 @@ class ModelCatalogView extends Model {
 
 		$query = $this->db->query("
 		
-		SELECT MIN(o.price) AS price
+		SELECT MIN(o.price) AS price , o.abbr_package AS abbr
 
 		FROM " . DB_PREFIX . "view_description vd
   		LEFT JOIN " . DB_PREFIX . "view_image vi ON (vd.view_id = vi.view_id)       
-		LEFT JOIN " . DB_PREFIX . "offer o ON (o.offer_id = vi.offer_id) 
-        
+		LEFT JOIN " . DB_PREFIX . "offer o ON (o.offer_id = vi.offer_id)
 
-		WHERE vd.view_id = '" . (int)$view_id . "' AND o.status=1
+		WHERE vd.view_id = '" . (int)$view_id . "' AND o.status=1 AND o.price > 0
 
 		");
 
+		
+		/*
+		$update_price = $this->db->query("
+		UPDATE ckf_view  SET  price= '" . $query->row['price'] . "' WHERE view_id ='" . (int)$view_id . "';
+		");
+		*/
 
 		return $query->row;
 	}	

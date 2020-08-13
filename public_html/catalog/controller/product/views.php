@@ -225,8 +225,10 @@ class ControllerProductviews extends Controller {
 					'special'     => $special,
 					'tax'         => $tax,
 					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
+					'href'        => $this->url->link('product/view', 'path=' . $this->request->get['path'] . '&view_id=' . $result['view_id'] . $url),
 
-					'href'        => $this->url->link('product/view', 'path=' . $this->request->get['path'] . '&view_id=' . $result['view_id'] . $url)
+
+
 				);
 			}
 

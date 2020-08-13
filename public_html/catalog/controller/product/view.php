@@ -320,7 +320,15 @@ class ControllerProductView extends Controller {
 			}
 				$product_price = $this->model_catalog_view->getProductPrice($product_info['view_id']);
 
-				$data['price'] = $this->currency->format($this->tax->calculate($product_price['price'] , $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']).'/ '.$product_price['abbr'];
+				if ($product_price['price'] == false  || $product_price['price'] != 0 ) {
+					
+					$data['price'] = $this->currency->format($this->tax->calculate($product_price['price'] , $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']).'/ '.$product_price['abbr'];
+
+				} else {
+
+					$data['price'] = $this->language->get('text_price_false');
+
+				}
 
 			if ((float)$product_info['special']) {
 				$data['special'] = $this->currency->format($this->tax->calculate($product_info['special'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
@@ -452,6 +460,7 @@ class ControllerProductView extends Controller {
 					'tax'         => $tax,
 					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
 					'href'        => $this->url->link('product/view', 'view_id=' . $result['view_id'])
+
 				);
 			}
 
