@@ -1,5 +1,5 @@
 <?php
-class ControllerInformationAboutUs extends Controller {
+class ControllerInformationDelivery extends Controller {
 	private $error = array();
 
 	public function index() {
@@ -119,6 +119,7 @@ class ControllerInformationAboutUs extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
 
-		$this->response->setOutput($this->load->view('information/about_us', $data));
+		$this->response->setOutput($this->load->view('information/delivery', $data));
 	}
+
 }

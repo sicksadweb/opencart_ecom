@@ -88,10 +88,15 @@ class ControllerCommonHeader extends Controller {
 		$data['shopping_cart'] = $this->url->link('checkout/cart');
 		$data['checkout'] = $this->url->link('checkout/checkout', '', true);
 		$data['contact'] = $this->url->link('information/contact');
+		$data['wishlist'] = $this->url->link('account/wishlist', '', true);
+		$data['catalog'] = $this->url->link('product/views', '', true);
+
+		$data['about_us'] = $this->url->link('information/about_us', '', true);		
+		$data['delivery'] = $this->url->link('information/delivery', '', true);	
+
 		$data['telephone'] = $this->config->get('config_telephone');
 		
 		$data['language'] = $this->load->controller('common/language');
-		$data['currency'] = $this->load->controller('common/currency');
 		$data['currency'] = $this->load->controller('common/currency');
 		if ($this->config->get('configblog_blog_menu')) {
 			$data['blog_menu'] = $this->load->controller('blog/menu');

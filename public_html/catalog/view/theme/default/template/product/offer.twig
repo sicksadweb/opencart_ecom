@@ -159,13 +159,13 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body row">
-        <h4 class="modal-title col-sm-12 col-xs-6">{{ product.name }}
+        <h4 class="modal-title col-sm-12 col-xs-12">{{ product.name }}
 
           <hr class="hidden-xs">
         </h4>
 
-        <img id="zoomimage111" src="{{ product.thumb }}" alt="{{ product.name }}" data-zoom="{{ product.popup }}" onclick="zoomimage()" class="img-responsive col-xs-6">
-        <div  class="col-sm-6 col-xs-12">
+        <img id="zoomimage111" src="{{ product.thumb }}" alt="{{ product.name }}" data-zoom="{{ product.popup }}" onclick="zoomimage()" class="img-responsive col-sm-6 col-xs-12">
+        <div  class="col-sm-6 col-xs-12" style="font-size: large; line-height: 25px;">
           {{ product.view_description }}
         </div> 
         <div class="col-xs-12">

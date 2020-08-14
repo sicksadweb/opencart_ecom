@@ -142,6 +142,8 @@ class ControllerProductviews extends Controller {
 
 			$data['description'] = html_entity_decode($category_info['description'], ENT_QUOTES, 'UTF-8');
 			$data['compare'] = $this->url->link('product/compare');
+			$data['offers_id'] = $category_info['offers_id'];
+			$data['href_offers'] = $this->url->link('product/offers', 'path=' . $category_info['offers_id'] . $url);
 
 			$url = '';
 
@@ -165,17 +167,26 @@ class ControllerProductviews extends Controller {
 
 			$results = $this->model_catalog_views->getCategories($views_id);
 
-            foreach ($results as $result) {
-                $filter_data = array(
-                    'filter_views_id'  => $result['views_id'],
-                    'filter_sub_category' => true
-                );
+			foreach ($results as $result) {
+				$filter_data = array(
+					'filter_views_id'  => $result['views_id'],
+					'filter_sub_category' => true
+				);
+				
+				if ($result['image']) {
+					$image = $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
+				} else {
+					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
+				}
 
-                $data['categories'][] = array(
-                    'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_view->getTotalProducts($filter_data) . ')' : ''),
-                    'href' => $this->url->link('product/views', 'path=' . $this->request->get['path'] . '_' . $result['views_id'] . $url)
-                );
-            }
+
+				$data['categories'][] = array(
+					'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_view->getTotalProducts($filter_data) . ')' : ''),
+					'href' => $this->url->link('product/views', 'path=' . $result['views_id'] . $url),
+					'offers_id' => $result['offers_id'],
+					'thumb'    => $image,
+				);
+			}
 
 			$data['products'] = array();
 
@@ -199,6 +210,20 @@ class ControllerProductviews extends Controller {
 					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
 				}
 
+				$aditional_images = array( );
+
+				$results_images = $this->model_catalog_view->getProductImages($result['view_id']);
+				
+				foreach ($results_images as $result_image) {
+					$aditional_images[] = array(
+						'popup' => $this->model_tool_image->resize($result_image['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_popup_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_popup_height')),
+						'thumb' => $this->model_tool_image->resize($result_image['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_additional_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_additional_height')),
+						'name' => $result_image['name'],
+						'alt' => $result_image['alt'],
+					);
+				}
+
+
 				$product_price = $this->model_catalog_view->getProductPrice($result['view_id']);
 				$price = $this->currency->format($this->tax->calculate($product_price['price'] , $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']).'/ '.$product_price['abbr'];
 												
@@ -219,6 +244,7 @@ class ControllerProductviews extends Controller {
 				$data['products'][] = array(
 					'view_id'  => $result['view_id'],
 					'thumb'       => $image,
+					'aditional_images'       => $aditional_images,
 					'name'        => $result['name'],
 					'description' => utf8_substr(trim(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8'))), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_product_description_length')) . '..',
 					'price'       => $price,
@@ -273,20 +299,6 @@ class ControllerProductviews extends Controller {
 				'value' => 'p.price-DESC',
 				'href'  => $this->url->link('product/views', 'path=' . $this->request->get['path'] . '&sort=p.price&order=DESC' . $url)
 			);
-
-			if ($this->config->get('config_review_status')) {
-				$data['sorts'][] = array(
-					'text'  => $this->language->get('text_rating_desc'),
-					'value' => 'rating-DESC',
-					'href'  => $this->url->link('product/views', 'path=' . $this->request->get['path'] . '&sort=rating&order=DESC' . $url)
-				);
-
-				$data['sorts'][] = array(
-					'text'  => $this->language->get('text_rating_asc'),
-					'value' => 'rating-ASC',
-					'href'  => $this->url->link('product/views', 'path=' . $this->request->get['path'] . '&sort=rating&order=ASC' . $url)
-				);
-			}
 
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_model_asc'),
@@ -437,9 +449,19 @@ class ControllerProductviews extends Controller {
 					'filter_sub_category' => true
 				);
 
+				if ($result['image']) {
+					$image = $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
+				} else {
+					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
+				}
+
+
 				$data['categories'][] = array(
 					'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_view->getTotalProducts($filter_data) . ')' : ''),
-					'href' => $this->url->link('product/views', 'path=' . $result['views_id'] . $url)
+					'href' => $this->url->link('product/views', 'path=' . $result['views_id'] . $url),
+					'thumb'    => $image,
+					'href_offers' => $this->url->link('product/offers', 'path=' . $result['offers_id'] . $url),
+					'offers_id' => $result['offers_id'],
 				);
 			}
 
@@ -464,6 +486,18 @@ class ControllerProductviews extends Controller {
 				} else {
 					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
 				}
+				$aditional_images = array( );
+
+				$results_images = $this->model_catalog_view->getProductImages($result['view_id']);
+				
+				foreach ($results_images as $result_image) {
+					$aditional_images[] = array(
+						'popup' => $this->model_tool_image->resize($result_image['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_popup_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_popup_height')),
+						'thumb' => $this->model_tool_image->resize($result_image['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_additional_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_additional_height')),
+						'name' => $result_image['name'],
+						'alt' => $result_image['alt'],
+					);
+				}
 
 				if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
 					$price = $this->currency->format($this->tax->calculate($result['price'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
@@ -483,22 +517,18 @@ class ControllerProductviews extends Controller {
 					$tax = false;
 				}
 
-				if ($this->config->get('config_review_status')) {
-					$rating = (int)$result['rating'];
-				} else {
-					$rating = false;
-				}
 
 				$data['products'][] = array(
 					'view_id'  => $result['view_id'],
 					'thumb'       => $image,
+					'aditional_images'       => $aditional_images,
 					'name'        => $result['name'],
 					'description' => utf8_substr(trim(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8'))), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_product_description_length')) . '..',
 					'price'       => $price,
 					'special'     => $special,
 					'tax'         => $tax,
 					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
-					'rating'      => $result['rating'],
+
 					'href'        => $this->url->link('product/view',  '&view_id=' . $result['view_id'] . $url)
 				);
 			}
@@ -545,19 +575,7 @@ class ControllerProductviews extends Controller {
 				'href'  => $this->url->link('product/views',  '&sort=p.price&order=DESC' . $url)
 			);
 
-			if ($this->config->get('config_review_status')) {
-				$data['sorts'][] = array(
-					'text'  => $this->language->get('text_rating_desc'),
-					'value' => 'rating-DESC',
-					'href'  => $this->url->link('product/views',  '&sort=rating&order=DESC' . $url)
-				);
 
-				$data['sorts'][] = array(
-					'text'  => $this->language->get('text_rating_asc'),
-					'value' => 'rating-ASC',
-					'href'  => $this->url->link('product/views',  '&sort=rating&order=ASC' . $url)
-				);
-			}
 
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_model_asc'),

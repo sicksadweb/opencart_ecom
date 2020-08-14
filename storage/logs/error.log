@@ -5148,3 +5148,761 @@
 2020-08-13 7:04:44 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 501
 2020-08-13 7:04:44 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 501
 2020-08-13 7:04:44 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 501
+2020-08-13 7:31:40 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 293
+2020-08-13 7:31:40 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 293
+2020-08-13 7:50:50 - PHP Notice:  Undefined variable: summa in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 439
+2020-08-13 7:50:51 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 524
+2020-08-13 7:50:51 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 524
+2020-08-13 7:50:51 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 524
+2020-08-13 7:50:51 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 524
+2020-08-13 7:50:51 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 524
+2020-08-13 7:50:51 - PHP Notice:  Undefined index: quantity in W:\domains\opencart_ecom\public_html\catalog\controller\product\offer.php on line 524
+2020-08-13 7:52:54 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 293
+2020-08-13 7:52:54 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 293
+2020-08-13 9:05:45 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 293
+2020-08-13 9:05:45 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 293
+2020-08-14 7:29:35 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 7:29:35 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:29:35 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 7:29:35 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:29:35 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 7:29:35 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:29:35 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 7:29:35 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:29:35 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 7:29:35 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:29:35 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 7:29:35 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:29:35 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 7:29:35 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:29:35 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 7:29:35 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:29:35 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 7:29:35 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:29:35 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 7:29:35 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:29:35 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 7:29:35 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:29:36 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 7:29:36 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:29:36 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 7:29:36 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:29:36 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 7:29:36 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:29:36 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 7:29:36 - PHP Notice:  Undefined index: rating in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:51:15 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 483
+2020-08-14 7:51:15 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 483
+2020-08-14 7:51:15 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 488
+2020-08-14 7:51:15 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 495
+2020-08-14 7:51:15 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 495
+2020-08-14 7:51:15 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:51:15 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 509
+2020-08-14 7:51:15 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 483
+2020-08-14 7:51:15 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 483
+2020-08-14 7:51:15 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 488
+2020-08-14 7:51:15 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 495
+2020-08-14 7:51:15 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 495
+2020-08-14 7:51:15 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:51:15 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 509
+2020-08-14 7:51:15 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 483
+2020-08-14 7:51:15 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 483
+2020-08-14 7:51:15 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 488
+2020-08-14 7:51:15 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 495
+2020-08-14 7:51:15 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 495
+2020-08-14 7:51:15 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:51:15 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 509
+2020-08-14 7:51:15 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 483
+2020-08-14 7:51:15 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 483
+2020-08-14 7:51:15 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 488
+2020-08-14 7:51:15 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 495
+2020-08-14 7:51:15 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 495
+2020-08-14 7:51:15 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:51:15 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 509
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 483
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 483
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 488
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 495
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 495
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 509
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 483
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 483
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 488
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 495
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 495
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 509
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 483
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 483
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 488
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 495
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 495
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 509
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 483
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 483
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 488
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 495
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 495
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 509
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 483
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 483
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 488
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 495
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 495
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:51:16 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 509
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:51:27 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:51:55 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:54:56 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:54:56 - PHP Notice:  Undefined variable: tax in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 504
+2020-08-14 7:54:56 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:54:56 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:54:56 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:54:56 - PHP Notice:  Undefined variable: tax in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 504
+2020-08-14 7:54:56 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:54:56 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:54:56 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:54:56 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:54:56 - PHP Notice:  Undefined variable: tax in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 504
+2020-08-14 7:54:56 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:54:56 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:54:56 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:54:56 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:54:56 - PHP Notice:  Undefined variable: tax in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 504
+2020-08-14 7:54:56 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:54:56 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:54:56 - PHP Notice:  Undefined variable: tax in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 504
+2020-08-14 7:54:56 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:54:56 - PHP Notice:  Undefined variable: tax in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 504
+2020-08-14 7:54:56 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:54:56 - PHP Notice:  Undefined variable: tax in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 504
+2020-08-14 7:54:56 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:54:56 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:54:56 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:54:56 - PHP Notice:  Undefined variable: tax in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 504
+2020-08-14 7:54:56 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:54:56 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:54:56 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:54:56 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:54:56 - PHP Notice:  Undefined variable: tax in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 504
+2020-08-14 7:54:56 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:54:56 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:54:56 - PHP Notice:  Undefined variable: tax in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 504
+2020-08-14 7:54:56 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:54:56 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:54:56 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:54:56 - PHP Notice:  Undefined variable: tax in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 504
+2020-08-14 7:54:56 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:54:56 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:54:56 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:54:56 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:54:56 - PHP Notice:  Undefined variable: tax in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 504
+2020-08-14 7:54:56 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:54:56 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:54:56 - PHP Notice:  Undefined variable: tax in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 504
+2020-08-14 7:54:56 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:54:56 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:54:56 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:54:56 - PHP Notice:  Undefined variable: tax in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 504
+2020-08-14 7:54:56 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:54:56 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:54:56 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:54:56 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:54:56 - PHP Notice:  Undefined variable: tax in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 504
+2020-08-14 7:54:56 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:55:09 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:55:09 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:09 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:55:09 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:55:09 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:09 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:55:09 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:55:09 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:55:09 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:09 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:55:09 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:55:09 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:55:09 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:09 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:55:09 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:55:09 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:09 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:55:09 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:09 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:55:09 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:09 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:55:09 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:55:09 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:09 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:55:09 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:55:09 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:55:09 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:09 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:55:09 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:55:09 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:09 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:55:09 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:55:09 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:09 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:55:09 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:55:09 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:55:09 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:09 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:55:09 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:55:09 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:09 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:55:09 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:55:09 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:09 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:55:09 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:55:09 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:55:09 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:09 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:55:25 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:55:25 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:25 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:55:25 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:55:25 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:25 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:55:25 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:55:25 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:25 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:55:25 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:55:25 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:25 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:55:25 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:25 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:55:25 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:25 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:55:25 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:25 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:55:25 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:55:25 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:25 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:55:25 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:55:25 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:25 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:55:25 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:25 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:55:25 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:55:25 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:25 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:55:25 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:55:25 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:25 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:55:25 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:25 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:55:25 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:55:25 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:25 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:55:25 - PHP Notice:  Undefined variable: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:55:25 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:33 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:33 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:55:33 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:33 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:55:33 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:33 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:55:33 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:33 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:33 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:33 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:33 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:55:33 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:33 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:55:33 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:33 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:33 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:55:33 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:33 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:55:33 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:33 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:33 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:55:33 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:55:33 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:55:33 - PHP Notice:  Undefined variable: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 503
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:56:26 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 501
+2020-08-14 7:56:40 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 505
+2020-08-14 7:57:19 - PHP Notice:  Undefined variable: aditional_images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 500
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 506
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 506
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 506
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 506
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 506
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 506
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 506
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 506
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: tax_class_id in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 479
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 484
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: special in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 491
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: description in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 502
+2020-08-14 7:57:19 - PHP Notice:  Undefined index: minimum in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 506
+2020-08-14 7:57:46 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 469
+2020-08-14 7:57:46 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 469
+2020-08-14 7:57:46 - PHP Notice:  Undefined variable: aditional_images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 500
+2020-08-14 7:57:46 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 469
+2020-08-14 7:57:46 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 469
+2020-08-14 7:57:46 - PHP Notice:  Undefined variable: aditional_images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 500
+2020-08-14 7:57:46 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 469
+2020-08-14 7:57:46 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 469
+2020-08-14 7:57:46 - PHP Notice:  Undefined variable: aditional_images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 500
+2020-08-14 7:57:46 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 469
+2020-08-14 7:57:46 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 469
+2020-08-14 7:57:46 - PHP Notice:  Undefined variable: aditional_images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 500
+2020-08-14 7:57:46 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 469
+2020-08-14 7:57:46 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 469
+2020-08-14 7:57:46 - PHP Notice:  Undefined variable: aditional_images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 500
+2020-08-14 7:57:46 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 469
+2020-08-14 7:57:46 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 469
+2020-08-14 7:57:46 - PHP Notice:  Undefined variable: aditional_images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 500
+2020-08-14 7:57:46 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 469
+2020-08-14 7:57:46 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 469
+2020-08-14 7:57:46 - PHP Notice:  Undefined variable: aditional_images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 500
+2020-08-14 7:57:46 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 469
+2020-08-14 7:57:46 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 469
+2020-08-14 7:57:46 - PHP Notice:  Undefined variable: aditional_images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 500
+2020-08-14 7:57:46 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 469
+2020-08-14 7:57:46 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 469
+2020-08-14 7:57:46 - PHP Notice:  Undefined variable: aditional_images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 500
+2020-08-14 7:57:46 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 469
+2020-08-14 7:57:46 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 469
+2020-08-14 7:57:46 - PHP Notice:  Undefined variable: aditional_images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 500
+2020-08-14 7:57:46 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 469
+2020-08-14 7:57:46 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 469
+2020-08-14 7:57:46 - PHP Notice:  Undefined variable: aditional_images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 500
+2020-08-14 7:57:46 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 469
+2020-08-14 7:57:46 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 469
+2020-08-14 7:57:46 - PHP Notice:  Undefined variable: aditional_images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 500
+2020-08-14 7:57:46 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 469
+2020-08-14 7:57:46 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 469
+2020-08-14 7:57:46 - PHP Notice:  Undefined variable: aditional_images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 500
+2020-08-14 7:57:46 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 469
+2020-08-14 7:57:46 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 469
+2020-08-14 7:57:46 - PHP Notice:  Undefined variable: aditional_images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 500
+2020-08-14 7:57:46 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 469
+2020-08-14 7:57:46 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 469
+2020-08-14 7:57:46 - PHP Notice:  Undefined variable: aditional_images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 500
+2020-08-14 7:58:35 - PHP Notice:  Undefined variable: aditional_images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 500
+2020-08-14 7:58:54 - PHP Notice:  Undefined variable: aditional_images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 500
+2020-08-14 7:59:33 - PHP Notice:  Undefined variable: aditional_images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 500
+2020-08-14 7:59:47 - PHP Notice:  Undefined variable: aditional_images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 500
+2020-08-14 8:00:56 - PHP Notice:  Undefined variable: aditional_images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 500
+2020-08-14 8:01:18 - PHP Notice:  Undefined variable: aditional_images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 500
+2020-08-14 8:03:10 - PHP Notice:  Undefined variable: aditional_images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 500
+2020-08-14 8:04:03 - PHP Notice:  Undefined variable: aditional_images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 500
+2020-08-14 8:20:26 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 205
+2020-08-14 8:20:26 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 205
+2020-08-14 8:20:26 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 205
+2020-08-14 8:20:26 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 205
+2020-08-14 8:20:26 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 205
+2020-08-14 8:20:26 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 205
+2020-08-14 8:20:26 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 205
+2020-08-14 8:20:26 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 205
+2020-08-14 8:20:26 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 205
+2020-08-14 8:20:26 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 205
+2020-08-14 8:20:26 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 205
+2020-08-14 8:20:26 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 205
+2020-08-14 8:20:45 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:20:45 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:20:45 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:20:45 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:20:45 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:20:45 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:20:45 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:20:45 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:20:45 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:20:45 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:20:45 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:20:45 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:22:36 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:22:36 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:22:36 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:22:36 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:22:36 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:22:36 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:22:36 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:22:36 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:22:36 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:22:36 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:22:36 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:22:36 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:22:55 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 8:22:55 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 8:22:55 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 8:22:55 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 8:22:55 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 8:22:55 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 8:22:55 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 8:22:55 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 8:22:55 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 8:22:55 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 8:22:55 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 8:22:55 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 8:22:55 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 8:22:55 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 8:22:55 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 8:22:55 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 8:22:55 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 8:22:55 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 8:22:55 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 8:22:55 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 8:22:55 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 8:22:55 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 8:22:55 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 8:22:55 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 8:22:55 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 8:22:55 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 8:22:55 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 8:22:55 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 8:22:55 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 8:22:55 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 487
+2020-08-14 8:23:14 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:23:14 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:23:14 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:23:14 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:23:14 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:23:14 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:23:14 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:23:14 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:23:14 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:23:14 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:23:14 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:23:14 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:23:39 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:23:39 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:23:39 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:23:39 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:23:39 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:23:39 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:23:39 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:23:39 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:23:39 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:23:39 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:23:39 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:23:39 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:24:04 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:24:04 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:24:04 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:24:04 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:24:04 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:24:04 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:24:04 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:24:04 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:24:04 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:24:04 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:24:04 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:24:04 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:24:08 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:24:08 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:24:08 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:24:08 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:24:08 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:24:08 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:24:08 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:24:08 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:24:08 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:24:08 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:24:08 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:24:08 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
+2020-08-14 8:45:08 - PHP Notice:  Undefined variable: result in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 146

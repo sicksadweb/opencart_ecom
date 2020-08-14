@@ -74,7 +74,7 @@ class ModelCatalogOffer extends Model {
 
 		$query = $this->db->query("
 		SELECT DISTINCT *, 
-		(SELECT vd.view_id FROM " . DB_PREFIX . "offer_variants ov, " . DB_PREFIX . "view_image vi , " . DB_PREFIX . "view_description vd WHERE product_id ='3780' AND vi.offer_id = ov.offer_id AND vd.view_id =vi.view_id) AS  view_id ,
+		(SELECT vd.view_id FROM " . DB_PREFIX . "offer_variants ov, " . DB_PREFIX . "view_image vi , " . DB_PREFIX . "view_description vd WHERE product_id ='".$product_id."' AND vi.offer_id = ov.offer_id AND vd.view_id =vi.view_id) AS  view_id ,
 		pd.name AS name, 
 		p.image, 
 		p.noindex AS noindex, 
@@ -102,7 +102,6 @@ class ModelCatalogOffer extends Model {
 		AND p.date_available <= NOW() 
 		AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'
 		");
-
 
 
 		if ($query->num_rows) {
@@ -318,26 +317,11 @@ class ModelCatalogOffer extends Model {
 				$sql .= " ORDER BY LCASE(" . $data['sort'] . ")";
 			} elseif ($data['sort'] == 'p.price') {
 
-//------------------
-/*
-elseif ($data['sort'] == 'p.price') {
-	$sql .= " ORDER BY CASE WHEN p.price> 0 THEN 0 ELSE 1 END , p.price ";
-} 
-else {
-	$sql .= " ORDER BY CASE WHEN p.price> 0 THEN 0 ELSE 1 END , p.price  ";
-}
-*/
-//------------------------
-
-
-
-
 				if (isset($data['order']) && ($data['order'] == 'DESC')) {
 					$sql .= " ORDER BY CASE WHEN p.price> 0 THEN 0 ELSE 1 END , p.price DESC, (CASE WHEN special IS NOT NULL THEN special WHEN discount IS NOT NULL THEN discount ELSE p.price END)";
 				} else {
 					$sql .= " ORDER BY CASE WHEN p.price> 0 THEN 0 ELSE 1 END , p.price ASC, (CASE WHEN special IS NOT NULL THEN special WHEN discount IS NOT NULL THEN discount ELSE p.price END)";
 				}
-
 
 			} else {
 				$sql .= " ORDER BY " . $data['sort'];
@@ -367,7 +351,7 @@ else {
 		$product_data = array();
 
 		$query = $this->db->query($sql);
-		print_r($sql);
+
 		foreach ($query->rows as $result) {
 			$product_data[$result['offer_id']] = $this->getProduct($result['offer_id']);
 		}

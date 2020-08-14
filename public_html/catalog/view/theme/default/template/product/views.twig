@@ -21,18 +21,22 @@
     {% endif %}
     <div id="content" class="{{ class }}">{{ content_top }}
       <h1>{{ heading_title }}</h1>
+      
       {% if thumb or description %}
       <div class="row"> {% if thumb %}
-        <div class="col-sm-2"><img src="{{ thumb }}" alt="{{ heading_title }}" title="{{ heading_title }}" class="img-thumbnail" /></div>
+        <div class="col-sm-2">
+          <img src="{{ thumb }}" alt="{{ heading_title }}" title="{{ heading_title }}" class="img-thumbnail" /></div>
         {% endif %}
         {% if description %}
         <div class="col-sm-10">{{ description }}</div>
-        {% endif %}</div>
+        {% endif %}
+        <a class="btn btn-primary " href="{{ href_offers }}">{{ text_go_offers }}</a>
+      </div>
       <hr>
       {% endif %}
       {% if categories %}
       <h3>{{ text_refine }}</h3>
-          <ul class="row">
+          <ul class="row list-unstyled">
             {% for category in categories %}
             <li class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
             <a href="{{ category.href }}">
@@ -45,6 +49,9 @@
       {% endif %}
       {% if products %}
       <div class="row">
+        <div class="col-md-4 col-xs-6">
+          <a class="btn btn-primary btn-block" href="{{ href_offers }}">{{ text_go_offers }}</a>
+        </div>
         <div class="col-md-4 col-xs-6">
           <div class="form-group input-group input-group-sm">
             <label class="input-group-addon" for="input-sort">{{ text_sort }}</label>
@@ -65,7 +72,7 @@
             </select>
           </div>
         </div>
-        <div class="col-md-3 col-xs-6">
+        <div class="col-md-4 col-xs-6">
           <div class="form-group input-group input-group-sm">
             <label class="input-group-addon" for="input-limit">{{ text_limit }}</label>
             <select id="input-limit" class="form-control" onchange="location = this.value;">
@@ -90,7 +97,40 @@
       <div class="row"> {% for product in products %}
         <div class="product-layout product-grid col-lg-3 col-md-3 col-sm-4 col-xs-6">
           <div class="product-thumb">
-            <div class="image"><a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" /></a></div>
+            <div class="image">
+              <a href="{{ product.href }}">
+                <img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" />
+              </a>
+            </div>
+
+              {% if product.aditional_images %}
+              <div class="swiper-viewport">
+                <div id="slideshowproducts" class="slideshowproducts swiper-container">
+                  <div class="swiper-wrapper"> 
+                    {% for image in product.aditional_images %}
+                    <div class="swiper-slide text-center">
+                      <img src="{{ image.thumb }}" alt="{{ image.alt }}" class="img-responsive" />
+                    </div>
+                    {% endfor %} </div>
+                </div>
+
+              </div>
+              <script type="text/javascript"><!--
+              $('.slideshowproducts').swiper({
+                mode: 'horizontal',
+                slidesPerView: 4,
+                pagination: '.slideshow{{ module }}',
+                paginationClickable: true,
+                nextButton: '.swiper-button-next',
+                  prevButton: '.swiper-button-prev',
+                  spaceBetween: 15,
+                autoplay: 2500,
+                  autoplayDisableOnInteraction: true,
+                loop: true
+              });
+              --></script>
+              {% endif %}
+      
             <div>
                 <h4><a href="{{ product.href }}">{{ product.name }}</a>
                 <br>
