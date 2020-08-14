@@ -77,16 +77,13 @@ class ModelCatalogView extends Model {
 		 WHERE ps.view_id = p.view_id AND ps.customer_group_id = '" . (int)$this->config->get('config_customer_group_id') . "' AND ((ps.date_start = '0000-00-00' OR ps.date_start < NOW()) AND (ps.date_end = '0000-00-00' OR ps.date_end > NOW())) 
 		 ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS special,
 		 
-		( SELECT p.price / pp.volume
-		 FROM ckf_offer_variants ov , ckf_product p , ckf_package_product pp 
+		( 
+			SELECT MIN(price)
+    
+			FROM ckf_offer
 		 
-		 WHERE 
-		 ov.offer_id = (SELECT group_concat(ckf_view_image.offer_id) as names FROM ckf_view_image WHERE ckf_view_image.view_id =p.view_id ) 
-		 AND ov.product_id = p.product_id 
-		 AND pp.product_id= p.product_id 
-		  ORDER BY ov.base_price DESC
-		  LIMIT 1
-	 	) AS noprice 
+			WHERE offer_id IN  (SELECT ckf_view_image.offer_id FROM ckf_view_image WHERE ckf_view_image.view_id =p.view_id ) 
+	 	) AS sortprice 
 		 
 		 ";
 
@@ -202,10 +199,10 @@ class ModelCatalogView extends Model {
 			if ($data['sort'] == 'pd.name' || $data['sort'] == 'p.model') {
 				$sql .= " ORDER BY LCASE(" . $data['sort'] . ")";
 			} elseif ($data['sort'] == 'p.price') {
-				$sql .= " ORDER BY price ";
+				$sql .= " ORDER BY sortprice ";
 
 			} else {
-				$sql .= " ORDER BY " . $data['sort'];
+				$sql .= " ORDER BY sortprice, " . $data['sort'];
 			}
 		} else {
 			$sql .= " ORDER BY p.sort_order";
@@ -231,7 +228,7 @@ class ModelCatalogView extends Model {
 		$product_data = array();
 
 		$query = $this->db->query($sql);
-
+		print_r($sql);
 		foreach ($query->rows as $result) {
 			$product_data[$result['view_id']] = $this->getProduct($result['view_id']);
 		}

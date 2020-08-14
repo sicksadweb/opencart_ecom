@@ -131,6 +131,12 @@ div.required .control-label:before {
 #logo {
 	margin: 0 0 10px 0;
 }
+
+/* account */
+#account {
+	margin: 0 0 10px 0;
+}
+
 /* search */
 #search {
 	margin-bottom: 10px;
@@ -757,3 +763,15 @@ h2.price {
 .pading_row {
 	padding: 0;
 }
+
+.products-name {
+	height: 50px;
+}
+
+.products-price {
+	font-weight: bold;
+    color: black;
+    font-size: 1.3em;
+}
+
+

@@ -412,14 +412,6 @@ class ControllerProductOffers extends Controller {
 
 			$data['text_compare'] = sprintf($this->language->get('text_compare'), (isset($this->session->data['compare']) ? count($this->session->data['compare']) : 0));
 
-			// Set the last category breadcrumb
-			$data['breadcrumbs'][] = array(
-				'text' => $this->language->get('text_category_product'),
-				'href' => $this->url->link('product/offers')
-			);
-
-
-
 	//		$data['description'] = html_entity_decode($category_info['description'], ENT_QUOTES, 'UTF-8');
 			$data['compare'] = $this->url->link('product/compare');
 

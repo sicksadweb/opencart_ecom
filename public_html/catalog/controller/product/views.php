@@ -56,11 +56,12 @@ class ControllerProductviews extends Controller {
 			'text' => $this->language->get('text_home'),
 			'href' => $this->url->link('common/home')
 		);
-		
+
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_category_product'),
 			'href' => $this->url->link('product/views')
 		);
+
 
 		if (isset($this->request->get['path'])) {
 			$url = '';
@@ -273,7 +274,7 @@ class ControllerProductviews extends Controller {
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_default'),
 				'value' => 'p.sort_order-ASC',
-				'href'  => $this->url->link('product/views', 'path=' . $this->request->get['path'] . '&sort=p.sort_order&order=ASC' . $url)
+				'href'  => $this->url->link('product/views', 'path=' . $this->request->get['path'] . '&sort=p.price&order=ASC' . $url)
 			);
 
 			$data['sorts'][] = array(
@@ -411,10 +412,7 @@ class ControllerProductviews extends Controller {
 			$data['text_compare'] = sprintf($this->language->get('text_compare'), (isset($this->session->data['compare']) ? count($this->session->data['compare']) : 0));
 
 			// Set the last category breadcrumb
-			$data['breadcrumbs'][] = array(
-				'text' => $this->language->get('text_category_product'),
-				'href' => $this->url->link('product/views')
-			);
+
 
 
 

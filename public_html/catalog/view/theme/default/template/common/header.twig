@@ -98,7 +98,7 @@
       <div class="col-sm-3">
 
         {{ cart }}
-        <a class="dropdown "><a href="{{ account }}" title="{{ text_account }}" class="btn btn-primary btn-block dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span class="">{{ text_account }}</span> <span class="caret"></span></a>
+        <a  class="dropdown "><a id="account" href="{{ account }}" title="{{ text_account }}" class="btn btn-primary btn-block dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span class="">{{ text_account }}</span> <span class="caret"></span></a>
           <ul class="dropdown-menu dropdown-menu-right">
             {% if logged %}
             <li><a href="{{ account }}">{{ text_account }}</a></li>

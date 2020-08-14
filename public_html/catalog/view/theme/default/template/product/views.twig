@@ -38,7 +38,7 @@
       <h3>{{ text_refine }}</h3>
           <ul class="row list-unstyled">
             {% for category in categories %}
-            <li class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+            <li class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
             <a href="{{ category.href }}">
               <img src="{{ category.thumb }}" alt="{{ category.name }}">
               {{ category.name }}
@@ -111,7 +111,8 @@
                     <div class="swiper-slide text-center">
                       <img src="{{ image.thumb }}" alt="{{ image.alt }}" class="img-responsive" />
                     </div>
-                    {% endfor %} </div>
+                    {% endfor %} 
+                  </div>
                 </div>
 
               </div>
@@ -132,10 +133,11 @@
               {% endif %}
       
             <div>
-                <h4><a href="{{ product.href }}">{{ product.name }}</a>
+                <h4 class="text-center products-name"><a href="{{ product.href }}">{{ product.name }}</a>
                 <br>
-                {{ product.price }}
+                
                 </h4>
+                {{ text_products_price }}<span class="products-price">{{ product.price }}</span>
               <div class="button-group">
                 <a class="btn btn-block btn-primary " href="{{ product.href }}">{{ text_more }}</a>
               </div>

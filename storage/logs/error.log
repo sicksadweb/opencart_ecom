@@ -5906,3 +5906,13 @@
 2020-08-14 8:24:08 - PHP Notice:  Undefined variable: images in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
 2020-08-14 8:24:08 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 213
 2020-08-14 8:45:08 - PHP Notice:  Undefined variable: result in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 146
+2020-08-14 9:34:13 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 293
+2020-08-14 9:34:13 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 293
+2020-08-14 9:39:43 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 293
+2020-08-14 9:39:43 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 293
+2020-08-14 9:39:47 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 293
+2020-08-14 9:39:47 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 293
+2020-08-14 9:41:10 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 293
+2020-08-14 9:41:10 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 293
+2020-08-14 9:42:49 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 293
+2020-08-14 9:42:49 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 293

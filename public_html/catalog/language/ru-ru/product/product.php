@@ -43,6 +43,7 @@ $_['text_no_price']            = 'Под заказ';
 $_['text_close']               = 'Закрыть';
 $_['text_view_details']        = 'Перейти к подробной информации';
 $_['text_price_false']         = 'Уточняйте у менеджера';
+$_['text_products_price']               = 'Цена от: ';
 
 
 // Entry
