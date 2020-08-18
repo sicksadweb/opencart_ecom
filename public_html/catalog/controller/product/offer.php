@@ -439,6 +439,8 @@ class ControllerProductOffer extends Controller {
 			$results = $this->model_catalog_offer->getProductVariants($this->request->get['offer_id']);
 
 			foreach ($results as $result) {
+
+
 				if ($result['image']) {
 					$image = $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_related_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_related_height'));
 				} else {
@@ -520,7 +522,7 @@ class ControllerProductOffer extends Controller {
 						'product_id'  => $result_product['product_id'],
 						'thumb'       => $image,
 						'name'        => $result_product['name'],
-						'stock_status'        =>  ($result['quantity'] > 0 ? $this->language->get('text_instock') : $result_product['stock_status'] ),					
+						'stock_status'        =>  ($result_product['quantity'] > 0 ? $this->language->get('text_instock') : $result_product['stock_status'] ),					
 						'description' => utf8_substr(trim(strip_tags(html_entity_decode($result_product['description'], ENT_QUOTES, 'UTF-8'))), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_product_description_length')) . '..',
 						'price'       => $price,
 						'special'     => $special,
@@ -528,6 +530,7 @@ class ControllerProductOffer extends Controller {
 						'minimum'     => $result_product['minimum'] > 0 ? $result_product['minimum'] : 1,
 						'href'        => $this->url->link('product/product', 'product_id=' . $result_product['product_id']),
 						'package_product' => $result_product['package_product'],
+						
 	
 					);
 					

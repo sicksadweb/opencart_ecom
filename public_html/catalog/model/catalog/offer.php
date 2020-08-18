@@ -74,7 +74,7 @@ class ModelCatalogOffer extends Model {
 
 		$query = $this->db->query("
 		SELECT DISTINCT *, 
-		(SELECT vd.view_id FROM " . DB_PREFIX . "offer_variants ov, " . DB_PREFIX . "view_image vi , " . DB_PREFIX . "view_description vd WHERE product_id ='".$product_id."' AND vi.offer_id = ov.offer_id AND vd.view_id =vi.view_id) AS  view_id ,
+		(SELECT vd.view_id FROM " . DB_PREFIX . "offer_variants ov, " . DB_PREFIX . "view_image vi , " . DB_PREFIX . "view_description vd WHERE product_id ='".$product_id."' AND vi.offer_id = ov.offer_id AND vd.view_id =vi.view_id LIMIT 1) AS  noview_id ,
 		pd.name AS name, 
 		p.image, 
 		p.noindex AS noindex, 
@@ -102,6 +102,7 @@ class ModelCatalogOffer extends Model {
 		AND p.date_available <= NOW() 
 		AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'
 		");
+
 
 
 		if ($query->num_rows) {
