@@ -24,8 +24,11 @@ class ControllerMailRegister extends Controller {
 		} else {
 			$data['approval'] = '';
 		}
-			
-		$data['login'] = $this->url->link('account/login', '', true);		
+
+		$data['login'] = $this->url->link('account/login', '', true);
+
+		$data['verification_code'] = md5($args[0]['email'].$args[0]['firstname']);;		
+
 		$data['store'] = html_entity_decode($this->config->get('config_name'), ENT_QUOTES, 'UTF-8');
 
 		$mail = new Mail($this->config->get('config_mail_engine'));

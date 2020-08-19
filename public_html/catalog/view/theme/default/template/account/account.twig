@@ -18,6 +18,11 @@
     {% endif %}
     <div id="content" class="{{ class }}">{{ content_top }}
       <h2>{{ text_my_account }}</h2>
+      {{firstname}}
+
+      {% if confirm != 1 %}
+      <p class="bg-warning">Email не поддвержден скидка не активна!</p>
+      {% endif %}
       <ul class="list-unstyled">
         <li><a href="{{ edit }}">{{ text_edit }}</a></li>
         <li><a href="{{ password }}">{{ text_password }}</a></li>

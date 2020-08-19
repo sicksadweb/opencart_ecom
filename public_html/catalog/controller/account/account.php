@@ -86,7 +86,13 @@ class ControllerAccountAccount extends Controller {
 		} else {
 			$data['tracking'] = '';
 		}
+
+		$customer_info = $this->model_account_customer->getCustomer($this->customer->getId());
+		$data['firstname'] = $customer_info['firstname'];
 		
+		$data['confirm'] = $customer_info['confirm'];
+		
+
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');
 		$data['content_top'] = $this->load->controller('common/content_top');

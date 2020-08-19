@@ -2,23 +2,40 @@
 // *	@source		See SOURCE.txt for source and other copyright.
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
-class ControllerAccountRegister extends Controller {
+class ControllerAccountVerification extends Controller {
 	private $error = array();
 
 	public function index() {
-		if ($this->customer->isLogged()) {
-			$this->response->redirect($this->url->link('account/account', '', true));
-		}
+
+		$this->load->model('account/customer');
+
+		
+
+		if (isset($this->request->get['verification_code'])) {
+
+			$customers = $this->model_account_customer->getCustomerByVerification($this->request->get['verification_code']);
+
+			if ($this->request->get['verification_code'] == $customers['verification_code'] ) {
+
+				$this->model_account_customer->getCustomerActivate($customers['customer_id']);
+
+				$data['verification_code_sucsed'] = 'Почта подтверждена';
+
+
+
+			} else {
+
+				$data['verification_code_error'] = 'Код не верный';
+	
+			}
+
+		} 
 
 		$this->load->language('account/register');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 		$this->document->setRobots('noindex,follow');
 
-		$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/moment/moment.min.js');
-		$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/moment/moment-with-locales.min.js');
-		$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js');
-		$this->document->addStyle('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css');
 
 		$this->load->model('account/customer');
 
@@ -32,18 +49,7 @@ class ControllerAccountRegister extends Controller {
 
 			unset($this->session->data['guest']);
 
-//---------------
-// the message
 
-$msg = "First line of text\nSecond line of text".$customer_id['verification_code'];
-
-// use wordwrap() if lines are longer than 70 characters
-$msg = wordwrap($msg,70);
-
-// send email
-mail("pro_kolR@mail.ru","verifications",$msg);
-
-//---------------
 			$this->response->redirect($this->url->link('account/success'));
 		}
 
@@ -230,7 +236,7 @@ mail("pro_kolR@mail.ru","verifications",$msg);
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
 
-		$this->response->setOutput($this->load->view('account/register', $data));
+		$this->response->setOutput($this->load->view('account/verification', $data));
 	}
 
 	private function validate() {

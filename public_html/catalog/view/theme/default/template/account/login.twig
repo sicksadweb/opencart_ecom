@@ -29,6 +29,35 @@
             <a href="{{ register }}" class="btn btn-primary">{{ button_continue }}</a></div>
         </div>
         <div class="col-sm-6">
+
+          {{ yandex }}
+
+<a href="" onclick="showHint()">Yandex</a>
+
+          <script>
+            function showHint(str) {
+              if (str.length == 0) {
+                document.getElementById("txtHint").innerHTML = "";
+                return;
+              } else {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                  if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("txtHint").innerHTML = this.responseText;
+                  }
+                };
+                xmlhttp.open("GET", "http://ecom/index.php?route=account/login?q=yandex" + str, true);
+                xmlhttp.send();
+              }
+            }
+            </script>
+
+
+
+
+
+
+
           <div class="well">
             <h2>{{ text_returning_customer }}</h2>
             <p><strong>{{ text_i_am_returning_customer }}</strong></p>
