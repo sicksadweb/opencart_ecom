@@ -214,7 +214,7 @@ class ControllerAccountRegisterBymail extends Controller {
 
 
 		//---------- регистрация через яндекс
-/*
+
 		$client_id = '0f77313fc79c4841baa1512c05611c3b'; // Id приложения login_ya.php
 		$client_secret = 'ad56c105b3024ba388ffed0fa08e748b'; // Пароль приложения
 		$redirect_uri = 'http://ecom/index.php?route=account/register_bymail'; // Callback URI
@@ -269,6 +269,8 @@ class ControllerAccountRegisterBymail extends Controller {
 			}
 		
 			if ($result) {
+				
+
 				/*
 				echo "Социальный ID пользователя: " . $userInfo['id'] . '<br />';
 				echo "Имя пользователя: " . $userInfo['real_name'] . '<br />';
@@ -276,29 +278,32 @@ class ControllerAccountRegisterBymail extends Controller {
 				echo "Email: " . $userInfo['default_email'] . '<br />';
 				echo "Пол пользователя: " . $userInfo['sex'] . '<br />';
 				echo "День Рождения: " . $userInfo['birthday'] . '<br />';
-				
+				*/
 				
 				$data['customer_group_id'] = 1;
-				$customeremail = $userInfo['default_email'];
 				$data['firstname'] = $userInfo['real_name'];
 				$data['lastname'] = $userInfo['real_name'];
 				$data['telephone'] = null;
 				$data['email'] = $userInfo['default_email'];
 				$data['password'] = $userInfo['id'];
 				$data['confirm'] = $userInfo['id'];
+				$data['token'] = $tokenInfo['access_token'];				
+				
 
+				
+				$customer_id = $this->model_account_customer->addCustomerSimple($data);
 
-
+				$this->response->redirect($this->url->link('account/success'));
 
 
 			}
 
 		
 		}
-*/
+
 		//---------- регистрация через яндекс
 		//----------- регистрация ВК
-
+/*
 		$client_id = '7571690'; // ID приложения
 		$client_secret = 'XJsfGR8FgpJBpfGYBu36'; // Защищённый ключ
 		$redirect_uri = 'http://ecom/index.php?route=account/register_bymail'; // Адрес сайта
@@ -372,7 +377,7 @@ class ControllerAccountRegisterBymail extends Controller {
 		}
 	}
 	
-
+*/
 		//----------- регистрация ВК 
 
 

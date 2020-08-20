@@ -156,3 +156,21 @@
 2020-08-19 9:23:07 - PHP Warning:  file_get_contents(https://oauth.vk.com/access_token?client_id=7571690&amp;client_secret=XJsfGR8FgpJBpfGYBu36&amp;display=popup &amp;scope=friends&amp;response_type=code&amp;code=ea0a1e0da4d8436423&amp;redirect_uri=http://ecom&amp;v=5.122): failed to open stream: HTTP request failed! HTTP/1.1 400 Bad Request
  in W:\domains\opencart_ecom\public_html\catalog\controller\account\register_bymail.php on line 332
 2020-08-19 9:23:07 - PHP Notice:  Undefined variable: userInfo in W:\domains\opencart_ecom\public_html\catalog\controller\account\register_bymail.php on line 351
+2020-08-20 4:12:53 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\controller\account\register_bymail.php:273) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-08-20 5:07:59 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 486
+2020-08-20 5:08:02 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 486
+2020-08-20 5:08:02 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 486
+2020-08-20 5:08:02 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 486
+2020-08-20 5:08:02 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 486
+2020-08-20 5:08:02 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 486
+2020-08-20 5:08:02 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 486
+2020-08-20 5:08:02 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 486
+2020-08-20 5:08:05 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 486
+2020-08-20 5:08:05 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 486
+2020-08-20 5:08:05 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 486
+2020-08-20 5:08:05 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 486
+2020-08-20 5:08:07 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 486
+2020-08-20 5:08:14 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 486
+2020-08-20 5:08:35 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 486
+2020-08-20 5:16:21 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 486
+2020-08-20 5:16:24 - PHP Notice:  Undefined index: price in W:\domains\opencart_ecom\public_html\catalog\model\catalog\offer.php on line 486
