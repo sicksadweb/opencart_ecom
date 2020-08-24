@@ -31,7 +31,7 @@
         <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
 
                     {% if images %}
-                    {% for image in images %}
+                    {% for image in images if image.price %}
                       <figure class="col-xs-6" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
                       <a href="{{ image.popup }}" itemprop="contentUrl" data-size="1024x1024">
                       <img src="{{ image.thumb }}" class="img-responsive" itemprop="thumbnail" alt="{{ image.alt }}" />
@@ -40,18 +40,35 @@
                       {{ image.name }}
                       <br>
                       {% if image.price > 0 %}
-                      <button class=" btn btn-lg btn-info" onclick="return location.href ='/index.php?route=product/offer&offer_id={{ image.offer_id }}'">{{ text_pay}} {{ image.price }}</button>
+                      <button class=" btn btn-lg btn-info" onclick="return location.href ='/index.php?route=product/offer&offer_id={{ image.offer_id }}'">
+                        {{ text_pay}} {{ image.price }}</button>
                       {% else %}
                       <button class=" btn btn-lg btn-info" onclick="return location.href ='/index.php?route=product/offer&offer_id={{ image.offer_id }}'"> {{ image.price }}</button>
                       {% endif %}
                       </figcaption>
                       </figure>
                     {% endfor %}
+
+        </div> 
+        <hr class="row">        
+        <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+                    {% for image in images if image.price == false %}
+                      <figure class="col-xs-6" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                      <a href="{{ image.popup }}" itemprop="contentUrl" data-size="1024x1024">
+                      <img src="{{ image.thumb }}" class="img-responsive" itemprop="thumbnail" alt="{{ image.alt }}" />
+                      </a>
+                      <figcaption itemprop="caption description">
+                      {{ image.name }}
+                      <br>
+                      </figcaption>
+                      </figure>
+                    {% endfor %}
+
                     {% endif %}
         </div>
         {% endif %}
 
-        <hr>
+        <hr  class="row">
 
 
 

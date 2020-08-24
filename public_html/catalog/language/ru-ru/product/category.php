@@ -28,6 +28,8 @@ $_['text_limit']        = 'Показать:';
 $_['text_benefits']     = 'Преимущества:';
 $_['text_go_offers']     = 'Перейти в интернет магазин:';
 $_['text_products_price']               = 'Цена от: ';
+$_['text_guery_price']        = 'уточняйте у менеджеров';
+
 
 $_['text_category_offers']      = 'Каталог материалов';
 $_['text_category_views']       = 'Каталог магазина';

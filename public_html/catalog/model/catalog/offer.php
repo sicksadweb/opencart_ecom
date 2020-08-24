@@ -10,8 +10,22 @@ class ModelCatalogOffer extends Model {
 	public function getProduct($offer_id) {
 		$query = $this->db->query("
 		SELECT DISTINCT *, pd.name AS name, p.image, p.noindex AS noindex, m.name AS manufacturer, (SELECT price FROM " . DB_PREFIX . "offer_discount pd2 WHERE pd2.offer_id = p.offer_id AND pd2.customer_group_id = '" . (int)$this->config->get('config_customer_group_id') . "' AND pd2.quantity = '1' AND ((pd2.date_start = '0000-00-00' OR pd2.date_start < NOW()) AND (pd2.date_end = '0000-00-00' OR pd2.date_end > NOW())) ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS discount, (SELECT price FROM " . DB_PREFIX . "offer_special ps WHERE ps.offer_id = p.offer_id AND ps.customer_group_id = '" . (int)$this->config->get('config_customer_group_id') . "' AND ((ps.date_start = '0000-00-00' OR ps.date_start < NOW()) AND (ps.date_end = '0000-00-00' OR ps.date_end > NOW())) ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS special, (SELECT points FROM " . DB_PREFIX . "offer_reward pr WHERE pr.offer_id = p.offer_id AND pr.customer_group_id = '" . (int)$this->config->get('config_customer_group_id') . "') AS reward, (SELECT ss.name FROM " . DB_PREFIX . "stock_status ss WHERE ss.stock_status_id = p.stock_status_id AND ss.language_id = '" . (int)$this->config->get('config_language_id') . "') AS stock_status, (SELECT wcd.unit FROM " . DB_PREFIX . "weight_class_description wcd WHERE p.weight_class_id = wcd.weight_class_id AND wcd.language_id = '" . (int)$this->config->get('config_language_id') . "') AS weight_class, (SELECT lcd.unit FROM " . DB_PREFIX . "length_class_description lcd WHERE p.length_class_id = lcd.length_class_id AND lcd.language_id = '" . (int)$this->config->get('config_language_id') . "') AS length_class, 
-		p.sort_order FROM " . DB_PREFIX . "offer p LEFT JOIN " . DB_PREFIX . "offer_description pd ON (p.offer_id = pd.offer_id) LEFT JOIN " . DB_PREFIX . "offer_to_store p2s ON (p.offer_id = p2s.offer_id) LEFT JOIN " . DB_PREFIX . "manufacturer m ON (p.manufacturer_id = m.manufacturer_id) WHERE p.offer_id = '" . (int)$offer_id . "' AND pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'
+		p.sort_order FROM " . DB_PREFIX . "offer p 
+		LEFT JOIN " . DB_PREFIX . "offer_description pd ON (p.offer_id = pd.offer_id) 
+		LEFT JOIN " . DB_PREFIX . "offer_to_store p2s ON (p.offer_id = p2s.offer_id) 
+		LEFT JOIN " . DB_PREFIX . "manufacturer m ON (p.manufacturer_id = m.manufacturer_id) 
+		LEFT JOIN " . DB_PREFIX . "offer_variants pv ON (p.offer_id = pv.offer_id) 
+		LEFT JOIN " . DB_PREFIX . "product op ON (op.product_id = pv.product_id) 
+		
+		WHERE p.offer_id = '" . (int)$offer_id . "' AND pd.language_id = '" . (int)$this->config->get('config_language_id') . "' 
+		AND p.status = '1' AND op.status = '1' 
+
+		AND p.date_available <= NOW() 
+		AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'
 		");
+
+
+
 
 		if ($query->num_rows) {
 			return array(
@@ -93,15 +107,18 @@ class ModelCatalogOffer extends Model {
 		LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id) 
 		LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) 
 		LEFT JOIN " . DB_PREFIX . "manufacturer m ON (p.manufacturer_id = m.manufacturer_id) 
-		LEFT JOIN ckf_stock_status ss ON (ss.stock_status_id = p.stock_status_id) 
+		LEFT JOIN " . DB_PREFIX . "stock_status ss ON (ss.stock_status_id = p.stock_status_id) 
 
 		WHERE 
-		p.product_id = '" . (int)$product_id . "' 
+		p.product_id = '" . (int)$product_id . "'
+		AND p.status ='1' 
 		AND pd.language_id = '" . (int)$this->config->get('config_language_id') . "' 
 		AND (ss.visible = '1' OR p.quantity>0 )
 		AND p.date_available <= NOW() 
 		AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'
 		");
+
+
 
 
 
@@ -214,10 +231,15 @@ class ModelCatalogOffer extends Model {
 		
 				  LEFT JOIN " . DB_PREFIX . "offer_to_store p2s ON (p.offer_id = p2s.offer_id) 
 				  
-				  LEFT JOIN ckf_offer_variants ov ON (ov.offer_id = p.offer_id) 
-				  LEFT JOIN ckf_product p2 ON (ov.product_id = p2.product_id) 
+				  LEFT JOIN " . DB_PREFIX . "offer_variants ov ON (ov.offer_id = p.offer_id) 
+				  LEFT JOIN " . DB_PREFIX . "product p2 ON (ov.product_id = p2.product_id) 
 				 
-				  WHERE pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'";
+				  WHERE 
+				  
+					  pd.language_id = '" . (int)$this->config->get('config_language_id') . "' 
+					  AND p.status = '1' AND p2.status = '1'
+					  AND p.date_available <= NOW() 
+					  AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'";
 
 		if (!empty($data['filter_offers_id'])) {
 			if (!empty($data['filter_sub_category'])) {
@@ -351,6 +373,8 @@ class ModelCatalogOffer extends Model {
 
 		$product_data = array();
 
+
+
 		$query = $this->db->query($sql);
 
 		foreach ($query->rows as $result) {
@@ -460,12 +484,13 @@ if ($type_id > 0 ) {
 	LEFT JOIN 	" . DB_PREFIX . "product_types_combinations ptc ON (ptc.combination  =p.type_id)
 	LEFT JOIN 	" . DB_PREFIX . "stock_status ss ON  (ss.stock_status_id = p.stock_status_id)
 
-	WHERE o.offer_id = '".(int)$offer_id."' AND (p.quantity > 0  OR ss.visible =1 )
+	WHERE o.offer_id = '".(int)$offer_id."' AND (p.quantity > 0  OR ss.visible =1 ) AND p.status='1'
 
-	ORDER BY p.base_product DESC
+	ORDER BY p.base_product DESC , mainprice ASC
 	LIMIT 1
 
 	"); 
+
 
 	foreach ($query->rows as $result) {
 		$product_data = array(
@@ -479,17 +504,11 @@ if ($type_id > 0 ) {
 
 }
 
-
-
 	$query = $this->db->query(" 
 
 	UPDATE  " . DB_PREFIX . "offer SET  price ='".$product_data['price']."' WHERE offer_id='".(int)$offer_id."' ;
 
 	"); 
-
-
-
-
 
 		return $product_data;
 
@@ -738,7 +757,16 @@ if ($type_id > 0 ) {
 		$product_data = array();
 
 		$query = $this->db->query("
-		SELECT * FROM " . DB_PREFIX . "offer_variants WHERE offer_id= '" . (int)$offer_id . "'
+		SELECT * FROM " . DB_PREFIX . "offer_variants  ov
+	
+		LEFT JOIN " . DB_PREFIX . "product p ON (p.product_id = ov.product_id)
+		LEFT JOIN " . DB_PREFIX . "stock_status ss ON (ss.stock_status_id = p.stock_status_id)
+
+
+		WHERE offer_id= '" . (int)$offer_id . "'
+		AND p.status ='1' 
+
+		AND (ss.visible = '1' OR p.quantity>0 )
 		");
 
 		foreach ($query->rows as $result) {
@@ -808,6 +836,9 @@ if ($type_id > 0 ) {
 				$sql .= " 
 				LEFT JOIN " . DB_PREFIX . "offer_filter pf ON (p2c.offer_id = pf.offer_id) 
 				LEFT JOIN " . DB_PREFIX . "offer p ON (pf.offer_id = p.offer_id)
+
+
+
 				";
 			} else {
 				$sql .= " LEFT JOIN " . DB_PREFIX . "offer p ON (p2c.offer_id = p.offer_id)";
@@ -817,7 +848,16 @@ if ($type_id > 0 ) {
 			$sql .= " FROM " . DB_PREFIX . "offer p";
 		}
 
-		$sql .= " LEFT JOIN " . DB_PREFIX . "offer_description pd ON (p.offer_id = pd.offer_id) LEFT JOIN " . DB_PREFIX . "offer_to_store p2s ON (p.offer_id = p2s.offer_id) WHERE pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'";
+		$sql .= " LEFT JOIN " . DB_PREFIX . "offer_description pd ON (p.offer_id = pd.offer_id) 
+		LEFT JOIN " . DB_PREFIX . "offer_to_store p2s ON (p.offer_id = p2s.offer_id) 
+		LEFT JOIN " . DB_PREFIX . "offer_variants ov ON (ov.offer_id = p.offer_id) 
+		LEFT JOIN " . DB_PREFIX . "product p2 ON (ov.product_id = p2.product_id) 
+
+		WHERE pd.language_id = '" . (int)$this->config->get('config_language_id') . "' 
+		AND p.status = '1' AND p2.status = '1' 
+		
+		AND p.date_available <= NOW() 
+		AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'";
 
 		if (!empty($data['filter_offers_id'])) {
 			if (!empty($data['filter_sub_category'])) {

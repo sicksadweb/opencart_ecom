@@ -95,9 +95,9 @@ if ($results->num_rows > 0) {
         LEFT JOIN 	ckf_product_types_combinations ptc ON (ptc.combination  =p.type_id)
         LEFT JOIN 	ckf_stock_status ss ON  (ss.stock_status_id = p.stock_status_id)
     
-        WHERE o.offer_id = '".(int)$result['offer_id']."' 
+        WHERE o.offer_id = '".(int)$result['offer_id']."'  AND p.status='1'
     
-        ORDER BY p.base_product DESC
+        ORDER BY p.base_product DESC , mainprice ASC
         LIMIT 1
     
         ");
@@ -108,15 +108,21 @@ if ($results->num_rows > 0) {
 			'abbr'  => $result['abbr'],
 		); 
 	
-	} 
+    } 
+    
+
     $update_price = $conn->query("
-    UPDATE ckf_offer  SET  price= '" . $product_data['price'] . "',abbr_package='" . $product_data['abbr'] . "' WHERE offer_id ='" . $offer_id . "';
+    UPDATE ckf_offer  SET  price= '" . round($product_data['price'], 2)  . "',abbr_package='" . $product_data['abbr'] . "' WHERE offer_id ='" . $offer_id . "';
     ");
 
     echo"
-    UPDATE ckf_offer  SET  price= '" . $product_data['price'] . "',abbr_package='" . $product_data['abbr'] . "' WHERE offer_id ='" . $offer_id . "';
+    UPDATE ckf_offer  SET  price= '" . round($product_data['price'], 2)  . "',abbr_package='" . $product_data['abbr'] . "' WHERE offer_id ='" . $offer_id . "';
     ";
+
+
+
         }
+        
     }
 }
 $conn->close();

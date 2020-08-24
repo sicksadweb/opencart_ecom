@@ -26,7 +26,7 @@ class ControllerProductOffers extends Controller {
 			$sort = $this->request->get['sort'];
 			$this->document->setRobots('noindex,follow');
 		} else {
-			$sort = 'p.sort_order';
+			$sort = 'p.price';
 		}
 
 		if (isset($this->request->get['order'])) {
@@ -198,24 +198,19 @@ class ControllerProductOffers extends Controller {
 				} else {
 					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
 				}
-
+				$product_price = $this->model_catalog_offer->getProductPrice($result['offer_id']);	
 				if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
-					$price = $this->currency->format($this->tax->calculate($result['price'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+					if ($result['price'] != 0) {
+
+						$price = $this->language->get('text_products_price').'<span class="products-price">'.$this->currency->format($this->tax->calculate($product_price['price'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']).'/ '.$product_price['abbr'].'</span> ';
+					
+					} else {
+							
+						$price = $this->language->get('text_guery_price');
+					}
 				} else {
 					$price = false;
 				}
-
-				$product_price = $this->model_catalog_offer->getProductPrice($result['offer_id']);	
-				if ( isset($product_price['price'])) {
-
-					$price = $this->currency->format($this->tax->calculate($product_price['price'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']).'/ '.$product_price['abbr'];
-				
-				} else	{
-
-					$price = 0;
-
-				}
-
 
 				if ((float)$result['special']) {
 					$special = $this->currency->format($this->tax->calculate($result['special'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
@@ -229,8 +224,6 @@ class ControllerProductOffers extends Controller {
 					$tax = false;
 				}
 
-
-
 				$data['products'][] = array(
 					'offer_id'  => $result['offer_id'],
 					'thumb'       => $image,
@@ -240,7 +233,6 @@ class ControllerProductOffers extends Controller {
 					'special'     => $special,
 					'tax'         => $tax,
 					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
-
 					'href'        => $this->url->link('product/offer', 'path=' . $this->request->get['path'] . '&offer_id=' . $result['offer_id'] . $url)
 				);
 			}
@@ -259,8 +251,8 @@ class ControllerProductOffers extends Controller {
 
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_default'),
-				'value' => 'p.sort_order-ASC',
-				'href'  => $this->url->link('product/offers', 'path=' . $this->request->get['path'] . '&sort=p.sort_order&order=ASC' . $url)
+				'value' => 'p.price-ASC',
+				'href'  => $this->url->link('product/offers', 'path=' . $this->request->get['path'] . '&sort=p.price&order=ASC' . $url)
 			);
 
 			$data['sorts'][] = array(
@@ -285,32 +277,6 @@ class ControllerProductOffers extends Controller {
 				'text'  => $this->language->get('text_price_desc'),
 				'value' => 'p.price-DESC',
 				'href'  => $this->url->link('product/offers', 'path=' . $this->request->get['path'] . '&sort=p.price&order=DESC' . $url)
-			);
-
-			if ($this->config->get('config_review_status')) {
-				$data['sorts'][] = array(
-					'text'  => $this->language->get('text_rating_desc'),
-					'value' => 'rating-DESC',
-					'href'  => $this->url->link('product/offers', 'path=' . $this->request->get['path'] . '&sort=rating&order=DESC' . $url)
-				);
-
-				$data['sorts'][] = array(
-					'text'  => $this->language->get('text_rating_asc'),
-					'value' => 'rating-ASC',
-					'href'  => $this->url->link('product/offers', 'path=' . $this->request->get['path'] . '&sort=rating&order=ASC' . $url)
-				);
-			}
-
-			$data['sorts'][] = array(
-				'text'  => $this->language->get('text_model_asc'),
-				'value' => 'p.model-ASC',
-				'href'  => $this->url->link('product/offers', 'path=' . $this->request->get['path'] . '&sort=p.model&order=ASC' . $url)
-			);
-
-			$data['sorts'][] = array(
-				'text'  => $this->language->get('text_model_desc'),
-				'value' => 'p.model-DESC',
-				'href'  => $this->url->link('product/offers', 'path=' . $this->request->get['path'] . '&sort=p.model&order=DESC' . $url)
 			);
 
 			$url = '';
@@ -471,8 +437,16 @@ class ControllerProductOffers extends Controller {
 					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
 				}
 
+				$product_price = $this->model_catalog_offer->getProductPrice($result['offer_id']);	
 				if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
-					$price = $this->currency->format($this->tax->calculate($result['price'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+					if ($result['price'] != 0) {
+
+						$price = $this->language->get('text_products_price').'<span class="products-price">'.$this->currency->format($this->tax->calculate($product_price['price'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']).'/ '.$product_price['abbr'].'</span> ';
+					
+					} else {
+							
+						$price = $this->language->get('text_guery_price');
+					}
 				} else {
 					$price = false;
 				}
@@ -516,8 +490,8 @@ class ControllerProductOffers extends Controller {
 
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_default'),
-				'value' => 'p.sort_order-ASC',
-				'href'  => $this->url->link('product/offers',  '&sort=p.sort_order&order=ASC' . $url)
+				'value' => 'p.price-ASC',
+				'href'  => $this->url->link('product/offers',  '&sort=p.price&order=ASC' . $url)
 			);
 
 			$data['sorts'][] = array(

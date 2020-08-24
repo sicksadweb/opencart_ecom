@@ -290,11 +290,12 @@ class ControllerProductView extends Controller {
 			foreach ($results as $result) {
 				$prices = $this->model_catalog_offer->getProduct($result['offer_id']);
 
-				if (count($prices)>0) {
-					$price = $this->currency->format($this->tax->calculate($prices['price'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']).'/ '.$prices['abbr'];
-				} else {
-					$price = false;
-				}
+					if ($prices['price'] > 0) {
+						$price = $this->currency->format($this->tax->calculate($prices['price'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']).'/ '.$prices['abbr'];
+					} else {
+						$price = false;
+					}
+
 
 			
 				$data['images'][] = array(

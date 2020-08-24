@@ -32,18 +32,6 @@ class ControllerAccountRegister extends Controller {
 
 			unset($this->session->data['guest']);
 
-//---------------
-// the message
-
-$msg = "First line of text\nSecond line of text".$customer_id['verification_code'];
-
-// use wordwrap() if lines are longer than 70 characters
-$msg = wordwrap($msg,70);
-
-// send email
-mail("pro_kolR@mail.ru","verifications",$msg);
-
-//---------------
 			$this->response->redirect($this->url->link('account/success'));
 		}
 

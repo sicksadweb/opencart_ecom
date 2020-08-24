@@ -22,13 +22,98 @@ class ControllerAccountRegisterBymail extends Controller {
 
 		$this->load->model('account/customer');
 
+		$client_id = '0f77313fc79c4841baa1512c05611c3b'; // Id приложения login_ya.php
+		$client_secret = 'ad56c105b3024ba388ffed0fa08e748b'; // Пароль приложения
+		$redirect_uri = 'http://ecom/login_ya.php'; // Callback URI
+		
+		$url = 'https://oauth.yandex.ru/authorize';
+		
+		$params = array(
+			'response_type' => 'code',
+			'client_id'     => $client_id,
+			'display'       => 'popup'
+		);
+		
+		//---- yandex
+		if (isset($this->request->get['code'])) {
+
+			$result = false;
+
+			$params = array(
+				'grant_type'    => 'authorization_code',
+				'code'          => $_GET['code'],
+				'client_id'     => $client_id,
+				'client_secret' => $client_secret
+			);
+		
+			$url = 'https://oauth.yandex.ru/token';
+		
+			$curl = curl_init();
+			curl_setopt($curl, CURLOPT_URL, $url);
+			curl_setopt($curl, CURLOPT_POST, 1);
+			curl_setopt($curl, CURLOPT_POSTFIELDS, urldecode(http_build_query($params)));
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+			$result = curl_exec($curl);
+			curl_close($curl);
+		
+			$tokenInfo = json_decode($result, true);
+		
+			if (isset($tokenInfo['access_token'])) {
+				$params = array(
+					'format'       => 'json',
+					'oauth_token'  => $tokenInfo['access_token']
+				);
+		
+				$userInfo = json_decode(file_get_contents('https://login.yandex.ru/info' . '?' . urldecode(http_build_query($params))), true);
+				if (isset($userInfo['id'])) {
+					$userInfo = $userInfo;
+					$result = true;
+				}
+			}
+
+			if ($result) {
+				/*
+				echo "Социальный ID пользователя: " . $userInfo['id'] . '<br />';
+				echo "Имя пользователя: " . $userInfo['real_name'] . '<br />';
+				echo "Email: " . $userInfo['default_email'] . '<br />';
+				echo "Пол пользователя: " . $userInfo['sex'] . '<br />';
+				echo "День Рождения: " . $userInfo['birthday'] . '<br />';
+				*/
+				$data = array (
+					'firstname' => $userInfo['real_name'],
+					'email' => $userInfo['default_email'],
+					'password' => $tokenInfo['access_token'],
+					'token' => $tokenInfo['access_token'],
+
+				);
+
+			}
+
+            if ($this->validatequick($userInfo['default_email'])) {
+                $customer_id = $this->model_account_customer->addCustomerSimple($data);
+
+                // Clear any previous login attempts for unregistered accounts.
+                $this->model_account_customer->deleteLoginAttempts($userInfo['default_email']);
+
+                $this->customer->login($userInfo['default_email'], $tokenInfo['access_token']);
+            } else {
+				$this->response->redirect($this->url->link('account/login'));	
+			 }
+			
+			unset($this->session->data['guest']);
+
+			$this->response->redirect($this->url->link('account/success'));
+		}
+		//---- yandex
+
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
-			$customer_id = $this->model_account_customer->addCustomerSimple($this->request->post);
+			$customer_id = $this->model_account_customer->addCustomer($this->request->post);
 
 			// Clear any previous login attempts for unregistered accounts.
 			$this->model_account_customer->deleteLoginAttempts($this->request->post['email']);
 
-		//	$this->customer->login($this->request->post['email'], $this->request->post['password']);
+			$this->customer->login($this->request->post['email'], $this->request->post['password']);
 
 			unset($this->session->data['guest']);
 
@@ -49,7 +134,7 @@ class ControllerAccountRegisterBymail extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_register'),
-			'href' => $this->url->link('account/register_bymail', '', true)
+			'href' => $this->url->link('account/register', '', true)
 		);
 		$data['text_account_already'] = sprintf($this->language->get('text_account_already'), $this->url->link('account/login', '', true));
 
@@ -101,7 +186,7 @@ class ControllerAccountRegisterBymail extends Controller {
 			$data['error_confirm'] = '';
 		}
 
-		$data['action'] = $this->url->link('account/register_bymail', '', true);
+		$data['action'] = $this->url->link('account/register', '', true);
 
 		$data['customer_groups'] = array();
 
@@ -211,183 +296,7 @@ class ControllerAccountRegisterBymail extends Controller {
 			$data['agree'] = false;
 		}
 
-
-
-		//---------- регистрация через яндекс
-
-		$client_id = '0f77313fc79c4841baa1512c05611c3b'; // Id приложения login_ya.php
-		$client_secret = 'ad56c105b3024ba388ffed0fa08e748b'; // Пароль приложения
-		$redirect_uri = 'http://ecom/index.php?route=account/register_bymail'; // Callback URI
-		
-		$url = 'https://oauth.yandex.ru/authorize';
-
-		$params = array(
-			'response_type' => 'code',
-			'client_id'     => $client_id,
-			'display'       => 'popup'
-		);
-
-
-		$data['yandex']  = '<p><a href="' . $url . '?' . urldecode(http_build_query($params)) . '">Аутентификация через Yandex</a></p>';
-
-
-		if (isset($this->request->get['code'])) {
-
-			$result = false;
-		
-			$params = array(
-				'grant_type'    => 'authorization_code',
-				'code'          => $_GET['code'],
-				'client_id'     => $client_id,
-				'client_secret' => $client_secret
-			);
-		
-			$url = 'https://oauth.yandex.ru/token';
-		
-			$curl = curl_init();
-			curl_setopt($curl, CURLOPT_URL, $url);
-			curl_setopt($curl, CURLOPT_POST, 1);
-			curl_setopt($curl, CURLOPT_POSTFIELDS, urldecode(http_build_query($params)));
-			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-			$result = curl_exec($curl);
-			curl_close($curl);
-		
-			$tokenInfo = json_decode($result, true);
-		
-			if (isset($tokenInfo['access_token'])) {
-				$params = array(
-					'format'       => 'json',
-					'oauth_token'  => $tokenInfo['access_token']
-				);
-		
-				$userInfo = json_decode(file_get_contents('https://login.yandex.ru/info' . '?' . urldecode(http_build_query($params))), true);
-				if (isset($userInfo['id'])) {
-					$userInfo = $userInfo;
-					$result = true;
-				}
-			}
-		
-			if ($result) {
-				
-
-				/*
-				echo "Социальный ID пользователя: " . $userInfo['id'] . '<br />';
-				echo "Имя пользователя: " . $userInfo['real_name'] . '<br />';
-				echo "oauth_token: " . $tokenInfo['access_token'] . '<br />';
-				echo "Email: " . $userInfo['default_email'] . '<br />';
-				echo "Пол пользователя: " . $userInfo['sex'] . '<br />';
-				echo "День Рождения: " . $userInfo['birthday'] . '<br />';
-				*/
-				
-				$data['customer_group_id'] = 1;
-				$data['firstname'] = $userInfo['real_name'];
-				$data['lastname'] = $userInfo['real_name'];
-				$data['telephone'] = null;
-				$data['email'] = $userInfo['default_email'];
-				$data['password'] = $userInfo['id'];
-				$data['confirm'] = $userInfo['id'];
-				$data['token'] = $tokenInfo['access_token'];				
-				
-
-				
-				$customer_id = $this->model_account_customer->addCustomerSimple($data);
-
-				$this->response->redirect($this->url->link('account/success'));
-
-
-			}
-
-		
-		}
-
-		//---------- регистрация через яндекс
-		//----------- регистрация ВК
-/*
-		$client_id = '7571690'; // ID приложения
-		$client_secret = 'XJsfGR8FgpJBpfGYBu36'; // Защищённый ключ
-		$redirect_uri = 'http://ecom/index.php?route=account/register_bymail'; // Адрес сайта
-
-		$url = 'http://oauth.vk.com/authorize';
-
-		$params = array(
-			'client_id'     => $client_id,
-			'redirect_uri'  => $redirect_uri,
-			'response_type' => 'code'
-		);
-	
-		$data['vkcom']  = '<p><a href="' . $url . '?' . urldecode(http_build_query($params)) . '">Аутентификация через ВКонтакте</a></p>';
-	
-	if (isset($_GET['code'])) {
-
-
-
-		$result = false;
-		$params = array(
-			'client_id' => $client_id,
-			'client_secret' => $client_secret,
-			'display' => 'popup ',
-			'scope' => 'friends',
-			'response_type' => 'code',
-			'code' => $_GET['code'],
-			'redirect_uri' => $redirect_uri,
-			'v'=> '5.122'
-		);
-	
-		$token = json_decode(file_get_contents('https://oauth.vk.com/access_token' . '?' . urldecode(http_build_query($params))), true);
-	
-
-
-
-		if (isset($token['access_token'])) {
-			$params = array(
-				'uids'         => $token['user_id'],
-				'fields'       => 'uid,first_name,last_name,screen_name,sex,bdate,photo_big',
-				'access_token' => $token['access_token']
-			);
-	
-			$userInfo = json_decode(file_get_contents('https://api.vk.com/method/users.get' . '?' . urldecode(http_build_query($params))), true);
-			if (isset($userInfo['response'][0]['uid'])) {
-				$userInfo = $userInfo['response'][0];
-				$result = true;
-			}
-		}
-	
-		print_r ($userInfo);
-
-
-		if ($result) {
-			echo "Социальный ID пользователя: " . $userInfo['uid'] . '<br />';
-			echo "Имя пользователя: " . $userInfo['first_name'] . '<br />';
-			echo "Ссылка на профиль пользователя: " . $userInfo['screen_name'] . '<br />';
-			echo "Пол пользователя: " . $userInfo['sex'] . '<br />';
-			echo "День Рождения: " . $userInfo['bdate'] . '<br />';
-			echo '<img src="' . $userInfo['photo_big'] . '" />'; echo "<br />";
-
-			$data['customer_group_id'] = 1;
-			$customeremail = $userInfo['default_email'];
-			$data['firstname'] = $userInfo['first_name'];
-			$data['lastname'] = $userInfo['first_name'];
-			$data['telephone'] = null;
-			$data['email'] = $userInfo['default_email'];
-			$data['password'] = $userInfo['uid'];
-			$data['confirm'] = $userInfo['uid'];
-
-
-		}
-	}
-	
-*/
-		//----------- регистрация ВК 
-
-
-
-
-
-
-
-
-
+		$data['yandex'] = '<p><a href="' . $url . '?' . urldecode(http_build_query($params)) . '">Аутентификация через Yandex</a></p>';
 
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');
@@ -399,15 +308,36 @@ class ControllerAccountRegisterBymail extends Controller {
 		$this->response->setOutput($this->load->view('account/register_bymail', $data));
 	}
 
+	private function validatequick($email) {
+
+/*
+		'firstname' => $userInfo['real_name'],
+		'email' => $userInfo['default_email'],
+		'password' => $tokenInfo['access_token'],
+		'token' => $tokenInfo['access_token'],
+*/
+
+
+
+		if ($this->model_account_customer->getTotalCustomersByEmail($email)) {
+			$this->error['warning'] = $this->language->get('error_exists');
+		}
+
+
+
+		
+		return !$this->error;
+	}
+
 	private function validate() {
 		if ((utf8_strlen(trim($this->request->post['firstname'])) < 1) || (utf8_strlen(trim($this->request->post['firstname'])) > 32)) {
 			$this->error['firstname'] = $this->language->get('error_firstname');
 		}
-/*
+
 		if ((utf8_strlen(trim($this->request->post['lastname'])) < 1) || (utf8_strlen(trim($this->request->post['lastname'])) > 32)) {
 			$this->error['lastname'] = $this->language->get('error_lastname');
 		}
-*/
+
 		if ((utf8_strlen($this->request->post['email']) > 96) || !filter_var($this->request->post['email'], FILTER_VALIDATE_EMAIL)) {
 			$this->error['email'] = $this->language->get('error_email');
 		}
@@ -415,11 +345,11 @@ class ControllerAccountRegisterBymail extends Controller {
 		if ($this->model_account_customer->getTotalCustomersByEmail($this->request->post['email'])) {
 			$this->error['warning'] = $this->language->get('error_exists');
 		}
-/*
+
 		if ((utf8_strlen($this->request->post['telephone']) < 3) || (utf8_strlen($this->request->post['telephone']) > 32)) {
 			$this->error['telephone'] = $this->language->get('error_telephone');
 		}
-*/
+
 		// Customer Group
 		if (isset($this->request->post['customer_group_id']) && is_array($this->config->get('config_customer_group_display')) && in_array($this->request->post['customer_group_id'], $this->config->get('config_customer_group_display'))) {
 			$customer_group_id = $this->request->post['customer_group_id'];
@@ -441,7 +371,7 @@ class ControllerAccountRegisterBymail extends Controller {
 				}
 			}
 		}
-/*
+
 		if ((utf8_strlen(html_entity_decode($this->request->post['password'], ENT_QUOTES, 'UTF-8')) < 4) || (utf8_strlen(html_entity_decode($this->request->post['password'], ENT_QUOTES, 'UTF-8')) > 40)) {
 			$this->error['password'] = $this->language->get('error_password');
 		}
@@ -449,7 +379,7 @@ class ControllerAccountRegisterBymail extends Controller {
 		if ($this->request->post['confirm'] != $this->request->post['password']) {
 			$this->error['confirm'] = $this->language->get('error_confirm');
 		}
-*/
+
 		// Captcha
 		if ($this->config->get('captcha_' . $this->config->get('config_captcha') . '_status') && in_array('register', (array)$this->config->get('config_captcha_page'))) {
 			$captcha = $this->load->controller('extension/captcha/' . $this->config->get('config_captcha') . '/validate');
@@ -458,7 +388,7 @@ class ControllerAccountRegisterBymail extends Controller {
 				$this->error['captcha'] = $captcha;
 			}
 		}
-/*
+
 		// Agree to terms
 		if ($this->config->get('config_account_id')) {
 			$this->load->model('catalog/information');
@@ -469,7 +399,7 @@ class ControllerAccountRegisterBymail extends Controller {
 				$this->error['warning'] = sprintf($this->language->get('error_agree'), $information_info['title']);
 			}
 		}
-*/		
+		
 		return !$this->error;
 	}
 
