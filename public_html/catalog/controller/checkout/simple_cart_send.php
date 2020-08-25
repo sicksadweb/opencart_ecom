@@ -57,6 +57,7 @@ class ControllerCheckoutSimpleCartSend extends Controller {
 
 		$product_info = $this->model_catalog_product->getProduct($product_id);
 
+
 		if ($product_info) {
 			if (isset($this->request->post['quantity'])) {
 				$quantity = (int)$this->request->post['quantity'];

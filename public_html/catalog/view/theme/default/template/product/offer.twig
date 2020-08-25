@@ -360,7 +360,11 @@
                               <span>{{ package.quantity }} {{ package.name }}  {{ package.volume|round(2, 'floor') }} {{ package.abbr }}</span>
                               <br>
                               <button onclick="minus_proudct({{ product.product_id }}, {{ package.package_id }} )" class="btn col-xs-2">-</button>
-                              <input class="btn col-xs-4" onchange="change_proudct({{ product.product_id }}, {{ package.package_id }} )" id="product_id_{{ product.product_id }}_{{ package.package_id }}" type="text" class="col-xs-5"
+
+                              <input class="btn col-xs-4" onchange="change_proudct({{ product.product_id }}, {{ package.package_id }} )" 
+                              type="text" class="col-xs-5"
+
+                              id="product_id_{{ product.product_id }}_{{ package.package_id }}" 
                               value="0"
                               step="{{ product.minimum }}"
                               min="{{ product.minimum }}"
@@ -369,6 +373,7 @@
                               data-quantity="{{ package.quantity }}"
                               data-parent_id="{{ package.parent_package_id }}"
                               >
+                              
                               <button onclick="plus_product({{ product.product_id }}, {{ package.package_id }} )" class="btn col-xs-2 ">+</button>
 
                               </div>

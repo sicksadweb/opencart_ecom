@@ -289,7 +289,6 @@ class ControllerProductView extends Controller {
 
 			foreach ($results as $result) {
 				$prices = $this->model_catalog_offer->getProduct($result['offer_id']);
-
 					if ($prices['price'] > 0) {
 						$price = $this->currency->format($this->tax->calculate($prices['price'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']).'/ '.$prices['abbr'];
 					} else {
@@ -304,10 +303,11 @@ class ControllerProductView extends Controller {
 					'name' => $result['name'],
 					'alt' => $result['alt'],
 					'offer_id' => $result['offer_id'],	
-					'price' => $price
+					'price' => $this->language->get('text_products_price') .$price
 
 				);
 			}
+			
 
 			$results = $this->model_catalog_view->getProductAditionalImages($this->request->get['view_id']);
 

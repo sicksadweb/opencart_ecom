@@ -301,17 +301,6 @@ class ControllerProductviews extends Controller {
 				'href'  => $this->url->link('product/views', 'path=' . $this->request->get['path'] . '&sort=p.price&order=DESC' . $url)
 			);
 
-			$data['sorts'][] = array(
-				'text'  => $this->language->get('text_model_asc'),
-				'value' => 'p.model-ASC',
-				'href'  => $this->url->link('product/views', 'path=' . $this->request->get['path'] . '&sort=p.model&order=ASC' . $url)
-			);
-
-			$data['sorts'][] = array(
-				'text'  => $this->language->get('text_model_desc'),
-				'value' => 'p.model-DESC',
-				'href'  => $this->url->link('product/views', 'path=' . $this->request->get['path'] . '&sort=p.model&order=DESC' . $url)
-			);
 
 			$url = '';
 

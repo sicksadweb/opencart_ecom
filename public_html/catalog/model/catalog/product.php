@@ -29,7 +29,9 @@ class ModelCatalogProduct extends Model {
 			AND pd.language_id = '" . (int)$this->config->get('config_language_id') . "' 
 			AND p.status = '1' 
 			AND p.date_available <= NOW() 
-			AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'");
+			AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'
+			
+			");
 
 		if ($query->num_rows) {
 			return array(

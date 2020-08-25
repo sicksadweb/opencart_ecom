@@ -272,6 +272,9 @@ class Cart {
 					'length_class_id' => $product_query->row['length_class_id'],
 					'recurring'       => $recurring,
 					'status'           => $product_query->row['stock_name'],
+					'package'          => $this->getProductPackageProduct($product_query->row['product_id']),
+					
+
 				);
 			} else {
 				$this->remove($cart['cart_id']);
@@ -280,6 +283,31 @@ class Cart {
 
 		return $product_data;
 	}
+
+	public function getProductPackageProduct($product_id) {
+		$package_product = array();
+
+		$query = $this->db->query("
+		SELECT * FROM " . DB_PREFIX . "package_product pp 
+		LEFT JOIN " . DB_PREFIX . "package_description pd ON (pp.package_id =pd.package_id)
+		LEFT JOIN " . DB_PREFIX . "package_description pd2 ON (pp.package_name_id =pd2.package_id)
+		WHERE product_id = '" . (int)$product_id . "'
+		");
+
+		foreach ($query->rows as $result) {
+			$package_product = array(
+				'product_id' => $result['product_id'],
+				'package' => $result['package_id'],
+				'parent_package_id' => $result['parent_package_id'],
+				'quantity' => $result['quantity'],
+				'volume' => $result['volume'],
+				'name' => $result['name'],
+			);
+		}
+		return $package_product;
+	}
+
+
 
 	public function add($product_id, $quantity = 1, $option = array(), $recurring_id = 0) {
 		$query = $this->db->query("SELECT COUNT(*) AS total FROM " . DB_PREFIX . "cart WHERE api_id = '" . (isset($this->session->data['api_id']) ? (int)$this->session->data['api_id'] : 0) . "' AND customer_id = '" . (int)$this->customer->getId() . "' AND session_id = '" . $this->db->escape($this->session->getId()) . "' AND product_id = '" . (int)$product_id . "' AND recurring_id = '" . (int)$recurring_id . "' AND `option` = '" . $this->db->escape(json_encode($option)) . "'");

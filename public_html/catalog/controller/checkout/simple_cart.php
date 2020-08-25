@@ -154,8 +154,12 @@ class ControllerCheckoutSimpleCart extends Controller {
 					'reward'    => ($product['reward'] ? sprintf($this->language->get('text_points'), $product['reward']) : ''),
 					'price'     => $price,
 					'total'     => $total,
-					'href'      => $this->url->link('product/product', 'product_id=' . $product['product_id'])
+					'href'      => $this->url->link('product/product', 'product_id=' . $product['product_id']),
+					'product_id'      => $product['product_id'],
+					'package'      => $product['package'],									
+					
 				);
+				print_r ($product['package']['quantity']);
 			}
 
 			// Gift Voucher
