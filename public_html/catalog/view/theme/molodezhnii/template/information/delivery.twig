@@ -13,93 +13,77 @@
     {% else %}
     {% set class = 'col-sm-12' %}
     {% endif %}
-    <div id="content" class="{{ class }}">{{ content_top }}
-      <h1>{{ heading_title }}</h1>
-      <h3>{{ text_location }}</h3>
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div class="row">
-            {% if image %}
-            <div class="col-sm-3"><img src="{{ image }}" alt="{{ store }}" title="{{ store }}" class="img-thumbnail" /></div>
-            {% endif %}
-            <div class="col-sm-3"><strong>{{ store }}</strong><br />
-              <address>
-              {{ address }}
-              </address>
-              {% if geocode %}
-              <a href="https://maps.google.com/maps?q={{ geocode|url_encode }}&hl={{ geocode_hl }}&t=m&z=15" target="_blank" class="btn btn-info"><i class="fa fa-map-marker"></i> {{ button_map }}</a>
-              {% endif %}
-            </div>
-            <div class="col-sm-3"><strong>{{ text_telephone }}</strong><br>
-              {{ telephone }}<br />
-              <br />
-              {% if fax %}
-              <strong>{{ text_fax }}</strong><br>
-              {{ fax }}
-              {% endif %}
-            </div>
-            <div class="col-sm-3">
-              {% if open %}
-              <strong>{{ text_open }}</strong><br />
-              {{ open }}<br />
-              <br />
-              {% endif %}
-              {% if comment %}
-              <strong>{{ text_comment }}</strong><br />
-              {{ comment }}
-              {% endif %}
-            </div>
-          </div>
-        </div>
-      </div>
-      {% if locations %}
-      <h3>{{ text_store }}</h3>
-      <div class="panel-group" id="accordion">
-        {% for location in locations %}
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title"><a href="#collapse-location{{ location.location_id }}" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion">{{ location.name }} <i class="fa fa-caret-down"></i></a></h4>
-          </div>
-          <div class="panel-collapse collapse" id="collapse-location{{ location.location_id }}">
-            <div class="panel-body">
-              <div class="row">
-                {% if location.image %}
-                <div class="col-sm-3"><img src="{{ location.image }}" alt="{{ location.name }}" title="{{ location.name }}" class="img-thumbnail" /></div>
-                {% endif %}
-                <div class="col-sm-3"><strong>{{ location.name }}</strong><br />
-                  <address>
-                  {{ location.address }}
-                  </address>
-                  {% if location.geocode %}
-                  <a href="https://maps.google.com/maps?q={{ location.geocode|url_encode }}&hl={{ geocode_hl }}&t=m&z=15" target="_blank" class="btn btn-info"><i class="fa fa-map-marker"></i> {{ button_map }}</a>
-                  {% endif %}
-                </div>
-                <div class="col-sm-3"> <strong>{{ text_telephone }}</strong><br>
-                  {{ location.telephone }}<br />
-                  <br />
-                  {% if location.fax %}
-                  <strong>{{ text_fax }}</strong><br>
-                  {{ location.fax }}
-                  {% endif %}
-                </div>
-                <div class="col-sm-3">
-                  {% if location.open %}
-                  <strong>{{ text_open }}</strong><br />
-                  {{ location.open }}<br />
-                  <br />
-                  {% endif %}
-                  {% if location.comment %}
-                  <strong>{{ text_comment }}</strong><br />
-                  {{ location.comment }}
-                  {% endif %}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-      {% endif %}
+
+
+      <div id="content" class="col-sm-12">
+        <h1>Доставка стройцентр Молодежный</h1>
+        <div class="delivery_page"><h4><p style="font-size: 13px;">У нас в магазине Вы можете оформить доставку материалов на дом.</p><p style="font-size: 13px;">Доставка на дом осуществляется в соответствии с графиком по указанному адресу при оформлении услуги по доставке. Сотрудники магазина службы доставки заблаговременно согласует время прибытия курьера/экспедитора. Осматривайте товар на соответствие, наличие видимых повреждений, целостности упаковки.</p><p style="font-size: 13px;">При формировании стоимости доставки учитываются удаленность адреса назначения от базы.</p><p style="font-size: 13px;"><br></p><p style="font-size: 13px;">Подробности по стоимости уточняйте в вашем магазине.</p></h4></div>
+  
+  
+  
+  
+  
+  
+  
+  <style>
+    @media
+      only screen 
+      and (max-width: 760px), (min-device-width: 768px) 
+      and (max-device-width: 1024px)  {
+  
+      /* Force table to not be like tables anymore */
+      table, thead, tbody, th, td, tr {
+        display: block;
+  
+      }
+  
+      /* Hide table headers (but not display: none;, for accessibility) */
+      thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+  
+      tr {
+        margin: 0 0 1rem 0;
+      }
+        
+      tr:nth-child(odd) {
+        background: #ccc;
+      }
+      
+      td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+      }
+  
+      td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 0;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+      }
+  
+      
+  
+    }
+  
+  
+  .ramka{
+  
+      font-size: 20px;
+      border: 1px solid black;
+      padding: 4px;
+  }
+  
+  </style></div>
 
       {{ content_bottom }}</div>
     {{ column_right }}</div>
