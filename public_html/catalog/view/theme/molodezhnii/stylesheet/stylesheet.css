@@ -518,6 +518,7 @@ footer h5 {
 	border: 1px solid #DDDDDD;
 	color: #888888;
 	padding: 8px 12px;
+	white-space: break-spaces;
 }
 .list-group a.active, .list-group a.active:hover, .list-group a:hover {
 	color: #444444;
@@ -813,4 +814,29 @@ h2.price {
     font-weight: 900;
     border-radius: 50%;
 
+}
+
+.banner_custom-button {
+	position: absolute;
+    top: 33%;
+    left: 20%;
+}
+
+.banner_custom-sub-text {
+	position: absolute;
+    top: 50%;
+    left: 20%;
+}
+.banner_custom-sub-text-banner {
+    font-weight: bold;
+    color: white;
+	text-shadow: 1px 2px 6px black, 0 0 1em black;
+	text-transform: uppercase;
+}
+
+@media (max-width: 767px) {
+	.checkbox, .radio {
+		display: inline-block;
+		margin-right: 10px;
+	}
 }

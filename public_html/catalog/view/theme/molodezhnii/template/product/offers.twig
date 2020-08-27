@@ -9,12 +9,19 @@
       {% endif %}
     {% endfor %}
   </ul>
-  {{ filters }}
+
   <div class="row">
-    {{ column_left }}
+    {% if filters %}
+
+      <div class="col-sm-3">
+        {{ filters }}
+        {{ column_left }}
+      </div>
+    {% endif %}
+
     {% if column_left and column_right %}
     {% set class = 'col-sm-6' %}
-    {% elseif column_left or column_right or block_filter %}
+    {% elseif column_left or column_right or    filters  %}
     {% set class = 'col-sm-9' %}
     {% else %}
     {% set class = 'col-sm-12' %}
@@ -92,7 +99,9 @@
           <div class="product-thumb">
             <div class="image"><a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" /></a></div>
             <div>
-                <h4><a href="{{ product.href }}">{{ product.name }}</a></h4>
+                <h4 class="text-center products-name">
+                  <a class="products-name-color" href="{{ product.href }}">{{ product.name }}</a>
+                </h4>
                {{ product.price }}
               <div class="button-group">
                 <a class="btn btn-block btn-primary " href="{{ product.href }}">{{ text_more }}</a>

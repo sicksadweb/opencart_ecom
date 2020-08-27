@@ -29,9 +29,9 @@ $_['text_benefits']     = 'Преимущества:';
 $_['text_go_offers']     = 'Перейти в интернет магазин:';
 $_['text_products_price']               = 'Цена от: ';
 $_['text_guery_price']        = 'уточняйте у менеджеров';
+$_['text_category_video']        = 'Видео инструкции монтажа';
 
-
-$_['text_category_offers']      = 'Каталог материалов';
-$_['text_category_views']       = 'Каталог магазина';
-$_['text_category_product']     = 'Каталог магазина';
+$_['text_category_offers']      = 'Каталог магазина';
+$_['text_category_views']       = 'Каталог материалов';
+$_['text_category_product']     = 'Каталог ';
 $_['text_more']                 = 'Подробнее';

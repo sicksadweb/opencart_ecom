@@ -58,7 +58,7 @@ class ControllerProductviews extends Controller {
 		);
 
 		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('text_category_product'),
+			'text' => $this->language->get('text_category_views'),
 			'href' => $this->url->link('product/views')
 		);
 
@@ -226,6 +226,7 @@ class ControllerProductviews extends Controller {
 
 
 				$product_price = $this->model_catalog_view->getProductPrice($result['view_id']);
+
 				$price = $this->currency->format($this->tax->calculate($product_price['price'] , $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']).'/ '.$product_price['abbr'];
 												
 				if ((float)$result['special']) {

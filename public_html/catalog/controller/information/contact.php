@@ -77,7 +77,7 @@ class ControllerInformationContact extends Controller {
 		$data['fax'] = $this->config->get('config_fax');
 		$data['open'] = nl2br($this->config->get('config_open'));
 		$data['comment'] = $this->config->get('config_comment');
-
+		$data['mail'] = $this->config->get('config_email');
 		$data['locations'] = array();
 
 		$this->load->model('localisation/location');
@@ -182,6 +182,7 @@ class ControllerInformationContact extends Controller {
 			'text' => $this->language->get('heading_title'),
 			'href' => $this->url->link('information/contact')
 		);
+		$data['mail'] = $this->url->link('common/home');
 
 		$data['continue'] = $this->url->link('common/home');
 

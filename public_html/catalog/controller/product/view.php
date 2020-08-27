@@ -15,7 +15,7 @@ class ControllerProductView extends Controller {
 			'href' => $this->url->link('common/home')
 		);
 
-		$this->load->model('catalog/category');
+		$this->load->model('catalog/views');
 
 		if (isset($this->request->get['path'])) {
 			$path = '';
@@ -31,7 +31,7 @@ class ControllerProductView extends Controller {
 					$path .= '_' . $path_id;
 				}
 
-				$category_info = $this->model_catalog_category->getCategory($path_id);
+				$category_info = $this->model_catalog_views->getCategory($path_id);
 
 				if ($category_info) {
 					$data['breadcrumbs'][] = array(
@@ -39,10 +39,11 @@ class ControllerProductView extends Controller {
 						'href' => $this->url->link('product/views', 'path=' . $path)
 					);
 				}
-			}
+
+			} 
 
 			// Set the last category breadcrumb
-			$category_info = $this->model_catalog_category->getCategory($category_id);
+			$category_info = $this->model_catalog_views->getCategory($category_id);
 
 			if ($category_info) {
 				$url = '';
@@ -68,6 +69,14 @@ class ControllerProductView extends Controller {
 					'href' => $this->url->link('product/views', 'path=' . $this->request->get['path'] . $url)
 				);
 			}
+		} else {
+
+			$maincategory = $this->model_catalog_views->getMaincategory((int)$this->request->get['view_id']);
+
+			$data['breadcrumbs'][] = array(
+				'text' => $maincategory['name'],
+				'href' => $this->url->link('product/views', 'path=' . $maincategory['category_id'] . $url)
+			);
 		}
 
 		$this->load->model('catalog/manufacturer');
@@ -481,7 +490,7 @@ class ControllerProductView extends Controller {
 			$data['recurrings'] = $this->model_catalog_view->getProfiles($this->request->get['view_id']);
 
 			$this->model_catalog_view->updateViewed($this->request->get['view_id']);
-			
+
 			$data['column_left'] = $this->load->controller('common/column_left');
 			$data['column_right'] = $this->load->controller('common/column_right');
 			$data['content_top'] = $this->load->controller('common/content_top');

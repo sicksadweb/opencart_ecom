@@ -5,6 +5,19 @@ class ModelCatalogViews extends Model {
 
 		return $query->row;
 	}
+	
+	public function getMaincategory($views_id) {
+
+		$query = $this->db->query("
+			
+		SELECT * FROM " . DB_PREFIX . "view_to_category v2c 
+		LEFT JOIN ckf_category_views_description cd ON (v2c.category_id = cd.views_id)
+		WHERE view_id= '" . (int)$views_id . "'
+
+		");
+
+		return $query->row;
+	}
 
 	public function getCategories($parent_id = 0) {
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "category_views c LEFT JOIN " . DB_PREFIX . "category_views_description cd ON (c.views_id = cd.views_id) LEFT JOIN " . DB_PREFIX . "category_views_to_store c2s ON (c.views_id = c2s.views_id) WHERE c.parent_id = '" . (int)$parent_id . "' AND cd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND c2s.store_id = '" . (int)$this->config->get('config_store_id') . "'  AND c.status = '1' ORDER BY c.sort_order, LCASE(cd.name)");

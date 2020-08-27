@@ -439,11 +439,14 @@ class ModelCatalogView extends Model {
 		");
 
 		
-		/*
+		
 		$update_price = $this->db->query("
-		UPDATE ckf_view  SET  price= '" . $query->row['price'] . "' WHERE view_id ='" . (int)$view_id . "';
+		UPDATE " . DB_PREFIX . "view SET price= '" . $query->row['price'] . "' WHERE view_id ='" . (int)$view_id . "'; 
 		");
-		*/
+		$update_price = $this->db->query("
+		UPDATE " . DB_PREFIX . "view_description SET abbr ='" . $query->row['abbr'] . "' WHERE view_id ='" . (int)$view_id . "';
+		");
+
 
 		return $query->row;
 	}	
@@ -609,6 +612,7 @@ class ModelCatalogView extends Model {
 			$sql .= " AND p.manufacturer_id = '" . (int)$data['filter_manufacturer_id'] . "'";
 		}
 
+//		echo $sql."<br><br>";
 		$query = $this->db->query($sql);
 
 		return $query->row['total'];

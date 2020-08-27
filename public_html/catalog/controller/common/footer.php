@@ -20,7 +20,7 @@ class ControllerCommonFooter extends Controller {
 		$data['form_query_price'] = $this->load->controller('extension/module/form_query_price');
 		$data['form_support'] = $this->load->controller('extension/module/form_support');
 		
-
+		$data['category_video'] = $this->url->link('product/category_video');
 		$data['contact'] = $this->url->link('information/contact');
 		$data['about_us'] = $this->url->link('information/about_us');
 		$data['return'] = $this->url->link('account/return/add', '', true);

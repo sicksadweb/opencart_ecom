@@ -4,7 +4,7 @@
 
 class ControllerProductCategoryVideo extends Controller {
 	public function index() {
-		$this->load->language('product/category_video');
+		$this->load->language('product/category');
 
 		$this->load->model('catalog/category_video');
 
@@ -57,6 +57,11 @@ class ControllerProductCategoryVideo extends Controller {
 			'href' => $this->url->link('common/home')
 		);
 
+		$data['breadcrumbs'][] = array(
+			'text' => $this->language->get('text_category_video'),
+			'href' => $this->url->link('product/category_video',  $url)
+		);
+
 		if (isset($this->request->get['path'])) {
 			$url = '';
 
@@ -106,6 +111,7 @@ class ControllerProductCategoryVideo extends Controller {
 				$this->document->setTitle($category_info['meta_title']);
 			} else {
 				$this->document->setTitle($category_info['name']);
+				
 			}
 			
 			if ($category_info['noindex'] <= 0) {
@@ -123,10 +129,7 @@ class ControllerProductCategoryVideo extends Controller {
 
 			$data['text_compare'] = sprintf($this->language->get('text_compare'), (isset($this->session->data['compare']) ? count($this->session->data['compare']) : 0));
 
-			$data['breadcrumbs'][] = array(
-				'text' => $this->language->get('text_category_product'),
-				'href' => $this->url->link('product/category_video')
-			);
+
 
 
 			// Set the last category breadcrumb
@@ -174,7 +177,8 @@ class ControllerProductCategoryVideo extends Controller {
 
 				$data['categories'][] = array(
 					'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
-					'href' => $this->url->link('product/category_video', 'path=' . $this->request->get['path'] . '_' . $result['category_id'] . $url)
+					'href' => $this->url->link('product/category_video', 'path=' . $this->request->get['path'] . '_' . $result['category_id'] . $url),
+					'video' => $result['video'],					
 				);
 			}
 
@@ -358,21 +362,17 @@ class ControllerProductCategoryVideo extends Controller {
 			$this->response->setOutput($this->load->view('product/category_video', $data));
 		} else {
 			
-			$this->document->setTitle($this->language->get('text_category_product'));
+			$this->document->setTitle($this->language->get('text_category_video'));
 
-			$data['heading_title'] = $this->language->get('text_category_product');
+			$data['heading_title'] = $this->language->get('text_category_video');
 
-			
 	//		$this->document->setDescription($category_info['meta_description']);
 	//		$this->document->setKeywords($category_info['meta_keyword']);
 
 			$data['text_compare'] = sprintf($this->language->get('text_compare'), (isset($this->session->data['compare']) ? count($this->session->data['compare']) : 0));
 
 			// Set the last category breadcrumb
-			$data['breadcrumbs'][] = array(
-				'text' => $this->language->get('text_category_product'),
-				'href' => $this->url->link('product/category_video')
-			);
+
 
 
 
@@ -409,7 +409,8 @@ class ControllerProductCategoryVideo extends Controller {
 
 				$data['categories'][] = array(
 					'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
-					'href' => $this->url->link('product/category_video', 'path=' . $result['category_id'] . $url)
+					'href' => $this->url->link('product/category_video', 'path=' . $result['category_id'] . $url),
+					'video' => $result['video'],
 				);
 			}
 

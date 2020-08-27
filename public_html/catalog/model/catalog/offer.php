@@ -713,6 +713,7 @@ if ($type_id > 0 ) {
 		LEFT JOIN " . DB_PREFIX . "group_aditional_products_description rg ON (ro.group_id = rg.group_id)
 
 		WHERE `offer_id` ='" . (int)$offer_id . "'
+		ORDER BY sort
 
 		");
 

@@ -10,7 +10,7 @@
     {% endfor %}
   </ul>
   <div class="row">
-    <h1>{{ heading_title }}</h1>
+    <h1 class="col-xs-12">{{ heading_title }}</h1>
   
   {{ column_left }}
     {% if column_left and column_right %}
@@ -36,8 +36,10 @@
                       <a href="{{ image.popup }}" itemprop="contentUrl" data-size="1024x1024">
                       <img src="{{ image.thumb }}" class="img-responsive" itemprop="thumbnail" alt="{{ image.alt }}" />
                       </a>
-                      <figcaption itemprop="caption description">
-                      {{ image.name }}
+                      <figcaption itemprop="caption description" >
+                        <div class="text-center products-name">
+                          <a class="products-name-color">{{ image.name }}</a>
+                        </div>
                       <br>
                       {% if image.price > 0 %}
                       <button class=" btn btn-block btn-primary" onclick="return location.href ='/index.php?route=product/offer&offer_id={{ image.offer_id }}'">
@@ -49,16 +51,18 @@
                       </figure>
                     {% endfor %}
 
-        </div> 
-        <hr class="row">        
+        </div>    
+        <div class="clearfix"></div>
         <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
                     {% for image in images if image.price == false %}
                       <figure class="col-xs-6 image-cart thumbnail" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
                       <a href="{{ image.popup }}" itemprop="contentUrl" data-size="1024x1024">
                       <img src="{{ image.thumb }}" class="img-responsive" itemprop="thumbnail" alt="{{ image.alt }}" />
                       </a>
-                      <figcaption itemprop="caption description">
-                      {{ image.name }}
+                      <figcaption itemprop="caption description" >
+                        <div class="text-center products-name">
+                          <a class="products-name-color">{{ image.name }}</a>
+                        </div>
                       <br>
                       <button class="btn btn-block btn-primary" onclick="return location.href ='/index.php?route=product/offer&offer_id={{ image.offer_id }}'" >{{ image.price }}</button>
                       
@@ -70,21 +74,18 @@
         </div>
         {% endif %}
 
-        <hr  class="row">
-
-
-
        
 
         {% if images_aditional  %}
+        <div class="clearfix"></div>
         <div class="row">
         <div class="my-gallery " itemscope itemtype="http://schema.org/ImageGallery">
                     {% for image in images_aditional %}
-                      <figure class="col-xs-6" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                      <figure class="col-xs-6 image-cart thumbnail" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
                       <a href="{{ image.popup }}" itemprop="contentUrl" data-size="1024x1024">
                       <img src="{{ image.thumb }}" class="img-responsive" itemprop="thumbnail" alt="{{ image.alt }}" />
                       </a>
-                      <figcaption itemprop="caption description">
+                      <figcaption itemprop="caption description ">
                       {{ image.name }}
                       </figcaption>
                       </figure>
@@ -107,11 +108,15 @@
           <div class="">
         <div class="panel-group" id="accordion">
           <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#tab_description">{{ tab_description }}</a>
-              </h4>
+
+            <div class="panel-heading panel-heading-title" role="tab" >
+              <a role="button" data-toggle="collapse" data-parent="#accordion" href="#tab_description" aria-expanded="true" aria-controls="tab-description">
+                  <h4 class="panel-title products-name-color">
+                    {{ tab_description }}
+                  </h4>
+              </a>
             </div>
+
             <div id="tab_description" class="panel-collapse collapse in">
               <div class="panel-body">
                 {{ description }}
@@ -120,10 +125,13 @@
           </div>
           {% if attribute_groups %}
           <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#tab_attribute">{{ tab_attribute }}</a>
-              </h4>
+
+            <div class="panel-heading panel-heading-title" role="tab" >
+              <a role="button" data-toggle="collapse" data-parent="#accordion" href="#tab_attribute" aria-expanded="true" aria-controls="tab-attribute">
+                  <h4 class="panel-title products-name-color">
+                    {{ tab_attribute }}
+                  </h4>
+              </a>
             </div>
 
             <div id="tab_attribute" class="panel-collapse collapse">

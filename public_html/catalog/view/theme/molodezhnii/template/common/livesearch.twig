@@ -1,7 +1,7 @@
 
 <div id="search" class="cos-xs-12">
 <input id="livesearch_input" type="text" name="search" value="{{ search }}" placeholder="{{ text_search }}"onkeyup="livesearch(this.value)"  class="form-control input-lg" />
-<div class="row" id="livesearch_result">
+<div class="" id="livesearch_result">
 </div>
 
 </div>
@@ -38,6 +38,6 @@ function livesearch(str) {
 #livesearch_result {
     z-index: 999;
     background-color: white;
-    width: 94%;
+    width: calc(100% - 30px );
 }
 </style>

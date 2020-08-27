@@ -19,26 +19,31 @@
       <div class="panel panel-default">
         <div class="panel-body">
           <div class="row">
-            {% if image %}
-            <div class="col-sm-3"><img src="{{ image }}" alt="{{ store }}" title="{{ store }}" class="img-thumbnail" /></div>
-            {% endif %}
-            <div class="col-sm-3"><strong>{{ store }}</strong><br />
+            <div class="col-sm-4"><strong>{{ store }}</strong><br />
               <address>
               {{ address }}
               </address>
-              {% if geocode %}
-              <a href="https://maps.google.com/maps?q={{ geocode|url_encode }}&hl={{ geocode_hl }}&t=m&z=15" target="_blank" class="btn btn-info"><i class="fa fa-map-marker"></i> {{ button_map }}</a>
-              {% endif %}
+              <a href="/index.php?route=information/information&information_id=9" target="_blank" class="btn btn-info"><i class="fa fa-map-marker"></i>схема проезда</a>
             </div>
-            <div class="col-sm-3"><strong>{{ text_telephone }}</strong><br>
-              {{ telephone }}<br />
+            <div class="col-sm-4 "><strong>{{ text_telephone }}</strong><br>
+
+                <a class="products-name-color" href="tel:+7 (908) 326–62–66">+7 (908) 326-62-66</a>
+                <br>
+                <a class="products-name-color" href="tel:+7(913)-541-30-00">+7 (913) 541-30-00</a>
+                <br>
+                <a class="products-name-color" href="tel:+79832775050">+7 (983) 277-50-50</a>
+                <br>
+                <a class="products-name-color" href="tel:+7(913)-444-07-07">+7 (913) 444-07-07- оптовый отдел:</a> 
+                <br>
+              
               <br />
-              {% if fax %}
-              <strong>{{ text_fax }}</strong><br>
-              {{ fax }}
+              <br />
+              {% if mail %}
+              <strong>{{ text_mail }}</strong><br>
+               <a  class="products-name-color" href="mailto:{{ mail }}">{{ mail }}</a>
               {% endif %}
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-4">
               {% if open %}
               <strong>{{ text_open }}</strong><br />
               {{ open }}<br />
@@ -52,6 +57,46 @@
           </div>
         </div>
       </div>
+
+      <h3>Складская 11 - погрузочный пункт</h3>
+      <div class="panel panel-default">
+
+        <div class="panel-collapse collapse in" id="collapse-location">
+          <div class="panel-body">
+            <div class="row">
+                              <div class="col-sm-3"><strong>Центр кровли и фасада</strong><br>
+                <address>
+        р. Хакасия г. Абакан ул. Складская 11;
+                </address>
+
+                <a href="/index.php?route=information/information&information_id=8" target="_blank" class="btn btn-info"><i class="fa fa-map-marker"></i> схема проезда</a>
+
+              </div>
+              <div class="col-sm-3"> <strong>Телефон</strong><br>
+      <a href="tel:+7 (983) 278–10–10">+7 (983) 278–10–10</a>
+                <br>
+                <br>
+                <strong> 
+        </strong><br>
+              </div>
+
+              <div class="col-sm-3">
+                <strong>Режим работы</strong><br>
+                пн-пт: с 9:00 до 17:00; <br>
+        сб: 9:00 до 15:00;<br>
+        вс: выходной;
+              </div>
+              <div class="col-sm-3">
+                <strong>Наш E-Mail</strong><br>
+                <a href="mailto:skladskaya11@mail.ru">skladskaya11@mail.ru</a>
+                <br>
+                <br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {% if locations %}
       <h3>{{ text_store }}</h3>
       <div class="panel-group" id="accordion">
@@ -100,6 +145,7 @@
         {% endfor %}
       </div>
       {% endif %}
+      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Afb483511bf152834cdb325141addb53b369f9d25cc5450eee52f729928beef0c&amp;source=constructor" width="100%" height="500" frameborder="0"></iframe>
       <form action="{{ action }}" method="post" enctype="multipart/form-data" class="form-horizontal">
         <fieldset>
           <legend>{{ text_contact }}</legend>

@@ -12,6 +12,8 @@ class ControllerCommonHome extends Controller {
 			}
 			$this->document->addLink($canonical, 'canonical');
 		}
+		$data['title'] = $this->document->getTitle();
+		$data['description'] = $this->document->getDescription();
 
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');

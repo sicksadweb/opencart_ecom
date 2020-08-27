@@ -4,11 +4,11 @@
     {% for banner in banners %}
 
       <div class="swiper-slide text-center">
-      {% if banner.video %}    
-<video width="100%" height="auto" controls>
+      {% if banner.video %}  
+
+<video class="" src="{{ banner.video }}" poster="{{ banner.image }}" autoplay="" loop="" muted="" playsinline="">
   <source src="{{ banner.video }}" type="video/mp4">
   <source src="{{ banner.video }}" type="video/ogg">
-Your browser does not support the video tag.
 </video>
       {% else %}
           {% if banner.link %}
@@ -21,7 +21,7 @@ Your browser does not support the video tag.
      {% endfor %} 
      </div>
   </div>
-  <div class="swiper-pagination video_slideshow{{ module }}"></div>
+  <div style="bottom: 15px;" class="swiper-pagination video_slideshow{{ module }}"></div>
   <div class="swiper-pager">
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>

@@ -5,7 +5,7 @@
   <a href="index.php?route=product/search" >Все результаты товаров</a><a onclick="remove_search()" class="badge pull-right">x</a>
 </span>
 {% for product in view %}
-  <a href="{{ product.href }}" class="list-group-item">{{ product.name }} <span class="badge pull-right">{{ product.price }}</span></a>
+  <a href="{{ product.href }}" class="list-group-item"><span class="text-left">{{ product.name }}</span> <div class="badge pull-right">{{ product.price }}</div></a>
 {% endfor %}
 </div>
 {% endif %}
@@ -16,7 +16,7 @@
     <a href="index.php?route=product/search" >Все результаты товаров</a><a  onclick="remove_search()"  class="badge pull-right">x</a>
 </span>
   {% for product in offer %}
-  <a href="{{ product.href }}" class="list-group-item">{{ product.name }} <span class="badge pull-right">{{ product.price }}</span></a>
+  <a href="{{ product.href }}" class="list-group-item"><span class="text-left">{{ product.name }}</span> <div class="badge pull-right">{{ product.price }}</div></a>
   {% endfor %}
 </div>
 {% endif %}
