@@ -2,7 +2,7 @@
 // *	@source		See SOURCE.txt for source and other copyright.
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
-class ControllerAccountRegisterBymail extends Controller {
+class ControllerAccountRegisterSimple extends Controller {
 	private $error = array();
 
 	public function index() {
@@ -21,7 +21,8 @@ class ControllerAccountRegisterBymail extends Controller {
 		$this->document->addStyle('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css');
 
 		$this->load->model('account/customer');
-
+		//---- yandex
+		/*
 		$client_id = '0f77313fc79c4841baa1512c05611c3b'; // Id приложения login_ya.php
 		$client_secret = 'ad56c105b3024ba388ffed0fa08e748b'; // Пароль приложения
 		$redirect_uri = 'http://ecom/login_ya.php'; // Callback URI
@@ -34,7 +35,7 @@ class ControllerAccountRegisterBymail extends Controller {
 			'display'       => 'popup'
 		);
 		
-		//---- yandex
+
 		if (isset($this->request->get['code'])) {
 
 			$result = false;
@@ -73,13 +74,13 @@ class ControllerAccountRegisterBymail extends Controller {
 			}
 
 			if ($result) {
-				/*
+				
 				echo "Социальный ID пользователя: " . $userInfo['id'] . '<br />';
 				echo "Имя пользователя: " . $userInfo['real_name'] . '<br />';
 				echo "Email: " . $userInfo['default_email'] . '<br />';
 				echo "Пол пользователя: " . $userInfo['sex'] . '<br />';
 				echo "День Рождения: " . $userInfo['birthday'] . '<br />';
-				*/
+				
 				$data = array (
 					'firstname' => $userInfo['real_name'],
 					'email' => $userInfo['default_email'],
@@ -105,6 +106,7 @@ class ControllerAccountRegisterBymail extends Controller {
 
 			$this->response->redirect($this->url->link('account/success'));
 		}
+		*/
 		//---- yandex
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
@@ -134,7 +136,7 @@ class ControllerAccountRegisterBymail extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_register'),
-			'href' => $this->url->link('account/register', '', true)
+			'href' => $this->url->link('account/register_simple', '', true)
 		);
 		$data['text_account_already'] = sprintf($this->language->get('text_account_already'), $this->url->link('account/login', '', true));
 
@@ -186,7 +188,7 @@ class ControllerAccountRegisterBymail extends Controller {
 			$data['error_confirm'] = '';
 		}
 
-		$data['action'] = $this->url->link('account/register', '', true);
+		$data['action'] = $this->url->link('account/register_simple', '', true);
 
 		$data['customer_groups'] = array();
 
@@ -296,7 +298,7 @@ class ControllerAccountRegisterBymail extends Controller {
 			$data['agree'] = false;
 		}
 
-		$data['yandex'] = '<p><a href="' . $url . '?' . urldecode(http_build_query($params)) . '">Аутентификация через Yandex</a></p>';
+	//	$data['yandex'] = '<p><a href="' . $url . '?' . urldecode(http_build_query($params)) . '">Аутентификация через Yandex</a></p>';
 
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');
@@ -305,27 +307,15 @@ class ControllerAccountRegisterBymail extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
 
-		$this->response->setOutput($this->load->view('account/register_bymail', $data));
+		$this->response->setOutput($this->load->view('account/register_simple', $data));
 	}
 
 	private function validatequick($email) {
-
-/*
-		'firstname' => $userInfo['real_name'],
-		'email' => $userInfo['default_email'],
-		'password' => $tokenInfo['access_token'],
-		'token' => $tokenInfo['access_token'],
-*/
-
-
 
 		if ($this->model_account_customer->getTotalCustomersByEmail($email)) {
 			$this->error['warning'] = $this->language->get('error_exists');
 		}
 
-
-
-		
 		return !$this->error;
 	}
 

@@ -193,6 +193,7 @@ class ControllerProductviews extends Controller {
 
 			$filter_data = array(
 				'filter_views_id' => $views_id,
+				'filter_sub_category' => true,
 				'filter_filter'      => $filter,
 				'sort'               => $sort,
 				'order'              => $order,
@@ -457,6 +458,7 @@ class ControllerProductviews extends Controller {
 
 			$filter_data = array(
 				'filter_views_id' => $views_id,
+				'filter_sub_category' => true,
 				'filter_filter'      => $filter,
 				'sort'               => $sort,
 				'order'              => $order,
@@ -469,11 +471,13 @@ class ControllerProductviews extends Controller {
 			$results = $this->model_catalog_view->getProducts($filter_data);
 
 			foreach ($results as $result) {
+
 				if ($result['image']) {
 					$image = $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
 				} else {
 					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
 				}
+				
 				$aditional_images = array( );
 
 				$results_images = $this->model_catalog_view->getProductImages($result['view_id']);
@@ -487,11 +491,24 @@ class ControllerProductviews extends Controller {
 					);
 				}
 
+				$product_price = $this->model_catalog_view->getProductPrice($result['view_id']);
+
+
+				$price = $this->currency->format($this->tax->calculate($product_price['price'] , $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']).'/ '.$product_price['abbr'];
+												
+				if ((float)$result['special']) {
+					$special = $this->currency->format($this->tax->calculate($result['special'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+				} else {
+					$special = false;
+				}
+
+
 				if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
 					$price = $this->currency->format($this->tax->calculate($result['price'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
 				} else {
 					$price = false;
 				}
+
 
 				if ((float)$result['special']) {
 					$special = $this->currency->format($this->tax->calculate($result['special'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);

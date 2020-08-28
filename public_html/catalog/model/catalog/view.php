@@ -92,7 +92,7 @@ class ModelCatalogView extends Model {
 		 
 		if (!empty($data['filter_views_id'])) {
 			if (!empty($data['filter_sub_category'])) {
-				$sql .= " FROM " . DB_PREFIX . "category_path cp LEFT JOIN " . DB_PREFIX . "view_to_category p2c ON (cp.category_id = p2c.category_id)";
+				$sql .= " FROM " . DB_PREFIX . "category_views_path cp LEFT JOIN " . DB_PREFIX . "view_to_category p2c ON (cp.views_id = p2c.category_id)";
 			} else {
 				$sql .= " FROM " . DB_PREFIX . "view_to_category p2c";
 			}
@@ -199,10 +199,13 @@ class ModelCatalogView extends Model {
 			if ($data['sort'] == 'pd.name' || $data['sort'] == 'p.model') {
 				$sql .= " ORDER BY LCASE(" . $data['sort'] . ")";
 			} elseif ($data['sort'] == 'p.price') {
-				$sql .= " ORDER BY sortprice ";
+				$sql .= " ORDER BY CASE WHEN price> 0 THEN 0 ELSE 1 END , price ";
 
 			} else {
-				$sql .= " ORDER BY sortprice, " . $data['sort'];
+				$sql .= " ORDER BY CASE WHEN price> 0 THEN 0 ELSE 1 END , price, " . $data['sort'];
+
+				 
+
 			}
 		} else {
 			$sql .= " ORDER BY p.sort_order";
@@ -276,7 +279,7 @@ class ModelCatalogView extends Model {
 		}
 
 		$product_data = array();
-
+		print_r($sql);
 		
 		$query = $this->db->query($sql);
 
@@ -428,17 +431,19 @@ class ModelCatalogView extends Model {
 
 		$query = $this->db->query("
 		
-		SELECT MIN(o.price) AS price , o.abbr_package AS abbr
-
-		FROM " . DB_PREFIX . "view_description vd
-  		LEFT JOIN " . DB_PREFIX . "view_image vi ON (vd.view_id = vi.view_id)       
-		LEFT JOIN " . DB_PREFIX . "offer o ON (o.offer_id = vi.offer_id)
-
-		WHERE vd.view_id = '" . (int)$view_id . "' AND o.status=1 AND o.price > 0
+		SELECT 
+		MIN(p.price) AS price , 
+		pd.abbr AS abbr
+		FROM " . DB_PREFIX . "view_description vd 
+		LEFT JOIN " . DB_PREFIX . "view_image vi ON (vd.view_id = vi.view_id) 
+		LEFT JOIN " . DB_PREFIX . "offer_variants ov ON (ov.offer_id = vi.offer_id) 
+		LEFT JOIN " . DB_PREFIX . "product p ON (p.product_id = ov.product_id) 
+		LEFT JOIN " . DB_PREFIX . "package_product pp ON (pp.product_id = p.product_id) 
+		LEFT JOIN " . DB_PREFIX . "package_description pd ON (pd.package_id = pp.package_id) 
+		
+		WHERE vd.view_id = '" . (int)$view_id . "' AND p.status =1 AND p.price > 0
 
 		");
-
-		
 		
 		$update_price = $this->db->query("
 		UPDATE " . DB_PREFIX . "view SET price= '" . $query->row['price'] . "' WHERE view_id ='" . (int)$view_id . "'; 
@@ -450,11 +455,25 @@ class ModelCatalogView extends Model {
 
 		return $query->row;
 	}	
-	
 
 	public function getProductImages($view_id) {
-		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "view_image WHERE view_id = '" . (int)$view_id . "' ORDER BY sort_order ASC");
+		$query = $this->db->query("
 
+		SELECT vi.image, vi.name, vi.alt, vi.offer_id, pd.abbr, p.price  
+		FROM " . DB_PREFIX . "view_image  vi
+
+		LEFT JOIN " . DB_PREFIX . "offer_variants ov  ON (ov.offer_id = vi.offer_id)
+		LEFT JOIN " . DB_PREFIX . "package_product pp  ON (ov.product_id = pp.product_id)
+		LEFT JOIN " . DB_PREFIX . "package_description pd  ON (pp.package_id = pd.package_id)
+		LEFT JOIN " . DB_PREFIX . "product p  ON (pp.product_id = p.product_id)
+
+		WHERE vi.view_id = '" . (int)$view_id . "' 
+
+		GROUP BY vi.view_image_id	
+
+		ORDER BY vi.sort_order ASC
+		
+		");
 		return $query->rows;
 	}
 
@@ -520,7 +539,7 @@ class ModelCatalogView extends Model {
 
 		if (!empty($data['filter_views_id'])) {
 			if (!empty($data['filter_sub_category'])) {
-				$sql .= " FROM " . DB_PREFIX . "category_path cp LEFT JOIN " . DB_PREFIX . "view_to_category p2c ON (cp.category_id = p2c.category_id)";
+				$sql .= " FROM " . DB_PREFIX . "category_views_path cp LEFT JOIN " . DB_PREFIX . "view_to_category p2c ON (cp.views_id = p2c.category_id)";
 			} else {
 				$sql .= " FROM " . DB_PREFIX . "view_to_category p2c";
 			}
