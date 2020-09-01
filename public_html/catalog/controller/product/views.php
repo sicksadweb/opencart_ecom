@@ -56,7 +56,7 @@ class ControllerProductviews extends Controller {
 			'text' => $this->language->get('text_home'),
 			'href' => $this->url->link('common/home')
 		);
-
+		
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_category_views'),
 			'href' => $this->url->link('product/views')
@@ -134,6 +134,8 @@ class ControllerProductviews extends Controller {
 				'text' => $category_info['name'],
 				'href' => $this->url->link('product/views', 'path=' . $this->request->get['path'])
 			);
+
+			$this->document->setBreadcrumbs($data['breadcrumbs']);
 
 			if ($category_info['image']) {
 				$data['thumb'] = $this->model_tool_image->resize($category_info['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_category_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_category_height'));
@@ -389,6 +391,7 @@ class ControllerProductviews extends Controller {
 			$data['header'] = $this->load->controller('common/header');
 			
 
+
 			$this->response->setOutput($this->load->view('product/views', $data));
 		} else {
 			
@@ -404,7 +407,7 @@ class ControllerProductviews extends Controller {
 
 			// Set the last category breadcrumb
 
-
+			$this->document->getBreadcrumbs($data['breadcrumbs']);
 
 
 	//		$data['description'] = html_entity_decode($category_info['description'], ENT_QUOTES, 'UTF-8');
@@ -454,7 +457,7 @@ class ControllerProductviews extends Controller {
 				);
 			}
 
-			$data['products'] = array();
+	//		$data['products'] = array();
 
 			$filter_data = array(
 				'filter_views_id' => $views_id,
@@ -466,10 +469,10 @@ class ControllerProductviews extends Controller {
 				'limit'              => $limit
 			);
 
-			$product_total = $this->model_catalog_view->getTotalProducts($filter_data);
+	//		$product_total = $this->model_catalog_view->getTotalProducts($filter_data);
 
-			$results = $this->model_catalog_view->getProducts($filter_data);
-
+	//		$results = $this->model_catalog_view->getProducts($filter_data);
+/*
 			foreach ($results as $result) {
 
 				if ($result['image']) {
@@ -537,7 +540,7 @@ class ControllerProductviews extends Controller {
 					'href'        => $this->url->link('product/view',  '&view_id=' . $result['view_id'] . $url)
 				);
 			}
-
+*/
 			$url = '';
 
 			if (isset($this->request->get['filter'])) {

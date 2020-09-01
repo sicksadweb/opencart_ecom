@@ -1458,3 +1458,42 @@
 2020-08-28 9:36:02 - PHP Notice:  Undefined variable: url in W:\domains\opencart_ecom\public_html\admin\controller\catalog\product_exchange.php on line 49
 2020-08-28 9:36:02 - PHP Notice:  Undefined variable: url in W:\domains\opencart_ecom\public_html\admin\controller\catalog\product_exchange.php on line 49
 2020-08-28 9:36:02 - PHP Notice:  Undefined variable: url in W:\domains\opencart_ecom\public_html\admin\controller\catalog\product_exchange.php on line 49
+2020-08-31 3:48:59 - PHP Warning:  unlink(W:/domains/opencart_ecom/storage/cache/cache.admin.language.1598610983): No such file or directory in W:\domains\opencart_ecom\public_html\system\library\cache\file.php on line 17
+2020-08-31 3:48:59 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\system\framework.php:42) in W:\domains\opencart_ecom\public_html\catalog\controller\startup\session.php on line 25
+2020-08-31 6:20:59 - PHP Notice:  Undefined variable: url in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 78
+2020-08-31 6:21:07 - PHP Notice:  Undefined variable: url in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 78
+2020-08-31 6:21:26 - PHP Notice:  Undefined variable: url in W:\domains\opencart_ecom\public_html\catalog\controller\product\view.php on line 78
+2020-08-31 6:56:16 - PHP Notice:  Undefined index: success in W:\domains\opencart_ecom\public_html\catalog\controller\account\wishlist.php on line 198
+2020-08-31 6:56:21 - PHP Notice:  Undefined index: success in W:\domains\opencart_ecom\public_html\catalog\controller\account\wishlist.php on line 198
+2020-08-31 6:56:45 - PHP Notice:  Undefined index: success in W:\domains\opencart_ecom\public_html\catalog\controller\account\wishlist.php on line 198
+2020-08-31 8:16:56 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 644
+2020-08-31 8:16:56 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 651
+2020-08-31 8:16:56 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 651
+2020-08-31 8:16:56 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 651
+2020-08-31 8:16:56 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 651
+2020-08-31 8:16:56 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 651
+2020-08-31 8:16:56 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 664
+2020-08-31 8:30:22 - PHP Notice:  Undefined property: Document::$breadcrumbs in W:\domains\opencart_ecom\public_html\system\library\document.php on line 195
+2020-08-31 8:47:06 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\system\library\document.php on line 181
+2020-08-31 8:47:29 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\system\library\document.php on line 181
+2020-08-31 8:47:39 - PHP Warning:  Invalid argument supplied for foreach() in W:\domains\opencart_ecom\public_html\system\library\document.php on line 181
+2020-08-31 8:48:21 - PHP Notice:  Undefined index: link in W:\domains\opencart_ecom\public_html\system\library\document.php on line 187
+2020-08-31 8:48:21 - PHP Notice:  Undefined index: link in W:\domains\opencart_ecom\public_html\system\library\document.php on line 187
+2020-08-31 8:48:21 - PHP Notice:  Undefined index: link in W:\domains\opencart_ecom\public_html\system\library\document.php on line 187
+2020-08-31 8:51:45 - PHP Notice:  Undefined index: link in W:\domains\opencart_ecom\public_html\system\library\document.php on line 187
+2020-08-31 8:51:45 - PHP Notice:  Undefined index: link in W:\domains\opencart_ecom\public_html\system\library\document.php on line 187
+2020-08-31 8:51:45 - PHP Notice:  Undefined index: link in W:\domains\opencart_ecom\public_html\system\library\document.php on line 187
+2020-08-31 8:54:49 - PHP Notice:  Undefined index: link in W:\domains\opencart_ecom\public_html\system\library\document.php on line 187
+2020-08-31 8:54:49 - PHP Notice:  Undefined index: link in W:\domains\opencart_ecom\public_html\system\library\document.php on line 187
+2020-08-31 8:54:49 - PHP Notice:  Undefined index: link in W:\domains\opencart_ecom\public_html\system\library\document.php on line 187
+2020-08-31 9:04:30 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 647
+2020-08-31 9:04:30 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 654
+2020-08-31 9:04:30 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 654
+2020-08-31 9:04:30 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 654
+2020-08-31 9:04:30 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 654
+2020-08-31 9:04:30 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 654
+2020-08-31 9:04:30 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 667
+2020-09-01 8:17:09 - PHP Notice:  Undefined property: Document::$breadcrumb in W:\domains\opencart_ecom\public_html\system\library\document.php on line 169
+2020-09-01 8:17:09 - PHP Notice:  Undefined property: Document::$breadcrumb in W:\domains\opencart_ecom\public_html\system\library\document.php on line 169
+2020-09-01 8:17:12 - PHP Notice:  Undefined property: Document::$breadcrumb in W:\domains\opencart_ecom\public_html\system\library\document.php on line 169
+2020-09-01 8:17:12 - PHP Notice:  Undefined property: Document::$breadcrumb in W:\domains\opencart_ecom\public_html\system\library\document.php on line 169

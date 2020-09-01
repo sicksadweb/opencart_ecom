@@ -1,16 +1,18 @@
 <?php
 class ModelAccountWishlist extends Model {
 	public function addWishlist($product_id) {
-		echo '111111111';
 		$this->db->query("DELETE FROM " . DB_PREFIX . "customer_wishlist WHERE customer_id = '" . (int)$this->customer->getId() . "' AND product_id = '" . (int)$product_id . "'");
-		print_r("DELETE FROM " . DB_PREFIX . "customer_wishlist WHERE customer_id = '" . (int)$this->customer->getId() . "' AND product_id = '" . (int)$product_id . "'");
 
-
-		$this->db->query("INSERT INTO " . DB_PREFIX . "customer_wishlist SET   customer_id = '" . (int)$this->customer->getId() . "', product_id = '" . (int)$product_id . "', date_added = NOW()");
+		$this->db->query("INSERT INTO " . DB_PREFIX . "customer_wishlist SET customer_id = '" . (int)$this->customer->getId() . "', product_id = '" . (int)$product_id . "', date_added = NOW()");
 	}
 
-
-
+	public function deleteViewWishlist($view_id) {
+		$this->db->query("
+		DELETE FROM " . DB_PREFIX . "customer_view_wishlist 
+		WHERE 
+		customer_id = '" . (int)$this->customer->getId() . "' 
+		AND view_id = '" . (int)$view_id . "'");
+	}
 
 	public function deleteWishlist($product_id) {
 		$this->db->query("DELETE FROM " . DB_PREFIX . "customer_wishlist WHERE customer_id = '" . (int)$this->customer->getId() . "' AND product_id = '" . (int)$product_id . "'");
@@ -18,7 +20,8 @@ class ModelAccountWishlist extends Model {
 
 	public function getWishlist() {
         $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer_wishlist WHERE customer_id = '" . (int)$this->customer->getId() . "'");
-
+		print_r("SELECT * FROM " . DB_PREFIX . "customer_wishlist WHERE customer_id = '" . (int)$this->customer->getId() . "'");
+	//	print_r ($query );
 		return $query->rows;
 	}
 
@@ -43,8 +46,6 @@ class ModelAccountWishlist extends Model {
 
 		return $query->rows;
 	}
-	public function deleteViewWishlist($product_id) {
-		$this->db->query("DELETE FROM " . DB_PREFIX . "customer_wishlist WHERE customer_id = '" . (int)$this->customer->getId() . "' AND product_id = '" . (int)$product_id . "'");
-	}
+
 
 }

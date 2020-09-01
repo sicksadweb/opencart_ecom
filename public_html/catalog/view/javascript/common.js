@@ -272,19 +272,19 @@ var voucher = {
 var wishlist = {
 	'add': function(product_id) {
 		$.ajax({
-			url: 'index.php?route=account/wishlist/add',
+			url: 'index.php?route=account/wishlist/view_add',
 			type: 'post',
 			data: 'product_id=' + product_id,
 			dataType: 'json',
+			
 			success: function(json) {
 				$('.alert-dismissible').remove();
 
 				if (json['redirect']) {
 					location = json['redirect'];
 				}
-				alert (product_id);
-				if (json['success']) {
 
+				if (json['success']) {
 					$('#content').parent().before('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
 				}
 
@@ -310,6 +310,7 @@ var view_wishlist = {
 			type: 'post',
 			data: 'view_id=' + view_id,
 			dataType: 'json',
+			
 			success: function(json) {
 				$('.alert-dismissible').remove();
 

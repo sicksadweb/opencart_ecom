@@ -50,6 +50,9 @@ class ControllerCommonHeader extends Controller {
 			$data['logo'] = '';
 		}
 
+
+		$data['meta_breadcrumbs'] = $this->document->getBreadcrumbs();
+
 		$this->load->language('common/header');
 		
 		

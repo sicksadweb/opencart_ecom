@@ -19,6 +19,7 @@ class Document {
 	private $styles = array();
 	private $scripts = array();
 	private $og_image;
+	private $breadcrumbs;
 
 	/**
      * 
@@ -84,6 +85,7 @@ class Document {
 		return $this->keywords;
 	}
 	
+
 	/**
      * 
      *
@@ -162,4 +164,48 @@ class Document {
 	public function getOgImage() {
 		return $this->og_image;
 	}
+
+
+
+
+
+	public function setBreadcrumbs($data) {
+		$breadcrumbs = '
+		<script>
+		{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [';
+		$i = 1;
+		foreach ($data as $breadcrumb) {
+			if (next($data))  {
+				$breadcrumbs .= '
+				{
+				"@type": "ListItem",
+				"position": "'.$i.'",
+				"name": "'.$breadcrumb['text'].'",
+				"item": "'.$breadcrumb['href'].'"
+				},';
+			} else {
+				$breadcrumbs .= '{
+				"@type": "ListItem",
+				"position": "'.$i.'",
+				"name": "'.$breadcrumb['text'].'",
+				"item": "'.$breadcrumb['href'].'"
+				}';
+			}
+			$i++;
+		}
+		$breadcrumbs .= '
+			]
+		}
+		</script>';
+		$this->breadcrumbs = $breadcrumbs;
+	}
+	
+	public function getBreadcrumbs() {
+		return $this->breadcrumbs;
+	}
+
+
 }
