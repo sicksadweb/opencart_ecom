@@ -80,6 +80,12 @@ class ControllerInformationContact extends Controller {
 		$data['mail'] = $this->config->get('config_email');
 		$data['locations'] = array();
 
+		$data['meta_store'] =$this->config->get('config_metastore');
+
+
+		$this->document->setMetastore($this->config->get('config_metastore'));
+
+
 		$this->load->model('localisation/location');
 
 		foreach((array)$this->config->get('config_location') as $location_id) {

@@ -20,6 +20,8 @@ class Document {
 	private $scripts = array();
 	private $og_image;
 	private $breadcrumbs;
+	private $metastore;
+	
 
 	/**
      * 
@@ -165,9 +167,13 @@ class Document {
 		return $this->og_image;
 	}
 
+	public function setMetastore($data) {
+		$this->metastore = $data;
+	}
 
-
-
+	public function getMetastore() {
+		return $this->metastore;
+	}
 
 	public function setBreadcrumbs($data) {
 		$breadcrumbs = '

@@ -49,9 +49,10 @@ class ControllerCommonHeader extends Controller {
 		} else {
 			$data['logo'] = '';
 		}
-
+		
 
 		$data['meta_breadcrumbs'] = $this->document->getBreadcrumbs();
+		$data['meta_store'] = $this->document->getMetastore();
 
 		$this->load->language('common/header');
 		
