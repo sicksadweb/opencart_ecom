@@ -10,15 +10,15 @@
           <h4 class="modal-title">{{ title_form_support }}</h4>
         </div>
         <div class="modal-body">
-          <form action="" name="form_support" method="post">
+          <form id="form_support" action="" name="form_support" method="post">
               <label for="fname">{{ text_coments }}</label>
-              <input type="text" id="coments" name="coments" class="form-control">
+              <input type="text"  name="coments" class="form-control">
               <label for="fname">{{ text_name }}</label>
-              <input type="text" id="name" name="name" class="form-control">
+              <input type="text"  name="name" class="form-control">
               <label for="fname">{{ text_question }}</label>
-              <input type="text" id="question" name="question" class="form-control">
+              <input type="text"  name="question" class="form-control">
               <label for="fname">{{ text_phone }}</label>
-              <input type="text" id="phone" name="phone" class="form-control">
+              <input type="text"  name="phone" class="form-control">
               <button type="button" onclick="send_form('form_support')" class="btn btn-default" data-dismiss="modal">{{ text_send }}</button>
             </form>
         </div>
@@ -29,10 +29,25 @@
     </div>
   </div>
 
+  <div class="results"></div>
 <script>
 function send_form (form) {
 
- // 'index.php?route=/extension/module/'+form 
+
+  $("#form_support").submit(function(e) {
+    e.preventDefault();
+      $.ajax({
+           type: "POST",
+           url: "index.php?route=mail/form",
+             data: $("#form_support").serialize(),
+             success: function(data) {
+             $('.results').html(data);
+             } else {
+              alert (111);
+             }
+           });
+
+  });
 
 
 }

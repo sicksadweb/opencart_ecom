@@ -177,7 +177,7 @@ class Document {
 
 	public function setBreadcrumbs($data) {
 		$breadcrumbs = '
-		<script>
+		<script type="application/ld+json">
 		{
 			"@context": "https://schema.org",
 			"@type": "BreadcrumbList",

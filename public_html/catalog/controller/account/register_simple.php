@@ -22,7 +22,7 @@ class ControllerAccountRegisterSimple extends Controller {
 
 		$this->load->model('account/customer');
 		//---- yandex
-		/*
+		
 		$client_id = '0f77313fc79c4841baa1512c05611c3b'; // Id приложения login_ya.php
 		$client_secret = 'ad56c105b3024ba388ffed0fa08e748b'; // Пароль приложения
 		$redirect_uri = 'http://ecom/login_ya.php'; // Callback URI
@@ -74,13 +74,13 @@ class ControllerAccountRegisterSimple extends Controller {
 			}
 
 			if ($result) {
-				
+			/*	
 				echo "Социальный ID пользователя: " . $userInfo['id'] . '<br />';
 				echo "Имя пользователя: " . $userInfo['real_name'] . '<br />';
 				echo "Email: " . $userInfo['default_email'] . '<br />';
 				echo "Пол пользователя: " . $userInfo['sex'] . '<br />';
 				echo "День Рождения: " . $userInfo['birthday'] . '<br />';
-				
+			*/	
 				$data = array (
 					'firstname' => $userInfo['real_name'],
 					'email' => $userInfo['default_email'],
@@ -106,7 +106,7 @@ class ControllerAccountRegisterSimple extends Controller {
 
 			$this->response->redirect($this->url->link('account/success'));
 		}
-		*/
+		
 		//---- yandex
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
@@ -298,8 +298,38 @@ class ControllerAccountRegisterSimple extends Controller {
 			$data['agree'] = false;
 		}
 
-	//	$data['yandex'] = '<p><a href="' . $url . '?' . urldecode(http_build_query($params)) . '">Аутентификация через Yandex</a></p>';
+		$data['yandex'] = '<p><a href="' . $url . '?' . urldecode(http_build_query($params)) . '">Аутентификация через Yandex</a></p>';
 
+
+
+		$client_id = '7571690'; // ID приложения
+		$client_secret = 'XJsfGR8FgpJBpfGYBu36'; // Защищённый ключ
+		$redirect_uri = 'http://ecom/login_vk.php'; // Адрес сайта
+		$redirect_uri = 'http://molodegka/index.php?route=account/oauth/vkcom/'; // Адрес сайта
+		
+		
+		
+		
+		
+		$url = 'http://oauth.vk.com/authorize';
+		
+		$params = array(
+			'client_id' => $client_id,
+			'display' => 'page',
+			'redirect_uri' => $redirect_uri,
+			'scope' => 'friends',
+			'response_type' => 'code',
+			'v'=> '5.122'
+		);
+		
+		
+		
+		// $link = '<p><a href="' . $url . '?' . urldecode(http_build_query($params)) . '">Аутентификация через ВКонтакте</a></p>';
+		
+		
+		$data['vkcom'] = '<p><a href="' . $url . '?' . urldecode(http_build_query($params)) . '">Аутентификация через ВКонтакте</a></p>';
+
+		
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');
 		$data['content_top'] = $this->load->controller('common/content_top');

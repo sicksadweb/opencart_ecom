@@ -5,7 +5,7 @@
 $client_id = '7571690'; // ID приложения
 $client_secret = 'XJsfGR8FgpJBpfGYBu36'; // Защищённый ключ
 $redirect_uri = 'http://ecom/login_vk.php'; // Адрес сайта
-
+$redirect_uri = 'http://molodegka/index.php?route=account/oauth/vkcom/'; // Адрес сайта
 
 
 
@@ -40,7 +40,7 @@ if (isset($_GET['code'])) {
 
     $token = json_decode(file_get_contents('https://oauth.vk.com/access_token' . '?' . urldecode(http_build_query($params))), true);
 
-    print_r($token);
+  //  print_r($token);
     if (isset($token['access_token'])) {
 
 
@@ -56,7 +56,8 @@ if (isset($_GET['code'])) {
         
         $request_params = array(
         'user_id' => $user_id,
-        'fields' => 'bdate',
+        'fields' => 'bdate,contacts',
+        
         'v' => '5.52',
         'access_token' => $token['access_token']
         );
@@ -65,6 +66,20 @@ if (isset($_GET['code'])) {
 
 
         print_r($result);
+        echo '<br>0<br><br>';
+        print_r($result->response[0]->first_name);
+        print_r($result->response[0]->last_name);
+        print_r($result->response[0]->bdate);
+        print_r($result->response[0]->id);      
+        print_r($result->response[0]->home_phone);  
+        print_r($result->response[0]->mobile_phone );     
+        /*
+        echo '<br>1<br><br>';
+        print_r($request_params['access_token']);
+        echo '<br>2<br><br>';
+        print_r($request_params->response[0]['first_name']);
+        */
+
     }
 
 

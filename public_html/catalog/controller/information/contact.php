@@ -82,7 +82,7 @@ class ControllerInformationContact extends Controller {
 
 		$data['meta_store'] =$this->config->get('config_metastore');
 
-
+		$this->document->setBreadcrumbs($data['breadcrumbs']);
 		$this->document->setMetastore($this->config->get('config_metastore'));
 
 
@@ -188,6 +188,7 @@ class ControllerInformationContact extends Controller {
 			'text' => $this->language->get('heading_title'),
 			'href' => $this->url->link('information/contact')
 		);
+
 		$data['mail'] = $this->url->link('common/home');
 
 		$data['continue'] = $this->url->link('common/home');

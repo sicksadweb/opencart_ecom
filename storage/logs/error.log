@@ -1497,3 +1497,126 @@
 2020-09-01 8:17:09 - PHP Notice:  Undefined property: Document::$breadcrumb in W:\domains\opencart_ecom\public_html\system\library\document.php on line 169
 2020-09-01 8:17:12 - PHP Notice:  Undefined property: Document::$breadcrumb in W:\domains\opencart_ecom\public_html\system\library\document.php on line 169
 2020-09-01 8:17:12 - PHP Notice:  Undefined property: Document::$breadcrumb in W:\domains\opencart_ecom\public_html\system\library\document.php on line 169
+2020-09-02 4:49:18 - PHP Warning:  unlink(W:/domains/opencart_ecom/storage/cache/cache.catalog.language.1599025758): Resource temporarily unavailable in W:\domains\opencart_ecom\public_html\system\library\cache\file.php on line 68
+2020-09-02 4:49:18 - PHP Warning:  unlink(W:/domains/opencart_ecom/storage/cache/cache.currency.1599025758): Resource temporarily unavailable in W:\domains\opencart_ecom\public_html\system\library\cache\file.php on line 68
+2020-09-02 4:49:18 - PHP Warning:  unlink(W:/domains/opencart_ecom/storage/cache/cache.currency.1599025758): Resource temporarily unavailable in W:\domains\opencart_ecom\public_html\system\library\cache\file.php on line 68
+2020-09-02 9:48:48 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 647
+2020-09-02 9:48:48 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 654
+2020-09-02 9:48:48 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 654
+2020-09-02 9:48:48 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 654
+2020-09-02 9:48:48 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 654
+2020-09-02 9:48:48 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 654
+2020-09-02 9:48:48 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 667
+2020-09-02 9:53:05 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 647
+2020-09-02 9:53:05 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 654
+2020-09-02 9:53:05 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 654
+2020-09-02 9:53:05 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 654
+2020-09-02 9:53:05 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 654
+2020-09-02 9:53:05 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 654
+2020-09-02 9:53:05 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 667
+2020-09-02 9:53:11 - PHP Notice:  Undefined index: key in W:\domains\opencart_ecom\public_html\catalog\controller\mail\form.php on line 7
+2020-09-02 9:53:11 - PHP Notice:  Undefined index: name in W:\domains\opencart_ecom\public_html\catalog\controller\mail\form.php on line 9
+2020-09-02 9:53:11 - PHP Notice:  Undefined index: phone in W:\domains\opencart_ecom\public_html\catalog\controller\mail\form.php on line 10
+2020-09-02 9:53:11 - PHP Notice:  Undefined index: comment in W:\domains\opencart_ecom\public_html\catalog\controller\mail\form.php on line 11
+2020-09-02 9:53:11 - PHP Notice:  Undefined index: email in W:\domains\opencart_ecom\public_html\catalog\controller\mail\form.php on line 12
+2020-09-02 9:53:11 - PHP Notice:  Undefined index: question in W:\domains\opencart_ecom\public_html\catalog\controller\mail\form.php on line 13
+2020-09-02 9:53:11 - PHP Notice:  Undefined index: key in W:\domains\opencart_ecom\public_html\catalog\controller\mail\form.php on line 14
+2020-09-02 9:53:11 - PHP Notice:  Undefined variable: order_info in W:\domains\opencart_ecom\public_html\catalog\controller\mail\form.php on line 24
+2020-09-02 9:53:11 - PHP Notice:  Undefined variable: from in W:\domains\opencart_ecom\public_html\catalog\controller\mail\form.php on line 25
+2020-09-02 9:53:11 - PHP Notice:  Undefined variable: order_info in W:\domains\opencart_ecom\public_html\catalog\controller\mail\form.php on line 26
+2020-09-02 9:53:11 - PHP Notice:  Undefined variable: language in W:\domains\opencart_ecom\public_html\catalog\controller\mail\form.php on line 27
+2020-09-02 9:53:51 - PHP Notice:  Undefined index: key in W:\domains\opencart_ecom\public_html\catalog\controller\mail\form.php on line 7
+2020-09-02 9:53:51 - PHP Notice:  Undefined index: name in W:\domains\opencart_ecom\public_html\catalog\controller\mail\form.php on line 9
+2020-09-02 9:53:51 - PHP Notice:  Undefined index: phone in W:\domains\opencart_ecom\public_html\catalog\controller\mail\form.php on line 10
+2020-09-02 9:53:51 - PHP Notice:  Undefined index: comment in W:\domains\opencart_ecom\public_html\catalog\controller\mail\form.php on line 11
+2020-09-02 9:53:51 - PHP Notice:  Undefined index: email in W:\domains\opencart_ecom\public_html\catalog\controller\mail\form.php on line 12
+2020-09-02 9:53:51 - PHP Notice:  Undefined index: question in W:\domains\opencart_ecom\public_html\catalog\controller\mail\form.php on line 13
+2020-09-02 9:53:51 - PHP Notice:  Undefined index: key in W:\domains\opencart_ecom\public_html\catalog\controller\mail\form.php on line 14
+2020-09-02 9:54:36 - PHP Notice:  Undefined index: key in W:\domains\opencart_ecom\public_html\catalog\controller\mail\form.php on line 7
+2020-09-02 9:54:36 - PHP Notice:  Undefined index: name in W:\domains\opencart_ecom\public_html\catalog\controller\mail\form.php on line 9
+2020-09-02 9:54:36 - PHP Notice:  Undefined index: phone in W:\domains\opencart_ecom\public_html\catalog\controller\mail\form.php on line 10
+2020-09-02 9:54:36 - PHP Notice:  Undefined index: comment in W:\domains\opencart_ecom\public_html\catalog\controller\mail\form.php on line 11
+2020-09-02 9:54:36 - PHP Notice:  Undefined index: email in W:\domains\opencart_ecom\public_html\catalog\controller\mail\form.php on line 12
+2020-09-02 9:54:36 - PHP Notice:  Undefined index: question in W:\domains\opencart_ecom\public_html\catalog\controller\mail\form.php on line 13
+2020-09-02 9:54:36 - PHP Notice:  Undefined index: key in W:\domains\opencart_ecom\public_html\catalog\controller\mail\form.php on line 14
+2020-09-02 9:55:05 - PHP Notice:  Undefined index: key in W:\domains\opencart_ecom\public_html\catalog\controller\mail\form.php on line 7
+2020-09-02 9:55:05 - PHP Notice:  Undefined index: name in W:\domains\opencart_ecom\public_html\catalog\controller\mail\form.php on line 9
+2020-09-02 9:55:05 - PHP Notice:  Undefined index: phone in W:\domains\opencart_ecom\public_html\catalog\controller\mail\form.php on line 10
+2020-09-02 9:55:05 - PHP Notice:  Undefined index: comment in W:\domains\opencart_ecom\public_html\catalog\controller\mail\form.php on line 11
+2020-09-02 9:55:05 - PHP Notice:  Undefined index: email in W:\domains\opencart_ecom\public_html\catalog\controller\mail\form.php on line 12
+2020-09-02 9:55:05 - PHP Notice:  Undefined index: question in W:\domains\opencart_ecom\public_html\catalog\controller\mail\form.php on line 13
+2020-09-02 9:55:05 - PHP Notice:  Undefined index: key in W:\domains\opencart_ecom\public_html\catalog\controller\mail\form.php on line 14
+2020-09-03 6:54:15 - PHP Notice:  Undefined variable: url in W:\domains\opencart_ecom\public_html\catalog\controller\account\register_simple.php on line 301
+2020-09-03 6:54:15 - PHP Notice:  Undefined variable: params in W:\domains\opencart_ecom\public_html\catalog\controller\account\register_simple.php on line 301
+2020-09-03 6:54:15 - PHP Warning:  http_build_query(): Parameter 1 expected to be Array or Object.  Incorrect value given in W:\domains\opencart_ecom\public_html\catalog\controller\account\register_simple.php on line 301
+2020-09-03 6:57:17 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\controller\account\register_simple.php:78) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-09-03 7:11:41 - PHP Notice:  Undefined index: firstname in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 86
+2020-09-03 7:11:41 - PHP Notice:  Undefined index: confirm in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 88
+2020-09-03 7:13:44 - PHP Notice:  Undefined index: firstname in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 180
+2020-09-03 7:13:44 - PHP Notice:  Undefined index: confirm in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 182
+2020-09-03 7:14:28 - PHP Notice:  Undefined variable: userInfo in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 131
+2020-09-03 7:14:28 - PHP Notice:  Undefined variable: userInfo in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 132
+2020-09-03 7:14:28 - PHP Notice:  Undefined index: access_token in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 133
+2020-09-03 7:14:28 - PHP Notice:  Undefined index: access_token in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 134
+2020-09-03 7:14:54 - PHP Notice:  Undefined variable: userInfo in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 131
+2020-09-03 7:14:54 - PHP Notice:  Undefined variable: userInfo in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 132
+2020-09-03 7:14:54 - PHP Notice:  Undefined index: access_token in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 133
+2020-09-03 7:14:54 - PHP Notice:  Undefined index: access_token in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 134
+2020-09-03 7:14:54 - PHP Notice:  Undefined variable: userInfo in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 140
+2020-09-03 7:15:47 - PHP Notice:  Undefined variable: userInfo in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 131
+2020-09-03 7:15:47 - PHP Notice:  Undefined variable: userInfo in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 132
+2020-09-03 7:15:47 - PHP Notice:  Undefined index: access_token in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 133
+2020-09-03 7:15:47 - PHP Notice:  Undefined index: access_token in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 134
+2020-09-03 7:15:47 - PHP Notice:  Undefined variable: userInfo in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 140
+2020-09-03 7:15:47 - PHP Notice:  Undefined variable: userInfo in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 144
+2020-09-03 7:15:47 - PHP Notice:  Undefined variable: userInfo in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 146
+2020-09-03 7:15:47 - PHP Notice:  Undefined index: access_token in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 146
+2020-09-03 7:18:14 - PHP Notice:  Indirect modification of overloaded property ControllerAccountOauth::$error has no effect in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 199
+2020-09-03 7:19:25 - PHP Notice:  Indirect modification of overloaded property ControllerAccountOauth::$error has no effect in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 199
+2020-09-03 7:19:25 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\model\account\customer.php:152) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-09-03 7:19:40 - PHP Notice:  Undefined variable: userInfo in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 131
+2020-09-03 7:19:40 - PHP Notice:  Undefined variable: userInfo in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 132
+2020-09-03 7:19:40 - PHP Notice:  Undefined index: access_token in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 133
+2020-09-03 7:19:40 - PHP Notice:  Undefined index: access_token in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 134
+2020-09-03 7:19:40 - PHP Notice:  Undefined variable: userInfo in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 140
+2020-09-03 7:19:40 - PHP Notice:  Undefined variable: userInfo in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 144
+2020-09-03 7:19:40 - PHP Notice:  Undefined variable: userInfo in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 146
+2020-09-03 7:19:40 - PHP Notice:  Undefined index: access_token in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 146
+2020-09-03 7:19:40 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\model\account\customer.php:152) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-09-03 7:19:43 - PHP Notice:  Indirect modification of overloaded property ControllerAccountOauth::$error has no effect in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 199
+2020-09-03 7:19:43 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\model\account\customer.php:152) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-09-03 7:21:14 - PHP Notice:  Indirect modification of overloaded property ControllerAccountOauth::$error has no effect in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 200
+2020-09-03 7:21:14 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php:199) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-09-03 7:23:08 - PHP Notice:  Indirect modification of overloaded property ControllerAccountOauth::$error has no effect in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 200
+2020-09-03 7:23:08 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php:199) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-09-03 7:23:33 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php:203) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-09-03 7:24:25 - PHP Notice:  Indirect modification of overloaded property ControllerAccountOauth::$error has no effect in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 200
+2020-09-03 7:24:38 - PHP Notice:  Indirect modification of overloaded property ControllerAccountOauth::$error has no effect in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 200
+2020-09-03 7:24:59 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php:203) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-09-03 7:25:13 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php:203) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-09-03 7:26:27 - PHP Notice:  Indirect modification of overloaded property ControllerAccountOauth::$error has no effect in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 200
+2020-09-03 7:29:28 - PHP Warning:  Cannot modify header information - headers already sent by (output started at W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php:142) in W:\domains\opencart_ecom\public_html\system\library\response.php on line 36
+2020-09-03 7:30:04 - PHP Notice:  Undefined variable: userInfo in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 131
+2020-09-03 7:30:04 - PHP Notice:  Undefined variable: userInfo in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 132
+2020-09-03 7:30:04 - PHP Notice:  Undefined index: access_token in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 133
+2020-09-03 7:30:04 - PHP Notice:  Undefined index: access_token in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 134
+2020-09-03 7:30:04 - PHP Notice:  Undefined variable: userInfo in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 140
+2020-09-03 7:30:04 - PHP Notice:  Undefined variable: userInfo in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 143
+2020-09-03 7:30:04 - PHP Notice:  Undefined variable: userInfo in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 145
+2020-09-03 7:30:04 - PHP Notice:  Undefined index: access_token in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 145
+2020-09-03 7:30:26 - PHP Notice:  Indirect modification of overloaded property ControllerAccountOauth::$error has no effect in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 200
+2020-09-03 7:34:03 - PHP Notice:  Indirect modification of overloaded property ControllerAccountOauth::$error has no effect in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 201
+2020-09-03 7:34:48 - PHP Notice:  Indirect modification of overloaded property ControllerAccountOauth::$error has no effect in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 201
+2020-09-03 7:37:55 - PHP Notice:  Indirect modification of overloaded property ControllerAccountOauth::$error has no effect in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 208
+2020-09-03 8:17:41 - PHP Notice:  Indirect modification of overloaded property ControllerAccountOauth::$error has no effect in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 314
+2020-09-03 8:44:13 - PHP Notice:  Undefined index: firstname in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 94
+2020-09-03 8:44:13 - PHP Notice:  Undefined index: confirm in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 96
+2020-09-03 8:46:02 - PHP Notice:  Undefined index: firstname in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 86
+2020-09-03 8:46:02 - PHP Notice:  Undefined index: confirm in W:\domains\opencart_ecom\public_html\catalog\controller\account\oauth.php on line 88
+2020-09-04 5:08:27 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 647
+2020-09-04 5:08:27 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 654
+2020-09-04 5:08:27 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 654
+2020-09-04 5:08:27 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 654
+2020-09-04 5:08:27 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 654
+2020-09-04 5:08:27 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 654
+2020-09-04 5:08:27 - PHP Notice:  Undefined variable: product_total in W:\domains\opencart_ecom\public_html\catalog\controller\product\views.php on line 667
