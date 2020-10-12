@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<!--[if IE 8 ]><html dir="{{ direction }}" lang="{{ lang }}" class="ie8"><![endif]-->
+<!--[if IE 9 ]><html dir="{{ direction }}" lang="{{ lang }}" class="ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html dir="{{ direction }}" lang="{{ lang }}">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>{{ title }}</title>
+{% if robots %}
+<meta name="robots" content="{{ robots }}" />
+{% endif %}
+<base href="{{ base }}" />
+{% if description %}
+<meta name="description" content="{{ description }}" />
+{% endif %}
+{% if keywords %}
+<meta name="keywords" content="{{ keywords }}" />
+{% endif %}
+<meta property="og:title" content="{{ title }}" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{ og_url }}" />
+{% if og_image %}
+<meta property="og:image" content="{{ og_image }}" />
+{% else %}
+<meta property="og:image" content="{{ logo }}" />
+{% endif %}
+<meta property="og:site_name" content="{{ name }}" />
+<script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
+<link href="catalog/view/theme/molodezhnii/stylesheet/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+<script src="catalog/view/theme/molodezhnii/stylesheet/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" />
+
+<link href="catalog/view/theme/molodezhnii/stylesheet/stylesheet.css" rel="stylesheet">
+{% for style in styles %}
+<link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" />
+{% endfor %}
+{% for script in scripts %}
+<script src="{{ script }}" type="text/javascript"></script>
+{% endfor %}
+<script src="catalog/view/javascript/common.js" type="text/javascript"></script>
+
+<link href="catalog/view/javascript/jquery/swiper/css/swiper.min.css" type="text/css" rel="stylesheet" media="screen" />
+<link href="catalog/view/javascript/jquery/swiper/css/opencart.css" type="text/css" rel="stylesheet" media="screen" />
+<script src="catalog/view/javascript/jquery/swiper/js/swiper.jquery.js" type="text/javascript"></script>
+
+<!-- Core photoswipe file -->
+<link rel="stylesheet" href="catalog/view/javascript/photoswipe/dist/photoswipe.css"> 
+<link rel="stylesheet" href="catalog/view/javascript/photoswipe/dist/default-skin/default-skin.css"> 
+<script src="catalog/view/javascript/photoswipe/dist/photoswipe.min.js"></script> 
+<script src="catalog/view/javascript/photoswipe/dist/photoswipe-ui-default.min.js"></script> 
+
+{% for link in links %}
+<link href="{{ link.href }}" rel="{{ link.rel }}" />
+{% endfor %}
+{% for analytic in analytics %}
+{{ analytic }}
+{% endfor %}
+
+
+
+
+    {{ meta_breadcrumbs }}
+    {{ meta_store }}
+
+
+</head>
+<body>
+<nav id="top" class="navbar navbar-fixed-top">
+      <ul id="top-links" class="list-inline text-center">
+        <li><a href="mailto:{{ mail }}">{{ mail }}</a></li>
+        <li><a href="tel:{{ phone }}">{{ phone }}</a></li>
+        <li><a href="/index.php?route=information/information&information_id=9">{{ address }}</a></li>
+     </ul>
+</nav>
+
+<header>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <div id="logo">
+              {% if logo %}
+                {% if home == og_url %}
+                  <img src="{{ logo }}" title="{{ name }}" alt="{{ name }}" class="img-responsive" />
+                {% else %}
+                  <a href="{{ home }}"><img src="{{ logo }}" title="{{ name }}" alt="{{ name }}" class="img-responsive" /></a>
+                {% endif %}
+              {% else %}
+                <h1><a href="{{ home }}">{{ name }}</a></h1>
+              {% endif %}
+        </div>
+      </div>
+      <div class="col-sm-5">
+          <ul class="list-inline text-center">
+            <li><a href="{{ about_us }}">{{ text_about_us }}</a></li>
+            <li><a href="{{ catalog }}">{{ text_catalog }}</a></li>
+            <li><a href="{{ delivery }}">{{ text_delivery }}</a></li>
+            <li><a href="{{ contact }}">{{ text_contact }}</a></li>
+        </ul>
+        {{ livesearch }}     
+      </div>
+      <div class="col-sm-3">
+
+        {{ cart }}
+        <a  class="dropdown "><a id="account" href="{{ account }}" title="{{ text_account }}" class="btn btn-primary btn-block dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span class="">{{ text_account }}</span> <span class="caret"></span></a>
+          <ul class="dropdown-menu dropdown-menu-right">
+            {% if logged %}
+            <li><a href="{{ account }}">{{ text_account }}</a></li>
+            <li><a href="{{ order }}">{{ text_order }}</a></li>
+            <li><a href="{{ wishlist }}">{{ text_wishlist }}</a></li>
+            <li><a href="{{ logout }}">{{ text_logout }}</a></li>
+            {% else %}
+            <li><a href="{{ register }}">{{ text_register }}</a></li>
+            <li><a href="{{ login }}">{{ text_login }}</a></li>
+            {% endif %}
+          </ul>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>

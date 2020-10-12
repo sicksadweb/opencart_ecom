@@ -1,0 +1,70 @@
+{{ header }}
+<div id="product-category" class="container">
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+      {% if loop.last %}
+          <li><a>{{ breadcrumb.text }}</a></li>
+      {% else  %} 
+          <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+  <div class="row">{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9' %}
+    {% else %}
+    {% set class = 'col-sm-12' %}
+    {% endif %}
+    <div id="content" class="{{ class }}">{{ content_top }}
+      <h1>{{ heading_title }}</h1>
+
+      {% if categories %}
+      <h3>{{ text_refine }}</h3>
+      {% if categories %}
+      <div class="row">
+        <div class="col-sm-12">
+            {% for category in categories %}
+                <div class="col-sm-4 col-xs-6 text-center category">
+                  <a href="{{ category.href }}">
+                    <video style="width: 100%;" autoplay="" loop="" muted="" playsinline="">
+                    <source src="video/{{ category.video }}">
+                    </video>      		   
+                  </a>
+                    <a class="category-name" href="{{ category.href }}">
+                      {{ category.name }}
+                    </a> 	
+                </div>
+            {% endfor %}
+        </div>
+      </div>
+      {% else %}
+      {% endif %}
+      {% endif %}
+      {% if videos %}
+      <div class="row">
+
+      <div class="row"> 
+      {% for video in videos %}
+          <div class="col-sm-4 col-xs-6 product-thumb">
+          <h4 class="text-center products-name">{{video.name }}</h4>
+          <iframe src="{{video.video }}?autoplay=0" frameborder="0" width="100%" height="250" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+          </div>
+      {% endfor %} 
+        </div>
+      <div class="row">
+        <div class="col-sm-6 text-left">{{ pagination }}</div>
+        <div class="col-sm-6 text-right">{{ results }}</div>
+      </div>
+      {% endif %}
+      {% if not categories and not products %}
+      <p>{{ text_empty }}</p>
+      <div class="buttons">
+        <div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
+      </div>
+      {% endif %}
+      {{ content_bottom }}</div>
+    {{ column_right }}</div>
+</div>
+{{ footer }} 

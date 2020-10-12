@@ -1,0 +1,810 @@
+{{ header }}
+<div id="product-product" class="container">
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+      {% if loop.last %}
+          <li><a>{{ breadcrumb.text }}</a></li>
+      {% else  %} 
+          <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+
+    <div id="content" class="col-xs-12">
+      <div class="row"> 
+        <h1>{{ heading_title }}</h1>
+        <div class="col-xs-12 col-sm-4">
+
+        {% if thumb or images %}
+        <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+                    {% if thumb %}
+                      <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                      <a href="{{ popup }}" itemprop="contentUrl" data-size="1024x1024">
+                      <img src="{{ thumb }}" itemprop="thumbnail" alt="Image description" class="img-responsive" />
+                      </a>
+                      <figcaption itemprop="caption description">{{ heading_title }}</figcaption>
+                      </figure>
+                    {% endif %}
+
+                    {% if images %}
+                    {% for image in images %}
+                      <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                      <a href="{{ image.popup }}" itemprop="contentUrl" data-size="1024x1024">
+                      <img src="{{ image.thumb }}" itemprop="thumbnail" alt="{{ image.alt }}" />
+                      </a>
+                      <figcaption itemprop="caption description">{{ image.name }}</figcaption>
+                      </figure>
+                    {% endfor %}
+                    {% endif %}
+        </div>
+        {% endif %}
+
+        {% if images_aditional  %}
+        <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+                    {% for image in images_aditional %}
+                      <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                      <a href="{{ image.popup }}" itemprop="contentUrl" data-size="1024x1024">
+                      <img src="{{ image.thumb }}" itemprop="thumbnail" alt="{{ image.alt }}" />
+                      </a>
+                      <figcaption itemprop="caption description">{{ image.name }}</figcaption>
+                      </figure>
+                    {% endfor %}
+        </div>
+        <hr>
+        {% endif %}
+
+          <ul class="nav nav-tabs">
+            <!--
+            <li class="active"><a href="#tab-description" data-toggle="tab">{{ tab_description }}</a></li>
+            -->
+            {% if video_instruction %}
+            <li><a href="#tab-video-instruction" data-toggle="tab">{{ tab_video_instruction }}</a></li>
+            {% endif %}
+            {% if video_assembly %}
+            <li><a href="#tab-video-assembly" data-toggle="tab">{{ tab_video_assembly }}</a></li>
+            {% endif %}
+
+            {% if attribute_groups %}
+            <li><a href="#tab-specification" data-toggle="tab">{{ tab_attribute }}</a></li>
+            {% endif %}
+          </ul>
+          <div class="tab-content">
+            <!--
+            <div class="tab-pane active" id="tab-description">{{ description }}</div>
+            -->
+
+
+            {% if video_instruction %}
+            <div class="tab-pane tab-video-assembly " id="tab-video-assembly">
+              <iframe width="100%" height="auto" src="{{ video_instruction }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            {% endif %}
+            {% if video_assembly %}
+            <div class="tab-pane tab-video-instruction " id="tab-video-instruction">
+              <iframe width="100%" height="auto" src="{{ video_assembly }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            {% endif %}
+
+            {% if attribute_groups %}
+            <div class="tab-pane" id="tab-specification">
+              <table class="table table-bordered">
+                {% for attribute_group in attribute_groups %}
+                <thead>
+                  <tr>
+                    <td colspan="2"><strong>{{ attribute_group.name }}</strong></td>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for attribute in attribute_group.attribute %}
+                <tr>
+                  <td>{{ attribute.name }}</td>
+                  <td>{{ attribute.text }}</td>
+                </tr>
+                {% endfor %}
+                  </tbody>
+                {% endfor %}
+              </table>
+            </div>
+            {% endif %}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-8">
+          <ul class="list-unstyled">
+            {% if manufacturer %}
+            <li>{{ text_manufacturer }} <a href="{{ manufacturers }}">{{ manufacturer }}</a></li>
+            {% endif %}
+          </ul>
+
+          {% if price %}
+          <ul class="list-unstyled">
+            {% if not special %}
+            <li>
+              <h2>{{ price }}</h2>
+            </li>
+            {% endif %}
+          </ul>
+          {% endif %}
+          {% if variants or aditional_products  %}
+      <div class="panel-group" id="accordion">
+          {% if variants %}
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#variants">
+                    {{ text_variant }} {{ text_elements }}
+                    </a>
+                  </h4>
+                </div>
+                <div id="variants" class="panel-collapse collapse in">
+                  <div class="panel-body">
+                    <ul class="list-group">
+                    {% for product in variants %}
+                        <li class="list-group-item row">
+                        <div class="col-xs-6 pading_row">
+                            <div class="col-xs-12 col-sm-12 col-md-9 pading_row">
+                                {{ product.name }}
+                                <br>
+                                {{ product.stock_status }}  
+                                <br>
+{% if product.view_id %}
+<!-- Trigger the modal with a button -->
+<button class="btn" data-toggle="modal" data-target="#Modal_more_product{{ product.product_id }}">Подробнее</button>
+
+<!-- Modal -->
+<div id="Modal_more_product{{ product.product_id }}" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body row">
+        <h4 class="modal-title col-sm-12 col-xs-12">{{ product.name }}
+
+          <hr class="hidden-xs">
+        </h4>
+
+        <img id="" src="{{ product.thumb }}" alt="{{ product.name }}" data-zoom="{{ product.popup }}" onclick="zoomimage()" class="img-responsive col-md-6 col-xs-12">
+        <div  class="col-md-6 col-xs-12" style="font-size: large; line-height: 25px;">
+          {{ product.view_description }}
+        </div> 
+        <div class="col-xs-12">
+          {% if product.view_attributes %}
+          <div class="tab-pane" id="tab-specification">
+            <table class="table table-bordered">
+              {% for attribute_group in product.view_attributes %}
+              <thead>
+                <tr>
+                  <td colspan="2"><strong>{{ attribute_group.name }}</strong></td>
+                </tr>
+              </thead>
+              <tbody>
+              {% for attribute in attribute_group.attribute %}
+              <tr>
+                <td>{{ attribute.name }}</td>
+                <td>{{ attribute.text }}</td>
+              </tr>
+              {% endfor %}
+                </tbody>
+              {% endfor %}
+            </table>
+          </div>
+          {% endif %}
+
+
+          <a class="btn btn-primayr" href="/index.php?route=product/view&view_id={{ product.view_id }}">{{ text_view_details }}</a>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">{{ text_close }}</button>
+      </div>
+    </div>
+ 
+  </div>
+</div>
+{% endif %}
+
+<button type="button" data-toggle="tooltip" class="btn btn-default" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></button>
+
+
+
+                            </div>
+                            <div class="col-xs-5 col-sm-5 col-md-3 pading_row">
+                                <img src="{{ product.thumb }}" alt="{{ product.name }}" class="img-responsive">
+                            </div>
+                        </div>
+                        <div class="col-xs-6 pading_row text-center">
+                            <div class="col-xs-12 col-sm-12 col-md-3 pading_row">
+                                <span>{{ product.price }}</span>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-5 form-inline list-inline pading_row">
+                                <input hidden class="product_to_cart_0" type="text"  id="product_to_cart_{{ product.product_id }}" data-product_id="{{ product.product_id }}" value="0" >
+
+                                {% for package in product.package_product %}
+                                <div class="col-xs-12 pading_row btn-group">
+                                <span class="col-xs-12 ">{{ package.quantity }} {{ package.name }}  {{ package.volume|round(2, 'floor') }} {{ package.abbr }}</span>
+                                
+                                <div class="col-xs-12 ">
+                                <button onclick="minus_proudct({{ product.product_id }}, {{ package.package_id }} )" class="btn col-xs-2">-</button>
+                                <input class="btn col-xs-4" onchange="change_proudct({{ product.product_id }}, {{ package.package_id }} )" id="product_id_{{ product.product_id }}_{{ package.package_id }}" type="text" class="col-xs-5"
+                                value="0"
+                                step="{{ product.minimum }}"
+                                min="{{ product.minimum }}"
+                                data-abbr="{{ package.abbr }}"
+                                data-volume="{{ package.volume }}"
+                                data-quantity="{{ package.quantity }}"
+                                data-parent_id="{{ package.parent_package_id }}"
+                                >
+                                <button onclick="plus_product({{ product.product_id }}, {{ package.package_id }} )" class="btn col-xs-2 ">+</button>
+                                </div>
+
+                                </div>
+                                {% endfor %}
+                                
+                            </div>
+                            
+                            <div class="col-xs-12 col-sm-12 col-md-4 align-vertically pading_row">
+                            <span id="package{{ product.product_id }}"> </span>
+                            </div>
+                        </div>
+                        </li>
+
+                    {% endfor %} 
+                    <li class="list-group-item row">
+                      <span class="pull-right"><span class="warning-price">!</span>окончательная цена по запросу</span>
+                    </li>                   
+                        <li class="list-group-item row">
+                            <button class="btn btn-primary pull-right" onclick="cart_add(0)">{{ text_add_to_cart}}</button>
+                        </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+          {% endif %}
+
+          {% for product_group in aditional_products %}
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#{{ product_group.group_id }}">
+                      {{ product_group.name }}                             
+                    </a>
+                  </h4>
+                </div>
+                <div id="{{ product_group.group_id }}" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <ul class="list-group">
+                    {% for product in product_group.products %}
+                    <li class="list-group-item row">
+                      <div class="col-xs-6 pading_row">
+                          <div class="col-xs-12 col-sm-12 col-md-9 pading_row">
+                              {{ product.name }}
+                              <br>
+                              {{ product.stock_status }}  
+                              <br>
+{% if product.view_id %}
+
+<!-- Trigger the modal with a button -->
+<button class="btn" data-toggle="modal" data-target="#Modal_more_product{{ product.product_id }}">Подробнее</button>
+
+<!-- Modal -->
+<div id="Modal_more_product{{ product.product_id }}" class="modal fade" role="dialog">
+<div class="modal-dialog modal-lg">
+
+  <!-- Modal content-->
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+    </div>
+    <div class="modal-body row">
+      <h4 class="modal-title col-sm-12 col-xs-12">{{ product.name }}
+
+        <hr class="hidden-xs">
+      </h4>
+
+      <img id="" src="{{ product.thumb }}" alt="{{ product.name }}" data-zoom="{{ product.popup }}" onclick="zoomimage()" class="img-responsive col-md-6 col-xs-12">
+      <div  class="col-md-6 col-xs-12" style="font-size: large; line-height: 25px;">
+        {{ product.view_description }}
+      </div> 
+      <div class="col-xs-12">
+        {% if product.view_attributes %}
+        <div class="tab-pane" id="tab-specification">
+          <table class="table table-bordered">
+            {% for attribute_group in product.view_attributes %}
+            <thead>
+              <tr>
+                <td colspan="2"><strong>{{ attribute_group.name }}</strong></td>
+              </tr>
+            </thead>
+            <tbody>
+            {% for attribute in attribute_group.attribute %}
+            <tr>
+              <td>{{ attribute.name }}</td>
+              <td>{{ attribute.text }}</td>
+            </tr>
+            {% endfor %}
+              </tbody>
+            {% endfor %}
+          </table>
+        </div>
+        {% endif %}
+
+
+        <a class="btn btn-primayr" href="/index.php?route=product/view&view_id={{ product.view_id }}">{{ text_view_details }}</a>
+
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">{{ text_close }}</button>
+    </div>
+  </div>
+
+</div>
+</div>
+{% endif %}
+
+<button type="button" data-toggle="tooltip" class="btn btn-default" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></button>
+
+
+
+                          </div>
+                          <div class="col-xs-5 col-sm-5 col-md-3 pading_row">
+                              <img src="{{ product.thumb }}" alt="{{ product.name }}" class="img-responsive">
+                          </div>
+                      </div>
+                      <div class="col-xs-6 pading_row text-center">
+                          <div class="col-xs-12 col-sm-12 col-md-3 pading_row">
+                              <span>{{ product.price }}</span>
+                          </div>
+                          <div class="col-xs-12 col-sm-12 col-md-5 form-inline list-inline pading_row">
+                              <input hidden class="product_to_cart_0" type="text"  id="product_to_cart_{{ product.product_id }}" data-product_id="{{ product.product_id }}" value="0" >
+
+                              {% for package in product.package_product %}
+                              <div class="col-xs-12 pading_row btn-group">
+                              <span>{{ package.quantity }} {{ package.name }}  {{ package.volume|round(2, 'floor') }} {{ package.abbr }}</span>
+                              <br>
+                              <button onclick="minus_proudct({{ product.product_id }}, {{ package.package_id }} )" class="btn col-xs-2">-</button>
+
+                              <input class="btn col-xs-4" onchange="change_proudct({{ product.product_id }}, {{ package.package_id }} )" 
+                              type="text" class="col-xs-5"
+
+                              id="product_id_{{ product.product_id }}_{{ package.package_id }}" 
+                              value="0"
+                              step="{{ product.minimum }}"
+                              min="{{ product.minimum }}"
+                              data-abbr="{{ package.abbr }}"
+                              data-volume="{{ package.volume }}"
+                              data-quantity="{{ package.quantity }}"
+                              data-parent_id="{{ package.parent_package_id }}"
+                              >
+                              
+                              <button onclick="plus_product({{ product.product_id }}, {{ package.package_id }} )" class="btn col-xs-2 ">+</button>
+
+                              </div>
+                              {% endfor %}
+                              
+                          </div>
+                          <div class="col-xs-12 col-sm-12 col-md-4 align-vertically pading_row">
+                          <span id="package{{ product.product_id }}"> </span>
+                          </div>
+                      </div>
+                      </li>
+
+                    {% endfor %}  
+                        <li class="list-group-item row">
+                            <button class="btn btn-primary pull-right" onclick="cart_add({{ product_group.group_id }})">{{ text_add_to_cart}}</button>
+                        </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+          {% endfor %}  
+      </div>
+      {% endif %}
+          <div id="product"> {% if options %}
+            <hr>
+            <h3>{{ text_option }}</h3>
+            {% for option in options %}
+            {% if option.type == 'select' %}
+            <div class="form-group{% if option.required %} required {% endif %}">
+              <label class="control-label" for="input-option{{ option.product_option_id }}">{{ option.name }}</label>
+              <select name="option[{{ option.product_option_id }}]" id="input-option{{ option.product_option_id }}" class="form-control">
+                <option value="">{{ text_select }}</option>
+                {% for option_value in option.product_option_value %}
+                <option value="{{ option_value.product_option_value_id }}">{{ option_value.name }}
+                {% if option_value.price %}
+                ({{ option_value.price_prefix }}{{ option_value.price }})
+                {% endif %} </option>
+                {% endfor %}
+              </select>
+            </div>
+            {% endif %}
+            {% if option.type == 'radio' %}
+            <div class="form-group{% if option.required %} required {% endif %}">
+              <label class="control-label">{{ option.name }}</label>
+              <div id="input-option{{ option.product_option_id }}"> {% for option_value in option.product_option_value %}
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="option[{{ option.product_option_id }}]" value="{{ option_value.product_option_value_id }}" />
+                    {% if option_value.image %} <img src="{{ option_value.image }}" alt="{{ option_value.name }} {% if option_value.price %} {{ option_value.price_prefix }} {{ option_value.price }} {% endif %}" class="img-thumbnail" /> {% endif %}                  
+                    {{ option_value.name }}
+                    {% if option_value.price %}
+                    ({{ option_value.price_prefix }}{{ option_value.price }})
+                    {% endif %} </label>
+                </div>
+                {% endfor %} </div>
+            </div>
+            {% endif %}
+            {% if option.type == 'checkbox' %}
+            <div class="form-group{% if option.required %} required {% endif %}">
+              <label class="control-label">{{ option.name }}</label>
+              <div id="input-option{{ option.product_option_id }}"> {% for option_value in option.product_option_value %}
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="option[{{ option.product_option_id }}][]" value="{{ option_value.product_option_value_id }}" />
+                    {% if option_value.image %} <img src="{{ option_value.image }}" alt="{{ option_value.name }} {% if option_value.price %} {{ option_value.price_prefix }} {{ option_value.price }} {% endif %}" class="img-thumbnail" /> {% endif %}
+                    {{ option_value.name }}
+                    {% if option_value.price %}
+                    ({{ option_value.price_prefix }}{{ option_value.price }})
+                    {% endif %} </label>
+                </div>
+                {% endfor %} </div>
+            </div>
+            {% endif %}
+            {% if option.type == 'text' %}
+            <div class="form-group{% if option.required %} required {% endif %}">
+              <label class="control-label" for="input-option{{ option.product_option_id }}">{{ option.name }}</label>
+              <input type="text" name="option[{{ option.product_option_id }}]" value="{{ option.value }}" placeholder="{{ option.name }}" id="input-option{{ option.product_option_id }}" class="form-control" />
+            </div>
+            {% endif %}
+            {% if option.type == 'textarea' %}
+            <div class="form-group{% if option.required %} required {% endif %}">
+              <label class="control-label" for="input-option{{ option.product_option_id }}">{{ option.name }}</label>
+              <textarea name="option[{{ option.product_option_id }}]" rows="5" placeholder="{{ option.name }}" id="input-option{{ option.product_option_id }}" class="form-control">{{ option.value }}</textarea>
+            </div>
+            {% endif %}
+            {% if option.type == 'file' %}
+            <div class="form-group{% if option.required %} required {% endif %}">
+              <label class="control-label">{{ option.name }}</label>
+              <button type="button" id="button-upload{{ option.product_option_id }}" data-loading-text="{{ text_loading }}" class="btn btn-default btn-block"><i class="fa fa-upload"></i> {{ button_upload }}</button>
+              <input type="hidden" name="option[{{ option.product_option_id }}]" value="" id="input-option{{ option.product_option_id }}" />
+            </div>
+            {% endif %}
+            {% if option.type == 'date' %}
+            <div class="form-group{% if option.required %} required {% endif %}">
+              <label class="control-label" for="input-option{{ option.product_option_id }}">{{ option.name }}</label>
+              <div class="input-group date">
+                <input type="text" name="option[{{ option.product_option_id }}]" value="{{ option.value }}" data-date-format="YYYY-MM-DD" id="input-option{{ option.product_option_id }}" class="form-control" />
+                <span class="input-group-btn">
+                <button class="btn btn-default" type="button"><i class="fa fa-calendar"></i></button>
+                </span></div>
+            </div>
+            {% endif %}
+            {% if option.type == 'datetime' %}
+            <div class="form-group{% if option.required %} required {% endif %}">
+              <label class="control-label" for="input-option{{ option.product_option_id }}">{{ option.name }}</label>
+              <div class="input-group datetime">
+                <input type="text" name="option[{{ option.product_option_id }}]" value="{{ option.value }}" data-date-format="YYYY-MM-DD HH:mm" id="input-option{{ option.product_option_id }}" class="form-control" />
+                <span class="input-group-btn">
+                <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                </span></div>
+            </div>
+            {% endif %}
+            {% if option.type == 'time' %}
+            <div class="form-group{% if option.required %} required {% endif %}">
+              <label class="control-label" for="input-option{{ option.product_option_id }}">{{ option.name }}</label>
+              <div class="input-group time">
+                <input type="text" name="option[{{ option.product_option_id }}]" value="{{ option.value }}" data-date-format="HH:mm" id="input-option{{ option.product_option_id }}" class="form-control" />
+                <span class="input-group-btn">
+                <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                </span></div>
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+
+
+            </div> </div>
+      </div>
+
+
+
+      {% if products %}
+      <h3>{{ text_related }}</h3>
+      <div class="row"> {% set i = 0 %}
+        {% for product in products %}
+        {% if column_left and column_right %}
+        {% set class = 'col-xs-6 col-sm-6' %}
+        {% elseif column_left or column_right %}
+        {% set class = 'col-xs-6 ' %}
+        {% else %}
+        {% set class = 'col-xs-6 col-sm-6' %}
+        {% endif %}
+        <div class="{{ class }}">
+          <div class="product-thumb transition">
+            <div class="image"><a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" /></a></div>
+            <div class="caption">
+              <h4><a href="{{ product.href }}">{{ product.name }}</a></h4>
+              <p>{{ product.description }}</p>
+              {% if product.rating %}
+              <div class="rating"> {% for j in 1..5 %}
+                {% if product.rating < j %} <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span> {% else %} <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span> {% endif %}
+                {% endfor %} </div>
+              {% endif %}
+              {% if product.price %}
+              <p class="price"> {% if not product.special %}
+                {{ product.price }}
+                {% else %} <span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span> {% endif %}
+                {% if product.tax %} <span class="price-tax">{{ text_tax }} {{ product.tax }}</span> {% endif %} </p>
+              {% endif %} </div>
+            <div class="button-group">
+              <button type="button" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');"><span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span> <i class="fa fa-shopping-cart"></i></button>
+              <button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></button>
+              <button type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"><i class="fa fa-exchange"></i></button>
+            </div>
+          </div>
+        </div>
+        {% if column_left and column_right and (i + 1) % 2 == 0 %}
+        <div class="clearfix visible-md visible-sm"></div>
+        {% elseif column_left or column_right and (i + 1) % 3 == 0 %}
+        <div class="clearfix visible-md"></div>
+        {% elseif (i + 1) % 4 == 0 %}
+        <div class="clearfix visible-md"></div>
+        {% endif %}
+        {% set i = i + 1 %}
+        {% endfor %} </div>
+        {% endif %}
+
+      {{ content_bottom }}
+    </div>
+</div>
+<script type="text/javascript"><!--
+$('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){
+	$.ajax({
+		url: 'index.php?route=product/product/getRecurringDescription',
+		type: 'post',
+		data: $('input[name=\'product_id\'], input[name=\'quantity\'], select[name=\'recurring_id\']'),
+		dataType: 'json',
+		beforeSend: function() {
+			$('#recurring-description').html('');
+		},
+		success: function(json) {
+			$('.alert-dismissible, .text-danger').remove();
+
+			if (json['success']) {
+				$('#recurring-description').html(json['success']);
+			}
+		}
+	});
+});
+//--></script> 
+<script type="text/javascript"><!--
+$('#button-cart').on('click', function() {
+	$.ajax({
+		url: 'index.php?route=checkout/cart/add',
+		type: 'post',
+		data: $('#product input[type=\'text\'], #product input[type=\'hidden\'], #product input[type=\'radio\']:checked, #product input[type=\'checkbox\']:checked, #product select, #product textarea'),
+		dataType: 'json',
+		beforeSend: function() {
+			$('#button-cart').button('loading');
+		},
+		complete: function() {
+			$('#button-cart').button('reset');
+		},
+		success: function(json) {
+			$('.alert-dismissible, .text-danger').remove();
+			$('.form-group').removeClass('has-error');
+
+			if (json['error']) {
+				if (json['error']['option']) {
+					for (i in json['error']['option']) {
+						var element = $('#input-option' + i.replace('_', '-'));
+
+						if (element.parent().hasClass('input-group')) {
+							element.parent().after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+						} else {
+							element.after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+						}
+					}
+				}
+
+				if (json['error']['recurring']) {
+					$('select[name=\'recurring_id\']').after('<div class="text-danger">' + json['error']['recurring'] + '</div>');
+				}
+
+				// Highlight any found errors
+				$('.text-danger').parent().addClass('has-error');
+			}
+
+			if (json['success']) {
+				$('.breadcrumb').after('<div class="alert alert-success alert-dismissible">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+
+				$('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+
+				$('html, body').animate({ scrollTop: 0 }, 'slow');
+
+				$('#cart > ul').load('index.php?route=common/cart/info ul li');
+			}
+		},
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+	});
+});
+//--></script> 
+<script type="text/javascript"><!--
+$('.date').datetimepicker({
+	language: '{{ datepicker }}',
+	pickTime: false
+});
+
+$('.datetime').datetimepicker({
+	language: '{{ datepicker }}',
+	pickDate: true,
+	pickTime: true
+});
+
+$('.time').datetimepicker({
+	language: '{{ datepicker }}',
+	pickDate: false
+});
+
+$('button[id^=\'button-upload\']').on('click', function() {
+	var node = this;
+
+	$('#form-upload').remove();
+
+	$('body').prepend('<form enctype="multipart/form-data" id="form-upload" style="display: none;"><input type="file" name="file" /></form>');
+
+	$('#form-upload input[name=\'file\']').trigger('click');
+
+	if (typeof timer != 'undefined') {
+    	clearInterval(timer);
+	}
+
+	timer = setInterval(function() {
+		if ($('#form-upload input[name=\'file\']').val() != '') {
+			clearInterval(timer);
+
+			$.ajax({
+				url: 'index.php?route=tool/upload',
+				type: 'post',
+				dataType: 'json',
+				data: new FormData($('#form-upload')[0]),
+				cache: false,
+				contentType: false,
+				processData: false,
+				beforeSend: function() {
+					$(node).button('loading');
+				},
+				complete: function() {
+					$(node).button('reset');
+				},
+				success: function(json) {
+					$('.text-danger').remove();
+
+					if (json['error']) {
+						$(node).parent().find('input').after('<div class="text-danger">' + json['error'] + '</div>');
+					}
+
+					if (json['success']) {
+						alert(json['success']);
+
+						$(node).parent().find('input').val(json['code']);
+					}
+				},
+				error: function(xhr, ajaxOptions, thrownError) {
+					alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+				}
+			});
+		}
+	}, 500);
+});
+//--></script> 
+<script type="text/javascript"><!--
+
+$(document).ready(function() {
+	$('.thumbnails').magnificPopup({
+		type:'image',
+		delegate: 'a',
+		gallery: {
+			enabled: true
+		}
+	});
+});
+//--></script> 
+
+<script>
+    function cart_add(group_id) {
+
+        let products = document.querySelectorAll('.product_to_cart_0');
+
+        for (let product of products) {
+            value = parseFloat(product.value);
+            product_id = parseFloat(product.dataset.product_id);
+            cart.add(product_id,value)
+        }
+
+    }
+
+
+    function plus_product(proudct_id,package_id) {
+      
+		value = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).value);
+		step = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).step);
+		min = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).min);
+		abbr = document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.abbr;
+		volume = document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.volume;
+		quantity = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.quantity);
+        parent_id = document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.parent_id;
+
+		parent_quantity = document.getElementById("product_id_"+proudct_id+"_"+parent_id).dataset.quantity;
+		parent_value = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+parent_id).value);
+		parent_step = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+parent_id).step);
+
+        count = ((value+step)*volume).toFixed(2) ;
+
+        document.getElementById("product_id_"+proudct_id+"_"+package_id).value = (value+step);
+        document.getElementById("product_id_"+proudct_id+"_"+parent_id).value  = (parent_value+(quantity/parent_quantity));
+        document.getElementById("package"+proudct_id).innerHTML = '( '+count+' '+abbr+' )';
+
+        document.getElementById("product_to_cart_"+proudct_id).value = ((value+step)*quantity).toFixed(1);
+        
+
+    }
+
+
+    function minus_proudct(proudct_id,package_id) {
+
+        value = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).value);
+		step = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).step);
+		min = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).min);
+		abbr = document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.abbr;
+		volume = document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.volume;
+		quantity = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.quantity);
+        parent_id = document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.parent_id;
+
+		parent_quantity = document.getElementById("product_id_"+proudct_id+"_"+parent_id).dataset.quantity;
+		parent_value = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+parent_id).value);
+		parent_step = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+parent_id).step);
+
+        count = ((value-step)*volume).toFixed(2) ;
+
+        document.getElementById("product_id_"+proudct_id+"_"+package_id).value = (value-step);
+        document.getElementById("product_id_"+proudct_id+"_"+parent_id).value  = (parent_value+(quantity/parent_quantity));
+        document.getElementById("package"+proudct_id).innerHTML = '( '+count+' '+abbr+' )';
+
+        document.getElementById("product_to_cart_"+proudct_id).value = ((value-step)*quantity).toFixed(1);
+
+    }
+
+    function change_proudct(proudct_id,package_id) {
+
+        value = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).value);
+		step = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).step);
+		min = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).min);
+		abbr = document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.abbr;
+		volume = document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.volume;
+		quantity = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.quantity);
+        parent_id = document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.parent_id;
+
+		parent_quantity = document.getElementById("product_id_"+proudct_id+"_"+parent_id).dataset.quantity;
+		parent_value = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+parent_id).value);
+		parent_step = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+parent_id).step);
+
+        count = ((value)*volume).toFixed(2) ;
+
+        document.getElementById("product_id_"+proudct_id+"_"+package_id).value = (value);
+        document.getElementById("product_id_"+proudct_id+"_"+parent_id).value  = (parent_value+(quantity/parent_quantity));
+        document.getElementById("package"+proudct_id).innerHTML = '( '+count+' '+abbr+' )'; 
+
+        document.getElementById("product_to_cart_"+proudct_id).value = ((value)*quantity).toFixed(1);
+
+    }
+
+
+
+</script>
+{{ footer }} 

@@ -1,0 +1,43 @@
+<div class="swiper-viewport">
+  <div id="video_slideshow{{ module }}" class="swiper-container">
+    <div class="swiper-wrapper"> 
+    {% for banner in banners %}
+
+      <div class="swiper-slide text-center">
+      {% if banner.video %}  
+
+<video class="" src="{{ banner.video }}" poster="{{ banner.image }}" autoplay="" loop="" muted="" playsinline="">
+  <source src="{{ banner.video }}" type="video/mp4">
+  <source src="{{ banner.video }}" type="video/ogg">
+</video>
+      {% else %}
+          {% if banner.link %}
+            <a href="{{ banner.link }}"><img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" /></a>
+          {% else %}
+            <img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
+          {% endif %}
+      {% endif %}
+      </div>
+     {% endfor %} 
+     </div>
+  </div>
+  <div style="bottom: 15px;" class="swiper-pagination video_slideshow{{ module }}"></div>
+  <div class="swiper-pager">
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</div>
+<script type="text/javascript"><!--
+$('#video_slideshow{{ module }}').swiper({
+	mode: 'horizontal',
+	slidesPerView: 1,
+	pagination: '.video_slideshow{{ module }}',
+	paginationClickable: true,
+	nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+    spaceBetween: 30,
+	autoplay: 2500,
+    autoplayDisableOnInteraction: true,
+	loop: true
+});
+--></script>

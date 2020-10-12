@@ -1,0 +1,227 @@
+{{ header }}
+<div id="account-wishlist" class="container">
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+  </ul>
+  {% if success %}
+  <div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> {{ success }}
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+  </div>
+  {% endif %}
+  <div class="row">{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9' %}
+    {% else %}
+    {% set class = 'col-sm-12' %}
+    {% endif %}
+    <div id="content" class="{{ class }}">{{ content_top }}
+      <h2>{{ heading_title }}</h2>
+      {% if products %}
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <td class="text-center">{{ column_image }}</td>
+              <td class="text-left">{{ column_name }}</td>
+              <td class="text-left">{{ column_model }}</td>
+              <td class="text-right">{{ column_stock }}</td>
+              <td class="text-right">{{ column_price }}</td>
+              <td class="text-right">{{ column_action }}</td>
+            </tr>
+          </thead>
+          <tbody>
+          
+          {% for product in products %}
+          <tr>
+            <td class="text-center">
+              {% if product.thumb %}
+              <a href="{{ product.href }}">
+              <img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" />
+              </a>
+              {% endif %}
+            </td>
+            <td class="text-left"><a href="{{ product.href }}">{{ product.name }}</a></td>
+            <td class="text-left">{{ product.model }}</td>
+            <td class="text-right">{{ product.stock }}</td>
+            <td class="text-right">{% if product.price %}
+              <div class="price"> {% if not product.special %}
+                {{ product.price }}
+                {% else %} <b>{{ product.special }}</b> <s>{{ product.price }}</s> {% endif %} </div>
+              {% endif %}</td>
+            <td class="text-right">
+
+              {% for package in product.package_product %}
+              <div class="col-xs-12 pading_row btn-group">
+              <span>{{ package.quantity }} {{ package.name }}  {{ package.volume|round(2, 'floor') }} {{ package.abbr }}</span>
+              <br>
+              <button onclick="minus_proudct({{ product.product_id }}, {{ package.package_id }} )" class="btn col-xs-2">-</button>
+              <input class="btn col-xs-8" onchange="change_proudct({{ product.product_id }}, {{ package.package_id }} )" id="product_id_{{ product.product_id }}_{{ package.package_id }}" type="text" class="col-xs-5"
+              value="0"
+              step="{{ product.minimum }}"
+              min="{{ product.minimum }}"
+              data-abbr="{{ package.abbr }}"
+              data-volume="{{ package.volume }}"
+              data-quantity="{{ package.quantity }}"
+              data-parent_id="{{ package.parent_package_id }}"
+              >
+              <button onclick="plus_product({{ product.product_id }}, {{ package.package_id }} )" class="btn col-xs-2 ">+</button>
+
+              </div>
+
+
+
+              <button type="button" onclick="cart.add('{{ product.product_id }}', document.getElementById('product_id_{{ product.product_id }}_{{ package.package_id }}').value );" data-toggle="tooltip" title="{{ button_cart }}" class="btn btn-primary"><i class="fa fa-shopping-cart"></i></button>
+              <a href="{{ product.remove }}" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-times"></i></a></td>
+              {% endfor %}
+
+          </tr>
+          {% endfor %}
+            </tbody>
+          
+        </table>
+      </div>
+      {% else %}
+      <p>{{ text_empty }}</p>
+      {% endif %}
+
+      {% if view %}
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <td class="text-center">{{ column_image }}</td>
+              <td class="text-left">{{ column_name }}</td>
+              <td class="text-left">{{ column_model }}</td>
+              <td class="text-right">{{ column_stock }}</td>
+              <td class="text-right">{{ column_price }}</td>
+              <td class="text-right">{{ column_action }}</td>
+            </tr>
+          </thead>
+          <tbody>
+          
+          {% for product in view %}
+          <tr>
+            <td class="text-center">{% if product.thumb %}<a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" /></a>{% endif %}</td>
+            <td class="text-left"><a href="{{ product.href }}">{{ product.name }}</a></td>
+            <td class="text-left">{{ product.model }}</td>
+            <td class="text-right">{{ product.stock }}</td>
+            <td class="text-right">{% if product.price %}
+              <div class="price"> {% if not product.special %}
+                {{ product.price }}
+                {% else %} <b>{{ product.special }}</b> <s>{{ product.price }}</s> {% endif %} </div>
+              {% endif %}</td>
+
+            <td class="text-right">
+              
+              <a href="{{ product.remove }}" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-times"></i></a></td>
+          </tr>
+          {% endfor %}
+            </tbody>
+          
+        </table>
+      </div>
+      {% else %}
+      <p>{{ text_empty }}</p>
+      {% endif %}
+      <div class="buttons clearfix">
+        <div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
+      </div>
+      {{ content_bottom }}</div>
+    {{ column_right }}</div>
+</div>
+<script>
+  function cart_add(group_id) {
+
+      let products = document.querySelectorAll('.product_to_cart_0');
+
+      for (let product of products) {
+          value = parseFloat(product.value);
+          product_id = parseFloat(product.dataset.product_id);
+          cart.add(product_id,value)
+      }
+
+  }
+
+
+  function plus_product(proudct_id,package_id = '' ) {
+    
+  value = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).value);
+  step = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).step);
+  min = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).min);
+  abbr = document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.abbr;
+  volume = document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.volume;
+  quantity = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.quantity);
+      parent_id = document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.parent_id;
+
+  parent_quantity = document.getElementById("product_id_"+proudct_id+"_"+parent_id).dataset.quantity;
+  parent_value = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+parent_id).value);
+  parent_step = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+parent_id).step);
+
+      count = ((value+step)*volume).toFixed(2) ;
+
+      document.getElementById("product_id_"+proudct_id+"_"+package_id).value = (value+step);
+      document.getElementById("product_id_"+proudct_id+"_"+parent_id).value  = (parent_value+(quantity/parent_quantity));
+      document.getElementById("package"+proudct_id).innerHTML = '( '+count+' '+abbr+' )';
+
+      document.getElementById("product_to_cart_"+proudct_id).value = ((value+step)*quantity).toFixed(1);
+      
+
+  }
+
+
+  function minus_proudct(proudct_id,package_id = '' ) {
+
+      value = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).value);
+  step = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).step);
+  min = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).min);
+  abbr = document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.abbr;
+  volume = document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.volume;
+  quantity = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.quantity);
+      parent_id = document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.parent_id;
+
+  parent_quantity = document.getElementById("product_id_"+proudct_id+"_"+parent_id).dataset.quantity;
+  parent_value = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+parent_id).value);
+  parent_step = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+parent_id).step);
+
+      count = ((value-step)*volume).toFixed(2) ;
+
+      document.getElementById("product_id_"+proudct_id+"_"+package_id).value = (value-step);
+      document.getElementById("product_id_"+proudct_id+"_"+parent_id).value  = (parent_value+(quantity/parent_quantity));
+      document.getElementById("package"+proudct_id).innerHTML = '( '+count+' '+abbr+' )';
+
+      document.getElementById("product_to_cart_"+proudct_id).value = ((value-step)*quantity).toFixed(1);
+
+  }
+
+  function change_proudct(proudct_id,package_id  = '' ) {
+
+      value = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).value);
+  step = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).step);
+  min = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).min);
+  abbr = document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.abbr;
+  volume = document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.volume;
+  quantity = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.quantity);
+      parent_id = document.getElementById("product_id_"+proudct_id+"_"+package_id).dataset.parent_id;
+
+  parent_quantity = document.getElementById("product_id_"+proudct_id+"_"+parent_id).dataset.quantity;
+  parent_value = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+parent_id).value);
+  parent_step = parseFloat(document.getElementById("product_id_"+proudct_id+"_"+parent_id).step);
+
+      count = ((value)*volume).toFixed(2) ;
+
+      document.getElementById("product_id_"+proudct_id+"_"+package_id).value = (value);
+      document.getElementById("product_id_"+proudct_id+"_"+parent_id).value  = (parent_value+(quantity/parent_quantity));
+      document.getElementById("package"+proudct_id).innerHTML = '( '+count+' '+abbr+' )'; 
+
+      document.getElementById("product_to_cart_"+proudct_id).value = ((value)*quantity).toFixed(1);
+
+  }
+
+
+
+</script>
+{{ footer }}

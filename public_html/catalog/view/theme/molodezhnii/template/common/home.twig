@@ -1,0 +1,66 @@
+{{ header }}
+{{ content_header }}
+
+<div id="common-home" class="container">
+  <div class="row">{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9' %}
+    {% else %}
+    {% set class = 'col-sm-12' %}
+    {% endif %}
+    <div id="content" class="{{ class }}">
+      <div class = "col-sm-12">
+        <img src="/image/catalog/baner_gr.jpg" alt=" " class="img-responsive">
+      </div>
+      <div class="row"> 
+      <div class="col-sm-6">
+        <a href="/index.php?route=product/catalog">
+          <img style="width: 100%;" src="/image/catalog//catalloghomr.jpg" alt="Каталог" class="img-responsive">
+            <button class="btn-lg btn-primary banner_custom-button">Каталог</button>
+        </a>
+      </div>   
+      
+       <div class="col-sm-6">
+          <div class="col-xs-12">
+            <a href="/house.php?confvizt=home"  style=" z-index: 9; " class="banner_custom-button btn-lg btn-primary">Конфигуратор дизайна дома</a>
+            <a href="/house.php?confvizt=home" >	
+              <video class="col-sm-12"  autoplay="" loop="" muted="" playsinline="">
+                <source src="/video/video-conf.mp4">
+              </video>
+            </a>
+          </div>
+          <div class="col-xs-12">
+            <a href="/index.php?route=product/videocategory" class="btn-lg btn-primary banner_custom-button" >Правильный монтаж</a>
+            <a href="/index.php?route=product/videocategory">
+              <h5 class="banner_custom-sub-text banner_custom-sub-text-banner" >видео инструкции по монтажу</h5>
+            </a>
+            <a href="/index.php?route=product/videocategory">	
+              <video style="width: 100%;" autoplay="" loop="" muted="" playsinline="">
+                <source src="/video/montaz.mp4">
+              </video>
+            </a>
+            </div>	
+      </div>  
+      <div class="col-sm-12">
+        <a href="/shop/index.php?route=product/offers" >
+          <img src="/image/catalog/online_shop.jpg" style="" class="img-responsive">
+        </a>
+      </div>
+    </div>  
+    <div class="clearfix"></div>
+<h1 class="text-center">{{ title }}</h1>
+<p class="text-center">{{ description }}</p>
+      {{ content_top }}
+      <div class = "col-sm-12">
+        <img src="/image/catalog/banners/zamerfree.jpg" alt=" " class="img-responsive">
+      </div>
+
+
+      {{ content_bottom }}
+    
+    </div>
+    {{ column_right }}</div>
+</div>
+{{ footer }}
