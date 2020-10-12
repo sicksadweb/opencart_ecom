@@ -1670,7 +1670,7 @@ class ControllerCatalogProduct extends Controller {
 			$this->error['model'] = $this->language->get('error_model');
 		} */
 
-		if ($this->request->post['product_seo_url']) {
+		if (isset($this->request->post['product_seo_url']) && $this->request->post['product_seo_url']) {
 			$this->load->model('design/seo_url');
 			
 			foreach ($this->request->post['product_seo_url'] as $store_id => $language) {
