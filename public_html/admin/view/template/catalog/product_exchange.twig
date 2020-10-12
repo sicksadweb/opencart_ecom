@@ -242,57 +242,27 @@
             success - done <br>
             warning - no qantity no price <br>
             Info - no qantity <br>
-            <form action="{{ delete }}" method="post" enctype="multipart/form-data" id="form-product">
-              <div class="table-responsive">
-                <table class="table table-bordered table-hover">
-                  <thead>
-                    <tr>
-                      <td style="width: 1px;" class="text-center"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" /></td>
-                      <td class="text-center">{{ column_image }}</td>
-                      <td class="text-left">{% if sort == 'pd.name' %} <a href="{{ sort_name }}" class="{{ order|lower }}">{{ column_name }}</a> {% else %} <a href="{{ sort_name }}">{{ column_name }}</a> {% endif %}</td>
-                      <td class="text-left">{% if sort == 'p.model' %} <a href="{{ sort_model }}" class="{{ order|lower }}">{{ column_model }}</a> {% else %} <a href="{{ sort_model }}">{{ column_model }}</a> {% endif %}</td>
-                      <td class="text-right">{% if sort == 'p.price' %} <a href="{{ sort_price }}" class="{{ order|lower }}">{{ column_price }}</a> {% else %} <a href="{{ sort_price }}">{{ column_price }}</a> {% endif %}</td>
-                      <td class="text-right">{% if sort == 'p.quantity' %} <a href="{{ sort_quantity }}" class="{{ order|lower }}">{{ column_quantity }}</a> {% else %} <a href="{{ sort_quantity }}">{{ column_quantity }}</a> {% endif %}</td>
-                      <td class="text-left">{% if sort == 'p.status' %} <a href="{{ sort_status }}" class="{{ order|lower }}">{{ column_status }}</a> {% else %} <a href="{{ sort_status }}">{{ column_status }}</a> {% endif %}</td>
-                      <td class="text-left">{% if sort == 'p.noindex' %} <a href="{{ sort_noindex }}" class="{{ order|lower }}">{{ column_noindex }}</a> {% else %} <a href="{{ sort_noindex }}">{{ column_noindex }}</a> {% endif %}</td>
-					            <td class="text-right">{{ column_action }}</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {% if error %}
-                  {% for product in error %}
-                  <tr class="{{ product.class }}">
-                    <td class="text-center">{% if product.product_id in selected %}
-                      <input type="checkbox" name="selected[]" value="{{ product.product_id }}" checked="checked" />
-                      {% else %}
-                      <input type="checkbox" name="selected[]" value="{{ product.product_id }}" />
-                      {% endif %}</td>
-                    <td class="text-center">{% if product.image %} <img src="{{ product.image }}" alt="{{ product.name }}" class="img-thumbnail" /> {% else %} <span class="img-thumbnail list"><i class="fa fa-camera fa-2x"></i></span> {% endif %}</td>
-                    <td class="text-left">{{ product.name }}</td>
-                    <td class="text-left">{{ product.sku }}</td>
-                    <td class="text-right">{% if product.special %} <span style="text-decoration: line-through;">{{ product.price }}</span><br/>
-                      <div class="text-danger">{{ product.special }}</div>
-                      {% else %}
-                      {{ product.price }}
-                      {% endif %}</td>
-                    <td class="text-right">{% if product.quantity <= 0 %} <span class="label label-warning">{{ product.quantity }}</span> {% elseif product.quantity <= 5 %} <span class="label label-danger">{{ product.quantity }}</span> {% else %} <span class="label label-success">{{ product.quantity }}</span> {% endif %}</td>
-                    <td class="text-left">{{ product.status }}</td>
-					<td class="text-left">{{ product.noindex }}</td>
-                    <td class="text-right">
-						<a target="_blank" href="{{ product.href_shop }}" data-toggle="tooltip" title="{{ button_shop }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
-						<a href="{{ product.edit }}" data-toggle="tooltip" title="{{ button_edit }}" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
-					</td>
-                  </tr>
-                  {% endfor %}
-                  {% else %}
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover">
+                <thead>
                   <tr>
-                    <td class="text-center" colspan="9">{{ text_no_results }}</td>
+                    <td style="width: 1px;" class="text-center"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" /></td>
+                    <td class="text-center">{{ column_image }}</td>
+                    <td class="text-left">{% if sort == 'pd.name' %} <a href="{{ sort_name }}" class="{{ order|lower }}">{{ column_name }}</a> {% else %} <a href="{{ sort_name }}">{{ column_name }}</a> {% endif %}</td>
+                    <td class="text-left">{% if sort == 'p.model' %} <a href="{{ sort_model }}" class="{{ order|lower }}">{{ column_model }}</a> {% else %} <a href="{{ sort_model }}">{{ column_model }}</a> {% endif %}</td>
+                    <td class="text-right">{% if sort == 'p.price' %} <a href="{{ sort_price }}" class="{{ order|lower }}">{{ column_price }}</a> {% else %} <a href="{{ sort_price }}">{{ column_price }}</a> {% endif %}</td>
+                    <td class="text-right">{% if sort == 'p.quantity' %} <a href="{{ sort_quantity }}" class="{{ order|lower }}">{{ column_quantity }}</a> {% else %} <a href="{{ sort_quantity }}">{{ column_quantity }}</a> {% endif %}</td>
+                    <td class="text-left">{% if sort == 'p.status' %} <a href="{{ sort_status }}" class="{{ order|lower }}">{{ column_status }}</a> {% else %} <a href="{{ sort_status }}">{{ column_status }}</a> {% endif %}</td>
+                    <td class="text-left">{% if sort == 'p.noindex' %} <a href="{{ sort_noindex }}" class="{{ order|lower }}">{{ column_noindex }}</a> {% else %} <a href="{{ sort_noindex }}">{{ column_noindex }}</a> {% endif %}</td>
+                    <td class="text-right">{{ column_action }}</td>
                   </tr>
-                  {% endif %}
+                </thead>
+                <tbody>
 
-                  {% if products %}
-                  {% for product in products %}
-                  <tr class="{{ product.class }}">
+                {% if newProducts %}
+                  {% for product in newProducts %}
+
+                  <tr class="{{ product.class }} accordion-toggle" data-toggle="collapse" data-target="#formForAddTheProduct{{ loop.index }}">                  
                     <td class="text-center">{% if product.product_id in selected %}
                       <input type="checkbox" name="selected[]" value="{{ product.product_id }}" checked="checked" />
                       {% else %}
@@ -305,26 +275,153 @@
                       <div class="text-danger">{{ product.special }}</div>
                       {% else %}
                       {{ product.price }}
+
                       {% endif %}</td>
                     <td class="text-right">{% if product.quantity <= 0 %} <span class="label label-warning">{{ product.quantity }}</span> {% elseif product.quantity <= 5 %} <span class="label label-danger">{{ product.quantity }}</span> {% else %} <span class="label label-success">{{ product.quantity }}</span> {% endif %}</td>
                     <td class="text-left">{{ product.status }}</td>
-					<td class="text-left">{{ product.noindex }}</td>
+                    <td class="text-left">{{ product.noindex }}</td>
                     <td class="text-right">
-						<a target="_blank" href="{{ product.href_shop }}" data-toggle="tooltip" title="{{ button_shop }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
-						<a href="{{ product.edit }}" data-toggle="tooltip" title="{{ button_edit }}" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
-					</td>
+                      <a target="_blank" href="{{ product.href_shop }}" data-toggle="tooltip" title="{{ button_shop }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
+                      <a href="{{ product.edit }}" data-toggle="tooltip" title="{{ button_edit }}" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
+                    </td>
                   </tr>
+                  <tr>                  
+                    <td colspan="9"> {# class="hiddenRow" #}{# id="form{{ loop.index }}" #}
+                    {# Form for add new product #}
+                      <div id="formForAddTheProduct{{ loop.index }}" class="accordion-body collapse in" >                  
+                        <form action="" method="post" class="formForSendToCatalogProductAdd">
+                          <label for="name{{ loop.index }}">Name</label>
+                          <input type="text" name="product_description[1][name]" id ="name{{ loop.index }}" class="form-control" value="{{ product.name }}" />
+
+                          <label for="sku{{ loop.index }}">SKU</label>
+                          <input type="text" name="sku" id ="sku{{ loop.index }}" class="form-control" value="{{ product.sku }}" />
+
+                          <label for="quantity{{ loop.index }}">quantity</label>
+                          <input type="text" name="quantity" id ="quantity{{ loop.index }}" class="form-control" value="{{ product.status }}" />
+                          
+                          <label for="stock{{ loop.index }}">stock status</label>
+                          <input type="text" name="stock_status_id" id ="stock{{ loop.index }}" class="form-control" value="5" />
+
+                          <label for="status{{ loop.index }}">status</label>
+                          <input type="text" name="status" id ="status{{ loop.index }}" class="form-control" value="1" />
+                          
+                          <label for="image{{ loop.index }}">image</label>
+                          <input type="text" name="image" id ="image{{ loop.index }}" class="form-control" />
+                          
+                          <label for="price{{ loop.index }}">price</label>
+                          <input type="text" name="price" id ="price{{ loop.index }}" class="form-control" value="{{ product.price }}" />
+
+                          <label for="product_store{{ loop.index }}">product store</label>
+                          <input type="text" name="product_store[]" id ="product_store{{ loop.index }}" class="form-control" value="0" />                          
+                          
+                          <label for="description{{ loop.index }}">description</label>
+                          <textarea type="text" name="product_description[1][description]" id ="description{{ loop.index }}" class="form-control"></textarea>
+
+                          <input type="hidden" name="product_description[1][meta_h1]" class="form-control" value="{{ product.name }}" />                          
+                          <input type="hidden" name="product_description[1][meta_title]" class="form-control" value="{{ product.name }}" /> 
+                          <input type="hidden" name="model" class="form-control" value="" /> 
+                          <input type="hidden" name="upc" class="form-control" value="" /> 
+                          <input type="hidden" name="ean" class="form-control" value="" /> 
+                          <input type="hidden" name="jan" class="form-control" value="" /> 
+                          <input type="hidden" name="isbn" class="form-control" value="" /> 
+                          <input type="hidden" name="mpn" class="form-control" value="" /> 
+                          <input type="hidden" name="location" class="form-control" value="" /> 
+                          <input type="hidden" name="minimum" class="form-control" value="1" /> 
+                          <input type="hidden" name="subtract" class="form-control" value="1" /> 
+                          <input type="hidden" name="manufacturer_id" class="form-control" value="0" /> 
+                          <input type="hidden" name="shipping" class="form-control" value="1" /> 
+                          <input type="hidden" name="points" class="form-control" value="0" /> 
+                          <input type="hidden" name="weight" class="form-control" value="0" /> 
+                          <input type="hidden" name="weight_class_id" class="form-control" value="1" /> 
+                          <input type="hidden" name="length" class="form-control" value="0" /> 
+                          <input type="hidden" name="width" class="form-control" value="0" /> 
+                          <input type="hidden" name="height" class="form-control" value="0" /> 
+                          <input type="hidden" name="length_class_id" class="form-control" value="1" /> 
+                          <input type="hidden" name="noindex" class="form-control" value="1" /> 
+                          <input type="hidden" name="tax_class_id" class="form-control" value="9" /> 
+                          <input type="hidden" name="sort_order" class="form-control" value="0" />    
+
+                          <input type="submit" id="sendButton{{ loop.index }}" value="Submit" class="btn btn-default" />
+                        </form>
+                      </div>
+                    </td>
+                  </tr>
+
                   {% endfor %}
-                  {% else %}
-                  <tr>
-                    <td class="text-center" colspan="9">{{ text_no_results }}</td>
-                  </tr>
-                  {% endif %}
-                    </tbody>
-                  
-                </table>
-              </div>
-            </form>
+                {% else %}
+                <tr>
+                  <td class="text-center" colspan="9">{{ text_no_results }}</td>
+                </tr>
+                {% endif %}
+                
+                  {% if error %}
+                {% for product in error %}
+
+                <tr class="{{ product.class }}">                  
+                  <td class="text-center">{% if product.product_id in selected %}
+                    <input type="checkbox" name="selected[]" value="{{ product.product_id }}" checked="checked" />
+                    {% else %}
+                    <input type="checkbox" name="selected[]" value="{{ product.product_id }}" />
+                    {% endif %}</td>
+                  <td class="text-center">{% if product.image %} <img src="{{ product.image }}" alt="{{ product.name }}" class="img-thumbnail" /> {% else %} <span class="img-thumbnail list"><i class="fa fa-camera fa-2x"></i></span> {% endif %}</td>
+                  <td class="text-left">{{ product.name }}</td>
+                  <td class="text-left">{{ product.sku }}</td>
+                  <td class="text-right">{% if product.special %} <span style="text-decoration: line-through;">{{ product.price }}</span><br/>
+                    <div class="text-danger">{{ product.special }}</div>
+                    {% else %}
+                    {{ product.price }}
+
+                    {% endif %}</td>
+                  <td class="text-right">{% if product.quantity <= 0 %} <span class="label label-warning">{{ product.quantity }}</span> {% elseif product.quantity <= 5 %} <span class="label label-danger">{{ product.quantity }}</span> {% else %} <span class="label label-success">{{ product.quantity }}</span> {% endif %}</td>
+                  <td class="text-left">{{ product.status }}</td>
+                  <td class="text-left">{{ product.noindex }}</td>
+                  <td class="text-right">
+                    <a target="_blank" href="{{ product.href_shop }}" data-toggle="tooltip" title="{{ button_shop }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
+                    <a href="{{ product.edit }}" data-toggle="tooltip" title="{{ button_edit }}" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
+                  </td>
+                </tr>
+
+                {% endfor %}
+                {% else %}
+                <tr>
+                  <td class="text-center" colspan="9">Errors: {{ text_no_results }}</td>
+                </tr>
+                {% endif %}
+
+                {% if products %}
+                {% for product in products %}
+                <tr class="{{ product.class }}">
+                  <td class="text-center">{% if product.product_id in selected %}
+                    <input type="checkbox" name="selected[]" value="{{ product.product_id }}" checked="checked" />
+                    {% else %}
+                    <input type="checkbox" name="selected[]" value="{{ product.product_id }}" />
+                    {% endif %}</td>
+                  <td class="text-center">{% if product.image %} <img src="{{ product.image }}" alt="{{ product.name }}" class="img-thumbnail" /> {% else %} <span class="img-thumbnail list"><i class="fa fa-camera fa-2x"></i></span> {% endif %}</td>
+                  <td class="text-left">{{ product.name }}</td>
+                  <td class="text-left">{{ product.sku }}</td>
+                  <td class="text-right">{% if product.special %} <span style="text-decoration: line-through;">{{ product.price }}</span><br/>
+                    <div class="text-danger">{{ product.special }}</div>
+                    {% else %}
+                    {{ product.price }}
+                    {% endif %}</td>
+                  <td class="text-right">{% if product.quantity <= 0 %} <span class="label label-warning">{{ product.quantity }}</span> {% elseif product.quantity <= 5 %} <span class="label label-danger">{{ product.quantity }}</span> {% else %} <span class="label label-success">{{ product.quantity }}</span> {% endif %}</td>
+                  <td class="text-left">{{ product.status }}</td>
+        <td class="text-left">{{ product.noindex }}</td>
+                  <td class="text-right">
+          <a target="_blank" href="{{ product.href_shop }}" data-toggle="tooltip" title="{{ button_shop }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
+          <a href="{{ product.edit }}" data-toggle="tooltip" title="{{ button_edit }}" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
+        </td>
+                </tr>
+                {% endfor %}
+                {% else %}
+                <tr>
+                  <td class="text-center" colspan="9">{{ text_no_results }}</td>
+                </tr>
+                {% endif %}
+                  </tbody>
+                
+              </table>
+            </div>
             <div class="row">
               <div class="col-sm-6 text-left">{{ pagination }}</div>
               <div class="col-sm-6 text-right">{{ results }}</div>
@@ -546,5 +643,28 @@ $('input[name=\'filter_name\'], input[name=\'filter_model\'], input[name=\'filte
 		return false;
 	}
 });
-//--></script></div>
+//--></script>
+
+
+
+<script type="text/javascript">
+
+
+$('.formForSendToCatalogProductAdd').submit(function(e) {     
+    e.preventDefault();   
+    $.ajax({
+      type: 'POST',
+      url: 'index.php?route=catalog/product/add&user_token={{ token }}',
+      data: new FormData(this),
+      contentType: false,
+      processData: false,
+      success: function(json){
+        console.log(json);  
+      }
+    });
+});
+
+
+
+</script></div>
 {{ footer }} 

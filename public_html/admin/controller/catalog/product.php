@@ -16,6 +16,7 @@ class ControllerCatalogProduct extends Controller {
 	}
 
 	public function add() {
+
 		$this->load->language('catalog/product');
 
 		$this->document->setTitle($this->language->get('heading_title'));
@@ -1660,16 +1661,16 @@ class ControllerCatalogProduct extends Controller {
 				$this->error['meta_title'][$language_id] = $this->language->get('error_meta_title');
 			}
 			
-						if ((utf8_strlen($value['meta_h1']) < 0) || (utf8_strlen($value['meta_h1']) > 255)) {
+			if ((utf8_strlen($value['meta_h1']) < 0) || (utf8_strlen($value['meta_h1']) > 255)) {
 				$this->error['meta_h1'][$language_id] = $this->language->get('error_meta_h1');
 			}
 		}
 
-		if ((utf8_strlen($this->request->post['model']) < 1) || (utf8_strlen($this->request->post['model']) > 64)) {
+		/* if ((utf8_strlen($this->request->post['model']) < 1) || (utf8_strlen($this->request->post['model']) > 64)) {
 			$this->error['model'] = $this->language->get('error_model');
-		}
+		} */
 
-		if ($this->request->post['product_seo_url']) {
+		if (isset($this->request->post['product_seo_url']) && $this->request->post['product_seo_url']) {
 			$this->load->model('design/seo_url');
 			
 			foreach ($this->request->post['product_seo_url'] as $store_id => $language) {
