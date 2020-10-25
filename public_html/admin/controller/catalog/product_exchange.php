@@ -5,24 +5,50 @@
 class ControllerCatalogProductExchange extends Controller {
 	private $error = array();	
 
-	public function index() {
-		
-		//print_r($this->request);
+	public function index() {		
 
-		$url = '';
-		//$line_number_in_exel = 0;
-		
+	}
+	
+	public function getProductsWithoutPackages() {
+
 		$this->load->language('catalog/product');
-
+		$this->load->model('catalog/product');
 		$this->document->setTitle($this->language->get('heading_title'));
 
-		$this->load->model('catalog/product');
-		
 		$data['token'] = $this->session->data['user_token'];
 
+		$products_without_package = $this->model_catalog_product->getProductsWithoutPackage();
+		$name_of_packages = $this->model_catalog_product->getNameOfPackages();
+		
+		foreach ($name_of_packages as $name_of_package)
+		{
+			$data['name_of_package'][] = $name_of_package;
+		}
+		
+		foreach ($products_without_package as $product)
+		{
+			$data['products_without_package'][] = $product;
+		}
+
+		$data['header'] = $this->load->controller('common/header');
+		$data['column_left'] = $this->load->controller('common/column_left');
+		$data['footer'] = $this->load->controller('common/footer');
+
+		$this->response->setOutput($this->load->view('catalog/product_exchange', $data));
+	}
+
+	public function getProductsFromExel() {
+
+		$url = '';
+		$this->load->language('catalog/product');
+		$this->load->model('catalog/product');
+		$this->document->setTitle($this->language->get('heading_title'));
+		
+		//$line_number_in_exel = 0;
+		$data['token'] = $this->session->data['user_token'];
 		require_once DIR_STORAGE.'exchange/SimpleXLSX.php';
 
-		if ( $xlsx = SimpleXLSX::parse(DIR_STORAGE.'exchange/123.xlsx') ) { 
+		if ( $xlsx = SimpleXLSX::parse(DIR_STORAGE.'exchange/123.xlsx') ) {
 
 
 			foreach ( $xlsx->rows() as $k => $r ) {
@@ -135,7 +161,6 @@ class ControllerCatalogProductExchange extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
 
 		$this->response->setOutput($this->load->view('catalog/product_exchange', $data));
-
 	}
 
 

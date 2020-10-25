@@ -99,6 +99,16 @@ class ControllerCatalogProduct extends Controller {
 		$this->getForm();
 	}
 
+	public function addThePackage(){
+		$this->load->language('catalog/product');
+
+		$this->document->setTitle($this->language->get('heading_title'));
+
+		$this->load->model('catalog/product');
+
+		if ($this->request->server['REQUEST_METHOD'] == 'POST') $this->model_catalog_product->addThePackage($this->request->post);		
+	}
+
 	public function edit() {
 		$this->load->language('catalog/product');
 
@@ -188,7 +198,7 @@ class ControllerCatalogProduct extends Controller {
 		}
 
 		$this->getForm();
-	}
+	}	
 
 	public function delete() {
 		$this->load->language('catalog/product');

@@ -5,7 +5,7 @@
 class ModelCatalogProduct extends Model {
 	public function addProduct($data) {
 
-		$checkQuery = $this->db->query("SELECT * FROM ckf_product WHERE sku = '" . $data['sku'] . "'");
+		$checkQuery = $this->db->query("SELECT * FROM" . DB_PREFIX . "product WHERE sku = '" . $data['sku'] . "'");
 
 		if ($checkQuery->row) return;
 
@@ -166,6 +166,39 @@ class ModelCatalogProduct extends Model {
 		return $product_id;
 	}
 	
+	public function addThePackage($data){
+
+		$checkQuery = $this->db->query("SELECT * FROM ". DB_PREFIX . "package_product WHERE product_id = '" . $data['product_id'] . "'");
+		if ($checkQuery->row) return;
+
+		$this->db->query("INSERT INTO " . DB_PREFIX . "package_product SET
+						  product_id='" . $this->db->escape($data['product_id']) . "',
+						  package_id='" . $this->db->escape($data['package_id']) . "',
+						  parent_package_id='" . $this->db->escape($data['parent_package_id']) . "',
+						  quantity='" . $this->db->escape($data['quantity']) . "',
+						  volume='" . $this->db->escape($data['volume']) . "',
+						  package_name_id='" . $this->db->escape($data['package_name_id']) . "',
+						  product_type=NULL
+						  ");
+	}
+
+	public function getProductsWithoutPackage() {
+		$query = "SELECT p.product_id 'id', p.sku, pd.name, pp.product_id FROM " . DB_PREFIX . "product p 
+				  LEFT JOIN " . DB_PREFIX . "product_description pd ON p.product_id = pd.product_id 
+				  LEFT JOIN " . DB_PREFIX . "package_product pp ON p.product_id = pp.product_id WHERE pp.product_id is NULL ORDER BY id ASC";
+
+		$result = $this->db->query($query);
+
+		return $result->rows;
+	}
+
+	public function getNameOfPackages() {	
+		$query = $this->db->query(
+			"SELECT name FROM " . DB_PREFIX . "package_description" 
+		);
+		return $query->rows;
+	}
+
 	public function getProductExchange($product) {
 
 		$this->db->query("

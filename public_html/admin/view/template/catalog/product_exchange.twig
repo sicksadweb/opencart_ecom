@@ -238,6 +238,88 @@
           </div>
           <div class="panel-body">
 
+          {########## Table for add packages ###############}
+          {% if products_without_package %}
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <td style="width: 1px;" class="text-center"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" /></td>
+                    <td class="text-center">{{ column_image }}</td>
+                    <td class="text-left">{% if sort == 'pd.name' %} <a href="{{ sort_name }}" class="{{ order|lower }}">{{ column_name }}</a> {% else %} <a href="{{ sort_name }}">{{ column_name }}</a> {% endif %}</td>
+                    <td class="text-left">{% if sort == 'p.model' %} <a href="{{ sort_model }}" class="{{ order|lower }}">{{ column_model }}</a> {% else %} <a href="{{ sort_model }}">{{ column_model }}</a> {% endif %}</td>
+                    <td class="text-left">Product id</td>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  {% for product in products_without_package %}
+                  <tr class="danger">                  
+                    <td class="text-center">{% if product.product_id in selected %}
+                      <input type="checkbox" name="selected[]" value="{{ product.product_id }}" checked="checked" />
+                      {% else %}
+                      <input type="checkbox" name="selected[]" value="{{ product.product_id }}" />
+                      {% endif %}</td>
+                    <td class="text-center accordion-toggle" data-toggle="collapse" data-target="#formForAddTheProductPackage{{ loop.index }}">{% if product.image %} <img src="{{ product.image }}" alt="{{ product.name }}" class="img-thumbnail" /> {% else %} <span class="img-thumbnail list"><i class="fa fa-camera fa-2x"></i></span> {% endif %}</td>
+                    <td class="text-left"> {% if product.name %} {{ product.name }} {% else %} Наименование товара отсутствует в БД {% endif %} </td>
+                    <td class="text-left">{{ product.sku }}</td>
+                    <td class="text-left">{{ product.id }}</td>
+                    </td>
+                  </tr>
+                  <tr>                  
+                    <td colspan="9"> {# class="hiddenRow" #}{# id="form{{ loop.index }}" #}
+                    {# Form for add new package for product #}
+                      <div id="formForAddTheProductPackage{{ loop.index }}" class="accordion-body collapse in" >                  
+                        <form action="" method="post" class="formForSendToCatalogProductAddThePackage">
+
+                          <label for="package_id{{ loop.index }}">Package</label>
+                          <select name="package_id" id ="package_id{{ loop.index }}" class="form-control"> 
+                          {% for package in name_of_package %}
+                            {% if loop.index == 6 %}
+                            <option selected="selected" value={{ loop.index }}>{{ package.name }}</option>
+                            {% else %}                            
+                            <option value={{ loop.index }}>{{ package.name }}</option>
+                            {% endif %}
+                          {% endfor %}                          
+                          </select>
+
+                          <label for="parent_package_id{{ loop.index }}">Parent package</label>
+                          <select name="parent_package_id" id ="parent_package_id{{ loop.index }}" class="form-control"> 
+                            {% for package in name_of_package %}
+                              {% if loop.index == 6 %}
+                              <option selected="selected" value={{ loop.index }}>{{ package.name }}</option>
+                              {% else %}                            
+                              <option value={{ loop.index }}>{{ package.name }}</option>
+                              {% endif %}
+                            {% endfor %}                          
+                          </select>
+
+                          <label for="quantity{{ loop.index }}">Quantity</label>
+                          <input type="text" name="quantity" id ="quantity{{ loop.index }}" class="form-control" value="1" />
+
+                          <label for="volume{{ loop.index }}">Volume</label>
+                          <input type="text" name="volume" id ="volume{{ loop.index }}" class="form-control" value="1" />
+
+                          <label for="package_name_id{{ loop.index }}">Package name id</label>
+                          <input type="text" name="package_name_id" id ="package_name_id{{ loop.index }}" class="form-control" value="6" />
+
+                          {# <label for="product_type{{ loop.index }}">product_type</label> #}
+                          {# <input type="text" name="product_type" id ="product_type{{ loop.index }}" class="form-control" value="NULL" /> #}
+                          
+                          <input type="hidden" name="product_id" class="form-control" value={{ product.id }} /> 
+                          
+
+                          <input type="submit" id="sendButton{{ loop.index }}" value="Submit" class="btn btn-default" />
+                        </form>
+                      </div>
+                    </td>
+                  </tr>                
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            {% else %}
+
             danger - errors <br>
             success - done <br>
             warning - no qantity no price <br>
@@ -422,6 +504,7 @@
                 
               </table>
             </div>
+      {% endif %}
             <div class="row">
               <div class="col-sm-6 text-left">{{ pagination }}</div>
               <div class="col-sm-6 text-right">{{ results }}</div>
@@ -650,8 +733,9 @@ $('input[name=\'filter_name\'], input[name=\'filter_model\'], input[name=\'filte
 <script type="text/javascript">
 
 
-$('.formForSendToCatalogProductAdd').submit(function(e) {     
+$('.formForSendToCatalogProductAdd').submit(function(e) {
     e.preventDefault();   
+    let dangerRow = $(this).closest('tr').prev('.danger');     
     $.ajax({
       type: 'POST',
       url: 'index.php?route=catalog/product/add&user_token={{ token }}',
@@ -659,12 +743,30 @@ $('.formForSendToCatalogProductAdd').submit(function(e) {
       contentType: false,
       processData: false,
       success: function(json){
-        console.log(json);  
+        console.log(json);
+        dangerRow.attr('class','success');  
+      }
+    });
+});
+
+
+$('.formForSendToCatalogProductAddThePackage').submit(function(e) {     
+    e.preventDefault();
+    let dangerRow = $(this).closest('tr').prev('.danger'); 
+    $.ajax({
+      type: 'POST',
+      url: 'index.php?route=catalog/product/addThePackage&user_token={{ token }}',
+      data: new FormData(this),
+      contentType: false,
+      processData: false,
+      success: function(json){
+        console.log(json);
+        dangerRow.attr('class', 'success');
       }
     });
 });
 
 
 
-</script></div>
+</script>
 {{ footer }} 
