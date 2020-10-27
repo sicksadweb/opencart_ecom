@@ -234,14 +234,14 @@
       <div class="col-md-9 col-md-pull-3 col-sm-12">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title"><i class="fa fa-list"></i> {{ text_list }}</h3>
+            <h3 class="panel-title"><i class="fa fa-list"></i> {{ text_add }}</h3>
           </div>
           <div class="panel-body">
 
           {########## Table for add packages ###############}
           {% if products_without_package %}
             <div class="table-responsive">
-              <table class="table table-bordered table-hover">
+              <table class="table table-bordered table-hover main-table">
                 <thead>
                   <tr>
                     <td style="width: 1px;" class="text-center"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" /></td>
@@ -261,9 +261,9 @@
                       <input type="checkbox" name="selected[]" value="{{ product.product_id }}" />
                       {% endif %}</td>
                     <td class="text-center accordion-toggle" data-toggle="collapse" data-target="#formForAddTheProductPackage{{ loop.index }}">{% if product.image %} <img src="{{ product.image }}" alt="{{ product.name }}" class="img-thumbnail" /> {% else %} <span class="img-thumbnail list"><i class="fa fa-camera fa-2x"></i></span> {% endif %}</td>
-                    <td class="text-left"> {% if product.name %} {{ product.name }} {% else %} Наименование товара отсутствует в БД {% endif %} </td>
-                    <td class="text-left">{{ product.sku }}</td>
-                    <td class="text-left">{{ product.id }}</td>
+                    <td class="text-left product-name"> {% if product.name %} {{ product.name }} {% else %} Наименование товара отсутствует в БД {% endif %} </td>
+                    <td class="text-left product-sku">{{ product.sku }}</td>
+                    <td class="text-left product-id">{{ product.id }}</td>
                     </td>
                   </tr>
                   <tr>                  
@@ -310,6 +310,8 @@
                           
 
                           <input type="submit" id="sendButton{{ loop.index }}" value="Submit" class="btn btn-default" />
+                          <input type="button" id="buttonForAdditionalForm{{ loop.index }}" value="Форма дополнительной упаковки" class="btn btn-warning button-additional-form" />
+                          <input type="button" value="Удалить форму доп. упаковки" class="btn btn-warning del-button-additional-form hidden" />
                         </form>
                       </div>
                     </td>
@@ -318,7 +320,7 @@
                 </tbody>
               </table>
             </div>
-            {% else %}
+            {% elseif newProducts or error or products %}
 
             danger - errors <br>
             success - done <br>
@@ -500,10 +502,16 @@
                   <td class="text-center" colspan="9">{{ text_no_results }}</td>
                 </tr>
                 {% endif %}
-                  </tbody>
-                
+                  </tbody>                
               </table>
             </div>
+      {% else %}
+            <a href={{ add_from_exel }} class="btn btn-primary">
+              {{ text_add_from_excel }}
+            </a>
+            <a href={{ add_package }} class="btn btn-primary">
+              {{ text_add_the_package }}
+            </a>
       {% endif %}
             <div class="row">
               <div class="col-sm-6 text-left">{{ pagination }}</div>
@@ -750,9 +758,9 @@ $('.formForSendToCatalogProductAdd').submit(function(e) {
 });
 
 
-$('.formForSendToCatalogProductAddThePackage').submit(function(e) {     
+$('.main-table').on('submit','.formForSendToCatalogProductAddThePackage', function(e) {     
     e.preventDefault();
-    let dangerRow = $(this).closest('tr').prev('.danger'); 
+    let dangerRow = $(this).closest('tr').prev(); 
     $.ajax({
       type: 'POST',
       url: 'index.php?route=catalog/product/addThePackage&user_token={{ token }}',
@@ -767,6 +775,72 @@ $('.formForSendToCatalogProductAddThePackage').submit(function(e) {
 });
 
 
+$(".button-additional-form").click(function(e){
+  
+  form_row = $(this).closest('tr');
+  danger_row = form_row.prev();
+
+  html = '<tr class="warning">' +
+             '<td></td>' +
+             '<td></td>' +
+             '<td class="text-left">'+ danger_row.children('.product-name').text() +'</td>' +
+             '<td class="text-left">'+ danger_row.children('.product-sku').text() +'</td>' +
+             '<td class="text-left">'+ danger_row.children('.product-id').text() +'</td>' +
+          '</tr>' +
+          '<tr>' +
+            '<td colspan="9">' +
+             '<div id="">' +
+                 '<form action="" method="post" class="formForSendToCatalogProductAddThePackage">' +
+                    '<label>Package</label>' +
+                    '<select name="package_id" class="form-control">' +
+                    '{% for package in name_of_package %}' +
+                                '{% if loop.index == 6 %}' +
+                                '<option selected="selected" value={{ loop.index }}>{{ package.name }}</option>' +
+                                '{% else %}' +                             
+                                '<option value={{ loop.index }}>{{ package.name }}</option>' +
+                                '{% endif %}' + 
+                              '{% endfor %}' +
+                      '</select>' +
+                      '<label>Parent package</label>' +
+                      '<select name="parent_package_id" class="form-control">' +
+                      '{% for package in name_of_package %}' +
+                                '{% if loop.index == 6 %}' +
+                                '<option selected="selected" value={{ loop.index }}>{{ package.name }}</option>' +
+                                '{% else %}' +                             
+                                '<option value={{ loop.index }}>{{ package.name }}</option>' +
+                                '{% endif %}' + 
+                              '{% endfor %}' +
+                      '</select>' +
+                          '<label">Quantity</label>' +
+                          '<input type="text" name="quantity" class="form-control" value="1" />' +
+                          '<label>Volume</label>' +
+                          '<input type="text" name="volume" class="form-control" value="1" />' +
+                          '<label">Package name id</label>' +
+                          '<input type="text" name="package_name_id" class="form-control" value="6" />' +                          
+                          '<input type="hidden" name="product_id" class="form-control" value="'+ danger_row.children('.product-id').text() +'" />' + 
+                          '<input type="submit" value="Submit" class="btn btn-default" />' +
+                        '</form>' +
+                      '</div>' +
+                    '</td>' +
+                  '</tr>';                   
+
+form_row.after(html);
+
+hidden_button = $(this).next();
+hidden_button.removeClass('hidden');
+$(this).addClass('hidden');
+
+});
+
+
+$(".del-button-additional-form").on('click', function(){
+  warningRow = $(this).closest('tr').next();
+  warningRow.next().remove();
+  warningRow.remove();
+  $(this).prev().removeClass('hidden');
+  $(this).addClass('hidden');
+
+});
 
 </script>
 {{ footer }} 

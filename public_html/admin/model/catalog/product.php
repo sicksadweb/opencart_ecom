@@ -166,10 +166,7 @@ class ModelCatalogProduct extends Model {
 		return $product_id;
 	}
 	
-	public function addThePackage($data){
-
-		$checkQuery = $this->db->query("SELECT * FROM ". DB_PREFIX . "package_product WHERE product_id = '" . $data['product_id'] . "'");
-		if ($checkQuery->row) return;
+	public function addThePackage($data){	
 
 		$this->db->query("INSERT INTO " . DB_PREFIX . "package_product SET
 						  product_id='" . $this->db->escape($data['product_id']) . "',

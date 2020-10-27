@@ -7,6 +7,18 @@ class ControllerCatalogProductExchange extends Controller {
 
 	public function index() {		
 
+		$this->load->language('catalog/product');
+		$this->load->model('catalog/product');
+		$this->document->setTitle($this->language->get('heading_title'));
+
+		$data['add_from_exel'] = $this->url->link('catalog/product_exchange/getProductsFromExel', 'user_token=' . $this->session->data['user_token'], true);
+		$data['add_package'] = $this->url->link('catalog/product_exchange/getProductsWithoutPackages', 'user_token=' . $this->session->data['user_token'], true);
+		$data['header'] = $this->load->controller('common/header');
+		$data['column_left'] = $this->load->controller('common/column_left');
+		$data['footer'] = $this->load->controller('common/footer');	
+
+		$this->response->setOutput($this->load->view('catalog/product_exchange', $data));
+
 	}
 	
 	public function getProductsWithoutPackages() {
@@ -21,7 +33,7 @@ class ControllerCatalogProductExchange extends Controller {
 		$name_of_packages = $this->model_catalog_product->getNameOfPackages();
 		
 		foreach ($name_of_packages as $name_of_package)
-		{
+		{			
 			$data['name_of_package'][] = $name_of_package;
 		}
 		
@@ -58,10 +70,8 @@ class ControllerCatalogProductExchange extends Controller {
 				if ($line_number_in_exel == 2000) break; */
 				
 				$product = $this->model_catalog_product->getProductExchange($r);
-				//print_r($product);	
+				
 				if ($product){
-					
-					//print_r($data['products']);
 
 					if ($r[2] == null && $r[3] == null ) continue;
 
