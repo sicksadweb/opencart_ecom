@@ -58,6 +58,7 @@ class ControllerCatalogProductExchange extends Controller {
 		
 		//$line_number_in_exel = 0;
 		$data['token'] = $this->session->data['user_token'];
+		$data['file_found'] = true;
 		require_once DIR_STORAGE.'exchange/SimpleXLSX.php';
 
 		if ( $xlsx = SimpleXLSX::parse(DIR_STORAGE.'exchange/123.xlsx') ) {
@@ -162,7 +163,7 @@ class ControllerCatalogProductExchange extends Controller {
 			}	
 						  	
 		} else {
-				echo SimpleXLSX::parseError();
+				$data['file_found'] = false;
 			}
 
 

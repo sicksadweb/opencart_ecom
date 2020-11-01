@@ -320,7 +320,7 @@
                 </tbody>
               </table>
             </div>
-            {% elseif newProducts or error or products %}
+            {% elseif file_found == true %}
 
             danger - errors <br>
             success - done <br>
@@ -505,6 +505,8 @@
                   </tbody>                
               </table>
             </div>
+      {% elseif file_found == false %}
+        <span>{{ error_file_not_found }}</span>
       {% else %}
             <a href={{ add_from_exel }} class="btn btn-primary">
               {{ text_add_from_excel }}
@@ -750,7 +752,7 @@ $('.formForSendToCatalogProductAdd').submit(function(e) {
       data: new FormData(this),
       contentType: false,
       processData: false,
-      success: function(json){
+      success: function(json){  
         console.log(json);
         dangerRow.attr('class','success');  
       }
@@ -811,11 +813,11 @@ $(".button-additional-form").click(function(e){
                                 '{% endif %}' + 
                               '{% endfor %}' +
                       '</select>' +
-                          '<label">Quantity</label>' +
+                          '<label>Quantity</label>' +
                           '<input type="text" name="quantity" class="form-control" value="1" />' +
                           '<label>Volume</label>' +
                           '<input type="text" name="volume" class="form-control" value="1" />' +
-                          '<label">Package name id</label>' +
+                          '<label>Package name id</label>' +
                           '<input type="text" name="package_name_id" class="form-control" value="6" />' +                          
                           '<input type="hidden" name="product_id" class="form-control" value="'+ danger_row.children('.product-id').text() +'" />' + 
                           '<input type="submit" value="Submit" class="btn btn-default" />' +
