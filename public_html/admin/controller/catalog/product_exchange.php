@@ -3,7 +3,7 @@
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
 class ControllerCatalogProductExchange extends Controller {
-	private $error = array();	
+	private $error = array();
 
 	public function index() {		
 
@@ -61,7 +61,7 @@ class ControllerCatalogProductExchange extends Controller {
 		$data['file_found'] = true;
 		require_once DIR_STORAGE.'exchange/SimpleXLSX.php';
 
-		if ( $xlsx = SimpleXLSX::parse(DIR_STORAGE.'exchange/123.xlsx') ) {
+		if ( $xlsx = SimpleXLSX::parse(DIR_STORAGE.'exchange/23.xlsx') ) {
 
 
 			foreach ( $xlsx->rows() as $k => $r ) {
