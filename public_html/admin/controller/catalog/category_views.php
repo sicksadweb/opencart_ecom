@@ -8,7 +8,7 @@ class ControllerCatalogCategoryViews extends Controller {
 	private $path = array();
 
 	public function index() {
-		$this->load->language('catalog/category');
+		$this->load->language('catalog/category_views');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -19,7 +19,7 @@ class ControllerCatalogCategoryViews extends Controller {
 	}
 
 	public function add() {
-		$this->load->language('catalog/category');
+		$this->load->language('catalog/category_views');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -55,7 +55,7 @@ class ControllerCatalogCategoryViews extends Controller {
 	}
 
 	public function edit() {
-		$this->load->language('catalog/category');
+		$this->load->language('catalog/category_views');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -91,7 +91,7 @@ class ControllerCatalogCategoryViews extends Controller {
 	}
 
 	public function delete() {
-		$this->load->language('catalog/category');
+		$this->load->language('catalog/category_views');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -125,7 +125,7 @@ class ControllerCatalogCategoryViews extends Controller {
 	}
 
 	public function repair() {
-		$this->load->language('catalog/category');
+		$this->load->language('catalog/category_views');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -336,13 +336,13 @@ class ControllerCatalogCategoryViews extends Controller {
 
 		if (isset($this->request->post['parent_id'])) {
 			$data['parent_id'] = $this->request->post['parent_id'];
-			$data['parent_id_offers'] = $this->request->post['parent_id_offers'];
+			$data['parent_offers_id'] = $this->request->post['parent_offers_id'];
 		} elseif (!empty($category_info)) {
 			$data['parent_id'] = $category_info['parent_id'];
-			$data['parent_id_offers'] = $category_info_offers['parent_id'];
+			$data['parent_offers_id'] = $category_info_offers['parent_id'];
 		} else {
 			$data['parent_id'] = 0;
-			$data['parent_id_offers'] = 0;
+			$data['parent_offers_id'] = 0;
 		}
 		//print_r($data);
 
@@ -591,7 +591,7 @@ class ControllerCatalogCategoryViews extends Controller {
 	}
 	
 	public function enable() {
-        $this->load->language('catalog/category');
+        $this->load->language('catalog/category_views');
         $this->document->setTitle($this->language->get('heading_title'));
         $this->load->model('catalog/category');
         if (isset($this->request->post['selected']) && $this->validateEnable()) {
@@ -615,7 +615,7 @@ class ControllerCatalogCategoryViews extends Controller {
     }
 	
     public function disable() {
-        $this->load->language('catalog/category');
+        $this->load->language('catalog/category_views');
         $this->document->setTitle($this->language->get('heading_title'));
         $this->load->model('catalog/category');
         if (isset($this->request->post['selected']) && $this->validateDisable()) {
@@ -793,7 +793,7 @@ class ControllerCatalogCategoryViews extends Controller {
 				'selected'    => $selected,
 				'action'      => $action,
 				'href'        => $href,
-				'href_shop'   => HTTP_CATALOG . 'index.php?route=product/category&path=' . ($result['views_id']),
+				'href_shop'   => HTTP_CATALOG . 'index.php?route=product/views&path=' . ($result['views_id']),
 				'indent'      => $indent
 			);
 			if ($category_id == $result['views_id']) {

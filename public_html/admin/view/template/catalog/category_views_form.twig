@@ -98,10 +98,34 @@
               </div>
               {# Parent field for offers #}
               <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-offers"><span data-toggle="tooltip" title="{{ help_offers }}">{{ entry_offers_dublicate }}</span></label>
+                <div class="col-sm-10">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="dublicate" value="1" id="input-offers" />
+                      &nbsp; </label>
+                  </div>
+                </div>
+              </div>
+
+              {# offers_id #}
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-parent_offers">{{ entry_offers }}</label>
+                <div class="col-sm-10">
+                  <input type="text" name="path_offers" value="" placeholder="{{ entry_offers }}" id="input-parent_offers" class="form-control" />
+                  <input type="hidden" name="offers_id" value="null" />
+                  {% if error_parent %}
+                  <div class="text-danger">{{ error_parent }}</div>
+                  {% endif %}
+                </div>
+              </div>
+
+              {# Parent_offers_id #}
+              <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-parent_offers">{{ entry_parent_offers }}</label>
                 <div class="col-sm-10">
-                  <input type="text" name="path_offers" value="{{ path_offers }}" placeholder="{{ entry_parent_offers }}" id="input-parent_offers" class="form-control" />
-                  <input type="hidden" name="parent_id_offers" value="{{ parent_id_offers }}" />
+                  <input type="text" name="path_parent_offers" value="{{ path_offers }}" placeholder="{{ entry_parent_offers }}" id="input-parent_offers" class="form-control" />
+                  <input type="hidden" name="parent_offers_id" value="{{ parent_offers_id }}" />
                   {% if error_parent %}
                   <div class="text-danger">{{ error_parent }}</div>
                   {% endif %}
@@ -350,7 +374,33 @@ $('input[name=\'path_offers\']').autocomplete({
 	},
 	'select': function(item) {
 		$('input[name=\'path_offers\']').val(item['label']);
-		$('input[name=\'parent_id_offers\']').val(item['value']);
+		$('input[name=\'offers_id\']').val(item['value']);
+	}
+});
+
+$('input[name=\'path_parent_offers\']').autocomplete({
+	'source': function(request, response) {
+		$.ajax({
+			url: 'index.php?route=catalog/category_offers/autocomplete&user_token={{ user_token }}&filter_name=' +  encodeURIComponent(request),
+			dataType: 'json',
+			success: function(json) {
+				json.unshift({
+					category_id: 0,
+					name: '{{ text_none }}'
+				});
+
+				response($.map(json, function(item) {
+					return {
+						label: item['name'],
+						value: item['category_id']
+					}
+				}));
+			}
+		});
+	},
+	'select': function(item) {
+		$('input[name=\'path_parent_offers\']').val(item['label']);
+		$('input[name=\'parent_offers_id\']').val(item['value']);
 	}
 });
 //--></script>

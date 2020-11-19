@@ -82,11 +82,6 @@ class ModelCatalogCategoryViews extends Model {
 	//New function for add category to ckf_category_views
 	public function addCategory($data) {
 
-		$this->load->model('catalog/category_offers');
-		$data_for_offers = $data;
-		$data_for_offers['parent_id'] = $data['parent_id_offers'];
-		$offers_id = $this->model_catalog_category_offers->addCategory($data_for_offers);
-
 		$this->db->query("INSERT INTO " . DB_PREFIX . "category_views SET parent_id = '" . (int)$data['parent_id'] . "',
 		
 		`top` = '" . (isset($data['top']) ? (int)$data['top'] : 0) . "',
@@ -94,8 +89,7 @@ class ModelCatalogCategoryViews extends Model {
 		 sort_order = '" . (int)$data['sort_order'] . "',
 		 status = '" . (int)$data['status'] . "', 
 		 noindex = '" . (int)$data['noindex'] . "',
-		 date_modified = NOW(), date_added = NOW(),
-		 offers_id = '" . $offers_id . "'");
+		 date_modified = NOW(), date_added = NOW()");
 
 		$views_id = $this->db->getLastId();
 
@@ -172,9 +166,21 @@ class ModelCatalogCategoryViews extends Model {
 		$this->cache->delete('category');
 		
 		if($this->config->get('config_seo_pro')){		
-		$this->cache->delete('seopro');
+			$this->cache->delete('seopro');
 		}
 
+		if (isset($data['dublicate'])){
+
+			$this->load->model('catalog/category_offers');
+			$data['parent_id'] = $data['parent_id_offers'];
+			$offers_id = $this->model_catalog_category_offers->addCategory($data);
+
+			$this->db->query("UPDATE " . DB_PREFIX . "category_views SET offers_id = '". (int)$offers_id ."' WHERE views_id='". $views_id ."'");
+		}
+		else {
+			if ($data['offers_id'] == "NULL" || $data['offers_id'] == 0) $this->db->query("UPDATE " . DB_PREFIX . "category_views SET offers_id = NULL WHERE views_id='". $views_id ."'");
+			else $this->db->query("UPDATE " . DB_PREFIX . "category_views SET offers_id = '". (int)$data['offers_id'] ."' WHERE views_id='". $views_id ."'");
+		}
 		return $views_id;
 	}
 
