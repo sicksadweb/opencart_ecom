@@ -93,6 +93,18 @@ class ModelCatalogCategoryViews extends Model {
 
 		$views_id = $this->db->getLastId();
 
+		if (isset($data['dublicate'])){
+
+			$this->load->model('catalog/category_offers');
+			$offers_id = $this->model_catalog_category_offers->addCategory($data);
+
+			$this->db->query("UPDATE " . DB_PREFIX . "category_views SET offers_id = '". (int)$offers_id ."' WHERE views_id='". $views_id ."'");
+		}
+		else {
+			if ($data['offers_id'] == "NULL" || $data['offers_id'] == 0) $this->db->query("UPDATE " . DB_PREFIX . "category_views SET offers_id = NULL WHERE views_id='". $views_id ."'");
+			else $this->db->query("UPDATE " . DB_PREFIX . "category_views SET offers_id = '". (int)$data['offers_id'] ."' WHERE views_id='". $views_id ."'");
+		}
+
 		foreach ($data['category_description'] as $language_id => $value) {
 			$this->db->query("INSERT INTO " . DB_PREFIX . "category_views_description SET
 			views_id = '". $views_id ."',  
@@ -169,7 +181,7 @@ class ModelCatalogCategoryViews extends Model {
 			$this->cache->delete('seopro');
 		}
 
-		if (isset($data['dublicate'])){
+		/* if (isset($data['dublicate'])){
 
 			$this->load->model('catalog/category_offers');
 			$data['parent_id'] = $data['parent_id_offers'];
@@ -180,7 +192,8 @@ class ModelCatalogCategoryViews extends Model {
 		else {
 			if ($data['offers_id'] == "NULL" || $data['offers_id'] == 0) $this->db->query("UPDATE " . DB_PREFIX . "category_views SET offers_id = NULL WHERE views_id='". $views_id ."'");
 			else $this->db->query("UPDATE " . DB_PREFIX . "category_views SET offers_id = '". (int)$data['offers_id'] ."' WHERE views_id='". $views_id ."'");
-		}
+		} */
+
 		return $views_id;
 	}
 

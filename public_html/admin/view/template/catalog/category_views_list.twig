@@ -8,7 +8,7 @@
 		<button type="submit" form="form-category" formaction="{{ disabled }}" data-toggle="tooltip" title="{{ button_disable }}" class="btn btn-default"><i class="fa fa-pause"></i></button>
 		<button type="button" form="form-category" formaction="{{ delete }}" data-toggle="tooltip" title="{{ button_delete }}" class="btn btn-danger" onclick="confirm('{{ text_confirm }}') ? $('#form-category').submit() : false;"><i class="fa fa-trash-o"></i></button>
       </div>
-      <h1>{{ heading_title }}</h1>
+      <h1>{{ heading_title_views }}</h1>
       <ul class="breadcrumb">
         {% for breadcrumb in breadcrumbs %}
         <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>

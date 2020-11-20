@@ -8,9 +8,9 @@ class ControllerCatalogCategoryOffers extends Controller {
 	private $path = array();
 
 	public function index() {
-		$this->load->language('catalog/category_offers');
+		$this->load->language('catalog/category');
 
-		$this->document->setTitle($this->language->get('heading_title'));
+		$this->document->setTitle($this->language->get('heading_title_offers'));
 
 		$this->load->model('catalog/category_offers');
 
@@ -18,9 +18,9 @@ class ControllerCatalogCategoryOffers extends Controller {
 	}
 
 	public function add() {
-		$this->load->language('catalog/category_offers');
+		$this->load->language('catalog/category');
 
-		$this->document->setTitle($this->language->get('heading_title'));
+		$this->document->setTitle($this->language->get('heading_title_offers'));
 
 		$this->load->model('catalog/category_offers');
 
@@ -53,9 +53,9 @@ class ControllerCatalogCategoryOffers extends Controller {
 	}
 
 	public function edit() {
-		$this->load->language('catalog/category_offers');
+		$this->load->language('catalog/category');
 
-		$this->document->setTitle($this->language->get('heading_title'));
+		$this->document->setTitle($this->language->get('heading_title_offers'));
 
 		$this->load->model('catalog/category_offers');
 
@@ -88,9 +88,9 @@ class ControllerCatalogCategoryOffers extends Controller {
 	}
 
 	public function delete() {
-		$this->load->language('catalog/category_offers');
+		$this->load->language('catalog/category');
 
-		$this->document->setTitle($this->language->get('heading_title'));
+		$this->document->setTitle($this->language->get('heading_title_offers'));
 
 		$this->load->model('catalog/category_offers');
 
@@ -122,9 +122,9 @@ class ControllerCatalogCategoryOffers extends Controller {
 	}
 
 	public function repair() {
-		$this->load->language('catalog/category_offers');
+		$this->load->language('catalog/category');
 
-		$this->document->setTitle($this->language->get('heading_title'));
+		$this->document->setTitle($this->language->get('heading_title_offers'));
 
 		$this->load->model('catalog/category');
 
@@ -165,7 +165,7 @@ class ControllerCatalogCategoryOffers extends Controller {
 		);
 
 		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('heading_title'),
+			'text' => $this->language->get('heading_title_offers'),
 			'href' => $this->url->link('catalog/category_offers', 'user_token=' . $this->session->data['user_token'] . $url, true)
 		);
 		$data['add'] = $this->url->link('catalog/category_offers/add', 'user_token=' . $this->session->data['user_token'] . $url, true);
@@ -282,7 +282,7 @@ class ControllerCatalogCategoryOffers extends Controller {
 		);
 
 		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('heading_title'),
+			'text' => $this->language->get('heading_title_offers'),
 			'href' => $this->url->link('catalog/category_views', 'user_token=' . $this->session->data['user_token'] . $url, true)
 		);
 
@@ -315,7 +315,7 @@ class ControllerCatalogCategoryOffers extends Controller {
 		
 		$language_id = $this->config->get('config_language_id');
 		if (isset($data['category_description'][$language_id]['name'])) {
-			$data['heading_title'] = $data['category_description'][$language_id]['name'];
+			$data['heading_title_offers'] = $data['category_description'][$language_id]['name'];
 		}
 
 		if (isset($this->request->post['path'])) {
@@ -579,8 +579,8 @@ class ControllerCatalogCategoryOffers extends Controller {
 	}
 	
 	public function enable() {
-        $this->load->language('catalog/category_offers');
-        $this->document->setTitle($this->language->get('heading_title'));
+        $this->load->language('catalog/category');
+        $this->document->setTitle($this->language->get('heading_title_offers'));
         $this->load->model('catalog/category');
         if (isset($this->request->post['selected']) && $this->validateEnable()) {
             foreach ($this->request->post['selected'] as $category_id) {
@@ -603,8 +603,8 @@ class ControllerCatalogCategoryOffers extends Controller {
     }
 	
     public function disable() {
-        $this->load->language('catalog/category_offers');
-        $this->document->setTitle($this->language->get('heading_title'));
+        $this->load->language('catalog/category');
+        $this->document->setTitle($this->language->get('heading_title_offers'));
         $this->load->model('catalog/category');
         if (isset($this->request->post['selected']) && $this->validateDisable()) {
             foreach ($this->request->post['selected'] as $category_id) {
