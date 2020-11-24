@@ -89,11 +89,12 @@ class ModelCatalogCategoryViews extends Model {
 		 sort_order = '" . (int)$data['sort_order'] . "',
 		 status = '" . (int)$data['status'] . "', 
 		 noindex = '" . (int)$data['noindex'] . "',
-		 date_modified = NOW(), date_added = NOW()");
+		 date_modified = NOW(), date_added = NOW(),
+		 offers_id = '". $data['offers_id'] ."'");
 
 		$views_id = $this->db->getLastId();
 
-		if (isset($data['dublicate'])){
+		/* if (isset($data['dublicate'])){
 
 			$this->load->model('catalog/category_offers');
 			$offers_id = $this->model_catalog_category_offers->addCategory($data);
@@ -103,7 +104,7 @@ class ModelCatalogCategoryViews extends Model {
 		else {
 			if ($data['offers_id'] == "NULL" || $data['offers_id'] == 0) $this->db->query("UPDATE " . DB_PREFIX . "category_views SET offers_id = NULL WHERE views_id='". $views_id ."'");
 			else $this->db->query("UPDATE " . DB_PREFIX . "category_views SET offers_id = '". (int)$data['offers_id'] ."' WHERE views_id='". $views_id ."'");
-		}
+		} */
 
 		foreach ($data['category_description'] as $language_id => $value) {
 			$this->db->query("INSERT INTO " . DB_PREFIX . "category_views_description SET
@@ -180,19 +181,6 @@ class ModelCatalogCategoryViews extends Model {
 		if($this->config->get('config_seo_pro')){		
 			$this->cache->delete('seopro');
 		}
-
-		/* if (isset($data['dublicate'])){
-
-			$this->load->model('catalog/category_offers');
-			$data['parent_id'] = $data['parent_id_offers'];
-			$offers_id = $this->model_catalog_category_offers->addCategory($data);
-
-			$this->db->query("UPDATE " . DB_PREFIX . "category_views SET offers_id = '". (int)$offers_id ."' WHERE views_id='". $views_id ."'");
-		}
-		else {
-			if ($data['offers_id'] == "NULL" || $data['offers_id'] == 0) $this->db->query("UPDATE " . DB_PREFIX . "category_views SET offers_id = NULL WHERE views_id='". $views_id ."'");
-			else $this->db->query("UPDATE " . DB_PREFIX . "category_views SET offers_id = '". (int)$data['offers_id'] ."' WHERE views_id='". $views_id ."'");
-		} */
 
 		return $views_id;
 	}
@@ -330,13 +318,13 @@ class ModelCatalogCategoryViews extends Model {
 	//New function for ckf_category_views
 	public function editCategory($category_id, $data) {
 		
-		$query = $this->db->query("SELECT offers_id FROM " . DB_PREFIX . "category_views WHERE views_id=" . $category_id . "");
+		/* $query = $this->db->query("SELECT offers_id FROM " . DB_PREFIX . "category_views WHERE views_id=" . $category_id . "");
 		$offers_id = $query->row['offers_id'];
 
 		$this->load->model('catalog/category_offers');
 		$data_for_offers = $data;
 		$data_for_offers['parent_id'] = $data['parent_id_offers'];
-		$this->model_catalog_category_offers->editCategory($offers_id, $data_for_offers);
+		$this->model_catalog_category_offers->editCategory($offers_id, $data_for_offers); */
 
 		$this->db->query("UPDATE " . DB_PREFIX . "category_views SET 
 		
@@ -345,7 +333,8 @@ class ModelCatalogCategoryViews extends Model {
 		`column` = '" . (int)$data['column'] . "', sort_order = '" . (int)$data['sort_order'] . "', 
 		 status = '" . (int)$data['status'] . "', 
 		 noindex = '" . (int)$data['noindex'] . "', 
-		 date_modified = NOW() WHERE views_id = '" . (int)$category_id . "'");
+		 date_modified = NOW(),
+		 offers_id = '". $data['offers_id'] ."' WHERE views_id = '" . (int)$category_id . "'");
 
 		if (isset($data['image'])) {
 			$this->db->query("UPDATE " . DB_PREFIX . "category_views SET image = '" . $this->db->escape($data['image']) . "' WHERE views_id = '" . (int)$category_id . "'");
@@ -518,15 +507,7 @@ class ModelCatalogCategoryViews extends Model {
 	} */
 
 	//New delete function for ckf_category_views
-	public function deleteCategory($category_id) {
-
-		$query = $this->db->query("SELECT offers_id FROM " . DB_PREFIX . "category_views WHERE views_id=" . $category_id . "");
-		$offers_id = $query->row['offers_id'];
-		if ($offers_id != 0){
-
-			$this->load->model('catalog/category_offers');
-			$this->model_catalog_category_offers->deleteCategory($offers_id);
-		}
+	public function deleteCategory($category_id) {	
 
 		$this->db->query("DELETE FROM " . DB_PREFIX . "category_views_path WHERE views_id = '" . (int)$category_id . "'");
 

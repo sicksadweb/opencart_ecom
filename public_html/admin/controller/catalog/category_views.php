@@ -30,7 +30,21 @@ class ControllerCatalogCategoryViews extends Controller {
 			
 			/* print_r($this->request->post);
 			return; */
-			$this->model_catalog_category_views->addCategory($this->request->post);
+
+			if (isset($this->request->post['dublicate'])) {
+
+				$parent_views_id = $this->request->post['parent_id'];
+				$this->request->post['parent_id'] = 0;
+
+				$offers_id = $this->model_catalog_category_offers->addCategory($this->request->post);
+				
+				$this->request->post['parent_id'] = $parent_views_id;
+				$this->request->post['offers_id'] = $offers_id;
+				$this->model_catalog_category_views->addCategory($this->request->post);
+			}
+			else {
+				$this->model_catalog_category_views->addCategory($this->request->post);
+			}
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
@@ -63,9 +77,7 @@ class ControllerCatalogCategoryViews extends Controller {
 		$this->load->model('catalog/category_offers');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
-
-			/* print_r($this->request->post);
-			return; */
+			
 			$this->model_catalog_category_views->editCategory($this->request->get['category_id'], $this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
@@ -174,8 +186,8 @@ class ControllerCatalogCategoryViews extends Controller {
 		$data['delete'] = $this->url->link('catalog/category_views/delete', 'user_token=' . $this->session->data['user_token'] . $url, true);
 		$data['repair'] = $this->url->link('catalog/category_views/repair', 'user_token=' . $this->session->data['user_token'] . $url, true);
 		$data['enabled'] = $this->url->link('catalog/category_views/enable', 'user_token=' . $this->session->data['user_token'] . $url, true);
-		$data['disabled'] = $this->url->link('catalog/category_views/disable', 'user_token=' . $this->session->data['user_token'] . $url, true);
-		
+		$data['disabled'] = $this->url->link('catalog/category_views/disable', 'user_token=' . $this->session->data['user_token'] . $url, true);		
+
 		if (isset($this->request->get['path'])) {
 			if ($this->request->get['path'] != '') {
 					$this->path = explode('_', $this->request->get['path']);
@@ -287,6 +299,14 @@ class ControllerCatalogCategoryViews extends Controller {
 			'href' => $this->url->link('catalog/category_views', 'user_token=' . $this->session->data['user_token'] . $url, true)
 		);
 
+		$data['is_edit'] = false;
+		if ($this->request->get['route'] == 'catalog/category_views/edit') {
+			$data['is_edit'] = true;
+		}
+		
+		/* print_r($this->request);
+		return; */
+
 		if (!isset($this->request->get['category_id'])) {
 			$data['action'] = $this->url->link('catalog/category_views/add', 'user_token=' . $this->session->data['user_token'] . $url, true);
 		} else {
@@ -298,17 +318,17 @@ class ControllerCatalogCategoryViews extends Controller {
 		if (isset($this->request->get['category_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
 			
 			$category_info = $this->model_catalog_category_views->getCategory($this->request->get['category_id']);
-			/* print($category_info['offers_id']);
-			print($this->request->get['category_id']);
-			return; */
-			//$category_info_offers = $this->model_catalog_category_offers->getCategory($category_info['offers_id']);
-		}
 
+			$category_info_offers = $this->model_catalog_category_offers->getCategory($category_info['offers_id']);
+			/* print_r($category_info_offers);
+			return; */
+		}
+		
 		$data['user_token'] = $this->session->data['user_token'];
 
 		$this->load->model('localisation/language');
 
-		$data['languages'] = $this->model_localisation_language->getLanguages();
+		$data['languages'] = $this->model_localisation_language->getLanguages();		
 
 		if (isset($this->request->post['category_description'])) {
 			$data['category_description'] = $this->request->post['category_description'];
@@ -323,15 +343,16 @@ class ControllerCatalogCategoryViews extends Controller {
 			$data['heading_title'] = $data['category_description'][$language_id]['name'];
 		}
 
-		if (isset($this->request->post['path'])) {
+		if (isset($this->request->post['path'])) {			
 			$data['path'] = $this->request->post['path'];
 			//$data['path_offers'] = $this->request->post['path_offers'];
 		} elseif (!empty($category_info)) {
 			$data['path'] = $category_info['path'];
-			//$data['path_offers'] = $category_info_offers['path'];			
+			$data['offers_name'] = (!empty($category_info_offers)) ? $category_info_offers['name'] : '';			
+			$data['offers_id'] = (!empty($category_info_offers)) ? $category_info_offers['offers_id'] : '';			
 		} else {
 			$data['path'] = '';
-			//$data['path_offers'] = '';
+			$data['offers_name'] = '';
 		}
 
 		if (isset($this->request->post['parent_id'])) {
@@ -344,7 +365,6 @@ class ControllerCatalogCategoryViews extends Controller {
 			$data['parent_id'] = 0;
 			//$data['parent_offers_id'] = 0;
 		}
-		//print_r($data);
 
 		$this->load->model('catalog/filter');
 

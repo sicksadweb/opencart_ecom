@@ -85,6 +85,8 @@
                 {% endfor %}
               </div>
             </div>
+
+            {# Parent for views #}
             <div class="tab-pane" id="tab-data">
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-parent">{{ entry_parent }}</label>
@@ -96,6 +98,8 @@
                   {% endif %}
                 </div>
               </div>
+
+              {% if is_edit == "" %}
               {# Dublicate? #}
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-offers"><span data-toggle="tooltip" title="{{ help_offers }}">{{ entry_offers_dublicate }}</span></label>
@@ -107,13 +111,14 @@
                   </div>
                 </div>
               </div>
+              {% endif %}
 
               {# offers_id #}
               <div class="form-group">
-                <label class="col-sm-2 control-label" for="input-parent_offers">{{ entry_offers }}</label>
+                <label class="col-sm-2 control-label" for="name_offers">{{ entry_offers }}</label>
                 <div class="col-sm-10">
-                  <input type="text" name="path_offers" value="" placeholder="{{ entry_offers }}" id="input-parent_offers" class="form-control" />
-                  <input type="hidden" name="offers_id" value="null" />
+                  <input type="text" name="path_offers" value="{{ offers_name }}" placeholder="{{ entry_offers }}" id="name_offers" class="form-control" />
+                  <input type="hidden" name="offers_id" value="{{ offers_id }}" />
                   {% if error_parent %}
                   <div class="text-danger">{{ error_parent }}</div>
                   {% endif %}
