@@ -353,6 +353,7 @@ class ControllerCatalogCategoryViews extends Controller {
 		} else {
 			$data['path'] = '';
 			$data['offers_name'] = '';
+			$data['offers_id'] = '';
 		}
 
 		if (isset($this->request->post['parent_id'])) {

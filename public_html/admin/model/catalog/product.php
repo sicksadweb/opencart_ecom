@@ -196,6 +196,15 @@ class ModelCatalogProduct extends Model {
 		return $query->rows;
 	}
 
+	public function updateDataForConfigurator() {
+
+		$query = $this->db->query("SELECT * FROM ". DB_PREFIX ."view WHERE status = 0");
+
+		foreach($query->rows as $key => $value) {
+			$this->db->query("UPDATE collestion SET activ = 0 WHERE product_id= '". $value['view_id']. "'");
+		}
+	}
+
 	public function getProductExchange($product) {
 
 		$this->db->query("

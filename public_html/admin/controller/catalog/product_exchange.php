@@ -13,14 +13,39 @@ class ControllerCatalogProductExchange extends Controller {
 
 		$data['add_from_exel'] = $this->url->link('catalog/product_exchange/getProductsFromExel', 'user_token=' . $this->session->data['user_token'], true);
 		$data['add_package'] = $this->url->link('catalog/product_exchange/getProductsWithoutPackages', 'user_token=' . $this->session->data['user_token'], true);
+		$data['update_configurator'] = $this->url->link('catalog/product_exchange/updateDataForConfigurator', 'user_token=' . $this->session->data['user_token'], true);
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');	
 
+		if (isset($this->session->data['success'])){
+			$data['success'] = $this->session->data['success'];
+			unset($this->session->data['success']);
+		}
+		
+		if (isset($this->error['warning'])) {
+			$data['error_warning'] = $this->error['warning'];
+		} else {
+			$data['error_warning'] = '';
+		}
+		
 		$this->response->setOutput($this->load->view('catalog/product_exchange', $data));
-
 	}
 	
+	public function updateDataForConfigurator() {
+
+		$url = '';
+		$this->load->language('catalog/product');
+		$this->load->model('catalog/product');
+		$this->document->setTitle($this->language->get('heading_title'));
+
+		$this->model_catalog_product->updateDataForConfigurator();
+
+		$this->session->data['success'] = $this->language->get('text_success');
+
+		$this->response->redirect($this->url->link('catalog/product_exchange', 'user_token=' . $this->session->data['user_token'] . $url, true));
+	}
+
 	public function getProductsWithoutPackages() {
 
 		$this->load->language('catalog/product');
@@ -61,7 +86,7 @@ class ControllerCatalogProductExchange extends Controller {
 		$data['file_found'] = true;
 		require_once DIR_STORAGE.'exchange/SimpleXLSX.php';
 
-		if ( $xlsx = SimpleXLSX::parse(DIR_STORAGE.'exchange/23.xlsx') ) {
+		if ( $xlsx = SimpleXLSX::parse(DIR_STORAGE.'exchange/123.xlsx') ) {
 
 
 			foreach ( $xlsx->rows() as $k => $r ) {

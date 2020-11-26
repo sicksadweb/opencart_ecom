@@ -11,6 +11,7 @@ $_['text_list']              = 'Список товаров';
 $_['text_add']               = 'Добавить';
 $_['text_add_from_excel']    = 'Добавить товары из Excel';
 $_['text_add_the_package']   = 'Добавить упаковку для товаров';
+$_['text_update_configurator']   = 'Обновить данные для конфигуратора';
 $_['text_edit']              = 'Редактирование';
 $_['text_filter']            = 'Фильтр';
 $_['text_plus']              = '+';
