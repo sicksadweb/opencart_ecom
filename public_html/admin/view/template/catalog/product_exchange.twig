@@ -23,7 +23,7 @@
     <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
       <button type="button" class="close" data-dismiss="alert">&times;</button>
     </div> 
-    {% endif %}
+    {% endif %}    
     {% if success %}
     <div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> {{ success }}
       <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -518,6 +518,9 @@
             </a>
             <a href={{ update_configurator }} class="btn btn-primary">
               {{ text_update_configurator }}
+            </a>
+            <a href={{ info_about_configurator }} class="btn btn-primary">  
+              {{ text_send_info_about_configurator }}
             </a>
       {% endif %}
             <div class="row">

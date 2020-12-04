@@ -205,6 +205,46 @@ class ModelCatalogProduct extends Model {
 		}
 	}
 
+	public function sendInfoAboutMissingViewInConfigurator() {
+
+		$categories_in_collestion = $this->db->query(
+
+			"SELECT DISTINCT vc.category_id FROM collestion c
+			LEFT JOIN ". DB_PREFIX ."view_to_category vc ON c.product_id = vc.view_id ORDER BY category_id DESC"
+		);
+
+		foreach ($categories_in_collestion->rows as $key => $value) {
+
+			if ($value['category_id'] != null) {
+			
+				$query = $this->db->query(
+					
+					"SELECT DISTINCT vc.category_id, vc.view_id, c.product_id, vd.name as category_name, v.model as view_name FROM ". DB_PREFIX ."view_to_category vc 
+					LEFT JOIN collestion c ON c.product_id = vc.view_id 
+					LEFT JOIN ". DB_PREFIX ."category_views_description vd ON vc.category_id = vd.views_id 
+					LEFT JOIN ". DB_PREFIX ."view v ON vc.view_id = v.view_id
+					WHERE vc.category_id = '". $value['category_id'] ."' AND product_id is NULL"
+				);
+
+				foreach ($query->rows as $index => $data) {
+					$result[] = array(
+						'category_id'  => $data['category_id'],
+						'view_id' 	   => $data['view_id'],
+						'category_name'=> $data['category_name'],
+						'view_name'	   => $data['view_name']
+					);
+				}
+			}
+		}
+		//return $categories_in_collestion->rows;
+		return $result;
+		//Категории, которые есть у товаров в collestion
+		//SELECT DISTINCT vc.category_id FROM collestion c LEFT JOIN ckf_view_to_category vc ON c.product_id = vc.view_id ORDER BY category_id DESC
+		
+		// Выборка view из таблиц collestion и category_to_view
+		//SELECT DISTINCT  vc.category_id, vc.view_id, c.product_id FROM ckf_view_to_category vc LEFT JOIN collestion c ON c.product_id = vc.view_id WHERE vc.category_id = 
+	}
+
 	public function getProductExchange($product) {
 
 		$this->db->query("

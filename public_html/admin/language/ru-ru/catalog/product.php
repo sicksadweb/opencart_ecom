@@ -7,11 +7,13 @@ $_['heading_title']          = 'Товары';
 
 // Text
 $_['text_success']           = 'Настройки успешно изменены!';
+$_['text_email_success']     = 'Письмо успешно отправлено на Email';
 $_['text_list']              = 'Список товаров';
 $_['text_add']               = 'Добавить';
 $_['text_add_from_excel']    = 'Добавить товары из Excel';
 $_['text_add_the_package']   = 'Добавить упаковку для товаров';
-$_['text_update_configurator']   = 'Обновить данные для конфигуратора';
+$_['text_update_configurator']            = 'Обновить данные для конфигуратора';
+$_['text_send_info_about_configurator']   = 'Отправить данные об конфигураторе на Email';
 $_['text_edit']              = 'Редактирование';
 $_['text_filter']            = 'Фильтр';
 $_['text_plus']              = '+';
@@ -143,3 +145,4 @@ $_['error_model']            = 'Код Товара товара должна с
 $_['error_keyword']          = 'SEO URL уже используется!';
 $_['error_tab']              = 'Необходимо название таба!';
 $_['error_file_not_found']   = 'Файл не найден';
+$_['error_email']            = 'Письмо не было отправлено';

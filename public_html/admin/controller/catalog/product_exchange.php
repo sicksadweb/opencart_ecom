@@ -2,6 +2,7 @@
 // *	@source		See SOURCE.txt for source and other copyright.
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
+use PHPMailer\PHPMailer\PHPMailer;
 class ControllerCatalogProductExchange extends Controller {
 	private $error = array();
 
@@ -14,6 +15,7 @@ class ControllerCatalogProductExchange extends Controller {
 		$data['add_from_exel'] = $this->url->link('catalog/product_exchange/getProductsFromExel', 'user_token=' . $this->session->data['user_token'], true);
 		$data['add_package'] = $this->url->link('catalog/product_exchange/getProductsWithoutPackages', 'user_token=' . $this->session->data['user_token'], true);
 		$data['update_configurator'] = $this->url->link('catalog/product_exchange/updateDataForConfigurator', 'user_token=' . $this->session->data['user_token'], true);
+		$data['info_about_configurator'] = $this->url->link('catalog/product_exchange/sendInfoAboutMissingViewInConfigurator', 'user_token=' . $this->session->data['user_token'], true);
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');	
@@ -22,16 +24,61 @@ class ControllerCatalogProductExchange extends Controller {
 			$data['success'] = $this->session->data['success'];
 			unset($this->session->data['success']);
 		}
-		
-		if (isset($this->error['warning'])) {
-			$data['error_warning'] = $this->error['warning'];
-		} else {
-			$data['error_warning'] = '';
+		else if ($this->session->data['warning']) {
+			$data['error_warning'] = $this->session->data['warning'];
+			unset($this->session->data['warning']);
 		}
-		
+
 		$this->response->setOutput($this->load->view('catalog/product_exchange', $data));
 	}
 	
+	public function sendInfoAboutMissingViewInConfigurator() {
+
+		require_once DIR_STORAGE. 'phpmailer/PHPMailer.php';
+		require_once DIR_STORAGE. 'phpmailer/SMTP.php';
+		require_once DIR_STORAGE. 'phpmailer/Exception.php';
+						
+		$url = '';
+		$message = '';
+		$this->load->language('catalog/product');
+		$this->load->model('catalog/product');
+		$this->document->setTitle($this->language->get('heading_title'));
+
+		$info = $this->model_catalog_product->sendInfoAboutMissingViewInConfigurator();
+
+		foreach ($info as $key => $value) {
+			$message .= 'Missing view: ' . $value['view_name'] .'('. $value['view_id'] .') '. '(Category: ' . $value['category_name'] .'('. $value['category_id'] . '))' . '<br>';
+		}
+
+		$mail = new PHPMailer;
+		
+		$mail->isSMTP();
+		$mail->Host = $this->config->get('config_mail_smtp_hostname');
+		$mail->SMTPAuth = true;
+		$mail->Username = $this->config->get('config_mail_smtp_username'); // логин от вашей почты
+		$mail->Password = $this->config->get('config_mail_smtp_password'); // пароль от почтового ящика
+		$mail->SMTPSecure = 'ssl';
+		$mail->Port = $this->config->get('config_mail_smtp_port');
+
+		$mail->CharSet = 'UTF-8';
+		$mail->From = $this->config->get('config_mail_smtp_username'); // адрес почты, с которой идет отправка
+		$mail->FromName = $this->config->get('config_name'); // имя отправителя
+		$mail->addAddress($this->config->get('config_email'));
+
+		$mail->isHTML(true);
+
+		$mail->Subject = 'Недостающие view в конфигураторе';
+		$mail->Body = $message;
+
+		if($mail->send()){
+			$this->session->data['success'] = $this->language->get('text_email_success');
+		}else{
+			$this->session->data['warning'] = $this->language->get('error_email');
+			//echo 'Ошибка: ' . $mail->ErrorInfo;
+		}
+		$this->response->redirect($this->url->link('catalog/product_exchange', 'user_token=' . $this->session->data['user_token'] . $url, true));
+	}
+
 	public function updateDataForConfigurator() {
 
 		$url = '';
