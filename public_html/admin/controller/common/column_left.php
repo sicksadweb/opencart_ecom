@@ -486,6 +486,14 @@ class ControllerCommonColumnLeft extends Controller {
 					'children' => array()		
 				);	
 			}
+
+			if ($this->user->hasPermission('access', 'user/employee')) {
+				$user[] = array(
+					'name'	   => $this->language->get('text_users'),
+					'href'     => $this->url->link('user/user', 'user_token=' . $this->session->data['user_token'], true),
+					'children' => array()		
+				);	
+			}
 			
 			if ($this->user->hasPermission('access', 'user/user_permission')) {	
 				$user[] = array(

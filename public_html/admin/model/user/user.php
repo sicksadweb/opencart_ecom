@@ -1,13 +1,53 @@
 <?php
+
+use Cart\Length;
+
 class ModelUserUser extends Model {
 	public function addUser($data) {
-		$this->db->query("INSERT INTO `" . DB_PREFIX . "user` SET username = '" . $this->db->escape($data['username']) . "', user_group_id = '" . (int)$data['user_group_id'] . "', salt = '" . $this->db->escape($salt = token(9)) . "', password = '" . $this->db->escape(sha1($salt . sha1($salt . sha1($data['password'])))) . "', firstname = '" . $this->db->escape($data['firstname']) . "', lastname = '" . $this->db->escape($data['lastname']) . "', email = '" . $this->db->escape($data['email']) . "', image = '" . $this->db->escape($data['image']) . "', status = '" . (int)$data['status'] . "', date_added = NOW()");
+		$this->db->query("INSERT INTO `" . DB_PREFIX . "user` SET 
+		username = '" . $this->db->escape($data['username']) . "', 
+		user_group_id = '" . (int)$data['user_group_id'] . "', 
+		salt = '" . $this->db->escape($salt = token(9)) . "', 
+		password = '" . $this->db->escape(sha1($salt . sha1($salt . sha1($data['password'])))) . "', 
+		firstname = '" . $this->db->escape($data['firstname']) . "', 
+		lastname = '" . $this->db->escape($data['lastname']) . "', 
+		email = '" . $this->db->escape($data['email']) . "', 
+		image = '" . $this->db->escape($data['image']) . "', 
+		status = '" . (int)$data['status'] . "', 
+		date_added = NOW()");
+
+		$user_id = $this->db->getLastId();	
+
+		($data['store_id'] == 'NULL') ? 
+			$this->db->query("UPDATE `" . DB_PREFIX . "user` SET store_id = NULL WHERE user_id = '" . $user_id . "'") : 
+			$this->db->query("UPDATE `" . DB_PREFIX . "user` SET store_id = '" . $data['store_id'] . "' WHERE user_id = '" . $user_id . "'");
+					
+		return $user_id;
+	}
+
+	public function addContacts($user_id, $data) {
+
+		foreach ($data['phone_data'] as $key => $value) {
+			$this->db->query("INSERT INTO contacts SET user_id = '" . $user_id . "',
 	
-		return $this->db->getLastId();
+			`phone_number` = '" . (isset($value['number']) ? (int)$value['number'] : NULL) . "',
+			`viber` = '" . (isset($value['viber']) ? 1 : 0) . "',
+			`whatsapp` = '" . (isset($value['whatsapp']) ? 1 : 0) . "'");
+		}
+
 	}
 
 	public function editUser($user_id, $data) {
 		$this->db->query("UPDATE `" . DB_PREFIX . "user` SET username = '" . $this->db->escape($data['username']) . "', user_group_id = '" . (int)$data['user_group_id'] . "', firstname = '" . $this->db->escape($data['firstname']) . "', lastname = '" . $this->db->escape($data['lastname']) . "', email = '" . $this->db->escape($data['email']) . "', image = '" . $this->db->escape($data['image']) . "', status = '" . (int)$data['status'] . "' WHERE user_id = '" . (int)$user_id . "'");
+
+		//Обновление магазина, к которому прикреплён пользователь
+		($data['store_id'] == 'NULL') ? 
+			$this->db->query("UPDATE `" . DB_PREFIX . "user` SET store_id = NULL WHERE user_id = '" . $user_id . "'") : 
+			$this->db->query("UPDATE `" . DB_PREFIX . "user` SET store_id = '" . $data['store_id'] . "' WHERE user_id = '" . $user_id . "'");
+
+		//Перезапись новых контактов при редактировании
+		$this->db->query("DELETE FROM contacts WHERE user_id = '" . (int)$user_id . "'");
+		$this->addContacts($user_id, $data);
 
 		if ($data['password']) {
 			$this->db->query("UPDATE `" . DB_PREFIX . "user` SET salt = '" . $this->db->escape($salt = token(9)) . "', password = '" . $this->db->escape(sha1($salt . sha1($salt . sha1($data['password'])))) . "' WHERE user_id = '" . (int)$user_id . "'");
@@ -24,12 +64,20 @@ class ModelUserUser extends Model {
 
 	public function deleteUser($user_id) {
 		$this->db->query("DELETE FROM `" . DB_PREFIX . "user` WHERE user_id = '" . (int)$user_id . "'");
+		$this->db->query("DELETE FROM contacts WHERE user_id = '" . (int)$user_id . "'");
 	}
 
 	public function getUser($user_id) {
 		$query = $this->db->query("SELECT *, (SELECT ug.name FROM `" . DB_PREFIX . "user_group` ug WHERE ug.user_group_id = u.user_group_id) AS user_group FROM `" . DB_PREFIX . "user` u WHERE u.user_id = '" . (int)$user_id . "'");
 
 		return $query->row;
+	}
+
+	//Info about User's contacts
+	public function getContacts($user_id) {
+		$query = $this->db->query("SELECT * FROM contacts WHERE user_id = '" . (int)$user_id . "'");
+
+		return $query->rows;
 	}
 
 	public function getUserByUsername($username) {
