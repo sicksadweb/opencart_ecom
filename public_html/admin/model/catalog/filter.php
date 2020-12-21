@@ -176,4 +176,11 @@ class ModelCatalogFilter extends Model {
 
 		return $query->row['total'];
 	}
+
+	public function getAllFilters() {
+	
+		$query = $this->db->query("SELECT f.filter_id, fd.name FROM " . DB_PREFIX. "filter f LEFT JOIN " . DB_PREFIX . "filter_description fd ON f.filter_id = fd.filter_id");
+
+		return $query->rows;
+	}
 }

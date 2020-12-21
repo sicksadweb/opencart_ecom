@@ -1037,4 +1037,14 @@ class ModelCatalogProduct extends Model {
 
 		return $query->row['total'];
 	}
+
+	public function addFilterForProduct($data) {
+
+		foreach($data['selected'] as $key => $value) {
+
+			$this->db->query("INSERT INTO " . DB_PREFIX . "product_filter SET product_id='". $value ."', filter_id='". $data['filter'] ."'");
+		}
+
+
+	}
 }

@@ -290,7 +290,7 @@ class ControllerCatalogProduct extends Controller {
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
-		$this->load->model('catalog/product');
+		$this->load->model('catalog/product');		
 
 		if (isset($this->request->post['selected']) && $this->validateCopy()) {
 			foreach ($this->request->post['selected'] as $product_id) {
@@ -371,6 +371,9 @@ class ControllerCatalogProduct extends Controller {
 	}
 
 	protected function getList() {
+
+		$this->load->model('catalog/filter');
+
 		if (isset($this->request->get['filter_name'])) {
 			$filter_name = $this->request->get['filter_name'];
 		} else {
@@ -603,6 +606,7 @@ class ControllerCatalogProduct extends Controller {
 		$data['delete'] = $this->url->link('catalog/product/delete', 'user_token=' . $this->session->data['user_token'] . $url, true);
 		$data['enabled'] = $this->url->link('catalog/product/enable', 'user_token=' . $this->session->data['user_token'] . $url, true);
 		$data['disabled'] = $this->url->link('catalog/product/disable', 'user_token=' . $this->session->data['user_token'] . $url, true);
+		$data['add_filter_for_product'] = $this->url->link('catalog/product/addFilterForProduct', 'user_token=' . $this->session->data['user_token'] . $url, true);
 
 		$data['products'] = array();
 
@@ -819,6 +823,17 @@ class ControllerCatalogProduct extends Controller {
 
 		if (isset($this->request->get['order'])) {
 			$url .= '&order=' . $this->request->get['order'];
+		}
+
+		$filters = $this->model_catalog_filter->getAllFilters();
+
+		foreach ($filters as $key => $value) {
+
+			$data['filters'][] = array(
+
+				'filter_id'   => $value['filter_id'],
+				'filter_name' => $value['name']
+			);
 		}
 
 		$pagination = new Pagination();
@@ -1873,5 +1888,18 @@ class ControllerCatalogProduct extends Controller {
 
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
+	}
+
+	public function addFilterForProduct() {
+
+		$this->load->model('catalog/product');
+		$this->load->language('catalog/product');
+		$url = '';
+		
+		$this->session->data['success'] = $this->language->get('text_success');
+
+		$this->model_catalog_product->addFilterForProduct($this->request->post);
+
+		$this->response->redirect($this->url->link('catalog/product', 'user_token=' . $this->session->data['user_token'] . $url, true));
 	}
 }
