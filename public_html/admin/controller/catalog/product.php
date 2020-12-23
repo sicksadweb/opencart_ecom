@@ -825,16 +825,22 @@ class ControllerCatalogProduct extends Controller {
 			$url .= '&order=' . $this->request->get['order'];
 		}
 
-		$filters = $this->model_catalog_filter->getAllFilters();
+		$filter_groups = $this->model_catalog_filter->getFilterGroupsId();
 
-		foreach ($filters as $key => $value) {
-
-			$data['filters'][] = array(
-
-				'filter_id'   => $value['filter_id'],
-				'filter_name' => $value['name']
-			);
+		foreach ($filter_groups as $key => $group_id) {
+			
+			$filters = $this->model_catalog_filter->getFiltersById($group_id['filter_group_id']);
+			foreach ($filters as $key => $value) {
+	
+				$data['filters_data'][$value['filter_group_name']][] = array(
+	
+					'filter_id'   => $value['filter_id'],
+					'filter_name' => $value['filter_name']
+				);
+			}
 		}
+
+		ksort($data['filters_data']);		
 
 		$pagination = new Pagination();
 		$pagination->total = $product_total;
@@ -1897,7 +1903,6 @@ class ControllerCatalogProduct extends Controller {
 		$url = '';
 		
 		$this->session->data['success'] = $this->language->get('text_success');
-
 		$this->model_catalog_product->addFilterForProduct($this->request->post);
 
 		$this->response->redirect($this->url->link('catalog/product', 'user_token=' . $this->session->data['user_token'] . $url, true));

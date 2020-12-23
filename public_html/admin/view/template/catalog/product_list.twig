@@ -41,8 +41,12 @@
             <div class="form-group">
               <label class="control-label" for="input-filter">{{ entry_filter }}</label>
                     <select name="filter" class="form-control" id="input-filter" form="form-product">
-                      {% for filter in filters %}
-                        <option value="{{ filter.filter_id }}">{{ filter.filter_name }}</option>
+                      {% for key,value in filters_data %}
+                        <optgroup label="{{ key }}">
+                          {% for filter in value %}
+                            <option value="{{ filter.filter_id }}">{{ filter.filter_name }}</option>
+                          {% endfor %}
+                        </optgroup>
                       {% endfor %}
                     </select>
               <div class="form-group text-left">
