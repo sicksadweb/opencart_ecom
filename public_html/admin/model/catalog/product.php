@@ -1042,7 +1042,10 @@ class ModelCatalogProduct extends Model {
 
 		foreach($data['selected'] as $key => $value) {
 
-			$this->db->query("INSERT INTO " . DB_PREFIX . "product_filter SET product_id='". $value ."', filter_id='". $data['filter'] ."'");
+			$query = $this->db->query("SELECT * FROM ". DB_PREFIX . "product_filter WHERE product_id='". $value ."' AND filter_id='". $data['filter'] ."'");
+
+			if(!$query->rows) $this->db->query("INSERT INTO " . DB_PREFIX . "product_filter SET product_id='". $value ."', filter_id='". $data['filter'] ."'");
+			
 		}
 
 
