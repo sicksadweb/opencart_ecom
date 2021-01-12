@@ -1667,6 +1667,12 @@ class ControllerCatalogProduct extends Controller {
 			$data['product_layout'] = array();
 		}
 
+		$data['description_pattern'] = $this->config->get('config_description_pattern');
+
+		$description_preview = str_replace("{название товара}", '"' . $product_info['name'] . '"',  $this->config->get('config_description_pattern'));
+		$description_preview = str_replace("{цена}", $product_info['price'], $description_preview) . ' ' . $this->config->get('config_currency');
+		$data['description_preview'] = $description_preview;
+
 		$this->load->model('design/layout');
 
 		$data['layouts'] = $this->model_design_layout->getLayouts();
