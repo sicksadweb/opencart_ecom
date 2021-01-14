@@ -26,8 +26,11 @@ class ControllerCatalogProduct extends Controller {
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
 			$this->model_catalog_product->addProduct($this->request->post);
 
-			$this->session->data['success'] = $this->language->get('text_success');
+			/* print_r($this->request->post);
+			return; */
 
+			$this->session->data['success'] = $this->language->get('text_success');
+			
 			$url = '';
 
 			if (isset($this->request->get['filter_name'])) {
@@ -1008,6 +1011,29 @@ class ControllerCatalogProduct extends Controller {
 
 		if (isset($this->request->get['product_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
 			$product_info = $this->model_catalog_product->getProduct($this->request->get['product_id']);
+
+			//Seo URL patterns
+			$data['description_pattern'] = $product_info['pattern'];
+
+			//Add pattern to DB(setting)
+			/* $description_pattern_elements = array(
+				"{название товара}" 	  => '$product_info[\'name\']',
+				"{цена}" 				  => '$product_info[\'price\']',
+				"{наименование магазина}" => '$product_info[\'store_name\']',
+				"{Абакан}" 				  => "'Абакан'",
+				"{Саяногорск}" 			  => "'Саяногорск'",
+				"{Минусинск}" 			  => "'Минусинск'");
+
+			$config_description_pattern = addslashes(json_encode($description_pattern_elements, JSON_UNESCAPED_UNICODE));*/
+			//$this->db->query("UPDATE `ckf_setting` SET `value` = '$config_description_pattern' WHERE `key` = 'config_description_pattern'");		
+			
+			$description_pattern_elements = json_decode($this->config->get('config_description_pattern'), true);						
+			$temp_arr = array();
+			foreach ($description_pattern_elements as $pattern => $value) {
+				$temp_arr[$pattern] = eval('return ' . $value . ';');
+			}
+
+			$data['description_preview'] = strtr($product_info['pattern'], $temp_arr);
 		}
 
 		$data['user_token'] = $this->session->data['user_token'];
@@ -1665,13 +1691,7 @@ class ControllerCatalogProduct extends Controller {
 			$data['product_layout'] = $this->model_catalog_product->getProductLayouts($this->request->get['product_id']);
 		} else {
 			$data['product_layout'] = array();
-		}
-
-		$data['description_pattern'] = $this->config->get('config_description_pattern');
-
-		$description_preview = str_replace("{название товара}", '"' . $product_info['name'] . '"',  $this->config->get('config_description_pattern'));
-		$description_preview = str_replace("{цена}", $product_info['price'], $description_preview) . ' ' . $this->config->get('config_currency');
-		$data['description_preview'] = $description_preview;
+		}	
 
 		$this->load->model('design/layout');
 

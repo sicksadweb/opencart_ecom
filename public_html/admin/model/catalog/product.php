@@ -5,7 +5,7 @@
 class ModelCatalogProduct extends Model {
 	public function addProduct($data) {
 
-		$checkQuery = $this->db->query("SELECT * FROM" . DB_PREFIX . "product WHERE sku = '" . $data['sku'] . "'");
+		$checkQuery = $this->db->query("SELECT * FROM " . DB_PREFIX . "product WHERE sku = '" . $data['sku'] . "'");
 
 		if ($checkQuery->row) return;
 
@@ -156,6 +156,11 @@ class ModelCatalogProduct extends Model {
 			}
 		}
 
+		//SEO Description-patterns
+		if (isset($data['description_pattern'])) {
+
+			$this->db->query("INSERT INTO ". DB_PREFIX ."seo_url_patterns SET product_id = '" . $product_id ."', pattern= '" . $data['description_pattern'] . "'");
+		}
 
 		$this->cache->delete('product');
 		
@@ -456,6 +461,24 @@ class ModelCatalogProduct extends Model {
 		if($this->config->get('config_seo_pro')){		
 		$this->cache->delete('seopro');
 		}
+
+		//SEO Description-patterns
+		if (isset($data['description_pattern'])) {
+
+			$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "seo_url_patterns WHERE product_id = '". $product_id ."'");
+
+			if ($query->row) {
+
+				$this->db->query("UPDATE ". DB_PREFIX ."seo_url_patterns SET pattern = '". $data['description_pattern'] ."' WHERE product_id = '" . $product_id ."'");
+
+			}
+			else {
+
+				$this->db->query("INSERT INTO ". DB_PREFIX ."seo_url_patterns SET product_id = '" . $product_id ."', pattern= '" . $data['description_pattern'] . "'");
+
+			}
+			
+		}
 	}
 	
 	public function editProductStatus($product_id, $status) {
@@ -527,6 +550,7 @@ class ModelCatalogProduct extends Model {
 		$this->db->query("DELETE FROM " . DB_PREFIX . "review WHERE product_id = '" . (int)$product_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "seo_url WHERE query = 'product_id=" . (int)$product_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "coupon_product WHERE product_id = '" . (int)$product_id . "'");
+		$this->db->query("DELETE FROM " . DB_PREFIX . "seo_url_patterns WHERE product_id = '" . (int)$product_id . "'");
 
 		$this->cache->delete('product');
 		
@@ -536,7 +560,13 @@ class ModelCatalogProduct extends Model {
 	}
 
 	public function getProduct($product_id) {
-		$query = $this->db->query("SELECT DISTINCT * FROM " . DB_PREFIX . "product p LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id) WHERE p.product_id = '" . (int)$product_id . "' AND pd.language_id = '" . (int)$this->config->get('config_language_id') . "'");
+		$query = $this->db->query("SELECT DISTINCT *, p.product_id as product_id, pd.name as name, s.name as store_name FROM " . DB_PREFIX . "product p 
+		
+		LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id) 
+		LEFT JOIN " . DB_PREFIX . "product_to_store ps ON (p.product_id = ps.product_id)
+		LEFT JOIN " . DB_PREFIX . "store s ON (s.store_id = ps.store_id)
+		LEFT JOIN " . DB_PREFIX . "seo_url_patterns up ON (p.product_id = up.product_id)
+		WHERE p.product_id = '" . (int)$product_id . "' AND pd.language_id = '" . (int)$this->config->get('config_language_id') . "'");
 
 		return $query->row;
 	}
