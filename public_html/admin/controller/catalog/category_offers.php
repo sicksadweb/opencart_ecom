@@ -63,7 +63,7 @@ class ControllerCatalogCategoryOffers extends Controller {
 
 			/* print_r($this->request->post);
 			return; */
-			$this->model_catalog_category->editCategory($this->request->get['category_id'], $this->request->post);
+			$this->model_catalog_category_offers->editCategory($this->request->get['category_id'], $this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
@@ -297,6 +297,17 @@ class ControllerCatalogCategoryOffers extends Controller {
 		if (isset($this->request->get['category_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
 			
 			$category_info = $this->model_catalog_category_offers->getCategory($this->request->get['category_id']);
+
+			/* print_r($category_info);
+			return; */
+			if (isset($category_info['pattern'])) {
+
+				$data['description_pattern'] = $category_info['pattern'];
+				
+				$this->registry->set('SeoPattern', new SeoPattern($this->registry));
+				$this->SeoPattern->setDescriptionPreviewForCategory($category_info['pattern'], $category_info);
+				$data['description_preview'] = $this->SeoPattern->getDescriptionPreview();
+			}
 		}
 
 		$data['user_token'] = $this->session->data['user_token'];

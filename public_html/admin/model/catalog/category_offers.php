@@ -161,7 +161,12 @@ class ModelCatalogCategoryOffers extends Model {
 			foreach ($data['category_layout'] as $store_id => $layout_id) {
 				$this->db->query("INSERT INTO " . DB_PREFIX . "category_offers_to_layout SET offers_id = '" . (int)$offers_id . "', store_id = '" . (int)$store_id . "', layout_id = '" . (int)$layout_id . "'");
 			}
-		} 
+		}
+		
+		if (isset($data['description_pattern'])) {
+
+			$this->db->query("INSERT INTO ". DB_PREFIX ."category_offers_seo_url_patterns SET offers_id = '" . $offers_id ."', pattern= '" . $data['description_pattern'] . "'");
+		}
 
 		$this->cache->delete('category');
 		
@@ -452,6 +457,23 @@ class ModelCatalogCategoryOffers extends Model {
 			}
 		}
 
+		if (isset($data['description_pattern'])) {
+
+			$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "category_offers_seo_url_patterns WHERE offers_id = '". $category_id ."'");
+
+			if ($query->row) {
+
+				$this->db->query("UPDATE ". DB_PREFIX ."category_offers_seo_url_patterns SET pattern = '". $data['description_pattern'] ."' WHERE offers_id = '" . $category_id ."'");
+
+			}
+			else {
+
+				$this->db->query("INSERT INTO ". DB_PREFIX ."category_offers_seo_url_patterns SET offers_id = '" . $category_id ."', pattern= '" . $data['description_pattern'] . "'");
+
+			}
+			
+		}
+
 		$this->cache->delete('category');
 		
 		if($this->config->get('config_seo_pro')){		
@@ -519,6 +541,7 @@ class ModelCatalogCategoryOffers extends Model {
 		$this->db->query("DELETE FROM " . DB_PREFIX . "offer_related_wb WHERE offer_id = '" . (int)$category_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "article_related_wb WHERE category_id = '" . (int)$category_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "coupon_category WHERE category_id = '" . (int)$category_id . "'");
+		$this->db->query("DELETE FROM " . DB_PREFIX . "category_offers_seo_url_patterns WHERE offers_id = '" . (int)$category_id . "'");
 
 		$this->cache->delete('category');
 		
@@ -558,12 +581,14 @@ class ModelCatalogCategoryOffers extends Model {
 	} */
 
 	public function getCategory($category_id) {
+
 		$query = $this->db->query("SELECT DISTINCT *, (SELECT GROUP_CONCAT(cd1.name ORDER BY level SEPARATOR '&nbsp;&nbsp;&gt;&nbsp;&nbsp;') FROM
 		 " . DB_PREFIX . "category_offers_path cp 
 		 LEFT JOIN " . DB_PREFIX . "category_offers_description cd1 ON (cp.path_id = cd1.offers_id AND cp.offers_id != cp.path_id) 
 		 WHERE cp.offers_id = c.offers_id AND cd1.language_id = '" . (int)$this->config->get('config_language_id') . "' 
 		 GROUP BY cp.offers_id) AS path FROM " . DB_PREFIX . "category_offers c 
 		 LEFT JOIN " . DB_PREFIX . "category_offers_description cd2 ON (c.offers_id = cd2.offers_id) 
+		 LEFT JOIN " . DB_PREFIX . "category_offers_seo_url_patterns cop ON (cop.offers_id = c.offers_id) 
 		 WHERE c.offers_id = '" . (int)$category_id . "' 
 		 
 		 AND cd2.language_id = '" . (int)$this->config->get('config_language_id') . "'");

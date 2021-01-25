@@ -174,7 +174,12 @@ class ModelCatalogCategoryViews extends Model {
 			foreach ($data['category_layout'] as $store_id => $layout_id) {
 				$this->db->query("INSERT INTO " . DB_PREFIX . "category_views_to_layout SET views_id = '" . (int)$views_id . "', store_id = '" . (int)$store_id . "', layout_id = '" . (int)$layout_id . "'");
 			}
-		} 
+		}
+		
+		if (isset($data['description_pattern'])) {
+
+			$this->db->query("INSERT INTO ". DB_PREFIX ."category_views_seo_url_patterns SET views_id = '" . $views_id ."', pattern= '" . $data['description_pattern'] . "'");
+		}
 
 		$this->cache->delete('category');
 		
@@ -460,6 +465,23 @@ class ModelCatalogCategoryViews extends Model {
 			}
 		}
 
+		if (isset($data['description_pattern'])) {
+
+			$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "category_views_seo_url_patterns WHERE views_id = '". $category_id ."'");
+
+			if ($query->row) {
+
+				$this->db->query("UPDATE ". DB_PREFIX ."category_views_seo_url_patterns SET pattern = '". $data['description_pattern'] ."' WHERE views_id = '" . $category_id ."'");
+
+			}
+			else {
+
+				$this->db->query("INSERT INTO ". DB_PREFIX ."category_views_seo_url_patterns SET views_id = '" . $category_id ."', pattern= '" . $data['description_pattern'] . "'");
+
+			}
+			
+		}
+
 		$this->cache->delete('category');
 		
 		if($this->config->get('config_seo_pro')){		
@@ -526,7 +548,7 @@ class ModelCatalogCategoryViews extends Model {
 		$this->db->query("DELETE FROM " . DB_PREFIX . "seo_url WHERE query = 'category_id=" . (int)$category_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "view_related_wb WHERE view_id = '" . (int)$category_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "article_related_wb WHERE category_id = '" . (int)$category_id . "'");
-		$this->db->query("DELETE FROM " . DB_PREFIX . "coupon_category WHERE category_id = '" . (int)$category_id . "'");
+		$this->db->query("DELETE FROM " . DB_PREFIX . "category_views_seo_url_patterns WHERE views_id = '" . (int)$category_id . "'");
 
 		$this->cache->delete('category');
 		
@@ -572,6 +594,7 @@ class ModelCatalogCategoryViews extends Model {
 		 WHERE cp.views_id = c.views_id AND cd1.language_id = '" . (int)$this->config->get('config_language_id') . "' 
 		 GROUP BY cp.views_id) AS path FROM " . DB_PREFIX . "category_views c 
 		 LEFT JOIN " . DB_PREFIX . "category_views_description cd2 ON (c.views_id = cd2.views_id) 
+		 LEFT JOIN " . DB_PREFIX . "category_views_seo_url_patterns cvp ON (cvp.views_id = c.views_id)
 		 WHERE c.views_id = '" . (int)$category_id . "' 
 		 
 		 AND cd2.language_id = '" . (int)$this->config->get('config_language_id') . "'");

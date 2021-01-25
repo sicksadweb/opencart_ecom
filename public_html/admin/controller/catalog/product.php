@@ -1015,6 +1015,10 @@ class ControllerCatalogProduct extends Controller {
 			//Seo URL patterns
 			$data['description_pattern'] = $product_info['pattern'];
 
+			$this->registry->set('SeoPattern', new SeoPattern($this->registry));
+			$this->SeoPattern->setDescriptionPreviewForProduct($product_info['pattern'], $product_info);
+			$data['description_preview'] = $this->SeoPattern->getDescriptionPreview();
+
 			//Add pattern to DB(setting)
 			/* $description_pattern_elements = array(
 				"{название товара}" 	  => '$product_info[\'name\']',
@@ -1024,16 +1028,14 @@ class ControllerCatalogProduct extends Controller {
 				"{Саяногорск}" 			  => "'Саяногорск'",
 				"{Минусинск}" 			  => "'Минусинск'");
 
-			$config_description_pattern = addslashes(json_encode($description_pattern_elements, JSON_UNESCAPED_UNICODE));*/
-			//$this->db->query("UPDATE `ckf_setting` SET `value` = '$config_description_pattern' WHERE `key` = 'config_description_pattern'");		
+			$config_description_pattern = addslashes(json_encode($description_pattern_elements, JSON_UNESCAPED_UNICODE));
+			$this->db->query("UPDATE `ckf_setting` SET `value` = '$config_description_pattern' WHERE `key` = 'config_description_pattern'"); */		
 			
-			$description_pattern_elements = json_decode($this->config->get('config_description_pattern'), true);						
+			/* $description_pattern_elements = json_decode($this->config->get('config_description_pattern'), true);						
 			$temp_arr = array();
 			foreach ($description_pattern_elements as $pattern => $value) {
 				$temp_arr[$pattern] = eval('return ' . $value . ';');
-			}
-
-			$data['description_preview'] = strtr($product_info['pattern'], $temp_arr);
+			} */
 		}
 
 		$data['user_token'] = $this->session->data['user_token'];

@@ -320,6 +320,15 @@ class ControllerCatalogCategoryViews extends Controller {
 			$category_info = $this->model_catalog_category_views->getCategory($this->request->get['category_id']);
 
 			$category_info_offers = $this->model_catalog_category_offers->getCategory($category_info['offers_id']);
+
+			if (isset($category_info['pattern'])) {
+
+				$data['description_pattern'] = $category_info['pattern'];
+				
+				$this->registry->set('SeoPattern', new SeoPattern($this->registry));
+				$this->SeoPattern->setDescriptionPreviewForCategory($category_info['pattern'], $category_info);
+				$data['description_preview'] = $this->SeoPattern->getDescriptionPreview();
+			}
 			/* print_r($category_info_offers);
 			return; */
 		}
