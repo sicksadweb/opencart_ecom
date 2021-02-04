@@ -16,6 +16,7 @@ $_['text_custommenu']                  = 'Конструктор Меню';
 $_['text_captcha']                     = 'Капча';
 $_['text_catalog']                     = 'Каталог';
 $_['text_category']                    = 'Категории';
+$_['text_report_filters']              = 'Отчёт по фильтрам';
 $_['text_country']                     = 'Страны';
 $_['text_coupon']                      = 'Купоны';
 $_['text_currency']                    = 'Валюта';

@@ -698,6 +698,14 @@ class ControllerCommonColumnLeft extends Controller {
 					'children' => array()		
 				);
 			}
+
+			if ($this->user->hasPermission('access', 'tool/report_filters')) {
+				$maintenance[] = array(
+					'name'	   => $this->language->get('text_report_filters'),
+					'href'     => $this->url->link('tool/report_filters', 'user_token=' . $this->session->data['user_token'], true),
+					'children' => array()		
+				);	
+			}
 		
 			if ($maintenance) {
 				$system[] = array(
