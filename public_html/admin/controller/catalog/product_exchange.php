@@ -128,122 +128,75 @@ class ControllerCatalogProductExchange extends Controller {
 		$this->load->model('catalog/product');
 		$this->document->setTitle($this->language->get('heading_title'));
 		
-		//$line_number_in_exel = 0;
+		$sku = 7;
+		$columns_in_excel = array(
+			'Askiz'     		    => array('id'=> 1, 'price' => 18, 'quantity' => 24),
+			'Itigina'   		    => array('id'=> 2, 'price' => 15, 'quantity' => 25),
+			'Karatuz'   		    => array('id'=> 3, 'price' => 19, 'quantity' => 26),
+			'Kuragino'  		    => array('id'=> 4, 'price' => 20, 'quantity' => 27),
+			'Minusinsk' 		    => array('id'=> 5, 'price' => 21, 'quantity' => 28),
+			'Molodejka' 		    => array('id'=> 6, 'price' => 15, 'quantity' => 29),
+			'Molodejka_necondiciya' => array('id'=> 7, 'price' => 15, 'quantity' => 30),
+			'Molodejka_rezerv' 	 	=> array('id'=> 8, 'price' => 15, 'quantity' => 31),
+			'Roskrovlya' 			=> array('id'=> 9, 'price' => 15, 'quantity' => 32),
+			'Sayanogorsk' 			=> array('id'=> 10, 'price' => 22, 'quantity' => 33),
+			'Sib_fasadi' 			=> array('id'=> 11, 'price' => 15, 'quantity' => 34),
+			'Skladskaya' 			=> array('id'=> 12, 'price' => 15, 'quantity' => 35),
+			'Tashtip' 				=> array('id'=> 13, 'price' => 23, 'quantity' => 36),
+			'Torg_predi' 			=> array('id'=> 14, 'price' => 17, 'quantity' => 37),
+			'Shira' 				=> array('id'=> 15, 'price' => 24, 'quantity' => 38)
+		);
+		
 		$data['token'] = $this->session->data['user_token'];
 		$data['file_found'] = true;
+		
+		$line_number_in_exel = 0;
 		require_once DIR_STORAGE.'exchange/SimpleXLSX.php';
 
-		if ( $xlsx = SimpleXLSX::parse(DIR_STORAGE.'exchange/123.xlsx') ) {
-
+		if ( $xlsx = SimpleXLSX::parse(DIR_STORAGE.'exchange/new price.xlsx') ) {
 
 			foreach ( $xlsx->rows() as $k => $r ) {
 				
-				/* $line_number_in_exel++;	
-				if ($line_number_in_exel < 10) continue;
-				if ($line_number_in_exel == 2000) break; */
-				
-				$product = $this->model_catalog_product->getProductExchange($r);
-				
-				if ($product){
-
-					if ($r[2] == null && $r[3] == null ) continue;
-
-					//There is a quantity, no price
-					if ($r[2] == 1 && $r[3] == 0){					
-						$data['error'][] = array(
-							'name' => $r[1],
-							'price' => $this->currency->format($r[3], $this->config->get('config_currency')),
-							'status' => $r[2],	
-							'sku' => $r[0],	
-							'class' => 'danger',
-							'href_shop'  => HTTP_CATALOG . 'index.php?route=product/product&product_id=' . $product['product_id'],
-							'edit'       => $this->url->link('catalog/product/edit', 'user_token=' . $this->session->data['user_token'] . '&product_id=' . $product['product_id'] . $url, true)	
-						);
-					}
+				if ($line_number_in_exel < 4) {
 					
-					//There is a quantity, There is a price
-					if ($r[2] == 1 && $r[3] > 0 ) {
+					$line_number_in_exel++;	
+					continue;	
+				}
+				$line_number_in_exel++;
 
-						$data['products'][] = array(
+				if ($line_number_in_exel == 10) break;
+				
+				$product = $this->model_catalog_product->getProductBySku($r[$sku]);
+				
+				if ($product) {
+
+					foreach($columns_in_excel as $location => $values) {
+
+						$info_about_products[] = array(
 							'product_id' => $product['product_id'],
-							'name' => $r[1],
-							'price' => $this->currency->format($r[3], $this->config->get('config_currency')),
-							'status' => $r[2],
-							'sku' => $r[0],	
-							'class' => 'success',	
-							'href_shop'  => HTTP_CATALOG . 'index.php?route=product/product&product_id=' . $product['product_id'],
-							'edit'       => $this->url->link('catalog/product/edit', 'user_token=' . $this->session->data['user_token'] . '&product_id=' . $product['product_id'] . $url, true)
-															
-						);			
-					}
-					
-					//no quantity, There is a price 
-					if ($r[2] == 0 && $r[3] > 0 ) {
-						
-						$data['products'][] = array(
-							'name' => $r[1],
-							'price' => $this->currency->format($r[3], $this->config->get('config_currency')),
-							'status' => $r[2],
-							'sku' => $r[0],	
-							'class' => 'info',
-							'href_shop'  => HTTP_CATALOG . 'index.php?route=product/product&product_id=' . $product['product_id'],
-							'edit'       => $this->url->link('catalog/product/edit', 'user_token=' . $this->session->data['user_token'] . '&product_id=' . $product['product_id'] . $url, true)
-										
-						);	
-					}
-					
-					//no quantity, no price 
-					if ($r[2] == 0 && $r[3] == 0 ) {
-						
-						$data['products'][] = array(
-							'name' => $r[1],
-							'price' => $this->currency->format($r[3], $this->config->get('config_currency')),
-							'status' => $r[2],
-							'sku' => $r[0],	
-							'class' => 'warning',	
-							'href_shop'  => HTTP_CATALOG . 'index.php?route=product/product&product_id=' . $product['product_id'],
-							'edit'       => $this->url->link('catalog/product/edit', 'user_token=' . $this->session->data['user_token'] . '&product_id=' . $product['product_id'] . $url, true)
-									
-						);	
-					}
-				}else{
-					
-					if ($r[2] == null && $r[3] == null ) continue;
-
-					//There is quantity OR There is price, product for adding 
-					if ($r[2] == 1 || $r[3] > 0){					
-						$data['newProducts'][] = array(
-							'name' => $r[1],
-							'price' => $this->currency->format($r[3], $this->config->get('config_currency')),
-							'status' => $r[2],	
-							'sku' => $r[0],	
-							'class' => 'danger'								
+							'location_id'=> $values['id'],
+							'quantity'	 => $r[$values['quantity']] ? $r[$values['quantity']] : 0,
+							'price'	  	 => $r[$values['price']] ? $this->currency->format($r[$values['price']], $this->config->get('config_currency')) : $this->currency->format(0, $this->config->get('config_currency'))
 						);
-					//no quantity, no price 
-					}else{
-						$data['products'][] = array(
-							'name' => $r[1],
-							'price' => $this->currency->format($r[3], $this->config->get('config_currency')),
-							'status' => $r[2],
-							'sku' => $r[0],	
-							'class' => 'warning',	
-							'href_shop'  => HTTP_CATALOG . 'index.php?route=product/product&product_id=' . '',
-							'edit'       => $this->url->link('catalog/product/edit', 'user_token=' . $this->session->data['user_token'] . '&product_id=' . '' . $url, true)
-						);	
 					}
-				}			
+				}		
 			}	
 						  	
 		} else {
 				$data['file_found'] = false;
-			}
+		}
 
+		$this->model_catalog_product->getProductExchange($info_about_products);	
+		//print_r($info_about_products);
 
-		$data['header'] = $this->load->controller('common/header');
+		$this->session->data['success'] = $this->language->get('text_success');
+		$this->response->redirect($this->url->link('catalog/product_exchange', 'user_token=' . $this->session->data['user_token'] . $url, true));
+
+		/* $data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('catalog/product_exchange', $data));
+		$this->response->setOutput($this->load->view('catalog/product_exchange', $data)); */
 	}
 
 
