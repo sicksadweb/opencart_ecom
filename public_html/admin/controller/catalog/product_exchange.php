@@ -24,7 +24,7 @@ class ControllerCatalogProductExchange extends Controller {
 			$data['success'] = $this->session->data['success'];
 			unset($this->session->data['success']);
 		}
-		else if ($this->session->data['warning']) {
+		else if (isset($this->session->data['warning'])) {
 			$data['error_warning'] = $this->session->data['warning'];
 			unset($this->session->data['warning']);
 		}
@@ -128,7 +128,8 @@ class ControllerCatalogProductExchange extends Controller {
 		$this->load->model('catalog/product');
 		$this->document->setTitle($this->language->get('heading_title'));
 		
-		$sku = 7;
+		$column_of_sku = 7;
+		$column_of_product_name = 13;
 		$columns_in_excel = array(
 			'Askiz'     		    => array('id'=> 1, 'price' => 18, 'quantity' => 24),
 			'Itigina'   		    => array('id'=> 2, 'price' => 15, 'quantity' => 25),
@@ -157,6 +158,7 @@ class ControllerCatalogProductExchange extends Controller {
 
 			foreach ( $xlsx->rows() as $k => $r ) {
 				
+				//Need for skip lines which are no valid in begin of excel file
 				if ($line_number_in_exel < 4) {
 					
 					$line_number_in_exel++;	
@@ -164,21 +166,48 @@ class ControllerCatalogProductExchange extends Controller {
 				}
 				$line_number_in_exel++;
 
-				if ($line_number_in_exel == 10) break;
+				//if ($line_number_in_exel == 30) break;
 				
-				$product = $this->model_catalog_product->getProductBySku($r[$sku]);
+				$product = $this->model_catalog_product->getProductBySku($r[$column_of_sku]);
 				
 				if ($product) {
 
 					foreach($columns_in_excel as $location => $values) {
+						
+						//There are price and quantity
+						if ( ($r[$values['price']] != null) && ($r[$values['quantity']] != null) ) {
+							
+							$data['products_for_adding'][] = array(
+								'product_id' => $product['product_id'],
+								'name'		 => $r[$column_of_product_name],
+								'location_name'=> $location,
+								'location_id'=> $values['id'],
+								'quantity'	 => $r[$values['quantity']],
+								'price'	  	 => $this->currency->format($r[$values['price']], $this->config->get('config_currency')),
+								'class'		 => 'success'
+							);
+						}
 
-						$info_about_products[] = array(
-							'product_id' => $product['product_id'],
-							'location_id'=> $values['id'],
-							'quantity'	 => $r[$values['quantity']] ? $r[$values['quantity']] : 0,
-							'price'	  	 => $r[$values['price']] ? $this->currency->format($r[$values['price']], $this->config->get('config_currency')) : $this->currency->format(0, $this->config->get('config_currency'))
-						);
+						//There is quantity and there is not price
+						else if (($r[$values['price']] == null) && ($r[$values['quantity']] != null)) {
+							
+							$data['products_for_adding'][] = array(
+								'product_id' => $product['product_id'],
+								'name'		 => $r[$column_of_product_name],
+								'location_name'=> $location,
+								'location_id'=> $values['id'],
+								'quantity'	 => $r[$values['quantity']],
+								'price'	  	 => $this->currency->format(0, $this->config->get('config_currency')),
+								'class'		 => 'warning'
+							);
+						}
 					}
+				}else {
+
+					$data['error'][] = array(
+						'name'		 => $r[$column_of_product_name],
+						'class'		 => 'danger'
+					);
 				}		
 			}	
 						  	
@@ -186,17 +215,14 @@ class ControllerCatalogProductExchange extends Controller {
 				$data['file_found'] = false;
 		}
 
-		$this->model_catalog_product->getProductExchange($info_about_products);	
-		//print_r($info_about_products);
-
-		$this->session->data['success'] = $this->language->get('text_success');
-		$this->response->redirect($this->url->link('catalog/product_exchange', 'user_token=' . $this->session->data['user_token'] . $url, true));
-
-		/* $data['header'] = $this->load->controller('common/header');
+		$this->model_catalog_product->getProductExchange($data['products_for_adding']);	
+		//print_r($data['products_for_adding']);		
+		//return;
+		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('catalog/product_exchange', $data)); */
+		$this->response->setOutput($this->load->view('catalog/product_exchange', $data));
 	}
 
 

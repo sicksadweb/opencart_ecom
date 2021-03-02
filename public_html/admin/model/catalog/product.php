@@ -1082,10 +1082,10 @@ class ModelCatalogProduct extends Model {
 		return $query->row;
 	}
 
-	public function getProductExchange($product) {		
+	public function getProductExchange($products) {		
 
 		$deleted_product_id = null;
-		foreach ($product as $key => $values) {
+		foreach ($products as $key => $values) {
 			
 			if ($deleted_product_id != $values['product_id']){
 

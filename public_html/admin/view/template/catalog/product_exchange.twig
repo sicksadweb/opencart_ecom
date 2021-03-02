@@ -323,15 +323,14 @@
             </div>
             {% elseif file_found is defined %}
               {% if file_found == true %}
-                danger - errors <br>
-                success - done <br>
-                warning - no qantity no price <br>
-                Info - no qantity <br>
+                success - Товар есть в базе данных, цена и количество имеются, добавлено <br>
+                warning - Есть в базе данных, нет цены, добавлено <br>
+                danger - Товара нет в базе данных, не добавлено <br>
                 <div class="table-responsive">
                   <table class="table table-bordered table-hover">
                     <thead>
                       <tr>
-                        <td style="width: 1px;" class="text-center"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" /></td>
+                        {# <td style="width: 1px;" class="text-center"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" /></td>
                         <td class="text-center">{{ column_image }}</td>
                         <td class="text-left">{% if sort == 'pd.name' %} <a href="{{ sort_name }}" class="{{ order|lower }}">{{ column_name }}</a> {% else %} <a href="{{ sort_name }}">{{ column_name }}</a> {% endif %}</td>
                         <td class="text-left">{% if sort == 'p.model' %} <a href="{{ sort_model }}" class="{{ order|lower }}">{{ column_model }}</a> {% else %} <a href="{{ sort_model }}">{{ column_model }}</a> {% endif %}</td>
@@ -339,40 +338,38 @@
                         <td class="text-right">{% if sort == 'p.quantity' %} <a href="{{ sort_quantity }}" class="{{ order|lower }}">{{ column_quantity }}</a> {% else %} <a href="{{ sort_quantity }}">{{ column_quantity }}</a> {% endif %}</td>
                         <td class="text-left">{% if sort == 'p.status' %} <a href="{{ sort_status }}" class="{{ order|lower }}">{{ column_status }}</a> {% else %} <a href="{{ sort_status }}">{{ column_status }}</a> {% endif %}</td>
                         <td class="text-left">{% if sort == 'p.noindex' %} <a href="{{ sort_noindex }}" class="{{ order|lower }}">{{ column_noindex }}</a> {% else %} <a href="{{ sort_noindex }}">{{ column_noindex }}</a> {% endif %}</td>
-                        <td class="text-right">{{ column_action }}</td>
+                        <td class="text-right">{{ column_action }}</td> #}
+                        <td style="width: 1px;" class="text-center"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" /></td>
+                        <td class="text-left">{% if sort == 'pd.name' %} <a href="{{ sort_name }}" class="{{ order|lower }}">{{ column_name }}</a> {% else %} <a href="{{ sort_name }}">{{ column_name }}</a> {% endif %}</td>
+                        <td class="text-center">{{ column_store }}</td>
+                        <td class="text-right">{% if sort == 'p.price' %} <a href="{{ sort_price }}" class="{{ order|lower }}">{{ column_price }}</a> {% else %} <a href="{{ sort_price }}">{{ column_price }}</a> {% endif %}</td>
+                        <td class="text-left">{% if sort == 'p.quantity' %} <a href="{{ sort_model }}" class="{{ order|lower }}">{{ column_quantity }}</a> {% else %} <a href="{{ sort_model }}">{{ column_quantity }}</a> {% endif %}</td>
                       </tr>
                     </thead>
                     <tbody>
 
-                    {% if newProducts %}
-                      {% for product in newProducts %}
+                    {% if products_for_adding %}
+                      {% for product in products_for_adding %}
 
-                      <tr class="{{ product.class }} accordion-toggle" data-toggle="collapse" data-target="#formForAddTheProduct{{ loop.index }}">                  
+                      <tr class="{{ product.class }} {# accordion-toggle" data-toggle="collapse" data-target="#formForAddTheProduct{{ loop.index }} #}">                  
                         <td class="text-center">{% if product.product_id in selected %}
                           <input type="checkbox" name="selected[]" value="{{ product.product_id }}" checked="checked" />
                           {% else %}
                           <input type="checkbox" name="selected[]" value="{{ product.product_id }}" />
-                          {% endif %}</td>
-                        <td class="text-center">{% if product.image %} <img src="{{ product.image }}" alt="{{ product.name }}" class="img-thumbnail" /> {% else %} <span class="img-thumbnail list"><i class="fa fa-camera fa-2x"></i></span> {% endif %}</td>
+                          {% endif %}
+                        </td>
                         <td class="text-left">{{ product.name }}</td>
-                        <td class="text-left">{{ product.sku }}</td>
-                        <td class="text-right">{% if product.special %} <span style="text-decoration: line-through;">{{ product.price }}</span><br/>
-                          <div class="text-danger">{{ product.special }}</div>
-                          {% else %}
-                          {{ product.price }}
-
-                          {% endif %}</td>
-                        <td class="text-right">{% if product.quantity <= 0 %} <span class="label label-warning">{{ product.quantity }}</span> {% elseif product.quantity <= 5 %} <span class="label label-danger">{{ product.quantity }}</span> {% else %} <span class="label label-success">{{ product.quantity }}</span> {% endif %}</td>
-                        <td class="text-left">{{ product.status }}</td>
-                        <td class="text-left">{{ product.noindex }}</td>
-                        <td class="text-right">
+                        <td class="text-left">{{ product.location_name }}</td>                        
+                        <td class="text-right">{{ product.price }}</td>                        
+                        <td class="text-left">{{ product.quantity }}</td>
+                        {# <td class="text-right">
                           <a target="_blank" href="{{ product.href_shop }}" data-toggle="tooltip" title="{{ button_shop }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
                           <a href="{{ product.edit }}" data-toggle="tooltip" title="{{ button_edit }}" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
-                        </td>
+                        </td> #}
                       </tr>
-                      <tr>                  
-                        <td colspan="9"> {# class="hiddenRow" #}{# id="form{{ loop.index }}" #}
-                        {# Form for add new product #}
+                      {# Form for add new product #}
+                      {# <tr>                  
+                        <td colspan="9"> 
                           <div id="formForAddTheProduct{{ loop.index }}" class="accordion-body collapse in" >                  
                             <form action="" method="post" class="formForSendToCatalogProductAdd">
                               <label for="name{{ loop.index }}">Name</label>
@@ -430,7 +427,7 @@
                             </form>
                           </div>
                         </td>
-                      </tr>
+                      </tr> #}
 
                       {% endfor %}
                     {% else %}
@@ -439,38 +436,28 @@
                     </tr>
                     {% endif %}
                     
-                      {% if error %}
-                    {% for product in error %}
+                    {% if error %}
+                      {% for product in error %}
 
-                    <tr class="{{ product.class }}">                  
-                      <td class="text-center">{% if product.product_id in selected %}
-                        <input type="checkbox" name="selected[]" value="{{ product.product_id }}" checked="checked" />
-                        {% else %}
-                        <input type="checkbox" name="selected[]" value="{{ product.product_id }}" />
-                        {% endif %}</td>
-                      <td class="text-center">{% if product.image %} <img src="{{ product.image }}" alt="{{ product.name }}" class="img-thumbnail" /> {% else %} <span class="img-thumbnail list"><i class="fa fa-camera fa-2x"></i></span> {% endif %}</td>
-                      <td class="text-left">{{ product.name }}</td>
-                      <td class="text-left">{{ product.sku }}</td>
-                      <td class="text-right">{% if product.special %} <span style="text-decoration: line-through;">{{ product.price }}</span><br/>
-                        <div class="text-danger">{{ product.special }}</div>
-                        {% else %}
-                        {{ product.price }}
+                        <tr class="{{ product.class }}">                  
+                          <td class="text-center">
+                            {% if product.product_id in selected %}
+                              <input type="checkbox" name="selected[]" value="{{ product.product_id }}" checked="checked" />
+                            {% else %}
+                              <input type="checkbox" name="selected[]" value="{{ product.product_id }}" />
+                            {% endif %}
+                          </td>
+                          <td class="text-left">{{ product.name }}</td>
+                          <td class="text-left"></td>                        
+                          <td class="text-right"></td>                        
+                          <td class="text-left"></td>
+                        </tr>
 
-                        {% endif %}</td>
-                      <td class="text-right">{% if product.quantity <= 0 %} <span class="label label-warning">{{ product.quantity }}</span> {% elseif product.quantity <= 5 %} <span class="label label-danger">{{ product.quantity }}</span> {% else %} <span class="label label-success">{{ product.quantity }}</span> {% endif %}</td>
-                      <td class="text-left">{{ product.status }}</td>
-                      <td class="text-left">{{ product.noindex }}</td>
-                      <td class="text-right">
-                        <a target="_blank" href="{{ product.href_shop }}" data-toggle="tooltip" title="{{ button_shop }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
-                        <a href="{{ product.edit }}" data-toggle="tooltip" title="{{ button_edit }}" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
-                      </td>
-                    </tr>
-
-                    {% endfor %}
+                      {% endfor %}
                     {% else %}
-                    <tr>
-                      <td class="text-center" colspan="9">Errors: {{ text_no_results }}</td>
-                    </tr>
+                      <tr>
+                        <td class="text-center" colspan="9">Errors: {{ text_no_results }}</td>
+                      </tr>
                     {% endif %}
 
                     {% if products %}

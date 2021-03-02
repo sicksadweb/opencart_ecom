@@ -40,6 +40,7 @@ $_['column_quantity']        = 'Количество';
 $_['column_status']          = 'Статус';
 $_['column_noindex']         = 'Индекс';
 $_['column_action']          = 'Действие';
+$_['column_store']           = 'Магазин/склад';
 
 // Entry
 $_['entry_name']             = 'Название товара';
