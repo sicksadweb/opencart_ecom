@@ -8,6 +8,7 @@ class ControllerSaleOrder extends Controller {
 		$this->document->setTitle($this->language->get('heading_title'));
 
 		$this->load->model('sale/order');
+		$this->load->model('user/user');		
 
 		$this->getList();
 	}
@@ -217,13 +218,13 @@ class ControllerSaleOrder extends Controller {
 			'sort'                   => $sort,
 			'order'                  => $order,
 			'start'                  => ($page - 1) * $this->config->get('config_limit_admin'),
-			'limit'                  => $this->config->get('config_limit_admin')
-		);
-
+			'limit'                  => $this->config->get('config_limit_admin'),
+			'user_id'			     => $this->session->data['user_id']
+		);		
+		
 		$order_total = $this->model_sale_order->getTotalOrders($filter_data);
-
 		$results = $this->model_sale_order->getOrders($filter_data);
-
+		
 		foreach ($results as $result) {
 			$data['orders'][] = array(
 				'order_id'      => $result['order_id'],
