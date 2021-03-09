@@ -131,21 +131,21 @@ class ControllerCatalogProductExchange extends Controller {
 		$column_of_sku = 7;
 		$column_of_product_name = 13;
 		$columns_in_excel = array(
-			'Askiz'     		    => array('id'=> 1, 'price' => 18, 'quantity' => 24),
-			'Itigina'   		    => array('id'=> 2, 'price' => 15, 'quantity' => 25),
-			'Karatuz'   		    => array('id'=> 3, 'price' => 19, 'quantity' => 26),
-			'Kuragino'  		    => array('id'=> 4, 'price' => 20, 'quantity' => 27),
-			'Minusinsk' 		    => array('id'=> 5, 'price' => 21, 'quantity' => 28),
-			'Molodejka' 		    => array('id'=> 6, 'price' => 15, 'quantity' => 29),
-			'Molodejka_necondiciya' => array('id'=> 7, 'price' => 15, 'quantity' => 30),
-			'Molodejka_rezerv' 	 	=> array('id'=> 8, 'price' => 15, 'quantity' => 31),
-			'Roskrovlya' 			=> array('id'=> 9, 'price' => 15, 'quantity' => 32),
-			'Sayanogorsk' 			=> array('id'=> 10, 'price' => 22, 'quantity' => 33),
-			'Sib_fasadi' 			=> array('id'=> 11, 'price' => 15, 'quantity' => 34),
-			'Skladskaya' 			=> array('id'=> 12, 'price' => 15, 'quantity' => 35),
-			'Tashtip' 				=> array('id'=> 13, 'price' => 23, 'quantity' => 36),
-			'Torg_predi' 			=> array('id'=> 14, 'price' => 17, 'quantity' => 37),
-			'Shira' 				=> array('id'=> 15, 'price' => 24, 'quantity' => 38)
+			'Askiz'     		    => array('id'=> 1, 'price' => 17, 'quantity' => 24),
+			'Itigina'   		    => array('id'=> 2, 'price' => 14, 'quantity' => 25),
+			'Karatuz'   		    => array('id'=> 3, 'price' => 18, 'quantity' => 26),
+			'Kuragino'  		    => array('id'=> 4, 'price' => 19, 'quantity' => 27),
+			'Minusinsk' 		    => array('id'=> 5, 'price' => 20, 'quantity' => 28),
+			'Molodejka' 		    => array('id'=> 6, 'price' => 14, 'quantity' => 29),
+			'Molodejka_necondiciya' => array('id'=> 7, 'price' => 14, 'quantity' => 30),
+			'Molodejka_rezerv' 	 	=> array('id'=> 8, 'price' => 14, 'quantity' => 31),
+			'Roskrovlya' 			=> array('id'=> 9, 'price' => 14, 'quantity' => 32),
+			'Sayanogorsk' 			=> array('id'=> 10, 'price' => 21, 'quantity' => 33),
+			'Sib_fasadi' 			=> array('id'=> 11, 'price' => 14, 'quantity' => 34),
+			'Skladskaya' 			=> array('id'=> 12, 'price' => 14, 'quantity' => 35),
+			'Tashtip' 				=> array('id'=> 13, 'price' => 22, 'quantity' => 36),
+			'Torg_predi' 			=> array('id'=> 14, 'price' => 26, 'quantity' => 37),
+			'Shira' 				=> array('id'=> 15, 'price' => 23, 'quantity' => 38)
 		);
 		
 		$data['token'] = $this->session->data['user_token'];
@@ -164,10 +164,13 @@ class ControllerCatalogProductExchange extends Controller {
 					$line_number_in_exel++;	
 					continue;	
 				}
+				
+				//For testing
+				//if ($line_number_in_exel == 30) break;
 				$line_number_in_exel++;
 
 				//if ($line_number_in_exel == 30) break;
-				
+
 				$product = $this->model_catalog_product->getProductBySku($r[$column_of_sku]);
 				
 				if ($product) {
