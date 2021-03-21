@@ -599,8 +599,8 @@ class ControllerCatalogProductOffer extends Controller {
 		);
 
 		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('catalog/product', 'user_token=' . $this->session->data['user_token'] . $url, true)
+			'text' => $this->language->get('heading_title_offer'),
+			'href' => $this->url->link('catalog/product_offer', 'user_token=' . $this->session->data['user_token'] . $url, true)
 		);
 
 		$data['add'] = $this->url->link('catalog/product_offer/add', 'user_token=' . $this->session->data['user_token'] . $url, true);

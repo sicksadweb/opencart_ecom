@@ -3,7 +3,9 @@
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
 // Heading
-$_['heading_title']          = 'Товары';
+$_['heading_title']          = 'Products';
+$_['heading_title_offer']    = 'Offer';
+$_['heading_title_view']     = 'View';
 
 // Text
 $_['text_success']           = 'Настройки успешно изменены!';
