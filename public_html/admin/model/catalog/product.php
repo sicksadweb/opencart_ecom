@@ -520,7 +520,16 @@ class ModelCatalogProduct extends Model {
 
 			foreach ($data['product_link'] as $key => $offer_id_for_link) {
 
-				$this->db->query("INSERT INTO ". DB_PREFIX ."variants SET view_id = '". $product_id ."', offer_id = '". $offer_id_for_link ."'");
+				$query = $this->db->query("SELECT * FROM ". DB_PREFIX ."variants WHERE offer_id = '". $offer_id_for_link ."' AND view_id is null");
+
+				if ($query->rows) {
+
+					$this->db->query("UPDATE ". DB_PREFIX ."variants SET view_id = '". $product_id ."' WHERE offer_id = '". $offer_id_for_link ."' AND view_id is null");
+				}
+				else {
+
+					$this->db->query("INSERT INTO ". DB_PREFIX ."variants SET view_id = '". $product_id ."', offer_id = '". $offer_id_for_link ."'");
+				}
 			}
 		}
 		
@@ -1235,18 +1244,63 @@ class ModelCatalogProduct extends Model {
 			}
 			
 		} */
+		//Все offer c view_id = $product_id
+		$check_query_view = $this->db->query("SELECT * FROM ". DB_PREFIX ."variants WHERE view_id = '". $product_id ."'");
+		foreach ($check_query_view->rows as $key => $value) $busy_offer[] = $value['offer_id'];
 
+		//Все offer c view_id = null
+		$check_query_offer = $this->db->query("SELECT offer_id FROM ". DB_PREFIX ."variants WHERE view_id is null");	
+		foreach ($check_query_offer->rows as $key => $value) $free_offer[] = $value['offer_id'];
+		
+		foreach ($data['product_link'] as $key => $value) $product_link[] = $value;
+				
 		if (isset($data['product_link'])) {
-			
-			$this->db->query("DELETE FROM ". DB_PREFIX ."variants WHERE view_id = '". $product_id ."'");
 
-			foreach ($data['product_link'] as $key => $offer_id_for_link) {
+			if ($check_query_view->rows) {	
 
-				$this->db->query("INSERT INTO ". DB_PREFIX ."variants SET view_id = '". $product_id ."', offer_id = '". $offer_id_for_link ."'");
+				foreach ($data['product_link'] as $key => $offer_id_for_link) {
+					
+					if ($check_query_offer->rows && in_array($offer_id_for_link, $free_offer)) {
+
+						$this->db->query("UPDATE " . DB_PREFIX . "variants SET view_id = '" . (int)$product_id . "' WHERE offer_id = '" . (int)$offer_id_for_link . "'");
+
+					}
+					else if (!in_array($offer_id_for_link, $busy_offer)) {
+
+						$this->db->query("INSERT INTO ". DB_PREFIX ."variants SET view_id = '". $product_id ."', offer_id = '". $offer_id_for_link ."'");
+						
+					}
+				}
+
+				foreach ($busy_offer as $offer_id) {
+
+					if (!in_array($offer_id, $product_link)) {
+
+						$this->db->query("UPDATE ". DB_PREFIX ."variants SET view_id = NULL WHERE offer_id = '". $offer_id ."'");
+					}
+				}
+
+			}
+			else {
+
+				foreach ($data['product_link'] as $key => $offer_id_for_link) {
+
+					if (in_array($offer_id_for_link, $free_offer)) {
+
+						$this->db->query("UPDATE " . DB_PREFIX . "variants SET view_id = '" . (int)$product_id . "' WHERE offer_id = '" . (int)$offer_id_for_link . "'");
+					}
+					else {
+
+						$this->db->query("INSERT INTO ". DB_PREFIX ."variants SET view_id = '". $product_id ."', offer_id = '". $offer_id_for_link ."'");
+					}
+	
+				}
 			}
 		}
-		else $this->db->query("DELETE FROM ". DB_PREFIX ."variants WHERE view_id = '". $product_id ."'");
-
+		else {
+			
+			$this->db->query("UPDATE ". DB_PREFIX ."variants SET view_id = NULL WHERE view_id = '". $product_id ."'");
+		}
 		
 	}
 	
@@ -1384,7 +1438,7 @@ class ModelCatalogProduct extends Model {
 		$this->db->query("DELETE FROM " . DB_PREFIX . "view_recurring WHERE view_id = " . (int)$product_id);
 		$this->db->query("DELETE FROM " . DB_PREFIX . "review WHERE product_id = '" . (int)$product_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "seo_url WHERE query = 'product_id=" . (int)$product_id . "'");
-		$this->db->query("DELETE FROM " . DB_PREFIX . "variants WHERE view_id = '" . (int)$product_id . "'");
+		$this->db->query("UPDATE ". DB_PREFIX ."variants SET view_id = NULL WHERE view_id = '". $product_id ."'");
 		//$this->db->query("DELETE FROM " . DB_PREFIX . "coupon_offer WHERE product_id = '" . (int)$product_id . "'");
 		//$this->db->query("DELETE FROM " . DB_PREFIX . "seo_url_patterns WHERE product_id = '" . (int)$product_id . "'");
 
@@ -1557,7 +1611,7 @@ class ModelCatalogProduct extends Model {
 
 	//Offer
 	public function getProductsOffer($data = array()) {
-		$sql = "SELECT * FROM " . DB_PREFIX . "offer o LEFT JOIN " . DB_PREFIX . "offer_description od ON (o.offer_id = od.offer_id) WHERE od.language_id = '" . (int)$this->config->get('config_language_id') . "'";
+		$sql = "SELECT DISTINCT * FROM " . DB_PREFIX . "offer o LEFT JOIN " . DB_PREFIX . "offer_description od ON (o.offer_id = od.offer_id) WHERE od.language_id = '" . (int)$this->config->get('config_language_id') . "'";
 
 		if (isset($data['filter_category']) && !is_null($data['filter_category'])) {
 			preg_match('/(.*)(WHERE pd\.language_id.*)/', $sql, $sql_crutch_matches);
@@ -2091,7 +2145,7 @@ class ModelCatalogProduct extends Model {
 	public function getProductsOfferLinks($product_id) {
 		$product_links_data = array();
 		
-		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "variants WHERE view_id = '" . (int)$product_id . "'");
+		$query = $this->db->query("SELECT DISTINCT offer_id FROM " . DB_PREFIX . "variants WHERE view_id = '" . (int)$product_id . "'");
 		
 		foreach ($query->rows as $result) {
 			$product_links_data[] = $result['offer_id'];

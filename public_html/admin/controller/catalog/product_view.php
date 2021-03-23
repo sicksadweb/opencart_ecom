@@ -122,7 +122,8 @@ class ControllerCatalogProductView extends Controller {
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
 
 			/* print_r($this->request->post);
-			return; */
+			return;
+			 */
 			$this->model_catalog_product->editView($this->request->get['product_id'], $this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
@@ -376,7 +377,7 @@ class ControllerCatalogProductView extends Controller {
 		$this->getList();
 	}
 
-	protected function getList() {
+	protected function getList() {		
 
 		$this->load->model('catalog/filter');
 

@@ -1,0 +1,519 @@
+[33mcommit 879183eec695afa958b13abbf42eb6aff80a5006[m[33m ([m[1;36mHEAD -> [m[1;32mdev[m[33m, [m[1;31morigin/dev[m[33m)[m
+Author: vladislav <vladislav.pustovalov@gmail.com>
+Date:   Sun Mar 21 16:19:28 2021 +0700
+
+    Update left column
+
+[33mcommit a3f02e7b6321f2f2827376da1f631db79a4c1fe9[m
+Author: vladislav <vladislav.pustovalov@gmail.com>
+Date:   Sun Mar 21 15:38:59 2021 +0700
+
+    Update for view(list, add, edit, delete, variants)
+
+[33mcommit 12e987b3b33bd03a9b9eb802e9b8492a18599715[m
+Author: vladislav <vladislav.pustovalov@gmail.com>
+Date:   Thu Mar 18 12:25:59 2021 +0700
+
+    Update for offer(list, add, edit, delete, variants)
+
+[33mcommit bbc751ed642685cd6609fa978e866d24248c511a[m
+Author: vladislav <vladislav.pustovalov@gmail.com>
+Date:   Tue Mar 9 23:20:42 2021 +0700
+
+    Update for product_exchange(some fixes)
+
+[33mcommit dcff44eaf4eceb4c7cba4d1d213393799e204c79[m
+Author: vladislav <vladislav.pustovalov@gmail.com>
+Date:   Mon Mar 8 13:57:51 2021 +0700
+
+    Modified list of orders according to user's store
+
+[33mcommit ea1bcaafab22c7f90d981382f8a4814a1a6c66a7[m
+Author: vladislav <vladislav.pustovalov@gmail.com>
+Date:   Tue Mar 2 14:45:03 2021 +0700
+
+    Update for product_exchange(some fixes)
+
+[33mcommit 7f1ce79838d85bac61643127c75fd7dc5e242710[m
+Author: vladislav <vladislav.pustovalov@gmail.com>
+Date:   Sun Feb 28 11:43:10 2021 +0700
+
+    Update for product_exchange
+
+[33mcommit c2b3ff7428369cb78564ea5521478944d997dd8f[m
+Author: vladislav <vladislav.pustovalov@gmail.com>
+Date:   Thu Feb 4 14:09:52 2021 +0700
+
+    Test filters(Update 1)
+
+[33mcommit e2c7a46da5ae7eeaabc93e9fc6f97b5450daf763[m
+Author: vladislav <vladislav.pustovalov@gmail.com>
+Date:   Mon Jan 25 14:37:04 2021 +0700
+
+    Seo patterns(Update 3)
+
+[33mcommit b736a86cdbcafac5b0d7762bff4021d959eee183[m
+Author: vladislav <vladislav.pustovalov@gmail.com>
+Date:   Tue Jan 19 14:12:09 2021 +0700
+
+    Location form (Update 1)
+
+[33mcommit 25b0131d6a7df9877f5728ac78b70d68cfb23ea9[m
+Author: vladislav <vladislav.pustovalov@gmail.com>
+Date:   Thu Jan 14 15:23:35 2021 +0700
+
+    Seo patterns(Update 2)
+
+[33mcommit bd0dc7083e6a64fa039ad224e8eb2950d5b9ec7d[m
+Author: vladislav <vladislav.pustovalov@gmail.com>
+Date:   Tue Jan 12 12:14:06 2021 +0700
+
+    Seo patterns(Update 1)
+
+[33mcommit 6faac78c1c5f3dbd944a70b657db3e3e1569b9e3[m
+Author: vladislav <vladislav.pustovalov@gmail.com>
+Date:   Mon Dec 28 13:59:07 2020 +0700
+
+    Add filters for product (a few fix)
+
+[33mcommit 2af51df13d94a859b0e9a484a505d3becc11d3af[m
+Author: vladislav <vladislav.pustovalov@gmail.com>
+Date:   Wed Dec 23 15:53:44 2020 +0700
+
+    Add filters for products (update 2)
+
+[33mcommit 91b5ac0d615e4f4556d858e17e4eb10dbe125faa[m
+Author: vladislav <vladislav.pustovalov@gmail.com>
+Date:   Mon Dec 21 13:22:50 2020 +0700
+
+    Add filters for products
+
+[33mcommit a8bc87ea37f43d22ab4ba1e2cfd5cd1c0f9d604e[m
+Author: vladislav <vladislav.pustovalov@gmail.com>
+Date:   Tue Dec 15 13:03:31 2020 +0700
+
+    Update form for Employee
+
+[33mcommit 328c26822a71a4e2aec5c7ca039ac9ec8dc1cc2c[m
+Author: vladislav <vladislav.pustovalov@gmail.com>
+Date:   Fri Dec 4 19:08:36 2020 +0700
+
+    Sending info about configurator to Email
+
+[33mcommit 9c02960af45aa1067f1ad30a8070cdafa0439dca[m
+Author: vladislav <vladislav.pustovalov@gmail.com>
+Date:   Thu Nov 26 16:32:39 2020 +0700
+
+    Update data for constructor
+
+[33mcommit ec598462195e30a49d57625037e098ae268dbbb6[m
+Author: vladislav <vladislav.pustovalov@gmail.com>
+Date:   Tue Nov 24 14:38:17 2020 +0700
+
+    fix categories(views)
+
+[33mcommit b2d6883d72daaf0e0ac5c2d6dccb160bb6230d68[m
+Author: vladislav <vladislav.pustovalov@gmail.com>
+Date:   Fri Nov 20 10:22:13 2020 +0700
+
+    fix categories
+
+[33mcommit a237aaff2200274b9857f4d07faf3983719b4bfc[m
+Author: vladislav <vladislav.pustovalov@gmail.com>
+Date:   Thu Nov 19 12:59:20 2020 +0700
+
+    Fixes for categories
+
+[33mcommit fbbac085b7a973c5cfc39d4c9793839c885d226c[m
+Author: vladislav <vladislav.pustovalov@gmail.com>
+Date:   Wed Nov 18 12:18:21 2020 +0700
+
+    Adding category views menu
+
+[33mcommit 14a7e475212716e5e841c2fe8e363ce48bf4b15e[m
+Author: vladislav <vladislav.pustovalov@gmail.com>
+Date:   Fri Nov 6 11:05:01 2020 +0700
+
+    update of working with categories
+
+[33mcommit 0260f900fd4a2f664b4933493d1b4f1cde4d89bc[m
+Author: vladislav <vladislav.pustovalov@gmail.com>
+Date:   Sun Nov 1 07:37:57 2020 +0700
+
+    Some fixes
+
+[33mcommit 5b858a75f45f4d336bb1514e92467d64ab1c82b2[m
+Author: vladislav <vladislav.pustovalov@gmail.com>
+Date:   Tue Oct 27 09:24:33 2020 +0700
+
+    some fixes for adding packages
+
+[33mcommit 89c6f904772193d223c3ae79c9e7e193f0973f65[m
+Author: vladislav <vladislav.pustovalov@gmail.com>
+Date:   Sun Oct 25 19:37:40 2020 +0700
+
+    adding packages
+
+[33mcommit 7cda694a30affdbc7c18a3db0a4be59712aa8f12[m
+Author: Vladislav <50295128+vadya9605@users.noreply.github.com>
+Date:   Mon Oct 12 08:30:59 2020 +0700
+
+    a few fix
+
+[33mcommit 2b08e5314633e3c91313e8c7b3fcc85cb83a80cc[m
+Author: Vladislav <50295128+vadya9605@users.noreply.github.com>
+Date:   Sat Oct 10 10:58:58 2020 +0700
+
+    admin panel update
+
+[33mcommit ac7321ec333f7932514ba035a38eacf24ad0202d[m
+Author: Vladislav <50295128+vadya9605@users.noreply.github.com>
+Date:   Tue Oct 6 15:00:39 2020 +0700
+
+    add accordeon to admin panel
+
+[33mcommit 56a21f4a28f24791e7fe294955759b01d8d3b4db[m[33m ([m[1;33mtag: v.0.7[m[33m)[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Tue Sep 29 12:25:59 2020 +0700
+
+    add
+
+[33mcommit fe4c1e5c2d2585ebbd9bad637a7cde6e0ead8e40[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Tue Sep 1 16:25:07 2020 +0700
+
+    meta_store contact
+
+[33mcommit d964a59a9fec8b890643077967b4d9651149f340[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Tue Sep 1 15:46:06 2020 +0700
+
+    breadcrumb JSON-LD
+
+[33mcommit 01bc771a413ef944bee61e022300dbaf087f1c9b[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Fri Aug 28 16:43:55 2020 +0700
+
+    import price
+
+[33mcommit 679af374144d71f651294b8547c0d1c43124c023[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Fri Aug 28 14:23:05 2020 +0700
+
+    fix register and wishlist
+
+[33mcommit 537945ec7fdd37aeeeda9f3cbe4ff81ea0f286e1[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Thu Aug 27 16:40:03 2020 +0700
+
+    fix catalog
+
+[33mcommit fd1365f4da346cb52fe915be1066ff55b5bf413b[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Wed Aug 26 16:47:51 2020 +0700
+
+    desing molodezhka
+
+[33mcommit 9823d896b016f7c8d6937b88021f5421a198334c[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Tue Aug 25 16:58:27 2020 +0700
+
+    desing molodezhnii
+
+[33mcommit 7bef91019087bc8dc662aa5657e71a364dc8ea2f[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Mon Aug 24 14:30:15 2020 +0700
+
+    done yandex auoth
+
+[33mcommit 412c97e0633bbd011cc56d18c37a05a1e009fe3a[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Thu Aug 20 12:17:39 2020 +0700
+
+    Authization
+
+[33mcommit 269ba08a5670a237d07ef725e5b690550a189504[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Wed Aug 19 16:58:49 2020 +0700
+
+    Authorization
+
+[33mcommit fc4fc9b6c167b66348ce9c49cf6c77a1e61cea64[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Tue Aug 18 12:48:30 2020 +0700
+
+    details info for products
+
+[33mcommit 3fdb71339d3cf3a43fad21e71edd5909b055d401[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Fri Aug 14 16:58:37 2020 +0700
+
+    edit catalog views
+
+[33mcommit e03200d672a2735dd497105cd6a1600e5341fcf4[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Fri Aug 14 16:08:28 2020 +0700
+
+    editi links header
+
+[33mcommit 7d78bee4088f2ae24056e65382d3bf006d97e3ca[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Thu Aug 13 14:05:26 2020 +0700
+
+    fix price catalog
+
+[33mcommit ae65316fb552ee8fa8b6686cbd2cb18dedf58006[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Thu Aug 13 10:18:35 2020 +0700
+
+    fix price view
+
+[33mcommit 92b82fd0d155220e3cbebae208c22ded3e13f613[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Wed Aug 12 13:32:09 2020 +0700
+
+    wishlist add
+
+[33mcommit 8223b53cdf5ba44e8e044df97b157106e172a223[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Sun Aug 9 18:11:38 2020 +0700
+
+    qwick view
+
+[33mcommit fa9153641f475155475a23b49b9a5c87dc4ba392[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Mon Aug 3 16:50:40 2020 +0700
+
+    filter fix
+
+[33mcommit 0adb2120ba588139a0efb37a6e886a34c09d12dc[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Fri Jul 31 16:40:26 2020 +0700
+
+    № 3- Add: video section,
+
+[33mcommit 64d69c7aa1e8c177b672f3ecec295d6137a235b6[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Fri Jul 31 12:45:34 2020 +0700
+
+    №19- Add: simple checout and cart
+    
+    19- Add: simple checout and cart
+
+[33mcommit 8e0897c2d585fab3ae750196edcf3ae1d8a9aa5c[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Fri Jul 31 11:32:09 2020 +0700
+
+    small fix theme
+
+[33mcommit 9bc76474126672cf63b6208438501431e0efa596[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Thu Jul 30 16:57:58 2020 +0700
+
+    fix aditional_products
+
+[33mcommit 6509baf3a3738fade4626e2daace6928c1759867[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Thu Jul 30 16:37:32 2020 +0700
+
+    opencart_ecom dump 30072020
+
+[33mcommit 3469e61f8846499a79ad618c4b95af3098d72cdc[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Thu Jul 30 16:28:36 2020 +0700
+
+    function add product to cart
+
+[33mcommit 3c0f48e270e27ce3218b06752134c2f636de070b[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Thu Jul 30 13:00:12 2020 +0700
+
+    fix sort price in cataloge
+
+[33mcommit 7ca738f1af5b380f23c9bb707aed82bd25cb04e5[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Wed Jul 29 17:14:15 2020 +0700
+
+    fix sort to price
+
+[33mcommit 6e97f43c280a67f226701d89617a77d1d85a4cba[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Wed Jul 29 16:41:34 2020 +0700
+
+    fix categorys
+
+[33mcommit 8af4bef066f1153e0c644bc4fb21f239459daaae[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Wed Jul 29 15:32:38 2020 +0700
+
+    main category on offer
+
+[33mcommit 99853686b137eb3e8f03cb8f73d8956ad274a4c6[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Wed Jul 29 15:05:24 2020 +0700
+
+    №21- Add: variants and group
+    
+     Add: variants and group
+    curency
+
+[33mcommit 4b2caf5128153d98f8cfa89a3a9a5d7021ff9707[m
+Merge: 3ff98dd 517b84d
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Tue Jul 28 16:29:57 2020 +0700
+
+    Merge branch 'dev' of https://github.com/sicksadweb/opencart_ecom into dev
+
+[33mcommit 3ff98ddfb7c4d54d1e673e2f54de7fe7a11dde18[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Tue Jul 28 16:29:52 2020 +0700
+
+    №13- Add: livesearch
+
+[33mcommit 4476d202f83044182ddd31b097698d1db2d32bdb[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Tue Jul 28 15:46:01 2020 +0700
+
+    themes view
+
+[33mcommit ffae7ac69d492024645fb67fbfceab33edd3b52e[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Tue Jul 28 13:47:08 2020 +0700
+
+    fix breadcrumb  and forms
+
+[33mcommit 9d171d0a55adbdb14f57ac0cfa72e03c65ade978[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Mon Jul 27 14:36:04 2020 +0700
+
+    №11- Add: page aboit us
+    
+    Add: page aboit us
+
+[33mcommit 517b84d13f97312d54708f380d8f1767b963831d[m
+Author: sicksadweb <50939694+sicksadweb@users.noreply.github.com>
+Date:   Mon Jul 27 13:57:59 2020 +0700
+
+    Update README.md
+
+[33mcommit f3338038868f6e3dd368d4babaddc9cc388da7c9[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Mon Jul 27 13:56:32 2020 +0700
+
+    fix №17
+
+[33mcommit 1a1d8e2dcd139f9c0734900feeb3f343d0f7c9ab[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Mon Jul 27 13:32:35 2020 +0700
+
+    №17- Add: offers/ offer
+    
+    17- Add: offers/ offer
+
+[33mcommit 72380cdd602f2a5ef4705dbc4663fe5b1a1646f6[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Mon Jul 27 12:42:14 2020 +0700
+
+    №4- Add: pacckege
+    
+     Add: pacckege product,
+
+[33mcommit c54aca11f9b2e16eedfd2f381ae077432809a4e1[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Sun Jul 26 17:19:10 2020 +0700
+
+    opencart_ecom dump 24072020
+
+[33mcommit bb149df0dc4167c65ad8f581040aad466caf3f29[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Sun Jul 26 17:17:56 2020 +0700
+
+    №20  videoslider
+    
+    20- Add: videoslider
+
+[33mcommit 4feb1b20dcb244d421028fe1d11b373b5bcac80e[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Sun Jul 26 16:34:08 2020 +0700
+
+    №5 Add: video in product,
+    
+    5- Add: video in product,
+
+[33mcommit 903c411414f5ad48fecda0eeedd52db61aa33c15[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Sun Jul 26 16:09:43 2020 +0700
+
+    №12 view products empty categorys
+    
+     Add: main categorys view products
+
+[33mcommit 314030bce9d26b7ecfb93c85d56a282798d5dfe3[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Fri Jul 24 16:55:57 2020 +0700
+
+    fix girignore
+
+[33mcommit 9b819b780c62dd8471a4aa03bf43d2b3ceb39059[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Fri Jul 24 16:51:22 2020 +0700
+
+    dump sql
+    
+    dump sql  24.07.2020
+
+[33mcommit d87d0d594c9ee174abf724a74f71890287323dd1[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Fri Jul 24 16:49:48 2020 +0700
+
+    №14  random phone
+    
+    Add: random phone
+
+[33mcommit b7b7ff14c14debe1ae29ae28b717eba1bf912280[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Fri Jul 24 16:31:34 2020 +0700
+
+     fix №1
+    
+    fixed image id
+
+[33mcommit 5459aaedcf499092a5d5655ebd9969d14de95e4a[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Fri Jul 24 16:26:10 2020 +0700
+
+    №1 image, photoswipe, name/alt
+    
+    Add: name, alt to images and aditional image this product. Display to gallery photoswipe,
+
+[33mcommit 3ca26a1b34a4d97384608ac6eddf3625151426bb[m
+Author: sicksadweb <sicksadweb@users.noreply.github.com>
+Date:   Fri Jul 24 15:03:59 2020 +0700
+
+    install OCStore 3.0.2.0
+
+[33mcommit ea0925b276d3899b3f0025721df122ac64336236[m
+Author: sicksadweb <50939694+sicksadweb@users.noreply.github.com>
+Date:   Fri Jul 24 14:15:26 2020 +0700
+
+    Update README.md
+
+[33mcommit c28fbae7034da8cddd54436fbded8e09f0699a0c[m
+Author: sicksadweb <50939694+sicksadweb@users.noreply.github.com>
+Date:   Fri Jul 24 14:14:51 2020 +0700
+
+    Update README.md
+
+[33mcommit 51019ca19e6b46c0189f79cdc497bf62cce77300[m[33m ([m[1;31morigin/release[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: sicksadweb <50939694+sicksadweb@users.noreply.github.com>
+Date:   Fri Jul 24 13:54:56 2020 +0700
+
+    first corrections
+    
+    first corrections
+
+[33mcommit 054fbe2d88e9c8280c0e833fcd1d46979658dc31[m
+Author: sicksadweb <50939694+sicksadweb@users.noreply.github.com>
+Date:   Fri Jul 24 13:40:41 2020 +0700
+
+    Initial commit
