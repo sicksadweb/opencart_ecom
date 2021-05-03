@@ -4,6 +4,8 @@ class ControllerInformationContact extends Controller {
 
 	public function index() {
 		$this->load->language('information/contact');
+		$this->load->model('catalog/view');
+		$this->load->model('tool/image');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -137,12 +139,24 @@ class ControllerInformationContact extends Controller {
 			$data['captcha'] = '';
 		}
 
+		$product_info = $this->model_catalog_view->getProducts();
+		$i = 0;
+		foreach($product_info as $product) {
+			
+			if ($i == 20) break;
+			$data['thumb'][] = $this->model_tool_image->resize($product['image'], 400, 400);	
+			$i++;
+		}
+
+		$data['form_callback'] = $this->load->controller('extension/module/form_callback');
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');
 		$data['content_top'] = $this->load->controller('common/content_top');
 		$data['content_bottom'] = $this->load->controller('common/content_bottom');
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
+		
+
 
 		$this->response->setOutput($this->load->view('information/contact', $data));
 	}
