@@ -1,16 +1,4 @@
 {{ header }}
-{# style="background-image: url('https://static7.depositphotos.com/1314241/789/i/600/depositphotos_7890698-stock-photo-ferocious-lion.jpg'); height:400px; background-repeat: no-repeat;" #}
-{# <img src="https://image.freepik.com/free-photo/construction-worker-supplies-and-instruments-on-wooden-table-background_127657-25044.jpg" class="img-responsive" width="100%"> #}
-
-{# <div class="container-fluid" style="background-image: url('https://krot.info/uploads/posts/2021-01/1611753589_10-p-fon-stroimateriali-13.jpg'); background-size: 100%; height:800px; background-repeat: no-repeat;">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">1</div>
-      <div class="col-md-4">2</div>
-      <div class="col-md-4">3</div>
-    </div>
-  </div>
-</div> #}
 <div class="container-fluid" style="background-image: url('https://krot.info/uploads/posts/2021-01/1611753589_10-p-fon-stroimateriali-13.jpg'); background-size: cover; height:800px; background-repeat: no-repeat;">
   <ul class="breadcrumb">
     {% for breadcrumb in breadcrumbs %}
@@ -131,23 +119,26 @@
     </div>
   </div>               
 </div>
-<div class="container">               
-  <hr style="border-color: red; width: 25%; border-width: 5px">
-</div>
-<hr class="divider">
 
-<div class="container">
-  {% for image in thumb %}
-    <div class="col-sm-3">
-      <img src="{{ image }}" class="img-responsive open-photo-swiper" id="{{ loop.index - 1 }}">
-    </div>
-  {% endfor %}
-</div>
+{% if additional_images.thumbs %}
+  <div class="container">               
+    <hr style="border-color: red; width: 25%; border-width: 5px">
+  </div>
+  <hr class="divider">
 
-<div class="container">               
-  <hr style="border-color: red; width: 25%; border-width: 5px">
-</div>
-<hr class="divider">
+  <div class="container">
+    {% for image in additional_images.thumbs %}
+      <div class="col-sm-3">
+        <img src="{{ image }}" class="img-responsive open-photo-swiper" data-index="{{ loop.index0 }}" id="additionalImageBlock1-{{ loop.index0 }}">
+      </div>  
+    {% endfor %}
+  </div>
+
+  <div class="container">               
+    <hr style="border-color: red; width: 25%; border-width: 5px">
+  </div>
+  <hr class="divider">
+{% endif %}
 
 <div class="container">               
   <div class="row">
@@ -155,23 +146,27 @@
   </div>
 </div>
 
-<div class="container">               
-  <hr style="border-color: red; width: 25%; border-width: 5px">
-</div>
-<hr class="divider">
+{% if additional_images.thumbs %}
 
-<div class="container">
-  {% for image in thumb %}
-    <div class="col-sm-3">
-      <img src="{{ image }}" class="img-responsive open-photo-swiper" id="{{ loop.index - 1 }}">
-    </div>
-  {% endfor %}
-</div>
+  <div class="container">               
+    <hr style="border-color: red; width: 25%; border-width: 5px">
+  </div>
+  <hr class="divider">
 
-<div class="container">               
-  <hr style="border-color: red; width: 25%; border-width: 5px">
-</div>
-<hr class="divider">
+  <div class="container">
+    {% for image in additional_images.thumbs %}
+      <div class="col-sm-3">
+        <img src="{{ image }}" class="img-responsive open-photo-swiper" data-index="{{ loop.index0 }}" id="additionalImageBlock2-{{ loop.index0 }}">
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="container">               
+    <hr style="border-color: red; width: 25%; border-width: 5px">
+  </div>
+  <hr class="divider">
+
+{% endif %}
 
 <div class="container">               
   <div class="row">
@@ -279,16 +274,17 @@ var openPhotoSwiper = function() {
     
   // build items array
   var items = [];
-  {% for image in thumb %}
+  {% for image in additional_images.popups %}
     items.push({
               src: '{{ image }}',
-              w: 1000,
-              h: 1000});   
+              h: {{ popup_size.height }},
+              w: {{ popup_size.width }}
+              });   
   {% endfor %}
 
   var options = {
 
-      index: parseInt(this.id),
+      index: parseInt(this.dataset.index),
   };
 
   // Initializes and opens PhotoSwipe
