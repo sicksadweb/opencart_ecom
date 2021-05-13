@@ -497,16 +497,16 @@
               <span>{{ error_file_not_found }}</span>
             {% endif %}
       {% else %}
-            <a href={{ add_from_exel }} class="btn btn-primary">
+            <a href="{{ add_from_exel }}" class="btn btn-primary">
               {{ text_add_from_excel }}
             </a>
-            <a href={{ add_package }} class="btn btn-primary">
+            <a href="{{ add_package }}" class="btn btn-primary">
               {{ text_add_the_package }}
             </a>
-            <a href={{ update_configurator }} class="btn btn-primary">
+            <a href="{{ update_configurator }}" class="btn btn-primary">
               {{ text_update_configurator }}
             </a>
-            <a href={{ info_about_configurator }} class="btn btn-primary">  
+            <a href="{{ info_about_configurator }}" class="btn btn-primary">  
               {{ text_send_info_about_configurator }}
             </a>
       {% endif %}
