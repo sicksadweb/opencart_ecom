@@ -1957,6 +1957,10 @@ class ModelExtensionExchange1c extends Model {
 			$data['stock_status_id'] = (int)$this->config->get('exchange1c_product_stock_status_off');
 		}
 
+		if (preg_match("/под заказ/iu", $data['name'])) {
+			$data['stock_status_id'] = 0;
+		}
+
 		$this->log($data, 2);
 
 		// Чтобы на ocstore не было ошибок если в поле image будет NULL
@@ -2258,6 +2262,11 @@ class ModelExtensionExchange1c extends Model {
 			if ((int)$this->config->get('exchange1c_product_stock_status_off')) {
 				$data['stock_status_id'] = (int)$this->config->get('exchange1c_product_stock_status_off');
 			}
+		}
+
+		//Статус на складе при наличии в наименовании фразы "Под заказ"
+		if (preg_match("/под заказ/iu", $data['name'])) {
+				$data['stock_status_id'] = 0;
 		}
 
 		// ФИЛЬТР ОБНОВЛЕНИЯ
@@ -5842,7 +5851,7 @@ class ModelExtensionExchange1c extends Model {
 				if ((int)$this->config->get('exchange1c_product_stock_status_off')) {
 					$data['stock_status_id'] = (int)$this->config->get('exchange1c_product_stock_status_off');
 				}
-			}
+			}			
 
 			// Обновляем товар
 			$update = $this->updateOffers($product_id, $data, $old_product);
