@@ -1957,8 +1957,13 @@ class ModelExtensionExchange1c extends Model {
 			$data['stock_status_id'] = (int)$this->config->get('exchange1c_product_stock_status_off');
 		}
 
-		if (preg_match("/под заказ/iu", $data['name'])) {
-			$data['stock_status_id'] = 0;
+		//Статус на складе при наличии в наименовании соответствующей фразы
+		$statuses = json_decode($this->config->get('exchange1c_stock_statuses'), true);
+		
+		foreach ($statuses as $pattern => $code) {
+			if (preg_match($pattern, $data['name'])) {
+					$data['stock_status_id'] = (int)$code;
+			}						
 		}
 
 		$this->log($data, 2);
@@ -2050,7 +2055,7 @@ class ModelExtensionExchange1c extends Model {
 		}
 
 		//Упаковка
-		if(isset($data['package_name'])) {
+		if(!empty($data['package_name'])) {
 			
 			$package_id = $this->query("SELECT * FROM " . DB_PREFIX ."package_description WHERE name = '" . $data['package_name'] . "'");
 			$this->log("ID Упаковки: " . $package_id->row['package_id']);
@@ -2063,7 +2068,20 @@ class ModelExtensionExchange1c extends Model {
 							volume = 1,
 							package_name_id = '". (int)$package_id->row['package_id'] . "'");
 				
+		} else {
+			
+			$package_id = $this->query("SELECT * FROM " . DB_PREFIX ."package_description WHERE name = 'Штука'");
+			$this->log("ID Упаковки: " . $package_id->row['package_id']);
+			
+				$this->query("INSERT INTO " . DB_PREFIX ."package_product SET
+							product_id =  '" . $product_id . "',
+							package_id = '". (int)$package_id->row['package_id'] . "', 
+							parent_package_id = NULL,
+							quantity = 1,
+							volume = 1,
+							package_name_id = '". (int)$package_id->row['package_id'] . "'");
 		}
+
 
 		// Очистим кэш товаров
 		//$this->cache->delete('product');
@@ -2264,9 +2282,25 @@ class ModelExtensionExchange1c extends Model {
 			}
 		}
 
-		//Статус на складе при наличии в наименовании фразы "Под заказ"
-		if (preg_match("/под заказ/iu", $data['name'])) {
-				$data['stock_status_id'] = 0;
+		//Статус на складе при наличии в наименовании соответствующей фразы
+		/* $statuses = array(
+			"/под заказ/iu"   => 8,
+			"/некондиция/iu"  => 5,
+			"/снят/iu" 		  => 5,
+			"/акция/iu" 	  => 9); */
+
+		$statuses = json_decode($this->config->get('exchange1c_stock_statuses'), true);
+		
+		foreach ($statuses as $pattern => $code) {
+			if (preg_match($pattern, $data['name'])) {
+					$data['stock_status_id'] = (int)$code;
+			}						
+		}
+
+		foreach ($statuses as $pattern => $code) {
+			if (preg_match($pattern, $data['name'])) {
+					$data['stock_status_id'] = (int)$code;
+			}						
 		}
 
 		// ФИЛЬТР ОБНОВЛЕНИЯ
@@ -4495,7 +4529,7 @@ class ModelExtensionExchange1c extends Model {
 			$data['feature_guid']	= isset($guid[1]) ? $guid[1] : '';
 			$data['product_id']		= 0;
 			$data['status']			= 1;
-			$data['package_name']	= $product->БазоваяЕдиница->attributes()['НаименованиеПолное'];
+			$data['package_name']	= (isset($product->БазоваяЕдиница) && !empty($product->БазоваяЕдиница->attributes()['НаименованиеПолное'])) ? $product->БазоваяЕдиница->attributes()['НаименованиеПолное'] : '';
 
 			$this->log("~ТОВАР: '" . $data['name'] . "', GUID: '" . $data['product_guid'] . "'");
 			if ($data['feature_guid']) {

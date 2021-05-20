@@ -209,7 +209,13 @@ curl_close ($ch);<br />
 
 // Лог
 $_['legend_log']										= 'Журнал ошибок';
+//Прочее
+$_['another']                                           = 'Прочее'; 
 
+//Статусы
+$_['entry_stock_statuses']                              = 'Статусы:'; 	
+$_['entry_stock_statuses_pattern']                      = 'Ключевая фраза'; 	
+$_['entry_stock_statuses_code']                         = 'Код'; 	
 // Журнал
 $_['entry_log_level']									= 'Уровень вывода в журнал:';
 $_['text_log_level_0']									= 'Отключено';

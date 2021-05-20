@@ -341,7 +341,7 @@ class ControllerExtensionModuleExchange1c extends Controller {
 	 * update 2018-03-26
 	 * Основная функция
 	 */
-	public function index($refresh = false) {
+	public function index($refresh = false) {	
 
 		$data['lang'] = $this->load->language('extension/module/exchange1c');
 
@@ -354,9 +354,17 @@ class ControllerExtensionModuleExchange1c extends Controller {
 		$data['text_info'] = "";
 		$this->load->model('extension/exchange1c');
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
-
 			// При нажатии кнопки сохранить
 			$settings = $this->request->post;
+			/* foreach ($settings['exchange1c_stock_statuses'] as $sub_key => $sub_value) {
+				print($sub_value['pattern'] . '>');
+				print($sub_value['code']);
+				echo "<br>";
+				//$statuses['/'.$sub_value['pattern'].'/iu'] = $sub_value['code'];
+			}
+			return; */
+			/* print_r($settings);
+			return; */
 			$settings['exchange1c_version'] = $this->config->get('exchange1c_version');
 			$settings['exchange_date'] = $this->config->get('exchange_date');
 			$settings['exchange_statistics'] = $this->config->get('exchange_statistics');
@@ -921,7 +929,7 @@ class ControllerExtensionModuleExchange1c extends Controller {
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
-
+		
 		$this->response->setOutput($this->load->view('extension/module/exchange1c', $data));
 
 	} // index()
