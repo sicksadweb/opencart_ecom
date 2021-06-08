@@ -880,7 +880,7 @@ class ModelExtensionExchange1c extends Model {
 	 * ver 2
 	 * update 2017-06-12
 	 * Получает все категории продукта в массив
-	 * первым в массиме будет главная категория
+	 * первым в массиве будет главная категория
 	 */
     private function getProductCategories($product_id, $limit = 0) {
 
@@ -2044,7 +2044,19 @@ class ModelExtensionExchange1c extends Model {
 			$this->addProductCategories($product_id, $data['categories']);
 			if ($this->ERROR) return false;
 
-		}
+			//Статус на складе при наличии в категориях товара соответствующей фразы
+			$categoriesString = $this->getProductCategoriesString($product_id);
+						
+			foreach ($statuses as $pattern => $code) {
+				if (preg_match($pattern, $categoriesString)) {
+						$stock_status_id = (int)$code;
+				}						
+			}
+			
+			if (isset($stock_status_id)){
+				$this->db->query("UPDATE ". DB_PREFIX ."product SET stock_status_id = '". $stock_status_id ."'");
+			}
+		}	
 
 		// Картинки
 		if (!empty($data['images'])) {
@@ -2404,6 +2416,19 @@ class ModelExtensionExchange1c extends Model {
 			}
 			$this->updateProductCategories($product_id, $data['categories']);
 			if ($this->ERROR) return false;
+
+			//Статус на складе при наличии в категориях товара соответствующей фразы
+			$categoriesString = $this->getProductCategoriesString($product_id);
+						
+			foreach ($statuses as $pattern => $code) {
+				if (preg_match($pattern, $categoriesString)) {
+						$stock_status_id = (int)$code;
+				}						
+			}
+			
+			if (isset($stock_status_id)){
+				$this->db->query("UPDATE ". DB_PREFIX ."product SET stock_status_id = '". $stock_status_id ."'");
+			}
 		}
 
 		// ДОПОЛНИТЕЛЬНЫЕ КАРТИНКИ
