@@ -1,5 +1,7 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+
 class ModelExtensionExchange1c extends Model {
 
 	// VARS
@@ -10,6 +12,7 @@ class ModelExtensionExchange1c extends Model {
 	private $TAB_FIELDS		= array();
 	private $ERROR			= 0;
 	private $XML_VER		= "";
+	private $ADDED_PRODUCTS = array();
 
 	// Классификатор
 	private $TAXES			= array();
@@ -2093,6 +2096,11 @@ class ModelExtensionExchange1c extends Model {
 							volume = 1,
 							package_name_id = '". (int)$package_id->row['package_id'] . "'");
 		}
+				
+		$this->ADDED_PRODUCTS[] = [
+							'id'   => $product_id,
+							'name' => $data['name']
+							];
 
 
 		// Очистим кэш товаров
@@ -4773,6 +4781,46 @@ class ModelExtensionExchange1c extends Model {
 			unset($data);
 
 		} // foreach
+
+		require_once DIR_STORAGE. 'phpmailer/PHPMailer.php';
+		require_once DIR_STORAGE. 'phpmailer/SMTP.php';
+		require_once DIR_STORAGE. 'phpmailer/Exception.php';
+		
+		//Отправка данных на почту администратора
+		if($this->ADDED_PRODUCTS) {
+			$message = "";
+			foreach ($this->ADDED_PRODUCTS as $key => $product) {
+				$message .= 'ID: ' .   $product['id'] . '<br>' . 
+							'Name: ' . $product['name'] . '<br><br>';
+			}
+
+			$mail = new PHPMailer;
+
+			$mail->isSMTP();
+			$mail->Host = $this->config->get('config_mail_smtp_hostname');
+			$mail->SMTPAuth = true;
+			$mail->Username = $this->config->get('config_mail_smtp_username'); // логин от вашей почты
+			$mail->Password = $this->config->get('config_mail_smtp_password'); // пароль от почтового ящика
+			$mail->SMTPSecure = 'ssl';
+			$mail->Port = $this->config->get('config_mail_smtp_port');
+
+			$mail->CharSet = 'UTF-8';
+			$mail->From = $this->config->get('config_mail_smtp_username'); // адрес почты, с которой идет отправка
+			$mail->FromName = $this->config->get('config_name'); // имя отправителя
+			$mail->addAddress($this->config->get('config_email'));
+
+			$mail->isHTML(true);
+
+			$mail->Subject = 'Товары, добавленные из 1С';
+			$mail->Body = $message;
+
+			if($mail->send()) {
+				$this->log("Данные на почту отправлены");
+			}else{
+				$this->log("Данные на почту не отправлены, ошибка: " . $mail->ErrorInfo);
+			}			
+		}
+
 
 		// После загрузки каталога проверим на пустые папки и отключим их
 		if ($this->config->get('exchange1c_category_empty_disable') == 1) {
