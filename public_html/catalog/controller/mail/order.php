@@ -44,7 +44,7 @@ class ControllerMailOrder extends Controller {
 	public function add($order_info, $order_status_id, $comment, $notify) {
 		// Check for any downloadable products
 		$download_status = false;
-
+		
 		$order_products = $this->model_checkout_order->getOrderProducts($order_info['order_id']);
 		
 		foreach ($order_products as $order_product) {
@@ -253,10 +253,10 @@ class ControllerMailOrder extends Controller {
 	
 		$this->load->model('setting/setting');
 		
-		$from = $this->model_setting_setting->getSettingValue('config_email', $order_info['store_id']);
+		$from = $this->model_setting_setting->getSettingValue('config_mail_smtp_username', $order_info['store_id']);
 		
 		if (!$from) {
-			$from = $this->config->get('config_email');
+			$from = $this->config->get('config_mail_smtp_username');
 		}
 		
 		$mail = new Mail($this->config->get('config_mail_engine'));
@@ -267,7 +267,7 @@ class ControllerMailOrder extends Controller {
 		$mail->smtp_port = $this->config->get('config_mail_smtp_port');
 		$mail->smtp_timeout = $this->config->get('config_mail_smtp_timeout');
 
-		$mail->setTo($order_info['email']);
+		$mail->setTo((!empty($order_info['email'])) ? $order_info['email'] : $this->config->get('config_email'));
 		$mail->setFrom($from);
 		$mail->setSender(html_entity_decode($order_info['store_name'], ENT_QUOTES, 'UTF-8'));
 		$mail->setSubject(html_entity_decode(sprintf($language->get('text_subject'), $order_info['store_name'], $order_info['order_id']), ENT_QUOTES, 'UTF-8'));
