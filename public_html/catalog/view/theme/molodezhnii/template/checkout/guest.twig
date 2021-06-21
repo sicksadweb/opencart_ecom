@@ -317,7 +317,7 @@
     </fieldset>
     {{ captcha }} </div>
 </div>
-{% if shipping_required %}
+{# {% if shipping_required %}
 <div class="checkbox">
   <label> {% if shipping_address %}
     <input type="checkbox" name="shipping_address" value="1" checked="checked" />
@@ -326,7 +326,7 @@
     {% endif %}
     {{ entry_shipping }}</label>
 </div>
-{% endif %}
+{% endif %} #}
 <div class="buttons">
   <div class="pull-right">
     <input type="button" value="{{ button_continue }}" id="button-guest" data-loading-text="{{ text_loading }}" class="btn btn-primary" />

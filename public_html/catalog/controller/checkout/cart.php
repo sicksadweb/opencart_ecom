@@ -272,7 +272,7 @@ class ControllerCheckoutCart extends Controller {
 				$this->document->addScript('http://cdn.klarna.com/public/kitt/toc/v1.0/js/klarna.terms.min.js');
 			}			
 
-			$data['text_checkout_option'] = sprintf($this->language->get('text_checkout_option'), 1);
+			//$data['text_checkout_option'] = sprintf($this->language->get('text_checkout_option'), 1);
 			$data['text_checkout_account'] = sprintf($this->language->get('text_checkout_account'), 2);
 			$data['text_checkout_payment_address'] = sprintf($this->language->get('text_checkout_payment_address'), 2);
 			$data['text_checkout_shipping_address'] = sprintf($this->language->get('text_checkout_shipping_address'), 3);
@@ -301,6 +301,7 @@ class ControllerCheckoutCart extends Controller {
 				$data['account'] = '';
 			}
 
+			$data['ref_register'] = $this->url->link('account/login');
 			$data['shipping_required'] = $this->cart->hasShipping();
 
 			$data['column_left'] = $this->load->controller('common/column_left');

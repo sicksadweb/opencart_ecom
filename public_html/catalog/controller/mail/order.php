@@ -44,7 +44,7 @@ class ControllerMailOrder extends Controller {
 	public function add($order_info, $order_status_id, $comment, $notify) {
 		// Check for any downloadable products
 		$download_status = false;
-		
+		return;
 		$order_products = $this->model_checkout_order->getOrderProducts($order_info['order_id']);
 		
 		foreach ($order_products as $order_product) {
