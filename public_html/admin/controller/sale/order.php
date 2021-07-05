@@ -1245,6 +1245,12 @@ class ControllerSaleOrder extends Controller {
 				$data['api_token'] = '';
 			}
 
+			if (isset($this->request->get['user_id'])) {
+				
+				$user_id = $this->request->get['user_id'];
+				$this->model_sale_order->setCommentHistory($user_id, $this->request->get['order_id']);
+			}
+
 			$data['header'] = $this->load->controller('common/header');
 			$data['column_left'] = $this->load->controller('common/column_left');
 			$data['footer'] = $this->load->controller('common/footer');

@@ -165,11 +165,9 @@ class ControllerCatalogProductExchange extends Controller {
 					continue;	
 				}
 				
-				//For testing
-				//if ($line_number_in_exel == 30) break;
-				$line_number_in_exel++;
-
-				//if ($line_number_in_exel == 30) break;
+				//For testing/debug
+				/* if ($line_number_in_exel == 30) break;
+				$line_number_in_exel++; */
 
 				$product = $this->model_catalog_product->getProductBySku($r[$column_of_sku]);
 				

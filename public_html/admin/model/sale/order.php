@@ -482,4 +482,15 @@ class ModelSaleOrder extends Model {
 
 		return $query->row['total'];
 	}
+
+	//Who and when has looked the order
+	public function setCommentHistory($user_id, $order_id) {
+
+		$old_data = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_history WHERE order_id = '". (int)$order_id ."'"); 
+		$data_string = $old_data->row['comment'] . PHP_EOL . "Просмотрен пользователем с id: $user_id в " . date('Y-m-d h:i:s', time()); 
+		
+		$this->db->query("UPDATE " . DB_PREFIX . "order_history 
+		SET comment = '" . $data_string . "' 
+		WHERE order_id = '". (int)$order_id ."'");
+	}
 }

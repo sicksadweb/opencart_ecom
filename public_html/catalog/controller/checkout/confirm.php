@@ -134,7 +134,7 @@ class ControllerCheckoutConfirm extends Controller {
 				$order_data['customer_group_id'] = $this->session->data['guest']['customer_group_id'];
 				$order_data['firstname'] = $this->session->data['guest']['firstname'];
 				$order_data['lastname'] = $this->session->data['guest']['lastname'];
-				$order_data['email'] = $this->session->data['guest']['email'];
+				if (isset($this->session->data['guest']['email'])) $order_data['email'] = $this->session->data['guest']['email'];
 				$order_data['telephone'] = $this->session->data['guest']['telephone'];
 				$order_data['custom_field'] = $this->session->data['guest']['custom_field'];
 			}
@@ -260,7 +260,7 @@ class ControllerCheckoutConfirm extends Controller {
 				}
 			}
 
-			$order_data['comment'] = $this->session->data['comment'];
+			//$order_data['comment'] = $this->session->data['comment'];
 			$order_data['total'] = $total_data['total'];
 
 			if (isset($this->request->cookie['tracking'])) {
