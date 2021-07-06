@@ -39,6 +39,7 @@
             <li><a href="#tab-reward" data-toggle="tab">{{ tab_reward }}</a></li>
             <li><a href="#tab-seo" data-toggle="tab">{{ tab_seo }}</a></li>
             <li><a href="#tab-design" data-toggle="tab">{{ tab_design }}</a></li>
+            <li><a href="#tab-existence" data-toggle="tab">{{ tab_existence }}</a></li>
           </ul>
           <div class="tab-content">
             <div class="tab-pane active" id="tab-general">
@@ -1212,7 +1213,7 @@
             </div>
 
 
-			<div class="tab-pane" id="tab-design">
+			      <div class="tab-pane" id="tab-design">
               <div class="table-responsive">
                 <table class="table table-bordered table-hover">
                   <thead>
@@ -1253,6 +1254,24 @@
                 </table>
               </div>
             </div>
+
+            <div class="tab-pane" id="tab-existence">
+              <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                  <thead>
+                    <tr>
+                      <td class="text-left">{{ column_location }}</td>
+                      <td class="text-left">{{ column_quantity }}</td>
+                      <td class="text-left">{{ column_price }}</td>
+                      <td class="text-left">{{ column_status }}</td>
+                    </tr>
+                  </thead>
+                  <tbody>                  
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
           </div>
         </form>
       </div>

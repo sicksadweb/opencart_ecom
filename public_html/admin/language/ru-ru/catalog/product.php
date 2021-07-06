@@ -43,6 +43,7 @@ $_['column_status']          = 'Статус';
 $_['column_noindex']         = 'Индекс';
 $_['column_action']          = 'Действие';
 $_['column_store']           = 'Магазин/склад';
+$_['column_location']        = 'Местоположение';
 
 // Entry
 $_['entry_name']             = 'Название товара';
