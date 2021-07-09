@@ -24,11 +24,10 @@ class ControllerCatalogProduct extends Controller {
 		$this->load->model('catalog/product');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
+			
 			$this->model_catalog_product->addProduct($this->request->post);
-
-			/* print_r($this->request->post);
+			/* print_r($this->request->post['location']);
 			return; */
-
 			$this->session->data['success'] = $this->language->get('text_success');
 			
 			$url = '';
@@ -120,6 +119,11 @@ class ControllerCatalogProduct extends Controller {
 		$this->load->model('catalog/product');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
+			
+			/* echo '<pre>';
+				print_r($this->request->post);  		
+			echo '</pre>';
+			return; */
 			$this->model_catalog_product->editProduct($this->request->get['product_id'], $this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
@@ -1012,6 +1016,7 @@ class ControllerCatalogProduct extends Controller {
 		if (isset($this->request->get['product_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
 			$product_info = $this->model_catalog_product->getProduct($this->request->get['product_id']);
 
+			$data['product_locations'] = $this->model_catalog_product->getProductLocationsData($this->request->get['product_id']);
 			//Seo URL patterns
 			$data['description_pattern'] = $product_info['pattern'];
 
@@ -1113,12 +1118,12 @@ class ControllerCatalogProduct extends Controller {
 			$data['mpn'] = '';
 		}
 
-		if (isset($this->request->post['location'])) {
-			$data['location'] = $this->request->post['location'];
+		if (isset($this->request->post['data_location'])) {
+			$data['data_location'] = $this->request->post['data_location'];
 		} elseif (!empty($product_info)) {
-			$data['location'] = $product_info['location'];
+			$data['data_location'] = $product_info['location'];
 		} else {
-			$data['location'] = '';
+			$data['data_location'] = '';
 		}
 
 		$this->load->model('setting/store');
@@ -1693,6 +1698,17 @@ class ControllerCatalogProduct extends Controller {
 			$data['product_layout'] = $this->model_catalog_product->getProductLayouts($this->request->get['product_id']);
 		} else {
 			$data['product_layout'] = array();
+		}
+		
+		$this->load->model('localisation/location');
+		
+		$locations = $this->model_localisation_location->getLocations();
+
+		foreach ($locations as $location) {
+			$data['locations'][] = array(
+				'id' 		  => $location['location_id'],
+				'name'     	  => $location['name']
+			);
 		}	
 
 		$this->load->model('design/layout');
