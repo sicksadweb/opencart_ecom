@@ -170,17 +170,21 @@ class ControllerProductOffers extends Controller {
 					'filter_offers_id'  => $result['offers_id'],
                     'filter_sub_category' => true
                 );
+				$product_total = $this->model_catalog_offer->getTotalProducts($filter_data);
 				
-                $data['categories'][] = array(
-					'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_offer->getTotalProducts($filter_data) . ')' : ''),
-                    'href' => $this->url->link('product/offers', 'path=' . $this->request->get['path'] . '_' . $result['offers_id'] . $url)
-                );
+				if ($product_total > 0) {
+					
+					$data['categories'][] = array(
+						'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $product_total . ')' : ''),
+						'href' => $this->url->link('product/offers', 'path=' . $this->request->get['path'] . '_' . $result['offers_id'] . $url)
+					);
+				}
             }
 			
 			$data['products'] = array();
 			
 			$filter_data = array(
-				'filter_offers_id' => $offers_id,
+				'filter_offers_id' 	 => $offers_id,
 				'filter_filter'      => $filter,
 				'sort'               => $sort,
 				'order'              => $order,
@@ -354,6 +358,7 @@ class ControllerProductOffers extends Controller {
 			$data['limit'] = $limit;
 
 			$data['continue'] = $this->url->link('common/home');
+			$data['catalog_link'] = $this->url->link('product/offers');
 
 			$data['column_left'] = $this->load->controller('common/column_left');
 			$data['column_right'] = $this->load->controller('common/column_right');
@@ -409,10 +414,15 @@ class ControllerProductOffers extends Controller {
 					'filter_sub_category' => true
 				);
 
-				$data['categories'][] = array(
-					'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_offer->getTotalProducts($filter_data) . ')' : ''),
-					'href' => $this->url->link('product/offers', 'path=' . $result['offers_id'] . $url)
-				);
+				$product_total = $this->model_catalog_offer->getTotalProducts($filter_data);
+				
+				if ($product_total > 0) {
+
+					$data['categories'][] = array(
+						'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $product_total . ')' : ''),
+						'href' => $this->url->link('product/offers', 'path=' . $result['offers_id'] . $url)
+					);
+				}
 			}
 
 			$data['products'] = array();
@@ -625,6 +635,7 @@ class ControllerProductOffers extends Controller {
 			$data['limit'] = $limit;
 
 			$data['continue'] = $this->url->link('common/home');
+			$data['catalog_link'] = $this->url->link('product/offers');
 
 			$data['column_left'] = $this->load->controller('common/column_left');
 			$data['column_right'] = $this->load->controller('common/column_right');

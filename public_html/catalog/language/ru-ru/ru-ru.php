@@ -59,6 +59,7 @@ $_['button_quote']          = 'Узнать цены';
 $_['button_list']           = 'Список';
 $_['button_grid']           = 'Сетка';
 $_['button_map']            = 'Посмотреть карту';
+$_['button_catalog']        = 'Перейти в каталог';
 
 // Error
 $_['error_exception']       = 'Ошибка кода(%s): %s в %s на строке %s';

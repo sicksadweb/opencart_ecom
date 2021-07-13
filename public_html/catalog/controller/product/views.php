@@ -176,19 +176,24 @@ class ControllerProductviews extends Controller {
 					'filter_sub_category' => true
 				);
 				
-				if ($result['image']) {
-					$image = $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
-				} else {
-					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
+				$product_total = $this->model_catalog_view->getTotalProducts($filter_data);
+				
+				if ($product_total > 0) {
+
+					if ($result['image']) {
+						$image = $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
+					} else {
+						$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
+					}
+
+
+					$data['categories'][] = array(
+						'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $product_total . ')' : ''),
+						'href' => $this->url->link('product/views', 'path=' . $result['views_id'] . $url),
+						'offers_id' => $result['offers_id'],
+						'thumb'    => $image,
+					);
 				}
-
-
-				$data['categories'][] = array(
-					'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_view->getTotalProducts($filter_data) . ')' : ''),
-					'href' => $this->url->link('product/views', 'path=' . $result['views_id'] . $url),
-					'offers_id' => $result['offers_id'],
-					'thumb'    => $image,
-				);
 			}
 
 			$data['products'] = array();
@@ -382,6 +387,7 @@ class ControllerProductviews extends Controller {
 			$data['limit'] = $limit;
 
 			$data['continue'] = $this->url->link('common/home');
+			$data['catalog_link'] = $this->url->link('product/views');
 
 			$data['column_left'] = $this->load->controller('common/column_left');
 			$data['column_right'] = $this->load->controller('common/column_right');
@@ -441,20 +447,25 @@ class ControllerProductviews extends Controller {
 					'filter_sub_category' => true
 				);
 
-				if ($result['image']) {
-					$image = $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
-				} else {
-					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
+				$product_total = $this->model_catalog_view->getTotalProducts($filter_data);
+				
+				if ($product_total > 0) {
+
+					if ($result['image']) {
+						$image = $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
+					} else {
+						$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
+					}
+
+
+					$data['categories'][] = array(
+						'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_view->getTotalProducts($filter_data) . ')' : ''),
+						'href' => $this->url->link('product/views', 'path=' . $result['views_id'] . $url),
+						'thumb'    => $image,
+						'href_offers' => $this->url->link('product/offers', 'path=' . $result['offers_id'] . $url),
+						'offers_id' => $result['offers_id'],
+					);
 				}
-
-
-				$data['categories'][] = array(
-					'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_view->getTotalProducts($filter_data) . ')' : ''),
-					'href' => $this->url->link('product/views', 'path=' . $result['views_id'] . $url),
-					'thumb'    => $image,
-					'href_offers' => $this->url->link('product/offers', 'path=' . $result['offers_id'] . $url),
-					'offers_id' => $result['offers_id'],
-				);
 			}
 
 	//		$data['products'] = array();
@@ -673,6 +684,7 @@ class ControllerProductviews extends Controller {
 			$data['limit'] = $limit;
 
 			$data['continue'] = $this->url->link('common/home');
+			$data['catalog_link'] = $this->url->link('product/views');
 
 			$data['column_left'] = $this->load->controller('common/column_left');
 			$data['column_right'] = $this->load->controller('common/column_right');
