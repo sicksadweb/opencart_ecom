@@ -20,7 +20,7 @@ $_['column_address']   = 'Адрес';
 $_['column_action']    = 'Действие';
 
 // Entry
-$_['entry_name']       = 'Название магазина';
+$_['entry_name']       = 'Название магазина/склада';
 $_['entry_address']    = 'Адрес';
 $_['entry_geocode']    = 'Геокод';
 $_['entry_telephone']  = 'Телефон';
@@ -28,6 +28,16 @@ $_['entry_fax']        = 'Факс';
 $_['entry_image']      = 'Изображение';
 $_['entry_open']       = 'Режим работы';
 $_['entry_comment']    = 'Комментарий';
+$_['entry_description']= 'Описание';
+$_['entry_additional_image'] = 'Дополнительные изображения';
+$_['entry_sort_order'] = 'Порядок сортировки';
+$_['entry_alt']        = 'ALT изображения';
+$_['entry_status']     = 'Статус';
+$_['entry_store']      = 'Магазин';
+$_['entry_storage']    = 'Склад';
+
+
+
 
 // Help
 $_['help_geocode']     = 'Пожалуйста, укажите геокод своего магазина вручную.';

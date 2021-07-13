@@ -21,7 +21,7 @@
 
     {% if column_left and column_right %}
     {% set class = 'col-sm-6' %}
-    {% elseif column_left or column_right or    filters  %}
+    {% elseif column_left or column_right or filters %}
     {% set class = 'col-sm-9' %}
     {% else %}
     {% set class = 'col-sm-12' %}
@@ -118,7 +118,7 @@
       {% if not categories and not products %}
       <p>{{ text_empty }}</p>
       <div class="buttons">
-        <div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
+        <div class="pull-right"><a href="{{ catalog_link }}" class="btn btn-primary">{{ button_catalog }}</a></div>
       </div>
       {% endif %}
       {{ content_bottom }}</div>

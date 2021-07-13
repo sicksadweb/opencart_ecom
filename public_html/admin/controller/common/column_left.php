@@ -22,19 +22,75 @@ class ControllerCommonColumnLeft extends Controller {
 			// Catalog
 			$catalog = array();
 			
-			if ($this->user->hasPermission('access', 'catalog/category')) {
+			//****************************************************************************
+			
+
+			//****************************************************************************
+			/* if ($this->user->hasPermission('access', 'catalog/category')) {
 				$catalog[] = array(
 					'name'	   => $this->language->get('text_category'),
 					'href'     => $this->url->link('catalog/category', 'user_token=' . $this->session->data['user_token'], true),
 					'children' => array()		
 				);
-			}
-			
+			} */
+			$products = array();
+
 			if ($this->user->hasPermission('access', 'catalog/product')) {
-				$catalog[] = array(
-					'name'	   => $this->language->get('text_product'),
+				$products[] = array(
+					'name'	   => $this->language->get('text_product_from_1c'),
 					'href'     => $this->url->link('catalog/product', 'user_token=' . $this->session->data['user_token'], true),
 					'children' => array()		
+				);
+			}
+
+			if ($this->user->hasPermission('access', 'catalog/product_offer')) {
+				$products[] = array(
+					'name'	   => $this->language->get('text_product_offer'),
+					'href'     => $this->url->link('catalog/product_offer', 'user_token=' . $this->session->data['user_token'], true),
+					'children' => array()		
+				);
+			}
+
+			if ($this->user->hasPermission('access', 'catalog/product_view')) {
+				$products[] = array(
+					'name'	   => $this->language->get('text_product_view'),
+					'href'     => $this->url->link('catalog/product_view', 'user_token=' . $this->session->data['user_token'], true),
+					'children' => array()		
+				);
+			}
+
+			if ($products) {
+				$catalog[] = array(
+					'name'	   => $this->language->get('text_product'),
+					'href'     => '',
+					'children' => $products		
+				);
+			}
+
+			// Categories
+			$category = array();
+			
+			if ($this->user->hasPermission('access', 'catalog/category_offers')) {
+				$category[] = array(
+					'name'     => $this->language->get('text_offers_category'),
+					'href'     => $this->url->link('catalog/category_offers', 'user_token=' . $this->session->data['user_token'], true),
+					'children' => array()	
+				);
+			}
+			
+			if ($this->user->hasPermission('access', 'catalog/category_views')) {
+				$category[] = array(
+					'name'	   => $this->language->get('text_views_category'),
+					'href'     => $this->url->link('catalog/category_views', 'user_token=' . $this->session->data['user_token'], true),
+					'children' => array()		
+				);
+			}
+			
+			if ($category) {
+				$catalog[] = array(
+					'name'	   => $this->language->get('text_category'),
+					'href'     => '',
+					'children' => $category
 				);
 			}
 			
@@ -52,8 +108,8 @@ class ControllerCommonColumnLeft extends Controller {
 					'href'     => $this->url->link('catalog/filter', 'user_token=' . $this->session->data['user_token'], true),
 					'children' => array()		
 				);
-			}
-			
+			}			
+
 			// Attributes
 			$attribute = array();
 			
@@ -456,6 +512,14 @@ class ControllerCommonColumnLeft extends Controller {
 					'children' => array()		
 				);	
 			}
+
+			if ($this->user->hasPermission('access', 'user/employee')) {
+				$user[] = array(
+					'name'	   => $this->language->get('text_users'),
+					'href'     => $this->url->link('user/user', 'user_token=' . $this->session->data['user_token'], true),
+					'children' => array()		
+				);	
+			}
 			
 			if ($this->user->hasPermission('access', 'user/user_permission')) {	
 				$user[] = array(
@@ -660,6 +724,14 @@ class ControllerCommonColumnLeft extends Controller {
 					'children' => array()		
 				);
 			}
+
+			if ($this->user->hasPermission('access', 'tool/report_filters')) {
+				$maintenance[] = array(
+					'name'	   => $this->language->get('text_report_filters'),
+					'href'     => $this->url->link('tool/report_filters', 'user_token=' . $this->session->data['user_token'], true),
+					'children' => array()		
+				);	
+			}
 		
 			if ($maintenance) {
 				$system[] = array(
@@ -746,7 +818,7 @@ class ControllerCommonColumnLeft extends Controller {
 			} else {
 				$data['other_status'] = 0;
 			}
-			
+
 			return $this->load->view('common/column_left', $data);
 		}
 	}

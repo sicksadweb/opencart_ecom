@@ -1,7 +1,12 @@
 <?php
 class ModelCatalogOffers extends Model {
 	public function getCategory($offers_id) {
-		$query = $this->db->query("SELECT DISTINCT * FROM " . DB_PREFIX . "category_offers c LEFT JOIN " . DB_PREFIX . "category_offers_description cd ON (c.offers_id = cd.offers_id) LEFT JOIN " . DB_PREFIX . "category_offers_to_store c2s ON (c.offers_id = c2s.offers_id) WHERE c.offers_id = '" . (int)$offers_id . "' AND cd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND c2s.store_id = '" . (int)$this->config->get('config_store_id') . "' AND c.status = '1'");
+		$query = $this->db->query("SELECT DISTINCT * FROM " . DB_PREFIX . "category_offers c 
+		
+		LEFT JOIN " . DB_PREFIX . "category_offers_description cd ON (c.offers_id = cd.offers_id) 
+		LEFT JOIN " . DB_PREFIX . "category_offers_to_store c2s ON (c.offers_id = c2s.offers_id) 
+		
+		WHERE c.offers_id = '" . (int)$offers_id . "' AND cd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND c2s.store_id = '" . (int)$this->config->get('config_store_id') . "' AND c.status = '1'");
 
 		return $query->row;
 	}
@@ -29,7 +34,17 @@ class ModelCatalogOffers extends Model {
 	}
 
 	public function getCategories($parent_id = 0) {
-		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "category_offers c LEFT JOIN " . DB_PREFIX . "category_offers_description cd ON (c.offers_id = cd.offers_id) LEFT JOIN " . DB_PREFIX . "category_offers_to_store c2s ON (c.offers_id = c2s.offers_id) WHERE c.parent_id = '" . (int)$parent_id . "' AND cd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND c2s.store_id = '" . (int)$this->config->get('config_store_id') . "'  AND c.status = '1' ORDER BY c.sort_order, LCASE(cd.name)");
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "category_offers c 
+		
+		LEFT JOIN " . DB_PREFIX . "category_offers_description cd ON (c.offers_id = cd.offers_id) 
+		LEFT JOIN " . DB_PREFIX . "category_offers_to_store c2s ON (c.offers_id = c2s.offers_id) 
+		
+		WHERE c.parent_id = '" . (int)$parent_id . "' 
+		AND cd.language_id = '" . (int)$this->config->get('config_language_id') . "' 
+		AND c2s.store_id = '" . (int)$this->config->get('config_store_id') . "'  
+		AND c.status = '1' 
+		
+		ORDER BY c.sort_order, LCASE(cd.name)");
 
 		return $query->rows;
 	}
@@ -37,17 +52,21 @@ class ModelCatalogOffers extends Model {
 	public function getCategoryFilters($offers_id) {
 		$implode = array();
 
-		$query = $this->db->query("
-		
-		SELECT * FROM " . DB_PREFIX . "filter f
 
-		LEFT JOIN " . DB_PREFIX . "offer_filter  of ON (f.filter_id =of.filter_id)
-		LEFT JOIN " . DB_PREFIX . "offer_to_category  o2c ON (o2c.offer_id =of.offer_id)
-		WHERE o2c.category_id ='" . (int)$offers_id . "'
+		/* $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "filter f 
 		
-		GROUP BY f.filter_id
+			LEFT JOIN " . DB_PREFIX . "offer_filter of ON (f.filter_id = of.filter_id) 
+			LEFT JOIN " . DB_PREFIX . "offer_to_category o2c ON (o2c.offer_id = of.offer_id) 
+			
+			WHERE o2c.category_id = '" . (int)$offers_id . "' 
+			GROUP BY f.filter_id"); */
+
+		$query = $this->db->query("SELECT * FROM ckf_filter 
 		
-		");
+		LEFT JOIN ckf_offer_filter ON (ckf_filter.filter_id = ckf_offer_filter.filter_id) 
+		LEFT JOIN ckf_offer_to_category ON (ckf_offer_to_category.offer_id = ckf_offer_filter.offer_id) 
+		
+		WHERE ckf_offer_to_category.category_id = '" . (int)$offers_id . "' GROUP BY ckf_filter.filter_id;");
 
 		foreach ($query->rows as $result) {
 			$implode[] = (int)$result['filter_id'];
@@ -116,5 +135,12 @@ class ModelCatalogOffers extends Model {
 		$query = $this->db->query("SELECT COUNT(*) AS total FROM " . DB_PREFIX . "category_offers c LEFT JOIN " . DB_PREFIX . "category_offers_to_store c2s ON (c.offers_id = c2s.offers_id) WHERE c.parent_id = '" . (int)$parent_id . "' AND c2s.store_id = '" . (int)$this->config->get('config_store_id') . "' AND c.status = '1'");
 
 		return $query->row['total'];
+	}
+
+	public function getAllCategories() {
+
+		$query = $this->db->query("SELECT c.offers_id, cd.name FROM ". DB_PREFIX ."category_offers c LEFT JOIN ". DB_PREFIX ."category_offers_description cd ON (c.offers_id = cd.offers_id)");
+				
+		return $query->rows;
 	}
 }

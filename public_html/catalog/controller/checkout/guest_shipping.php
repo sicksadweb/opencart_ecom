@@ -113,12 +113,16 @@ class ControllerCheckoutGuestShipping extends Controller {
 				$json['error']['lastname'] = $this->language->get('error_lastname');
 			}
 
-			if ((utf8_strlen(trim($this->request->post['address_1'])) < 3) || (utf8_strlen(trim($this->request->post['address_1'])) > 128)) {
-				$json['error']['address_1'] = $this->language->get('error_address_1');
+			if (!empty($this->request->post['address_1'])) {
+				if ((utf8_strlen(trim($this->request->post['address_1'])) < 3) || (utf8_strlen(trim($this->request->post['address_1'])) > 128)) {
+					$json['error']['address_1'] = $this->language->get('error_address_1');
+				}
 			}
 
-			if ((utf8_strlen(trim($this->request->post['city'])) < 2) || (utf8_strlen(trim($this->request->post['city'])) > 128)) {
-				$json['error']['city'] = $this->language->get('error_city');
+			if (!empty($this->request->post['city'])) {
+				if ((utf8_strlen(trim($this->request->post['city'])) < 2) || (utf8_strlen(trim($this->request->post['city'])) > 128)) {
+					$json['error']['city'] = $this->language->get('error_city');
+				}
 			}
 
 			$this->load->model('localisation/country');
@@ -133,8 +137,10 @@ class ControllerCheckoutGuestShipping extends Controller {
 				$json['error']['country'] = $this->language->get('error_country');
 			}
 
-			if (!isset($this->request->post['zone_id']) || $this->request->post['zone_id'] == '' || !is_numeric($this->request->post['zone_id'])) {
-				$json['error']['zone'] = $this->language->get('error_zone');
+			if (!empty($this->request->post['zone_id'])) {
+				if (!isset($this->request->post['zone_id']) || $this->request->post['zone_id'] == '' || !is_numeric($this->request->post['zone_id'])) {
+					$json['error']['zone'] = $this->language->get('error_zone');
+				}
 			}
 
 			// Custom field validation

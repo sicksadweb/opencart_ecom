@@ -10,6 +10,7 @@ class ControllerExtensionModuleFilterOffers extends Controller {
 		$category_id = end($parts);
 
 		$this->load->model('catalog/offers');
+		$this->load->model('catalog/offer');
 
 		$category_info = $this->model_catalog_offers->getCategory($category_id);
 
@@ -69,7 +70,7 @@ class ControllerExtensionModuleFilterOffers extends Controller {
 				}
 
 				return $this->load->view('extension/module/filter_offers', $data);
-			}
+			}			
 		}
 	}
 }

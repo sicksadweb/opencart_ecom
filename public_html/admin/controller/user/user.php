@@ -20,7 +20,21 @@ class ControllerUserUser extends Controller {
 		$this->load->model('user/user');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
-			$this->model_user_user->addUser($this->request->post);
+
+			//print_r($this->request->post['phone_data']);
+			/* foreach ($this->request->post['phone_data'] as $key => $value)
+			{
+				print($value['number']); print('<br>');
+			} */
+			/* print_r($this->request->post);
+			return;  */
+
+			$user_id = $this->model_user_user->addUser($this->request->post);
+
+			if (isset($this->request->post['phone_data'])) {
+
+				$this->model_user_user->addContacts($user_id, $this->request->post);
+			}
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
@@ -72,7 +86,7 @@ class ControllerUserUser extends Controller {
 
 			$this->response->redirect($this->url->link('user/user', 'user_token=' . $this->session->data['user_token'] . $url, true));
 		}
-
+	
 		$this->getForm();
 	}
 
@@ -328,6 +342,19 @@ class ControllerUserUser extends Controller {
 
 		if (isset($this->request->get['user_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
 			$user_info = $this->model_user_user->getUser($this->request->get['user_id']);
+			$user_contacts_info = $this->model_user_user->getContacts($this->request->get['user_id']);
+
+			if (!empty($user_contacts_info)) {
+
+				foreach($user_contacts_info as $key => $value) {
+					
+					$data['user_contacts'][] = array(
+						'phone_number' => $value['phone_number'],
+						'viber' 	   => $value['viber'],
+						'whatsapp'	   => $value['whatsapp']
+					);
+				}
+			}
 		}
 
 		if (isset($this->request->post['username'])) {
@@ -336,6 +363,14 @@ class ControllerUserUser extends Controller {
 			$data['username'] = $user_info['username'];
 		} else {
 			$data['username'] = '';
+		}
+
+		if (isset($this->request->post['store_id'])) {
+			$data['store_id'] = $this->request->post['store_id'];
+		} elseif (!empty($user_info)) {
+			$data['store_id'] = $user_info['store_id'];
+		} else {
+			$data['store_id'] = '';
 		}
 
 		if (isset($this->request->post['user_group_id'])) {
@@ -347,8 +382,27 @@ class ControllerUserUser extends Controller {
 		}
 
 		$this->load->model('user/user_group');
+		$this->load->model('setting/store');
+		$this->load->model('setting/setting');
+
+		$stores_info = $this->model_setting_setting->getSetting('config', 0);
+
+		$stores[0] = array(
+					'store_id' => 0,
+					'name'     => $stores_info['config_name']
+				);
+		
+		$stores_info = $this->model_setting_store->getStores();
+		foreach ($stores_info as $key => $value) {
+			
+			$stores[] = array(
+				'store_id' => $value['store_id'],
+				'name'     => $value['name']
+			);
+		}
 
 		$data['user_groups'] = $this->model_user_user_group->getUserGroups();
+		$data['stores'] 	 = $stores;
 
 		if (isset($this->request->post['password'])) {
 			$data['password'] = $this->request->post['password'];

@@ -5,4 +5,11 @@ class ModelLocalisationLocation extends Model {
 
 		return $query->row;
 	}
+
+	public function getAdditionalImages() {
+
+		$query = $this->db->query("SELECT image FROM " . DB_PREFIX ."location_image_additional");
+
+		return $query->rows;
+	}
 }

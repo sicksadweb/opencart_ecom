@@ -3,14 +3,23 @@
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
 // Heading
-$_['heading_title']          = 'Товары';
+$_['heading_title']          = 'Products';
+$_['heading_title_offer']    = 'Offer';
+$_['heading_title_view']     = 'View';
 
 // Text
 $_['text_success']           = 'Настройки успешно изменены!';
+$_['text_email_success']     = 'Письмо успешно отправлено на Email';
 $_['text_list']              = 'Список товаров';
 $_['text_add']               = 'Добавить';
+$_['text_add_from_excel']    = 'Добавить товары из Excel';
+$_['text_add_the_package']   = 'Добавить упаковку для товаров';
+$_['text_update_configurator']            = 'Обновить данные для конфигуратора';
+$_['text_send_info_about_configurator']   = 'Отправить данные об конфигураторе на Email';
 $_['text_edit']              = 'Редактирование';
 $_['text_filter']            = 'Фильтр';
+$_['text_filters']            = 'Фильтры';
+$_['text_add_filter']        = 'Добавление фильтра';
 $_['text_plus']              = '+';
 $_['text_minus']             = '-';
 $_['text_default']           = 'По умолчанию';
@@ -33,6 +42,8 @@ $_['column_quantity']        = 'Количество';
 $_['column_status']          = 'Статус';
 $_['column_noindex']         = 'Индекс';
 $_['column_action']          = 'Действие';
+$_['column_store']           = 'Магазин/склад';
+$_['column_location']        = 'Местоположение';
 
 // Entry
 $_['entry_name']             = 'Название товара';
@@ -100,8 +111,9 @@ $_['entry_heading']     	 = 'Название';
 $_['entry_min']              = 'От';
 $_['entry_max']              = 'До';
 
-$_['entry_name']              = 'Имя изоброжения';
+//$_['entry_name']             = 'Имя изображения';
 $_['entry_alt']              = 'ALT изоброжения';
+$_['entry_filter']           = 'Наименование фильтра';
 // Help
 $_['help_keyword']           = 'Должно быть уникальным на всю систему, без пробелов и спецсимволов';
 $_['help_sku']               = 'SKU - Код производителя';
@@ -139,3 +151,5 @@ $_['error_meta_h1'] 	     = 'HTML-тег H1 должен содержать от
 $_['error_model']            = 'Код Товара товара должна содержать от 3 до 64 символов!';
 $_['error_keyword']          = 'SEO URL уже используется!';
 $_['error_tab']              = 'Необходимо название таба!';
+$_['error_file_not_found']   = 'Файл не найден';
+$_['error_email']            = 'Письмо не было отправлено';

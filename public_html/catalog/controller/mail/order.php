@@ -253,10 +253,10 @@ class ControllerMailOrder extends Controller {
 	
 		$this->load->model('setting/setting');
 		
-		$from = $this->model_setting_setting->getSettingValue('config_email', $order_info['store_id']);
+		$from = $this->model_setting_setting->getSettingValue('config_mail_smtp_username', $order_info['store_id']);
 		
 		if (!$from) {
-			$from = $this->config->get('config_email');
+			$from = $this->config->get('config_mail_smtp_username');
 		}
 		
 		$mail = new Mail($this->config->get('config_mail_engine'));
@@ -266,13 +266,28 @@ class ControllerMailOrder extends Controller {
 		$mail->smtp_password = html_entity_decode($this->config->get('config_mail_smtp_password'), ENT_QUOTES, 'UTF-8');
 		$mail->smtp_port = $this->config->get('config_mail_smtp_port');
 		$mail->smtp_timeout = $this->config->get('config_mail_smtp_timeout');
-
-		$mail->setTo($order_info['email']);
 		$mail->setFrom($from);
 		$mail->setSender(html_entity_decode($order_info['store_name'], ENT_QUOTES, 'UTF-8'));
 		$mail->setSubject(html_entity_decode(sprintf($language->get('text_subject'), $order_info['store_name'], $order_info['order_id']), ENT_QUOTES, 'UTF-8'));
-		$mail->setHtml($this->load->view('mail/order_add', $data));
-		$mail->send();
+
+		$users = $this->model_checkout_order->getAdministratorsEmails($order_info['store_id']);
+		
+		//Sending email to customer
+		if (!empty($order_info['email'])) {
+
+			$mail->setTo($order_info['email']);			
+			$mail->setHtml($this->load->view('mail/order_add', $data));
+			//$mail->send();
+		}
+		
+		//Sending email to administrators(all)
+		foreach ($users as $key => $user) {
+			
+			$mail->setHtml(null);
+			$mail->setTo($user['email']);
+			$mail->setText($order_info['store_url'] . 'admin/index.php?route=sale/order/info&order_id=' . $order_info['order_id'] . '&user_id=' . $user['user_id']);
+			$mail->send();
+		}
 	}
 	
 	public function edit($order_info, $order_status_id, $comment) {

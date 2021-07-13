@@ -3,7 +3,8 @@
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
 // Heading
-$_['heading_title']          = 'Категории';
+$_['heading_title_views']    = 'Категории views';
+$_['heading_title_offers']   = 'Категории offers';
 
 // Text
 $_['text_success']           = 'Настройки успешно изменены!';
@@ -30,6 +31,8 @@ $_['entry_meta_keyword'] 	 = 'Мета-тег Keywords';
 $_['entry_meta_description'] = 'Мета-тег Description';
 $_['entry_keyword']          = 'SEO URL';
 $_['entry_parent']           = 'Родительская категория';
+$_['entry_parent_offers']    = 'Родительская категория(offers)';
+$_['entry_parent_views']     = 'Родительская категория(views)';
 $_['entry_filter']           = 'Фильтры';
 $_['entry_store']            = 'Магазины';
 $_['entry_image']            = 'Изображение';
@@ -41,6 +44,9 @@ $_['entry_noindex']          = 'Индексация';
 $_['entry_layout']           = 'Изменить макет';
 $_['entry_related_wb']       = 'Рекомендуемые товары:';
 $_['entry_related_article']  = 'Рекомендуемые статьи:';
+$_['entry_offers_dublicate'] = 'Дублировать в offers';
+$_['entry_offers']           = 'Offers_id';
+$_['entry_views']            = 'Views_id';
 
 // Help
 $_['help_filter']            = '(Автозаполнение)';
@@ -49,6 +55,8 @@ $_['help_top']               = 'Показывать в главном меню 
 $_['help_column']            = 'Количество столбцов в выпадающем меню категории (только для главных родительских категорий)';
 $_['help_noindex']           = 'Индексация в поисковых системах Google, Yandex, Bing и других';
 $_['help_related']           = '(Автозаполнение)';
+$_['help_offers']            = 'Продублировать данные в таблицы offers';
+$_['help_views']             = 'Продублировать данные в таблицы views';
 
 // Error
 $_['error_warning']          = 'Внимательно проверьте форму на ошибки!';

@@ -144,7 +144,6 @@ class ModelAccountCustomer extends Model {
 
 		return $query->row;
 	}
-
 	
 	public function getTotalCustomersByEmail($email) {
 		$query = $this->db->query("SELECT COUNT(*) AS total FROM " . DB_PREFIX . "customer WHERE LOWER(email) = '" . $this->db->escape(utf8_strtolower($email)) . "'");
@@ -228,5 +227,12 @@ class ModelAccountCustomer extends Model {
 		$query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "customer_affiliate` WHERE `tracking` = '" . $this->db->escape($tracking) . "'");
 
 		return $query->row;
-	}			
+	}
+	
+	public function isCustomerRegistered($telephone) {
+		$query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "customer` WHERE `telephone` = '" . $telephone . "'");
+
+		if ($query->row) return true;
+		return false;
+	}
 }

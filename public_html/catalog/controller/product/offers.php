@@ -64,7 +64,7 @@ class ControllerProductOffers extends Controller {
 
 		if (isset($this->request->get['path'])) {
 			$url = '';
-
+			
 			if (isset($this->request->get['sort'])) {
 				$url .= '&sort=' . $this->request->get['sort'];
 			}
@@ -80,17 +80,17 @@ class ControllerProductOffers extends Controller {
 			$path = '';
 
 			$parts = explode('_', (string)$this->request->get['path']);
-
 			$offers_id = (int)array_pop($parts);
-
+			
 			foreach ($parts as $path_id) {
+				
 				if (!$path) {
 					$path = (int)$path_id;
 				} else {
 					$path .= '_' . (int)$path_id;
 				}
-
-				$category_info = $this->model_catalog_offers->getCategory($path_id);
+				
+				$category_info = $this->model_catalog_offers->getCategory($path_id);				
 
 				if ($category_info) {
 					$data['breadcrumbs'][] = array(
@@ -103,10 +103,10 @@ class ControllerProductOffers extends Controller {
 			$offers_id = 0;
 		}
 
-		$category_info = $this->model_catalog_offers->getCategory($offers_id);
+		$category_info = $this->model_catalog_offers->getCategory($offers_id);		
 
 		if ($category_info) {
-			
+
 			if ($category_info['meta_title']) {
 				$this->document->setTitle($category_info['meta_title']);
 			} else {
@@ -162,43 +162,46 @@ class ControllerProductOffers extends Controller {
 			}
 
 			$data['categories'] = array();
-
-			$results = $this->model_catalog_offers->getCategories($offers_id);
-
+			$results = $this->model_catalog_offers->getCategories($offers_id);			
+			
+			
             foreach ($results as $result) {
-                $filter_data = array(
-                    'filter_offers_id'  => $result['offers_id'],
+				$filter_data = array(
+					'filter_offers_id'  => $result['offers_id'],
                     'filter_sub_category' => true
                 );
-
-                $data['categories'][] = array(
-                    'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_offer->getTotalProducts($filter_data) . ')' : ''),
-                    'href' => $this->url->link('product/offers', 'path=' . $this->request->get['path'] . '_' . $result['offers_id'] . $url)
-                );
+				$product_total = $this->model_catalog_offer->getTotalProducts($filter_data);
+				
+				if ($product_total > 0) {
+					
+					$data['categories'][] = array(
+						'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $product_total . ')' : ''),
+						'href' => $this->url->link('product/offers', 'path=' . $this->request->get['path'] . '_' . $result['offers_id'] . $url)
+					);
+				}
             }
-
+			
 			$data['products'] = array();
-
+			
 			$filter_data = array(
-				'filter_offers_id' => $offers_id,
+				'filter_offers_id' 	 => $offers_id,
 				'filter_filter'      => $filter,
 				'sort'               => $sort,
 				'order'              => $order,
 				'start'              => ($page - 1) * $limit,
 				'limit'              => $limit
 			);
-
+			
 			$product_total = $this->model_catalog_offer->getTotalProducts($filter_data);
-
 			$results = $this->model_catalog_offer->getProducts($filter_data);
-
+						
 			foreach ($results as $result) {
 				if ($result['image']) {
 					$image = $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
 				} else {
 					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
 				}
-				$product_price = $this->model_catalog_offer->getProductPrice($result['offer_id']);	
+				$product_price = $this->model_catalog_offer->getProductPrice($result['offer_id']);
 				if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
 					if ($result['price'] != 0) {
 
@@ -236,7 +239,7 @@ class ControllerProductOffers extends Controller {
 					'href'        => $this->url->link('product/offer', 'path=' . $this->request->get['path'] . '&offer_id=' . $result['offer_id'] . $url)
 				);
 			}
-
+			
 			$url = '';
 
 			if (isset($this->request->get['filter'])) {
@@ -349,12 +352,13 @@ class ControllerProductOffers extends Controller {
 			if ($limit && ceil($product_total / $limit) > $page) {
 			    $this->document->addLink($this->url->link('product/offers', 'path=' . $category_info['offers_id'] . '&page='. ($page + 1)), 'next');
 			}
-
+			
 			$data['sort'] = $sort;
 			$data['order'] = $order;
 			$data['limit'] = $limit;
 
 			$data['continue'] = $this->url->link('common/home');
+			$data['catalog_link'] = $this->url->link('product/offers');
 
 			$data['column_left'] = $this->load->controller('common/column_left');
 			$data['column_right'] = $this->load->controller('common/column_right');
@@ -363,10 +367,11 @@ class ControllerProductOffers extends Controller {
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 
-			$data['filters'] = $this->load->controller('extension/module/filter_offers');			
-
+			$data['filters'] = $this->load->controller('extension/module/filter_offers');
+			
+			
 			$this->response->setOutput($this->load->view('product/offers', $data));
-		} else {
+		} else {			
 			
 			$this->document->setTitle($this->language->get('text_category_product'));
 
@@ -399,9 +404,9 @@ class ControllerProductOffers extends Controller {
 				$url .= '&limit=' . $this->request->get['limit'];
 			}
 
-			$data['categories'] = array();
+			$data['categories'] = array();			
 
-			$results = $this->model_catalog_offers->getCategories($offers_id);
+			$results = $this->model_catalog_offers->getCategories($offers_id);					
 
 			foreach ($results as $result) {
 				$filter_data = array(
@@ -409,10 +414,15 @@ class ControllerProductOffers extends Controller {
 					'filter_sub_category' => true
 				);
 
-				$data['categories'][] = array(
-					'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_offer->getTotalProducts($filter_data) . ')' : ''),
-					'href' => $this->url->link('product/offers', 'path=' . $result['offers_id'] . $url)
-				);
+				$product_total = $this->model_catalog_offer->getTotalProducts($filter_data);
+				
+				if ($product_total > 0) {
+
+					$data['categories'][] = array(
+						'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $product_total . ')' : ''),
+						'href' => $this->url->link('product/offers', 'path=' . $result['offers_id'] . $url)
+					);
+				}
 			}
 
 			$data['products'] = array();
@@ -427,8 +437,8 @@ class ControllerProductOffers extends Controller {
 			);
 
 			$product_total = $this->model_catalog_offer->getTotalProducts($filter_data);
-
-			$results = $this->model_catalog_offer->getProducts($filter_data);
+			
+			$results = $this->model_catalog_offer->getProducts($filter_data);				
 
 			foreach ($results as $result) {
 				if ($result['image']) {
@@ -436,8 +446,13 @@ class ControllerProductOffers extends Controller {
 				} else {
 					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
 				}
-
+				
+				/* Broke here!!! */
 				$product_price = $this->model_catalog_offer->getProductPrice($result['offer_id']);	
+				
+				/* print_r($product_price);
+				return; */
+
 				if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
 					if ($result['price'] != 0) {
 
@@ -620,6 +635,7 @@ class ControllerProductOffers extends Controller {
 			$data['limit'] = $limit;
 
 			$data['continue'] = $this->url->link('common/home');
+			$data['catalog_link'] = $this->url->link('product/offers');
 
 			$data['column_left'] = $this->load->controller('common/column_left');
 			$data['column_right'] = $this->load->controller('common/column_right');

@@ -20,6 +20,8 @@ class ControllerLocalisationLocation extends Controller {
 		$this->load->model('localisation/location');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
+			/* print_r($this->request->post);
+			return; */
 			$this->model_localisation_location->addLocation($this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
@@ -310,6 +312,9 @@ class ControllerLocalisationLocation extends Controller {
 			$location_info = $this->model_localisation_location->getLocation($this->request->get['location_id']);
 		}
 
+		/* print_r($location_info);
+		return; */
+
 		$data['user_token'] = $this->session->data['user_token'];
 
 		$this->load->model('setting/store');
@@ -354,6 +359,7 @@ class ControllerLocalisationLocation extends Controller {
 			$data['fax'] = '';
 		}
 		
+		//Major image
 		if (isset($this->request->post['image'])) {
 			$data['image'] = $this->request->post['image'];
 		} elseif (!empty($location_info)) {
@@ -372,6 +378,39 @@ class ControllerLocalisationLocation extends Controller {
 			$data['thumb'] = $this->model_tool_image->resize('no_image.png', 100, 100);
 		}
 
+		// Additional images for location
+		if (isset($this->request->post['location_image_additional'])) {
+			$location_images = $this->request->post['location_image_additional'];
+		} elseif (isset($this->request->get['location_id'])) {
+			$location_images = $this->model_localisation_location->getLocationImages($this->request->get['location_id']);
+		} else {
+			$location_images = array();
+		}
+
+		
+		$data['location_images'] = array();
+		
+		foreach ($location_images as $location_image) {
+			if (is_file(DIR_IMAGE . $location_image['image'])) {
+				$image = $location_image['image'];
+				$thumb = $location_image['image'];				
+			} else {
+				$image = '';
+				$thumb = 'no_image.png';
+			}
+
+			$data['location_images'][] = array(
+				'image'      => $image,
+				'thumb'      => $this->model_tool_image->resize($thumb, 100, 100),
+				'name' => $location_image['name'],
+				'alt' => $location_image['alt'],
+				'sort_order' => $location_image['sort_order']
+			);
+		}
+
+		/* print_r($data['location_images']);
+		return; */
+
 		$data['placeholder'] = $this->model_tool_image->resize('no_image.png', 100, 100);
 
 		if (isset($this->request->post['open'])) {
@@ -388,6 +427,46 @@ class ControllerLocalisationLocation extends Controller {
 			$data['comment'] = $location_info['comment'];
 		} else {
 			$data['comment'] = '';
+		}
+
+		if (isset($this->request->post['description'])) {
+			$data['description'] = $this->request->post['description'];
+		} elseif (!empty($location_info)) {
+			$data['description'] = $location_info['description'];
+		} else {
+			$data['description'] = '';
+		}
+
+		if (isset($this->request->post['status'])) {
+			$data['status'] = $this->request->post['status'];
+		} elseif (!empty($location_info)) {
+			$data['status'] = $location_info['status'];
+		} else {
+			$data['status'] = true;
+		}
+
+		if (isset($this->request->post['sort_order'])) {
+			$data['sort_order'] = $this->request->post['sort_order'];
+		} elseif (!empty($location_info)) {
+			$data['sort_order'] = $location_info['sort_order'];
+		} else {
+			$data['sort_order'] = 1;
+		}
+
+		if (isset($this->request->post['store'])) {
+			$data['store'] = $this->request->post['store'];
+		} elseif (!empty($location_info)) {
+			$data['store'] = $location_info['store'];
+		} else {
+			$data['store'] = 0;
+		}
+		
+		if (isset($this->request->post['storage'])) {
+			$data['storage'] = $this->request->post['storage'];
+		} elseif (!empty($location_info)) {
+			$data['storage'] = $location_info['storage'];
+		} else {
+			$data['storage'] = 0;
 		}
 
 		$data['header'] = $this->load->controller('common/header');

@@ -4,6 +4,8 @@ class ControllerInformationContact extends Controller {
 
 	public function index() {
 		$this->load->language('information/contact');
+		$this->load->model('localisation/location');
+		$this->load->model('tool/image');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -136,13 +138,26 @@ class ControllerInformationContact extends Controller {
 		} else {
 			$data['captcha'] = '';
 		}
+		
+		$additional_images = $this->model_localisation_location->getAdditionalImages();
+		if ($additional_images) {
+			foreach($additional_images as $image) {
+				$data['additional_images']['thumbs'][] = $this->model_tool_image->resize($image['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_thumb_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_thumb_height'));
+				$data['additional_images']['popups'][] = $this->model_tool_image->resize($image['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_popup_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_popup_height'));
+			}
+			$data['popup_size']['width'] = $this->config->get('theme_' . $this->config->get('config_theme') . '_image_popup_width');
+			$data['popup_size']['height']  = $this->config->get('theme_' . $this->config->get('config_theme') . '_image_popup_height');
+		}
 
+		$data['form_callback'] = $this->load->controller('extension/module/form_callback');
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');
 		$data['content_top'] = $this->load->controller('common/content_top');
 		$data['content_bottom'] = $this->load->controller('common/content_bottom');
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
+		
+
 
 		$this->response->setOutput($this->load->view('information/contact', $data));
 	}

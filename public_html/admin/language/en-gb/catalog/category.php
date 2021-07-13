@@ -3,7 +3,7 @@
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
 // Heading
-$_['heading_title']          = 'Categories';
+$_['heading_title_views']    = 'Categories';
 
 // Text
 $_['text_success']           = 'Success: You have modified categories!';

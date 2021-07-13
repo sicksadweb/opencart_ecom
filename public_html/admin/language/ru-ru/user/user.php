@@ -27,6 +27,7 @@ $_['entry_lastname']   	= 'Фамилия';
 $_['entry_email']      	= 'E-Mail';
 $_['entry_image']      	= 'Изображение';
 $_['entry_status']     	= 'Статус';
+$_['entry_store']     	= 'Магазин';
 
 // Error
 $_['error_permission'] 	= 'У вас недостаточно прав для внесения изменений!';

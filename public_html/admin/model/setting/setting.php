@@ -17,17 +17,32 @@ class ModelSettingSetting extends Model {
 	}
 
 	public function editSetting($code, $data, $store_id = 0) {
+
+		$statuses = json_decode($this->config->get('exchange1c_stock_statuses'), true);
 		$this->db->query("DELETE FROM `" . DB_PREFIX . "setting` WHERE store_id = '" . (int)$store_id . "' AND `code` = '" . $this->db->escape($code) . "'");
 
 		foreach ($data as $key => $value) {
 			if (substr($key, 0, strlen($code)) == $code) {
+				//if ($key == 'exchange1c_stock_statuses') continue;
 				if (!is_array($value)) {
-					$this->db->query("INSERT INTO " . DB_PREFIX . "setting SET store_id = '" . (int)$store_id . "', `code` = '" . $this->db->escape($code) . "', `key` = '" . $this->db->escape($key) . "', `value` = '" . $this->db->escape($value) . "'");
+					$this->db->query("INSERT INTO " . DB_PREFIX . "setting SET store_id = '" . (int)$store_id . "', `code` = '" . $this->db->escape($code) . "', `key` = '" . $this->db->escape($key) . "', `value` = '" . $this->db->escape($value) . "'");			
+				}elseif ($key == "exchange1c_stock_statuses") {
+
+					foreach ($value as $sub_key => $sub_value) {
+						$statuses['/'.$sub_value['pattern'].'/iu'] = $sub_value['code'];
+					}							
+					$this->db->query("INSERT INTO " . DB_PREFIX . "setting SET store_id = '" . (int)$store_id . "', `code` = '" . $this->db->escape($code) . "', `key` = 'exchange1c_stock_statuses', `value` = '" . json_encode($statuses, JSON_UNESCAPED_UNICODE) . "'");
+				
 				} else {
 					$this->db->query("INSERT INTO " . DB_PREFIX . "setting SET store_id = '" . (int)$store_id . "', `code` = '" . $this->db->escape($code) . "', `key` = '" . $this->db->escape($key) . "', `value` = '" . $this->db->escape(json_encode($value, true)) . "', serialized = '1'");
 				}
 			}
 		}
+
+		/* foreach ($data['exchange1c_stock_statuses'] as $sub_key => $sub_value) {
+			$statuses['/'.$sub_value['pattern'].'/iu'] = $sub_value['code'];
+		}							
+		$this->db->query("INSERT INTO " . DB_PREFIX . "setting SET store_id = '" . (int)$store_id . "', `code` = '" . $this->db->escape($code) . "', `key` = 'exchange1c_stock_statuses', `value` = '" . json_encode($statuses, JSON_UNESCAPED_UNICODE) . "'"); */
 	}
 
 	public function deleteSetting($code, $store_id = 0) {

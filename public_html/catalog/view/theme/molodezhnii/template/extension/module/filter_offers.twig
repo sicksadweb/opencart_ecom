@@ -1,3 +1,4 @@
+{# {{ header }} #}
 <div class="panel panel-default">
   <div class="panel-heading">{{ heading_title }}</div>
   <div class="list-group"> {% for filter_group in filter_groups %} <a class="list-group-item">{{ filter_group.name }}</a>
@@ -30,3 +31,4 @@ $('#button-filter').on('click', function() {
 	location = '{{ action }}&filter=' + filter.join(',');
 });
 //--></script> 
+{# {{ footer }} #}

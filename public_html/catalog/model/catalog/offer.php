@@ -437,80 +437,78 @@ class ModelCatalogOffer extends Model {
 	public function getProductPrice($offer_id, $type_id = 0) {
 		$product_data = array();
 
-if ($type_id > 0 ) { 
+		if ($type_id > 0 ) { 
 
-	$query = $this->db->query("
+			$query = $this->db->query("
 
-	SELECT o.offer_id, od.name , pd.name,p.price, pd.product_id,p.type_id, ptd.name, ptc.ratio
-	FROM " . DB_PREFIX . "offer o
-	LEFT JOIN 	" . DB_PREFIX . "offer_description od ON (od.offer_id =o.offer_id)
-	LEFT JOIN 	" . DB_PREFIX . "offer_variants ov ON (ov.offer_id = o.offer_id)
-	LEFT JOIN 	" . DB_PREFIX . "product_description pd ON (ov.product_id = pd.product_id)
-	LEFT JOIN 	" . DB_PREFIX . "product p ON  (ov.product_id = p.product_id)
+			SELECT o.offer_id, od.name , pd.name,p.price, pd.product_id,p.type_id, ptd.name, ptc.ratio
+			FROM " . DB_PREFIX . "offer o
+			LEFT JOIN 	" . DB_PREFIX . "offer_description od ON (od.offer_id =o.offer_id)
+			LEFT JOIN 	" . DB_PREFIX . "offer_variants ov ON (ov.offer_id = o.offer_id)
+			LEFT JOIN 	" . DB_PREFIX . "product_description pd ON (ov.product_id = pd.product_id)
+			LEFT JOIN 	" . DB_PREFIX . "product p ON  (ov.product_id = p.product_id)
 
-	LEFT JOIN 	" . DB_PREFIX . "package_product pp ON (pp.product_id = p.product_id)	
-	LEFT JOIN 	" . DB_PREFIX . "product_types_description ptd ON (ptd.type_id =p.type_id)
-	LEFT JOIN 	" . DB_PREFIX . "product_types_combinations ptc ON (ptc.combination  =p.type_id)
-	LEFT JOIN 	" . DB_PREFIX . "stock_status ss ON  (ss.stock_status_id = p.stock_status_id)	
-	
-	WHERE o.offer_id ='".(int)$offer_id."'  AND ptd.type_id >0 AND (p.quantity > 0  OR ss.visible =1 )
-	GROUP BY ptd.type_id
+			LEFT JOIN 	" . DB_PREFIX . "package_product pp ON (pp.product_id = p.product_id)	
+			LEFT JOIN 	" . DB_PREFIX . "product_types_description ptd ON (ptd.type_id =p.type_id)
+			LEFT JOIN 	" . DB_PREFIX . "product_types_combinations ptc ON (ptc.combination  =p.type_id)
+			LEFT JOIN 	" . DB_PREFIX . "stock_status ss ON  (ss.stock_status_id = p.stock_status_id)	
+			
+			WHERE o.offer_id ='".(int)$offer_id."'  AND ptd.type_id >0 AND (p.quantity > 0  OR ss.visible =1 )
+			GROUP BY ptd.type_id
 
-	
-	");  
+			
+			"); 
+			
+			$summa = 0;
+			foreach ($query->rows as $result) {
+				$summa = $summa + ($result['price']* $result['ratio']);
+			
+			} 
 
-	foreach ($query->rows as $result) {
-		$summa = $summa + ($result['price']* $result['ratio']);
-	
-	} 
+				$product_data = array(
+					'price' => $summa/10,
+					'abbr'  => 'м.пог',
+				);
 
-		$product_data = array(
-			'price' => $summa/10,
-			'abbr'  => 'м.пог',
-		);
+		} else {
+			$query = $this->db->query("
 
-} else {
-	$query = $this->db->query("
+			SELECT od.name, pd.name, p.price, p.base_product, pp.volume, (p.price / pp.volume) AS price , (p.price / pp.volume) AS mainprice , ppd.abbr
+			FROM " . DB_PREFIX . "offer o
+			LEFT JOIN 	" . DB_PREFIX . "offer_description od ON (od.offer_id =o.offer_id)
+			LEFT JOIN 	" . DB_PREFIX . "offer_variants ov ON (ov.offer_id = o.offer_id)
+			LEFT JOIN 	" . DB_PREFIX . "product_description pd ON (ov.product_id = pd.product_id)
+			LEFT JOIN 	" . DB_PREFIX . "product p ON  (ov.product_id = p.product_id)
+			LEFT JOIN 	" . DB_PREFIX . "package_product pp ON (pp.product_id = p.product_id)
+			LEFT JOIN 	" . DB_PREFIX . "package_description ppd ON (pp.package_name_id = ppd.package_id)   
+			LEFT JOIN 	" . DB_PREFIX . "product_types_description ptd ON (ptd.type_id =p.type_id)
+			LEFT JOIN 	" . DB_PREFIX . "product_types_combinations ptc ON (ptc.combination  =p.type_id)
+			LEFT JOIN 	" . DB_PREFIX . "stock_status ss ON  (ss.stock_status_id = p.stock_status_id)
 
-	SELECT od.name, pd.name, p.price, p.base_product,pp.volume, (p.price / pp.volume) AS price , (p.price / pp.volume) AS mainprice , ppd.abbr
-	FROM " . DB_PREFIX . "offer o
-	LEFT JOIN 	" . DB_PREFIX . "offer_description od ON (od.offer_id =o.offer_id)
-	LEFT JOIN 	" . DB_PREFIX . "offer_variants ov ON (ov.offer_id = o.offer_id)
-	LEFT JOIN 	" . DB_PREFIX . "product_description pd ON (ov.product_id = pd.product_id)
-	LEFT JOIN 	" . DB_PREFIX . "product p ON  (ov.product_id = p.product_id)
-	LEFT JOIN 	" . DB_PREFIX . "package_product pp ON (pp.product_id = p.product_id)
-	LEFT JOIN 	ckf_package_description ppd ON (pp.package_name_id = ppd.package_id)   
-	LEFT JOIN 	" . DB_PREFIX . "product_types_description ptd ON (ptd.type_id =p.type_id)
-	LEFT JOIN 	" . DB_PREFIX . "product_types_combinations ptc ON (ptc.combination  =p.type_id)
-	LEFT JOIN 	" . DB_PREFIX . "stock_status ss ON  (ss.stock_status_id = p.stock_status_id)
+			WHERE o.offer_id = '".(int)$offer_id."' AND (p.quantity > 0  OR ss.visible =1 ) AND p.status='1'
 
-	WHERE o.offer_id = '".(int)$offer_id."' AND (p.quantity > 0  OR ss.visible =1 ) AND p.status='1'
+			ORDER BY p.base_product DESC , mainprice ASC
+			LIMIT 1
 
-	ORDER BY p.base_product DESC , mainprice ASC
-	LIMIT 1
-
-	"); 
-
-
-	foreach ($query->rows as $result) {
-		$product_data = array(
-			'price' => $result['price'],
-			'abbr'  => $result['abbr'],
-		);
-	
-	} 
+			"); 
 
 
+			foreach ($query->rows as $result) {
+				$product_data = array(
+					'price' => $result['price'],
+					'abbr'  => $result['abbr'],
+				);
+			
+			}
+		}
 
-}
+		$query = $this->db->query(" 
 
-	$query = $this->db->query(" 
+		UPDATE  " . DB_PREFIX . "offer SET  price ='".$product_data['price']."' WHERE offer_id='".(int)$offer_id."' ;
 
-	UPDATE  " . DB_PREFIX . "offer SET  price ='".$product_data['price']."' WHERE offer_id='".(int)$offer_id."' ;
+		"); 
 
-	"); 
-
-		return $product_data;
+			return $product_data;
 
     }
 	

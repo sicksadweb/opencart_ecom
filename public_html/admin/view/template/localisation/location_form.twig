@@ -25,66 +25,227 @@
       </div>
       <div class="panel-body">
         <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-location" class="form-horizontal">
-          <div class="form-group required">
-            <label class="col-sm-2 control-label" for="input-name">{{ entry_name }}</label>
-            <div class="col-sm-10">
-              <input type="text" name="name" value="{{ name }}" placeholder="{{ entry_name }}" id="input-name" class="form-control" />
-              {% if error_name %}
-              <div class="text-danger">{{ error_name }}</div>
-              {% endif %}
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab-general" data-toggle="tab">{{ tab_general }}</a></li>
+            <li><a href="#tab-image" data-toggle="tab">{{ tab_image }}</a></li>
+          </ul>
+
+          <div class="tab-content">
+            <div class="tab-pane active" id="tab-general">
+              <div class="tab-content">
+                <div class="form-group required">
+                  <label class="col-sm-2 control-label" for="input-name">{{ entry_name }}</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="name" value="{{ name }}" placeholder="{{ entry_name }}" id="input-name" class="form-control" />
+                    {% if error_name %}
+                    <div class="text-danger">{{ error_name }}</div>
+                    {% endif %}
+                  </div>
+                </div>
+                <div class="form-group required">
+                  <label class="col-sm-2 control-label" for="input-address">{{ entry_address }}</label>
+                  <div class="col-sm-10">
+                    <textarea type="text" name="address" placeholder="{{ entry_address }}" rows="5" id="input-address" class="form-control">{{ address }}</textarea>
+                    {% if error_address %}
+                    <div class="text-danger">{{ error_address }}</div>
+                  {% endif %}
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="input-geocode"><span data-toggle="tooltip" data-container="#content" title="{{ help_geocode }}">{{ entry_geocode }}</span></label>
+                  <div class="col-sm-10">
+                    <input type="text" name="geocode" value="{{ geocode }}" placeholder="{{ entry_geocode }}" id="input-geocode" class="form-control" />
+                  </div>
+                </div>
+                <div class="form-group required">
+                  <label class="col-sm-2 control-label" for="input-telephone">{{ entry_telephone }}</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="telephone" value="{{ telephone }}" placeholder="{{ entry_telephone }}" id="input-telephone" class="form-control" />
+                    {% if error_telephone %}
+                    <div class="text-danger">{{ error_telephone }}</div>
+                    {% endif %}
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="input-telephone">{{ entry_fax }}</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="fax" value="{{ fax }}" placeholder="{{ entry_fax }}" id="input-fax" class="form-control" />
+                  </div>
+                </div>          
+               {#  <div class="form-group">
+                  <label class="col-sm-2 control-label" for="input-image">{{ entry_image }}</label>
+                  <div class="col-sm-10"><a href="" id="thumb-image" data-toggle="image" class="img-thumbnail"><img src="{{ thumb }}" alt="" title="" data-placeholder="{{ placeholder }}" /></a>
+                    <input type="hidden" name="image" value="{{ image }}" id="input-image" />
+                  </div>
+                </div> #}
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="input-open"><span data-toggle="tooltip" data-container="#content" title="{{ help_open }}">{{ entry_open }}</span></label>
+                  <div class="col-sm-10">
+                    <textarea name="open" rows="5" placeholder="{{ entry_open }}" id="input-open" class="form-control">{{ open }}</textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="input-comment"><span data-toggle="tooltip" data-container="#content" title="{{ help_comment }}">{{ entry_comment }}</span></label>
+                  <div class="col-sm-10">
+                    <textarea name="comment" rows="5" placeholder="{{ entry_comment }}" id="input-comment" class="form-control">{{ comment }}</textarea>
+                  </div>
+                </div>
+                {# Description #}
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="input-description">{{ entry_description }}</span></label>
+                  <div class="col-sm-10">
+                    <textarea name="description" rows="5" placeholder="{{ entry_description }}" id="input-description" class="form-control">{{ description }}</textarea>
+                  </div>
+                </div>
+              </div>
+              {# Status #}
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-status">{{ entry_status }}</label>
+                <div class="col-sm-10">
+                  <select name="status" id="input-status" class="form-control">                    
+
+                    {% if status %}
+                    
+                    <option value="1" selected="selected">{{ text_enabled }}</option>
+                    <option value="0">{{ text_disabled }}</option>                    
+
+                    {% else %}
+                    
+                    <option value="1">{{ text_enabled }}</option>
+                    <option value="0" selected="selected">{{ text_disabled }}</option>                    
+
+                    {% endif %}                 
+                  </select>
+                </div>
+              </div>
+              
+              {# Sort_order #}
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-sort-order">{{ entry_sort_order }}</label>
+                <div class="col-sm-10">
+                  <input type="text" name="sort_order" value="{{ sort_order }}" placeholder="{{ entry_sort_order }}" id="input-sort-order" class="form-control" />
+                </div>
+              </div>
+
+              {# Store? #}
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-store">{{ entry_store }}</span></label>
+                <div class="col-sm-10">
+                  <div class="checkbox">
+                    <label>
+                      {% if store %}
+                      <input type="checkbox" name="store" value="1" checked="checked" id="input-store" />
+                      {% else %}
+                      <input type="checkbox" name="store" value="1" id="input-store" />
+                      {% endif %}
+                      &nbsp; 
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              {# Storage? #}
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-storage">{{ entry_storage }}</span></label>
+                <div class="col-sm-10">
+                  <div class="checkbox">
+                    <label>
+                      {% if storage %}
+                      <input type="checkbox" name="storage" value="1" checked="checked" id="input-storage" />
+                      {% else %}
+                      <input type="checkbox" name="storage" value="1" id="input-storage" />
+                      {% endif %}
+                      &nbsp; 
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="tab-pane" id="tab-image">
+              <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover">
+                  <thead>
+                    <tr>
+                      <td class="text-left">{{ entry_image }}</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-left"><a href="" id="thumb-image" data-toggle="image" class="img-thumbnail">
+                      <img src="{{ thumb }}" alt="" title="" data-placeholder="{{ placeholder }}" /></a>
+                        <input type="hidden" name="image" value="{{ image }}" id="input-image" />
+                       </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="table-responsive">
+                <table id="images" class="table table-striped table-bordered table-hover">
+                  <thead>
+                    <tr>
+                      <td class="text-left">{{ entry_additional_image }}</td>
+                      <td class="text-right">{{ entry_sort_order }}</td>
+                      <td class="text-left">{{ entry_name }}</td>
+                      <td class="text-right">{{ entry_alt }}</td>
+                      <td></td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  
+                  {% set image_row = 0 %}
+                  {% for location_image in location_images %}
+                  <tr id="image-row{{ image_row }}">
+                    <td class="text-left"><a href="" id="thumb-image{{ image_row }}" data-toggle="image" class="img-thumbnail"><img src="{{ location_image.thumb }}" alt="" title="" data-placeholder="{{ placeholder }}" /></a>
+                      <input type="hidden" name="location_image_additional[{{ image_row }}][image]" value="{{ location_image.image }}" id="input-image{{ image_row }}" /></td>
+                    <td class="text-right"><input type="text" name="location_image_additional[{{ image_row }}][sort_order]" value="{{ location_image.sort_order }}" placeholder="{{ entry_sort_order }}" class="form-control" /></td>
+
+                    <td class="text-right"><input type="text" name="location_image_additional[{{ image_row }}][name]" value="{{ location_image.name }}" placeholder="{{ entry_name }}" class="form-control" /></td>
+                    <td class="text-right"><input type="text" name="location_image_additional[{{ image_row }}][alt]" value="{{ location_image.alt }}" placeholder="{{ entry_alt }}" class="form-control" /></td>
+                    
+                    <td class="text-left"><button type="button" onclick="$('#image-row{{ image_row }}').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>
+                  </tr>
+                  {% set image_row = image_row + 1 %}
+                  {% endfor %}
+                    </tbody>
+                  
+                  <tfoot>
+                    <tr>
+                      <td colspan="4"></td>
+                      <td class="text-left"><button type="button" onclick="addImage();" data-toggle="tooltip" title="{{ button_image_add }}" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button></td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
             </div>
           </div>
-          <div class="form-group required">
-            <label class="col-sm-2 control-label" for="input-address">{{ entry_address }}</label>
-            <div class="col-sm-10">
-              <textarea type="text" name="address" placeholder="{{ entry_address }}" rows="5" id="input-address" class="form-control">{{ address }}</textarea>
-              {% if error_address %}
-              <div class="text-danger">{{ error_address }}</div>
-             {% endif %}
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label" for="input-geocode"><span data-toggle="tooltip" data-container="#content" title="{{ help_geocode }}">{{ entry_geocode }}</span></label>
-            <div class="col-sm-10">
-              <input type="text" name="geocode" value="{{ geocode }}" placeholder="{{ entry_geocode }}" id="input-geocode" class="form-control" />
-            </div>
-          </div>
-          <div class="form-group required">
-            <label class="col-sm-2 control-label" for="input-telephone">{{ entry_telephone }}</label>
-            <div class="col-sm-10">
-              <input type="text" name="telephone" value="{{ telephone }}" placeholder="{{ entry_telephone }}" id="input-telephone" class="form-control" />
-              {% if error_telephone %}
-              <div class="text-danger">{{ error_telephone }}</div>
-              {% endif %}
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label" for="input-telephone">{{ entry_fax }}</label>
-            <div class="col-sm-10">
-              <input type="text" name="fax" value="{{ fax }}" placeholder="{{ entry_fax }}" id="input-fax" class="form-control" />
-            </div>
-          </div>          
-          <div class="form-group">
-            <label class="col-sm-2 control-label" for="input-image">{{ entry_image }}</label>
-            <div class="col-sm-10"><a href="" id="thumb-image" data-toggle="image" class="img-thumbnail"><img src="{{ thumb }}" alt="" title="" data-placeholder="{{ placeholder }}" /></a>
-              <input type="hidden" name="image" value="{{ image }}" id="input-image" />
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label" for="input-open"><span data-toggle="tooltip" data-container="#content" title="{{ help_open }}">{{ entry_open }}</span></label>
-            <div class="col-sm-10">
-              <textarea name="open" rows="5" placeholder="{{ entry_open }}" id="input-open" class="form-control">{{ open }}</textarea>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label" for="input-comment"><span data-toggle="tooltip" data-container="#content" title="{{ help_comment }}">{{ entry_comment }}</span></label>
-            <div class="col-sm-10">
-              <textarea name="comment" rows="5" placeholder="{{ entry_comment }}" id="input-comment" class="form-control">{{ comment }}</textarea>
-            </div>
-          </div>
+
         </form>
       </div>
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+
+var image_row = {{ image_row }};
+function addImage() {
+	html  = '<tr id="image-row' + image_row + '">';
+	html += '  <td class="text-left"><a href="" id="thumb-image' + image_row + '"data-toggle="image" class="img-thumbnail"><img src="{{ placeholder }}" alt="" title="" data-placeholder="{{ placeholder }}" /></a><input type="hidden" name="location_image_additional[' + image_row + '][image]" value="" id="input-image' + image_row + '" /></td>';
+	html += '  <td class="text-right"><input type="text" name="location_image_additional[' + image_row + '][sort_order]" value="" placeholder="{{ entry_sort_order }}" class="form-control" /></td>';
+  
+  html += '  <td class="text-right"><input type="text" name="location_image_additional[' + image_row + '][name]" value="" placeholder="{{ entry_name }}" class="form-control" /></td>';
+	html += '  <td class="text-right"><input type="text" name="location_image_additional[' + image_row + '][alt]" value="" placeholder="{{ entry_alt }}" class="form-control" /></td>';
+
+  html += '  <td class="text-left"><button type="button" onclick="$(\'#image-row' + image_row  + '\').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>';
+	html += '</tr>';
+
+	$('#images tbody').append(html);
+
+	image_row++;
+}
+
+</script>
+
 {{ footer }}
